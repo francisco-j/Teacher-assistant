@@ -70,6 +70,7 @@
             this.btnGrupB.TabIndex = 1;
             this.btnGrupB.Text = "3º B";
             this.btnGrupB.UseVisualStyleBackColor = true;
+            this.btnGrupB.Click += new System.EventHandler(this.btnGrupB_Click);
             // 
             // label1
             // 

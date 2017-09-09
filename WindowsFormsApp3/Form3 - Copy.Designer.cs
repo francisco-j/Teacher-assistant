@@ -911,8 +911,7 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.Name = "FormGrupo";
             this.Tag = "FormGrupo";
-            this.Text = "Grupo x";
-            this.Load += new System.EventHandler(this.Form3_Load);
+            this.Text = "Grupo ";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);

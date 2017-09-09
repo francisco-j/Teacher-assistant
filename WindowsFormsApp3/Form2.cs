@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Drawing;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace WindowsFormsApp3
 {
@@ -24,12 +17,18 @@ namespace WindowsFormsApp3
 
         private void btnGrupA_Click(object sender, EventArgs e)
         {
-            Program.ShowGroup();
+            Program.ShowGroup(1);
+        }
+
+        private void btnGrupB_Click(object sender, EventArgs e)
+        {
+            Program.ShowGroup(2);
         }
 
         private void FormListaG_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
+        
     }
 }

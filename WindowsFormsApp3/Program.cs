@@ -32,20 +32,17 @@ namespace WindowsFormsApp3
                 listaG.Show();
             }
         }
-        
 
         internal static void LogOut()
         {
             foreach (Form vent in Application.OpenForms)
-            {
                 vent.Hide();
-            }
             inicio.Show();
         }
 
-        internal static void ShowGroup()
+        internal static void ShowGroup(Int16 groupId)
         {
-            grupo = new FormGrupo();
+            grupo = new FormGrupo(groupId);
             grupo.Show();
         }
 
