@@ -32,9 +32,7 @@ namespace WindowsFormsApp3
                 listaG.Show();
             }
         }
-
-        //internal static void close()
-        //{}
+        
 
         internal static void LogOut()
         {
