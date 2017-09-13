@@ -22,7 +22,7 @@ namespace WindowsFormsApp3
 
         internal static void Login(String contra)
         {
-            if (true) // si contra correcta: entonces 
+            if (true) // si contra correcta:
             {
                 foreach (Form vent in Application.OpenForms)
                 {
@@ -38,6 +38,11 @@ namespace WindowsFormsApp3
             foreach (Form vent in Application.OpenForms)
                 vent.Hide();
             inicio.Show();
+        }
+
+        internal static void ShowStudent()
+        {
+
         }
 
         internal static void ShowGroup(Int16 groupId)
