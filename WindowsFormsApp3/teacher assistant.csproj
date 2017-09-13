@@ -47,34 +47,34 @@
   <ItemGroup>
     <Compile Include="Alumno.cs" />
     <Compile Include="Grupo.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormInicio.Designer.cs">
+      <DependentUpon>FormInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="FormListaG.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="FormListaG.Designer.cs">
+      <DependentUpon>FormListaG.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3 - Copy.cs">
+    <Compile Include="FormGrupoX.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3 - Copy.Designer.cs">
-      <DependentUpon>Form3 - Copy.cs</DependentUpon>
+    <Compile Include="FormGrupoX.Designer.cs">
+      <DependentUpon>FormGrupoX.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormInicio.resx">
+      <DependentUpon>FormInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="FormListaG.resx">
+      <DependentUpon>FormListaG.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3 - Copy.resx">
-      <DependentUpon>Form3 - Copy.cs</DependentUpon>
+    <EmbeddedResource Include="FormGrupoX.resx">
+      <DependentUpon>FormGrupoX.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
