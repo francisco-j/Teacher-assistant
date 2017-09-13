@@ -17,7 +17,7 @@ namespace WindowsFormsApp3
             return grado + "º" + grupo;
         }
 
-        public void ChangeGrado(Int16 grado)
+        public void SetGrado(Int16 grado)
         {
             this.grado = grado;
         }
