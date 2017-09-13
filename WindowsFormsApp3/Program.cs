@@ -22,7 +22,7 @@ namespace WindowsFormsApp3
 
         internal static void Login(String contra)
         {
-            if (true)
+            if (true) // si contra correcta:
             {
                 foreach (Form vent in Application.OpenForms)
                 {
