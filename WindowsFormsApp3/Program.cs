@@ -42,7 +42,7 @@ namespace WindowsFormsApp3
 
         internal static void ShowStudent()
         {
-
+            // falta agregar
         }
 
         internal static void ShowGroup(Int16 groupId)
