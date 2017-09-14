@@ -4,10 +4,17 @@ namespace WindowsFormsApp3
 {
     public partial class FormGrupo : Form
     {
-        public FormGrupo(short groupId)
+        public FormGrupo(ushort groupId)
         {
             InitializeComponent();
-            Text += groupId;
+            this.Text += groupId;  //form text, add group name;
+            //lblDatosGrupo.Text = Alumnos + " Alumnos\r\n" + "Primaria" + escuela;
+
+        }
+
+        private void btnAsistencia_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

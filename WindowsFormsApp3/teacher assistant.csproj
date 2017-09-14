@@ -114,5 +114,20 @@
   <ItemGroup>
     <None Include="Resources\logo texto.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alumnos %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Asistencia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Evaluaciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notas %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tareas %282%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

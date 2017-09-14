@@ -30,7 +30,7 @@
         {
             System.Windows.Forms.Button btnGrupA;
             this.btnGrupB = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblGrupos = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -38,7 +38,8 @@
             this.txbBusqueda = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnAgregarGrupo = new System.Windows.Forms.Button();
+            this.btnAjustes = new System.Windows.Forms.Button();
             btnGrupA = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -72,16 +73,16 @@
             this.btnGrupB.UseVisualStyleBackColor = true;
             this.btnGrupB.Click += new System.EventHandler(this.btnGrupB_Click);
             // 
-            // label1
+            // lblGrupos
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.label1.Location = new System.Drawing.Point(126, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 63);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Grupos";
+            this.lblGrupos.AutoSize = true;
+            this.lblGrupos.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrupos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.lblGrupos.Location = new System.Drawing.Point(126, 20);
+            this.lblGrupos.Name = "lblGrupos";
+            this.lblGrupos.Size = new System.Drawing.Size(204, 63);
+            this.lblGrupos.TabIndex = 2;
+            this.lblGrupos.Text = "Grupos";
             // 
             // label2
             // 
@@ -156,17 +157,29 @@
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
-            // button6
+            // btnAgregarGrupo
             // 
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(323, 362);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(63, 67);
-            this.button6.TabIndex = 16;
-            this.button6.Text = "+";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnAgregarGrupo.FlatAppearance.BorderSize = 0;
+            this.btnAgregarGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarGrupo.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarGrupo.Location = new System.Drawing.Point(332, 427);
+            this.btnAgregarGrupo.Name = "btnAgregarGrupo";
+            this.btnAgregarGrupo.Size = new System.Drawing.Size(63, 67);
+            this.btnAgregarGrupo.TabIndex = 16;
+            this.btnAgregarGrupo.Text = "+";
+            this.btnAgregarGrupo.UseVisualStyleBackColor = true;
+            // 
+            // btnAjustes
+            // 
+            this.btnAjustes.FlatAppearance.BorderSize = 0;
+            this.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAjustes.Font = new System.Drawing.Font("Marlett", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjustes.Location = new System.Drawing.Point(374, 1);
+            this.btnAjustes.Name = "btnAjustes";
+            this.btnAjustes.Size = new System.Drawing.Size(59, 45);
+            this.btnAjustes.TabIndex = 16;
+            this.btnAjustes.Text = "aj.";
+            this.btnAjustes.UseVisualStyleBackColor = true;
             // 
             // FormListaG
             // 
@@ -174,7 +187,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
             this.ClientSize = new System.Drawing.Size(434, 581);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.btnAjustes);
+            this.Controls.Add(this.btnAgregarGrupo);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.txbBusqueda);
             this.Controls.Add(this.label9);
@@ -182,7 +196,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblGrupos);
             this.Controls.Add(this.btnGrupB);
             this.Controls.Add(btnGrupA);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -197,7 +211,7 @@
 
         #endregion
         private System.Windows.Forms.Button btnGrupB;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblGrupos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label7;
@@ -205,6 +219,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txbBusqueda;
         private System.Windows.Forms.Button btnLogOut;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnAgregarGrupo;
+        private System.Windows.Forms.Button btnAjustes;
     }
 }

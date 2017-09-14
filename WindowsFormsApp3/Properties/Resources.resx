@@ -121,6 +121,9 @@
   <data name="logo solo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo solo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="logo texto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo texto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="buscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buscar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -130,7 +133,19 @@
   <data name="icon back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo texto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo texto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Alumnos (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alumnos (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Asistencia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Asistencia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Evaluaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Evaluaciones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Notas (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Notas (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tareas (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tareas (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
