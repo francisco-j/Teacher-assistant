@@ -12,7 +12,7 @@ namespace WindowsFormsApp3
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            Program.LogOut();
+            Program.LogOut(); // le dice a program que cierre secion
         }
 
         private void btnGrupA_Click(object sender, EventArgs e)
@@ -27,7 +27,7 @@ namespace WindowsFormsApp3
 
         private void FormListaG_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            Application.Exit(); // cierra la aplicacion completa
         }
         
     }

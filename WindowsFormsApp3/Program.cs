@@ -20,35 +20,35 @@ namespace WindowsFormsApp3
             Application.Run(inicio);
         }
 
-        internal static void Login(String contra)
+        internal static void Login(String contra) //para iniciar secion
         {
             if (true) // si contra correcta:
             {
-                foreach (Form vent in Application.OpenForms)
-                {
-                    vent.Hide();
-                }
-                listaG = new FormListaG();
-                listaG.Show();
+                foreach (Form vent in Application.OpenForms) // para todas las ventanas abiertas
+                    vent.Hide(); // oculatalas
+
+                listaG = new FormListaG();  //crea FormListaG
+                listaG.Show();   //y muestrala
             }
         }
 
-        internal static void LogOut()
+        internal static void LogOut()   //cerrar secion
         {
-            foreach (Form vent in Application.OpenForms)
-                vent.Hide();
-            inicio.Show();
+            foreach (Form vent in Application.OpenForms) // para todas las ventanas abiertas
+                vent.Hide(); // oculatalas
+
+            inicio.Show();  //muestra FormInicio
         }
 
-        internal static void ShowStudent()
+        internal static void ShowStudent(ushort studentId)  //muestra el estuduante indicado
         {
             // falta agregar
         }
 
-        internal static void ShowGroup(Int16 groupId)
+        internal static void ShowGroup(ushort groupId)  //abre el formGroupX con el grupo indicado
         {
-            grupo = new FormGrupo(groupId);
-            grupo.Show();
+            new FormGrupo(groupId); //crea el form
+            grupo.Show();   //lo muestra
         }
 
     }

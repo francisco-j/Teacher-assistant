@@ -19,7 +19,7 @@ namespace WindowsFormsApp3
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            Program.Login(txbContraseña.Text);
+            Program.Login(txbContraseña.Text); //le dice a "program" que quiere hacer loggin
         }
     }
 }
