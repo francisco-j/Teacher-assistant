@@ -129,5 +129,17 @@
   <ItemGroup>
     <None Include="Resources\Tareas %282%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconmonstr-arrow-57-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plus.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

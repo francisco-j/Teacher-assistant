@@ -36,10 +36,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txbBusqueda = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnLogOut = new System.Windows.Forms.Button();
-            this.btnAgregarGrupo = new System.Windows.Forms.Button();
             this.btnAjustes = new System.Windows.Forms.Button();
+            this.btnAgregarGrupo = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             btnGrupA = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -133,6 +133,43 @@
             this.txbBusqueda.Size = new System.Drawing.Size(211, 30);
             this.txbBusqueda.TabIndex = 13;
             // 
+            // btnAjustes
+            // 
+            this.btnAjustes.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.Menu;
+            this.btnAjustes.FlatAppearance.BorderSize = 0;
+            this.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAjustes.Font = new System.Drawing.Font("Marlett", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjustes.Location = new System.Drawing.Point(373, 16);
+            this.btnAjustes.Name = "btnAjustes";
+            this.btnAjustes.Size = new System.Drawing.Size(40, 34);
+            this.btnAjustes.TabIndex = 16;
+            this.btnAjustes.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarGrupo
+            // 
+            this.btnAgregarGrupo.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.Plus;
+            this.btnAgregarGrupo.FlatAppearance.BorderSize = 0;
+            this.btnAgregarGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarGrupo.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarGrupo.Location = new System.Drawing.Point(361, 474);
+            this.btnAgregarGrupo.Name = "btnAgregarGrupo";
+            this.btnAgregarGrupo.Size = new System.Drawing.Size(32, 32);
+            this.btnAgregarGrupo.TabIndex = 16;
+            this.btnAgregarGrupo.UseVisualStyleBackColor = true;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.Back;
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Location = new System.Drawing.Point(12, 20);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(32, 32);
+            this.btnLogOut.TabIndex = 14;
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
@@ -143,43 +180,6 @@
             this.btnBuscar.Size = new System.Drawing.Size(44, 30);
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // btnLogOut
-            // 
-            this.btnLogOut.FlatAppearance.BorderSize = 0;
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(0, 1);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(54, 45);
-            this.btnLogOut.TabIndex = 14;
-            this.btnLogOut.Text = "<-";
-            this.btnLogOut.UseVisualStyleBackColor = true;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
-            // btnAgregarGrupo
-            // 
-            this.btnAgregarGrupo.FlatAppearance.BorderSize = 0;
-            this.btnAgregarGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarGrupo.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarGrupo.Location = new System.Drawing.Point(332, 427);
-            this.btnAgregarGrupo.Name = "btnAgregarGrupo";
-            this.btnAgregarGrupo.Size = new System.Drawing.Size(63, 67);
-            this.btnAgregarGrupo.TabIndex = 16;
-            this.btnAgregarGrupo.Text = "+";
-            this.btnAgregarGrupo.UseVisualStyleBackColor = true;
-            // 
-            // btnAjustes
-            // 
-            this.btnAjustes.FlatAppearance.BorderSize = 0;
-            this.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAjustes.Font = new System.Drawing.Font("Marlett", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjustes.Location = new System.Drawing.Point(374, 1);
-            this.btnAjustes.Name = "btnAjustes";
-            this.btnAjustes.Size = new System.Drawing.Size(59, 45);
-            this.btnAjustes.TabIndex = 16;
-            this.btnAjustes.Text = "aj.";
-            this.btnAjustes.UseVisualStyleBackColor = true;
             // 
             // FormListaG
             // 
