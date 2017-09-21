@@ -43,7 +43,7 @@
             // txbContraseña
             // 
             this.txbContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(109)))), ((int)(((byte)(94)))));
-            this.txbContraseña.Location = new System.Drawing.Point(113, 310);
+            this.txbContraseña.Location = new System.Drawing.Point(79, 304);
             this.txbContraseña.Name = "txbContraseña";
             this.txbContraseña.PasswordChar = '¤';
             this.txbContraseña.Size = new System.Drawing.Size(204, 20);
@@ -54,7 +54,7 @@
             // 
             this.lblContraseña.AutoSize = true;
             this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContraseña.Location = new System.Drawing.Point(143, 276);
+            this.lblContraseña.Location = new System.Drawing.Point(109, 270);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(155, 31);
             this.lblContraseña.TabIndex = 2;
@@ -62,7 +62,7 @@
             // 
             // btnIniciar
             // 
-            this.btnIniciar.Location = new System.Drawing.Point(159, 336);
+            this.btnIniciar.Location = new System.Drawing.Point(125, 330);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(115, 23);
             this.btnIniciar.TabIndex = 3;
@@ -73,7 +73,7 @@
             // picNombre
             // 
             this.picNombre.Image = global::WindowsFormsApp3.Properties.Resources.logo_texto;
-            this.picNombre.Location = new System.Drawing.Point(121, 552);
+            this.picNombre.Location = new System.Drawing.Point(132, 489);
             this.picNombre.Name = "picNombre";
             this.picNombre.Size = new System.Drawing.Size(167, 30);
             this.picNombre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -83,7 +83,7 @@
             // picLogo
             // 
             this.picLogo.Image = global::WindowsFormsApp3.Properties.Resources.logo_solo;
-            this.picLogo.Location = new System.Drawing.Point(1, 527);
+            this.picLogo.Location = new System.Drawing.Point(12, 464);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(114, 55);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -94,7 +94,7 @@
             // 
             this.picUserImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(216)))), ((int)(((byte)(213)))));
             this.picUserImage.Image = ((System.Drawing.Image)(resources.GetObject("picUserImage.Image")));
-            this.picUserImage.Location = new System.Drawing.Point(131, 53);
+            this.picUserImage.Location = new System.Drawing.Point(111, 57);
             this.picUserImage.Name = "picUserImage";
             this.picUserImage.Size = new System.Drawing.Size(153, 151);
             this.picUserImage.TabIndex = 1;
@@ -105,7 +105,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(438, 585);
+            this.ClientSize = new System.Drawing.Size(375, 524);
             this.Controls.Add(this.picNombre);
             this.Controls.Add(this.picLogo);
             this.Controls.Add(this.btnIniciar);

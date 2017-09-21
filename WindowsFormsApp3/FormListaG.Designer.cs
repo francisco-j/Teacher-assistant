@@ -49,7 +49,7 @@
             this.lblGrupos.AutoSize = true;
             this.lblGrupos.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGrupos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.lblGrupos.Location = new System.Drawing.Point(126, 20);
+            this.lblGrupos.Location = new System.Drawing.Point(81, 9);
             this.lblGrupos.Name = "lblGrupos";
             this.lblGrupos.Size = new System.Drawing.Size(200, 61);
             this.lblGrupos.TabIndex = 2;
@@ -58,7 +58,7 @@
             // txbBusqueda
             // 
             this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBusqueda.Location = new System.Drawing.Point(774, 24);
+            this.txbBusqueda.Location = new System.Drawing.Point(634, 20);
             this.txbBusqueda.Name = "txbBusqueda";
             this.txbBusqueda.PasswordChar = 'a';
             this.txbBusqueda.Size = new System.Drawing.Size(211, 30);
@@ -70,7 +70,7 @@
             this.btnAjustes.FlatAppearance.BorderSize = 0;
             this.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAjustes.Font = new System.Drawing.Font("Marlett", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjustes.Location = new System.Drawing.Point(373, 16);
+            this.btnAjustes.Location = new System.Drawing.Point(310, 20);
             this.btnAjustes.Name = "btnAjustes";
             this.btnAjustes.Size = new System.Drawing.Size(40, 34);
             this.btnAjustes.TabIndex = 16;
@@ -106,7 +106,7 @@
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = global::WindowsFormsApp3.Properties.Resources.buscar;
-            this.btnBuscar.Location = new System.Drawing.Point(991, 24);
+            this.btnBuscar.Location = new System.Drawing.Point(851, 20);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(44, 30);
             this.btnBuscar.TabIndex = 7;
@@ -117,7 +117,7 @@
             this.groupBoxAsistencia.Controls.Add(this.lblNombres);
             this.groupBoxAsistencia.Controls.Add(this.splitContainer1);
             this.groupBoxAsistencia.Controls.Add(this.btnAgregarDia);
-            this.groupBoxAsistencia.Location = new System.Drawing.Point(374, 96);
+            this.groupBoxAsistencia.Location = new System.Drawing.Point(236, 96);
             this.groupBoxAsistencia.Name = "groupBoxAsistencia";
             this.groupBoxAsistencia.Size = new System.Drawing.Size(662, 433);
             this.groupBoxAsistencia.TabIndex = 17;
@@ -137,10 +137,10 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(40, 71);
+            this.splitContainer1.Location = new System.Drawing.Point(6, 71);
             this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Size = new System.Drawing.Size(356, 268);
-            this.splitContainer1.SplitterDistance = 118;
+            this.splitContainer1.Size = new System.Drawing.Size(581, 356);
+            this.splitContainer1.SplitterDistance = 192;
             this.splitContainer1.TabIndex = 16;
             // 
             // btnAgregarDia
@@ -148,7 +148,7 @@
             this.btnAgregarDia.FlatAppearance.BorderSize = 0;
             this.btnAgregarDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarDia.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarDia.Location = new System.Drawing.Point(593, 360);
+            this.btnAgregarDia.Location = new System.Drawing.Point(593, 37);
             this.btnAgregarDia.Name = "btnAgregarDia";
             this.btnAgregarDia.Size = new System.Drawing.Size(63, 67);
             this.btnAgregarDia.TabIndex = 15;
@@ -160,7 +160,7 @@
             this.containerGrupos.AutoScroll = true;
             this.containerGrupos.Location = new System.Drawing.Point(12, 96);
             this.containerGrupos.Name = "containerGrupos";
-            this.containerGrupos.Size = new System.Drawing.Size(333, 375);
+            this.containerGrupos.Size = new System.Drawing.Size(218, 383);
             this.containerGrupos.TabIndex = 17;
             // 
             // FormListaG
@@ -168,7 +168,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(1046, 578);
+            this.ClientSize = new System.Drawing.Size(907, 539);
             this.Controls.Add(this.containerGrupos);
             this.Controls.Add(this.groupBoxAsistencia);
             this.Controls.Add(this.btnAjustes);
