@@ -13,9 +13,9 @@ namespace WindowsFormsApp3.clases
     class dbConection
     {
 
-        static OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\teacher assistant.mdb");
-        static OleDbDataAdapter ada = new OleDbDataAdapter();
-        static OleDbCommand cmd = new OleDbCommand();
+        private static OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\teacher assistant.mdb");
+        private static OleDbCommand cmd = new OleDbCommand();
+        private static OleDbDataAdapter ada = new OleDbDataAdapter();
 
         public static void Connect()
         {
@@ -32,6 +32,26 @@ namespace WindowsFormsApp3.clases
                 Console.WriteLine("bien triste :(   " + ex.Message);
             }
 
+        }
+
+        public int temp()
+        {
+            ada.SelectCommand.CommandText = "SELECT * FROM Contactos";
+            conn.Open();
+            ada.SelectCommand.Connection = conn;
+
+            OleDbDataReader reader = ada.SelectCommand.ExecuteReader();
+            reader.Read();
+            int id = Convert.ToInt16(reader["Id"].ToString());
+
+            conn.Close();
+
+            return id;
+        }
+
+        int getFirst()
+        {
+            return 0;
         }
     }
 }
