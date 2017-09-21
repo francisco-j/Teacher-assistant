@@ -94,6 +94,7 @@
             this.btnAlumnos.TabIndex = 15;
             this.btnAlumnos.Text = " ";
             this.btnAlumnos.UseVisualStyleBackColor = false;
+            this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click);
             // 
             // btnEvaluaciones
             // 

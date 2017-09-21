@@ -16,19 +16,17 @@ namespace WindowsFormsApp3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            inicio = new FormInicio();
-            Application.Run(inicio);
+            inicio = new FormInicio();  //crea un inicio
+            Application.Run(inicio);    //lo corre
         }
 
         internal static void Login(String contra) //para iniciar secion
         {
             if (true) // si contra correcta:
             {
-                foreach (Form vent in Application.OpenForms) // para todas las ventanas abiertas
-                    vent.Hide(); // oculatalas
-
                 listaG = new FormListaG();  //crea FormListaG
                 listaG.Show();   //y muestrala
+                //inicio.Close();
             }
         }
 
@@ -42,7 +40,7 @@ namespace WindowsFormsApp3
 
         internal static void ShowStudent(ushort studentId)  //muestra el estuduante indicado
         {
-            // falta agregar
+            // some code //
         }
 
         internal static void ShowGroup(ushort groupId)  //abre el formGroupX con el grupo indicado
