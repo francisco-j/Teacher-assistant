@@ -12,12 +12,14 @@ namespace WindowsFormsApp3.clases
 {
     class dbConection
     {
-
-        private static OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\teacher assistant.mdb");
+        String db = "|DataDirectory|\teacher assistant.mdb"; //direccion de la base de datos Access
+        String dbStringConexion = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source="+db;
+        
+        private static OleDbConnection conn = new OleDbConnection(@dbStringConexion);
         private static OleDbCommand cmd = new OleDbCommand();
         private static OleDbDataAdapter ada = new OleDbDataAdapter();
 
-        public static void Connect()
+        public static void Connect() //verifica que la conexion se pueda realizar
         {
             try
             {
@@ -34,7 +36,7 @@ namespace WindowsFormsApp3.clases
 
         }
 
-        public int temp()
+        public int temp() //experimentacion
         {
             ada.SelectCommand.CommandText = "SELECT * FROM Contactos";
             conn.Open();
@@ -49,7 +51,7 @@ namespace WindowsFormsApp3.clases
             return id;
         }
 
-        int getFirst()
+        int getFirst() // no hace nada
         {
             return 0;
         }
