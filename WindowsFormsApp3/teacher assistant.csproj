@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clases\Alumno.cs" />
+    <Compile Include="clases\dbConection.cs" />
     <Compile Include="clases\Grupo.cs" />
     <Compile Include="FormInicio.cs">
       <SubType>Form</SubType>
