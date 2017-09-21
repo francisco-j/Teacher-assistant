@@ -32,5 +32,10 @@ namespace WindowsFormsApp3
             newVisible.Visible = true;
             groupVisible = newVisible;
         }
+
+        private void btnAlumnos_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

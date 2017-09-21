@@ -1,52 +1,71 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace WindowsFormsApp3
 {
     static class Program
     {
-
-        private static Form inicio, listaG, grupo;
+        private static Form inicio, listaGrupos, listaMaterias, grupo, alumno;
 
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            inicio = new FormInicio();
-            Application.Run(inicio);
+            inicio = new FormInicio();  //Instancia el form inicio
+            Application.Run(inicio);    //lo corre
+            //falta mostrar al frente
         }
 
-        internal static void Login(String contra) //para iniciar secion
+        //Para inciar sesión, abre el Form de lista de grupos
+        internal static void Login(String contraseña ) 
         {
-            if (true) // si contra correcta:
+            //La contraseña la obtendremos de la base de datos y verificaremos que coincida
+            if ( isValidContraseña( contraseña ) )
             {
-                foreach (Form vent in Application.OpenForms) // para todas las ventanas abiertas
-                    vent.Hide(); // oculatalas
-
-                listaG = new FormListaG();  //crea FormListaG
-                listaG.Show();   //y muestrala
+                //Instanciamos el siguiente Form "Lista de grupos"
+                listaGrupos = new FormListaG();  
+                //Lo mostramos en la pantalla y ocultamos el anterior, el Form de inicio
+                listaGrupos.Show();             
+                inicio.Hide();
+            }
+            else
+            {
+                MessageBox.Show( "La contraseña ingresada es incorrecta, por favor intenta de nuevo" );
             }
         }
 
-        internal static void LogOut()   //cerrar secion
+        private static bool isValidContraseña( string contraseña )
         {
-            foreach (Form vent in Application.OpenForms) // para todas las ventanas abiertas
-                vent.Hide(); // oculatalas
+            //Cuando conectemos la base de datos hay que incluir la validación de la contraseña
+            return true;
+        }
 
-            inicio.Show();  //muestra FormInicio
+        //Para cerrar sesión y regresarte al Form de Login
+        internal static void LogOut()  
+        {
+            //Se recorren todas las ventanas que están abiertas y se ocultan para mostrar la de login
+            foreach (Form vent in Application.OpenForms)
+            {
+                //Es más probable que la ventana que encuentre no sea la de inicio y la tenga que ocultar, de lo contrario mostrará la ventan de inicio
+                if( vent.Name != "FormInicio")
+                    vent.Hide();
+                else
+                    vent.Show();
+            }
         }
 
         internal static void ShowStudent(ushort studentId)  //muestra el estuduante indicado
         {
-            // falta agregar
+            // some code //
         }
 
         internal static void ShowGroup(ushort groupId)  //abre el formGroupX con el grupo indicado
         {
+/**
+ * aqui crea una cosa pero muestra otra
+ * crea un form y no lo amacena, luego muestra grupo
+ **/
             new FormGrupo(groupId); //crea el form
             grupo.Show();   //lo muestra
         }
