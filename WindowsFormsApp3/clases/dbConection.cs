@@ -13,25 +13,25 @@ namespace WindowsFormsApp3.clases
     class dbConection
     {
 
-        OleDbConnection conn = new OleDbConnection();
-        OleDbDataAdapter ada = new OleDbDataAdapter();
-        OleDbCommand cmd = new OleDbCommand();
+        static OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\teacher assistant.mdb");
+        static OleDbDataAdapter ada = new OleDbDataAdapter();
+        static OleDbCommand cmd = new OleDbCommand();
 
-        private void Connect()
+        public static void Connect()
         {
             try
             {
-                conn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\...\teacher assistant.accdb;";
                 conn.Open();
                 if (conn.State == ConnectionState.Open)
-                    MessageBox.Show("Connected");
+                    Console.WriteLine("Connected");
                 else
-                    MessageBox.Show("DisConnected");
+                    Console.WriteLine("DisConnected");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine("bien triste :(   " + ex.Message);
             }
 
         }
+    }
 }
