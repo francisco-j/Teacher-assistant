@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clases\Alumno.cs" />
+    <Compile Include="clases\dbConection.cs" />
     <Compile Include="clases\Grupo.cs" />
     <Compile Include="FormInicio.cs">
       <SubType>Form</SubType>
@@ -158,6 +159,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="teacher assistant.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

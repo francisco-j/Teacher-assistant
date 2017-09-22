@@ -46,7 +46,7 @@
             // txbContraseña
             // 
             this.txbContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(109)))), ((int)(((byte)(94)))));
-            this.txbContraseña.Location = new System.Drawing.Point(113, 310);
+            this.txbContraseña.Location = new System.Drawing.Point(79, 304);
             this.txbContraseña.Name = "txbContraseña";
             this.txbContraseña.PasswordChar = '¤';
             this.txbContraseña.Size = new System.Drawing.Size(204, 20);
@@ -55,7 +55,7 @@
             // 
             // btnIniciar
             // 
-            this.btnIniciar.Location = new System.Drawing.Point(159, 336);
+            this.btnIniciar.Location = new System.Drawing.Point(125, 330);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(115, 23);
             this.btnIniciar.TabIndex = 3;
@@ -65,17 +65,17 @@
             // 
             // picNombre
             // 
-            this.picNombre.Image = global::WindowsFormsApp3.Properties.Resources.logo_texto;
-            this.picNombre.Location = new System.Drawing.Point(121, 552);
-            this.picNombre.Name = "picNombre";
-            this.picNombre.Size = new System.Drawing.Size(167, 30);
-            this.picNombre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picNombre.TabIndex = 4;
-            this.picNombre.TabStop = false;
+            this.pictureBox1.Image = global::WindowsFormsApp3.Properties.Resources.icoLogoTexto;
+            this.pictureBox1.Location = new System.Drawing.Point(121, 552);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(167, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // picLogo
             // 
-            this.picLogo.Image = global::WindowsFormsApp3.Properties.Resources.logo_solo;
+            this.picLogo.Image = global::WindowsFormsApp3.Properties.Resources.icoLogoSolo;
             this.picLogo.Location = new System.Drawing.Point(1, 527);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(114, 55);
@@ -87,7 +87,7 @@
             // 
             this.picUserImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(216)))), ((int)(((byte)(213)))));
             this.picUserImage.Image = ((System.Drawing.Image)(resources.GetObject("picUserImage.Image")));
-            this.picUserImage.Location = new System.Drawing.Point(131, 53);
+            this.picUserImage.Location = new System.Drawing.Point(111, 57);
             this.picUserImage.Name = "picUserImage";
             this.picUserImage.Size = new System.Drawing.Size(153, 151);
             this.picUserImage.TabIndex = 1;

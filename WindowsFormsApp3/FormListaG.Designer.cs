@@ -66,7 +66,7 @@
             // 
             // btnAjustes
             // 
-            this.btnAjustes.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.Menu;
+            this.btnAjustes.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoMenu;
             this.btnAjustes.FlatAppearance.BorderSize = 0;
             this.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAjustes.Font = new System.Drawing.Font( "Marlett", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( ( byte )( 0 ) ) );
@@ -78,7 +78,7 @@
             // 
             // btnAgregarGrupo
             // 
-            this.btnAgregarGrupo.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.Plus;
+            this.btnAgregarGrupo.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAgregar;
             this.btnAgregarGrupo.FlatAppearance.BorderSize = 0;
             this.btnAgregarGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarGrupo.Font = new System.Drawing.Font( "Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( ( byte )( 0 ) ) );
@@ -90,7 +90,7 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.Back;
+            this.btnLogOut.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoBack;
             this.btnLogOut.FlatAppearance.BorderSize = 0;
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font( "Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 0 ) ) );

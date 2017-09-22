@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using WindowsFormsApp3.clases;
 
 namespace WindowsFormsApp3
 {
@@ -14,6 +17,7 @@ namespace WindowsFormsApp3
             Application.SetCompatibleTextRenderingDefault(false);
             inicio = new FormInicio();  //Instancia el form inicio
             Application.Run(inicio);    //lo corre
+            //falta mostrar al frente
         }
 
         //Para inciar sesión, abre el Form de lista de grupos
@@ -66,13 +70,9 @@ namespace WindowsFormsApp3
             {
                 //Es más probable que la ventana que encuentre no sea la de inicio y la tenga que ocultar, de lo contrario mostrará la ventan de inicio
                 if( vent.Name != "FormInicio")
-                {
                     vent.Hide();
-                }
                 else
-                {
                     vent.Show();
-                }
             }
         }
 
@@ -83,6 +83,10 @@ namespace WindowsFormsApp3
 
         internal static void ShowGroup(ushort groupId)  //abre el formGroupX con el grupo indicado
         {
+/**
+ * aqui crea una cosa pero muestra otra
+ * crea un form y no lo amacena, luego muestra grupo
+ **/
             new FormGrupo(groupId); //crea el form
             grupo.Show();   //lo muestra
         }
