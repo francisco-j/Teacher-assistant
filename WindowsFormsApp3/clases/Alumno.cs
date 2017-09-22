@@ -8,6 +8,6 @@ namespace WindowsFormsApp3
 {
     class Alumno
     {
-
+        
     }
 }
