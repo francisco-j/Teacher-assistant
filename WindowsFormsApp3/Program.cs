@@ -17,16 +17,23 @@ namespace WindowsFormsApp3
         }
 
         //Para inciar sesión, abre el Form de lista de grupos
-        internal static void Login(String contraseña ) 
+        internal static void Login(String usuario, String contraseña ) 
         {
             //La contraseña la obtendremos de la base de datos y verificaremos que coincida
-            if ( isValidContraseña( contraseña ) )
+            if ( isValidUsuario( usuario ) )
             {
-                //Instanciamos el siguiente Form "Lista de grupos"
-                listaGrupos = new FormListaG();  
-                //Lo mostramos en la pantalla y ocultamos el anterior, el Form de inicio
-                listaGrupos.Show();             
-                inicio.Hide();
+                if( isValidContraseña( contraseña ) )
+                {
+                    //Instanciamos el siguiente Form "Lista de grupos"
+                    listaGrupos = new FormListaG();
+                    //Lo mostramos en la pantalla y ocultamos el anterior, el Form de inicio
+                    listaGrupos.Show();
+                    inicio.Hide();
+                }
+                else
+                {
+                    MessageBox.Show( "Contraseña incorrecta, por favor intenta nuevamente" );
+                }
             }
             else
             {
@@ -37,6 +44,11 @@ namespace WindowsFormsApp3
         private static bool isValidContraseña( string contraseña )
         {
             //Cuando conectemos la base de datos hay que incluir la validación de la contraseña
+            return true;
+        }
+
+        private static bool isValidUsuario( string usuario )
+        {
             return true;
         }
 

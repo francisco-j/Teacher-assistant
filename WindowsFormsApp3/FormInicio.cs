@@ -13,16 +13,30 @@ namespace WindowsFormsApp3
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             string contraseña = txbContraseña.Text;
+            string usuario = txbUsuario.Text;
             //Validación para asegurarnos que ingresó algo como contraseña
             //**La validación de que la contraseña sea la correcta se hará en Program.cs
-            if( contraseña == null )
+            if( usuario != "" )
             {
-                MessageBox.Show( "Ingresa la contraseña para iniciar sesión" );
+                if (contraseña != "")
+                {
+                    Program.Login( usuario, contraseña );
+                }
+                else
+                {
+                    MessageBox.Show( "Ingresa la contraseña para poder iniciar sesión" );
+                }
             }
             else
             {
-                Program.Login( contraseña );
+                MessageBox.Show( "Ingresa tu usuario para iniciar sesión" );
             }
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            Form registrarse = new FormRegistrarse();
+            registrarse.ShowDialog();
         }
     }
 }
