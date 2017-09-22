@@ -92,11 +92,11 @@
             // 
             this.lblConfirmación.AutoSize = true;
             this.lblConfirmación.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmación.Location = new System.Drawing.Point(10, 115);
+            this.lblConfirmación.Location = new System.Drawing.Point(34, 113);
             this.lblConfirmación.Name = "lblConfirmación";
-            this.lblConfirmación.Size = new System.Drawing.Size(190, 20);
+            this.lblConfirmación.Size = new System.Drawing.Size(166, 20);
             this.lblConfirmación.TabIndex = 6;
-            this.lblConfirmación.Text = "Confirmación contraseña:";
+            this.lblConfirmación.Text = "Confirmar contraseña:";
             // 
             // FormRegistrarse
             // 
