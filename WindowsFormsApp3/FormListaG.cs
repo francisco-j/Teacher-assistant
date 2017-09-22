@@ -3,14 +3,14 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp3
 {
-    public partial class FormListaG : Form
+    public partial class FormListaMaterias : Form
     {
         private int pixelUltimoBoton;
 
-        public FormListaG()
+        public FormListaMaterias( string nombreGrupo )
         {
             InitializeComponent();
-
+            this.Text = nombreGrupo;
             //Esta varible nos ayudará a saber dónde está posicionado en la pantalla el botón del último grupo
             pixelUltimoBoton = 30;
 
@@ -46,7 +46,6 @@ namespace WindowsFormsApp3
 
                 //LABEL
                 Label lblNombreGrupo = new Label();
-
             }
         }
 
@@ -76,6 +75,11 @@ namespace WindowsFormsApp3
         }
 
         private void FormListaG_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregarDia_Click(object sender, EventArgs e)
         {
 
         }
