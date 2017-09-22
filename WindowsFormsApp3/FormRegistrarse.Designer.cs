@@ -55,6 +55,7 @@
             // 
             this.txbConfirmacion.Location = new System.Drawing.Point(215, 113);
             this.txbConfirmacion.Name = "txbConfirmacion";
+            this.txbConfirmacion.PasswordChar = '■';
             this.txbConfirmacion.Size = new System.Drawing.Size(131, 20);
             this.txbConfirmacion.TabIndex = 2;
             // 

@@ -16,10 +16,12 @@ namespace WindowsFormsApp3
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Console.WriteLine("coneccion: " + dbConection.canConnect());
-            inicio = new FormInicio();  //Instancia el form inicio
-            Application.Run(inicio);    //lo corre
+            inicio = new FormInicio();
+            Application.Run(inicio);
             //falta mostrar al frente
         }
+
+//****************************** logg  **********************************************
 
         //Para inciar sesión, abre el Form de lista de grupos
         internal static void Login(String usuario, String contraseña ) 
@@ -46,23 +48,6 @@ namespace WindowsFormsApp3
             }
         }
 
-        internal static void showListaMaterias( string nombreGrupo )
-        {
-            Form listaMaterias = new FormListaMaterias( nombreGrupo );
-            listaMaterias.Show();
-        }
-
-        private static bool isValidContraseña( string contraseña )
-        {
-            //Cuando conectemos la base de datos hay que incluir la validación de la contraseña
-            return true;
-        }
-
-        private static bool isValidUsuario( string usuario )
-        {
-            return true;
-        }
-
         //Para cerrar sesión y regresarte al Form de Login
         internal static void LogOut()  
         {
@@ -77,12 +62,23 @@ namespace WindowsFormsApp3
             }
         }
 
-        internal static void ShowStudent(ushort studentId)  //muestra el estuduante indicado
+//***************************** ventanas *******************************************
+
+        //muestra las materias del grupo especificado
+        internal static void showListaMaterias( string nombreGrupo )
+        {
+            Form listaMaterias = new FormListaMaterias( nombreGrupo );
+            listaMaterias.Show();
+        }
+        
+        //muestra el estuduante indicado
+        internal static void ShowStudent(ushort studentId)  
         {
             // some code //
         }
 
-        internal static void ShowGroup(ushort groupId)  //abre el formGroupX con el grupo indicado
+        //abre el formGroupX con el grupo indicado
+        internal static void ShowGroup(ushort groupId)
         {
 /**
  * aqui crea una cosa pero muestra otra
@@ -90,6 +86,24 @@ namespace WindowsFormsApp3
  **/
             new FormGrupo(groupId); //crea el form
             grupo.Show();   //lo muestra
+        }
+
+        //****************************  db  **************************************************
+
+        internal static void registrar(string usuario, string contra)
+        {
+            
+        }
+
+        private static bool isValidContraseña( string contraseña )
+        {
+            //Cuando conectemos la base de datos hay que incluir la validación de la contraseña
+            return true;
+        }
+
+        private static bool isValidUsuario( string usuario )
+        {
+            return true;
         }
 
     }
