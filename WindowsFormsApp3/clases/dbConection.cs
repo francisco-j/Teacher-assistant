@@ -12,26 +12,32 @@ namespace WindowsFormsApp3.clases
 {
     class dbConection
     {
-        String db = "|DataDirectory|\teacher assistant.mdb"; //direccion de la base de datos Access
-        String dbStringConexion = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source="+db;
+        private static String db = "|DataDirectory|\teacher assistant.mdb"; //direccion de la base de datos Access
+        private static String dbStringConexion = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source="+db;
         
         private static OleDbConnection conn = new OleDbConnection(@dbStringConexion);
         private static OleDbCommand cmd = new OleDbCommand();
         private static OleDbDataAdapter ada = new OleDbDataAdapter();
 
-        public static void Connect() //verifica que la conexion se pueda realizar
+        // verid=fica que la conexion se pueda relizar
+        public static bool canConnect()
         {
             try
             {
                 conn.Open();
+
                 if (conn.State == ConnectionState.Open)
-                    Console.WriteLine("Connected");
+                {
+                    conn.Close();
+                    // retorna true si si se puede realizar, false sculquier otra cosa
+                    return true;
+                }
                 else
-                    Console.WriteLine("DisConnected");
+                    return false;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("bien triste :(   " + ex.Message);
+                return false;
             }
 
         }

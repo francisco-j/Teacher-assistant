@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using WindowsFormsApp3.clases;
 
 namespace WindowsFormsApp3
 {
@@ -16,7 +17,7 @@ namespace WindowsFormsApp3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            clases.dbConection.Connect();
+            dbConection.canConnect();
             inicio = new FormInicio();
             Application.Run(inicio);
         }
