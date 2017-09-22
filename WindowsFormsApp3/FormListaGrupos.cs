@@ -30,7 +30,7 @@ namespace WindowsFormsApp3
 
         private void boton_Click(object sender, System.EventArgs e)
         {
-            Program.showListaMaterias( boton.Text );
+            Program.showListaMaterias( ( sender as Button ).Text );
             this.Dispose();
         }
 
@@ -51,6 +51,11 @@ namespace WindowsFormsApp3
 
             System.Drawing.Font letra = new System.Drawing.Font( fuente, tamañoLetra );
             boton.Font = letra;
+        }
+
+        private void btnBuscar_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

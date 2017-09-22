@@ -73,6 +73,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(44, 30);
             this.btnBuscar.TabIndex = 21;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnAgregarDia
             // 

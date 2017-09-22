@@ -54,11 +54,11 @@
     <Compile Include="FormInicio.Designer.cs">
       <DependentUpon>FormInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormListaG.cs">
+    <Compile Include="FormListaMaterias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormListaG.Designer.cs">
-      <DependentUpon>FormListaG.cs</DependentUpon>
+    <Compile Include="FormListaMaterias.Designer.cs">
+      <DependentUpon>FormListaMaterias.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGrupoX.cs">
       <SubType>Form</SubType>
@@ -83,8 +83,8 @@
     <EmbeddedResource Include="FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormListaG.resx">
-      <DependentUpon>FormListaG.cs</DependentUpon>
+    <EmbeddedResource Include="FormListaMaterias.resx">
+      <DependentUpon>FormListaMaterias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGrupoX.resx">
       <DependentUpon>FormGrupoX.cs</DependentUpon>
