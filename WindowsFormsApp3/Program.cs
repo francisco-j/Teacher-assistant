@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using WindowsFormsApp3.clases;
+using System.Collections.Generic;
 
 namespace WindowsFormsApp3
 {
@@ -27,20 +27,13 @@ namespace WindowsFormsApp3
         internal static void Login(String usuario, String contraseña ) 
         {
             //La contraseña la obtendremos de la base de datos y verificaremos que coincida
-            if ( isValidUsuario( usuario ) )
+            if ( dbConection.isCorrecto(usuario, contraseña) )
             {
-                if( isValidContraseña( contraseña ) )
-                {
-                    //Instanciamos el siguiente Form "Lista de grupos"
-                    listaGrupos = new FormListaGrupos();
-                    //Lo mostramos en la pantalla y ocultamos el anterior, el Form de inicio
-                    listaGrupos.Show();
-                    inicio.Hide();
-                }
-                else
-                {
-                    MessageBox.Show( "Contraseña incorrecta, por favor intenta nuevamente" );
-                }
+                //Instanciamos el siguiente Form "Lista de grupos"
+                listaGrupos = new FormListaGrupos();
+                //Lo mostramos en la pantalla y ocultamos el anterior, el Form de inicio
+                listaGrupos.Show();
+                inicio.Hide();
             }
             else
             {
@@ -48,7 +41,7 @@ namespace WindowsFormsApp3
             }
         }
 
-        //Para cerrar sesión y regresarte al Form de Login
+        //Para cerrar sesión y regresar al Form de Login
         internal static void LogOut()  
         {
             //Se recorren todas las ventanas que están abiertas y se ocultan para mostrar la de login
@@ -88,23 +81,16 @@ namespace WindowsFormsApp3
             grupo.Show();   //lo muestra
         }
 
-        //****************************  db  **************************************************
+//****************************  db  **************************************************
 
         internal static void registrar(string usuario, string contra)
         {
-            
+            dbConection.registrarUsuario(usuario, contra);
         }
 
-        private static bool isValidContraseña( string contraseña )
-        {
-            //Cuando conectemos la base de datos hay que incluir la validación de la contraseña
-            return true;
-        }
+// ************************** metodos privados ****************************************
 
-        private static bool isValidUsuario( string usuario )
-        {
-            return true;
-        }
+        //some code
 
     }
 }

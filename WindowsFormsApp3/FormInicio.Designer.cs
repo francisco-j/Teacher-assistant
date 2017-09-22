@@ -31,14 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicio));
             this.txbContraseña = new System.Windows.Forms.TextBox();
             this.btnIniciar = new System.Windows.Forms.Button();
-            this.picNombre = new System.Windows.Forms.PictureBox();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.picUserImage = new System.Windows.Forms.PictureBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txbUsuario = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUserImage)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +44,7 @@
             // txbContraseña
             // 
             this.txbContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(109)))), ((int)(((byte)(94)))));
-            this.txbContraseña.Location = new System.Drawing.Point(79, 304);
+            this.txbContraseña.Location = new System.Drawing.Point(113, 304);
             this.txbContraseña.Name = "txbContraseña";
             this.txbContraseña.PasswordChar = '¤';
             this.txbContraseña.Size = new System.Drawing.Size(204, 20);
@@ -55,23 +53,13 @@
             // 
             // btnIniciar
             // 
-            this.btnIniciar.Location = new System.Drawing.Point(125, 330);
+            this.btnIniciar.Location = new System.Drawing.Point(149, 330);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(115, 23);
             this.btnIniciar.TabIndex = 3;
             this.btnIniciar.Text = "Iniciar Sesión";
             this.btnIniciar.UseVisualStyleBackColor = true;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
-            // 
-            // picNombre
-            // 
-            this.pictureBox1.Image = global::WindowsFormsApp3.Properties.Resources.icoLogoTexto;
-            this.pictureBox1.Location = new System.Drawing.Point(121, 552);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(167, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // picLogo
             // 
@@ -140,7 +128,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRegistrar);
-            this.Controls.Add(this.picNombre);
             this.Controls.Add(this.picLogo);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.picUserImage);
@@ -149,7 +136,6 @@
             this.Name = "FormInicio";
             this.Text = "Inicio de Sesion";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-            ((System.ComponentModel.ISupportInitialize)(this.picNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUserImage)).EndInit();
             this.ResumeLayout(false);
@@ -163,7 +149,6 @@
         private System.Windows.Forms.PictureBox picUserImage;
         private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.PictureBox picLogo;
-        private System.Windows.Forms.PictureBox picNombre;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

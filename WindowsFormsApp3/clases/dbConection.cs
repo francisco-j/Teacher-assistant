@@ -1,32 +1,35 @@
 ﻿using System;
 using System.Data;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Linq;
 using System.Data.OleDb;
+using System.Windows.Forms;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 
 namespace WindowsFormsApp3.clases
 {
     class dbConection
     {
-        private static OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\teacher assistant.mdb");
-        private static OleDbCommand cmd = new OleDbCommand();
-        private static OleDbDataAdapter ada = new OleDbDataAdapter();
+//************************  control ********************************************
+
+        //crea la conecion
+        private static OleDbConnection conection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\teacher assistant.mdb");
+        private static OleDbCommand comand = new OleDbCommand();
+        private static OleDbDataAdapter adapter = new OleDbDataAdapter();
 
         // verid=fica que la conexion se pueda relizar
         public static bool canConnect()
         {
             try
             {
-                conn.Open();
+                conection.Open();
 
-                if (conn.State == ConnectionState.Open)
+                if (conection.State == ConnectionState.Open)
                 {
-                    //conn.Close();
-                    // retorna true si si se puede realizar, false sculquier otra cosa
+                    conection.Close();
+                    // retorna true si se puede realizar una conecion, false a culquier otra cosa
                     return true;
                 }
                 else
@@ -39,24 +42,60 @@ namespace WindowsFormsApp3.clases
 
         }
 
-        public int temp() //experimentacion
-        {
-            ada.SelectCommand.CommandText = "SELECT * FROM Contactos";
-            conn.Open();
-            ada.SelectCommand.Connection = conn;
+// ******************** validacion ***************************************
 
-            OleDbDataReader reader = ada.SelectCommand.ExecuteReader();
+        //verifica que la contrase;a y usuario coinsidan
+        internal static bool isCorrecto(string usuario, string contraseña)
+        {
+            throw new NotImplementedException();
+            //some code
+        }
+
+//************************  lectura ******************************************
+
+        //some code
+
+//************************  escritura ******************************************
+
+        internal static void registrarUsuario(string usuario, string contra)
+        {
+            conection.Open();
+            comand.Connection = conection;
+            comand.CommandText = "select * from Usuarios where usuario='" + usuario + "'" ;
+            OleDbDataReader reader = comand.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                throw new Exception("ya existe este usuario");
+            }
+            else
+            {
+                reader.Close();
+                comand.CommandText = "INSERT INTO Usuarios (usuario, contraseña) VALUES('" + usuario+"', '"+contra+"')";
+                comand.CommandType = CommandType.Text;
+                comand.ExecuteNonQuery();
+            }
+            conection.Close();
+        }
+
+//************************** otros *********************************************
+        
+        //experimentacion
+        public int temp()
+        {
+            adapter.SelectCommand.CommandText = "SELECT * FROM Contactos";
+            conection.Open();
+            adapter.SelectCommand.Connection = conection;
+
+            OleDbDataReader reader = adapter.SelectCommand.ExecuteReader();
             reader.Read();
             int id = Convert.ToInt16(reader["Id"].ToString());
 
-            conn.Close();
+            conection.Close();
 
             return id;
         }
 
-        int getFirst() // no hace nada
-        {
-            return 0;
-        }
+        
     }
 }

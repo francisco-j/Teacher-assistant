@@ -16,19 +16,19 @@ namespace WindowsFormsApp3
             string contraseña = txbContraseña.Text;
             string confirmacion = txbConfirmacion.Text;
 
-            //Validaciones de que los campos no estén vacíos
+            //Validaciones de que los campos no estén vacíos, usar regex
             //Definir cuántos caracteres se aceptan por cada txb
-            if (usuario != "")
+            if (usuario == "")
             {
                 MessageBox.Show("Ingresa el nombre de usuario por favor");
                 txbUsuario.Focus();
             }
-            else if (contraseña != "")
+            else if (contraseña == "")
             {
                 MessageBox.Show("Define una contraseña por favor");
                 txbContraseña.Focus();
             }
-            else if (confirmacion != "")
+            else if (confirmacion == "")
             {
                 MessageBox.Show("Debes confirmar la contraseña");
                 txbConfirmacion.Focus();
