@@ -17,7 +17,6 @@ namespace WindowsFormsApp3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            dbConection.canConnect();
             inicio = new FormInicio();
             Application.Run(inicio);
         }
