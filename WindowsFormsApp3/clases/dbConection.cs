@@ -47,7 +47,8 @@ namespace WindowsFormsApp3.clases
         //verifica que la contrase;a y usuario coinsidan
         internal static bool isCorrecto(string usuario, string contraseña)
         {
-            throw new NotImplementedException();
+            return true;
+            //throw new NotImplementedException();
             //some code
         }
 
@@ -57,7 +58,7 @@ namespace WindowsFormsApp3.clases
 
 //************************  escritura ******************************************
 
-        internal static void registrarUsuario(string usuario, string contra)
+        internal static bool registrarUsuario(string usuario, string contra)
         {
             conection.Open();
             comand.Connection = conection;
@@ -66,16 +67,17 @@ namespace WindowsFormsApp3.clases
 
             if (reader.HasRows)
             {
-                throw new Exception("ya existe este usuario");
+                MessageBox.Show( "EL usuario ya existe :v " );
+                //throw new Exception("ya existe este usuario");
+                conection.Close();
+                return false;
             }
-            else
-            {
-                reader.Close();
-                comand.CommandText = "INSERT INTO Usuarios (usuario, contraseña) VALUES('" + usuario+"', '"+contra+"')";
-                comand.CommandType = CommandType.Text;
-                comand.ExecuteNonQuery();
-            }
+            reader.Close();
+            comand.CommandText = "INSERT INTO Usuarios (id, usuario, contrasena) VALUES(2,'" + usuario + "', '" + contra + "')";
+            comand.CommandType = CommandType.Text;
+            Console.WriteLine(comand.ExecuteNonQuery());
             conection.Close();
+            return true;
         }
 
 //************************** otros *********************************************

@@ -83,9 +83,9 @@ namespace WindowsFormsApp3
 
 //****************************  db  **************************************************
 
-        internal static void registrar(string usuario, string contra)
+        internal static bool registrar(string usuario, string contra)
         {
-            dbConection.registrarUsuario(usuario, contra);
+            return dbConection.registrarUsuario( usuario, contra );
         }
 
 // ************************** metodos privados ****************************************
