@@ -72,7 +72,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::WindowsFormsApp3.Properties.Resources.logo_texto;
+            this.pictureBox1.Image = global::WindowsFormsApp3.Properties.Resources.icoLogoTexto;
             this.pictureBox1.Location = new System.Drawing.Point(121, 552);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(167, 30);
@@ -82,7 +82,7 @@
             // 
             // picLogo
             // 
-            this.picLogo.Image = global::WindowsFormsApp3.Properties.Resources.logo_solo;
+            this.picLogo.Image = global::WindowsFormsApp3.Properties.Resources.icoLogoSolo;
             this.picLogo.Location = new System.Drawing.Point(1, 527);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(114, 55);
