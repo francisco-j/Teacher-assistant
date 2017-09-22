@@ -25,7 +25,7 @@ namespace WindowsFormsApp3
                 if( isValidContraseña( contraseña ) )
                 {
                     //Instanciamos el siguiente Form "Lista de grupos"
-                    listaGrupos = new FormListaG();
+                    listaGrupos = new FormListaGrupos();
                     //Lo mostramos en la pantalla y ocultamos el anterior, el Form de inicio
                     listaGrupos.Show();
                     inicio.Hide();
@@ -39,6 +39,12 @@ namespace WindowsFormsApp3
             {
                 MessageBox.Show( "La contraseña ingresada es incorrecta, por favor intenta de nuevo" );
             }
+        }
+
+        internal static void showListaMaterias( string nombreGrupo )
+        {
+            Form listaMaterias = new FormListaMaterias( nombreGrupo );
+            listaMaterias.Show();
         }
 
         private static bool isValidContraseña( string contraseña )

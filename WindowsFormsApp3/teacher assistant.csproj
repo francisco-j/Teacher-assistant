@@ -65,6 +65,12 @@
     <Compile Include="FormGrupoX.Designer.cs">
       <DependentUpon>FormGrupoX.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormListaGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListaGrupos.Designer.cs">
+      <DependentUpon>FormListaGrupos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRegistrarse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGrupoX.resx">
       <DependentUpon>FormGrupoX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListaGrupos.resx">
+      <DependentUpon>FormListaGrupos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegistrarse.resx">
       <DependentUpon>FormRegistrarse.cs</DependentUpon>

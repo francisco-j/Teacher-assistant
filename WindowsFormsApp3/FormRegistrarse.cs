@@ -30,6 +30,10 @@ namespace WindowsFormsApp3
                             this.Dispose();
                             //Agregar código para guardar registro del nuevo usuario en la base de datos
                         }
+                        else
+                        {
+                            MessageBox.Show( "La contraseña y la confirmación no coinciden, verifica que estés ingresando la misma en los dos campos" );
+                        }
                     }
                     else
                     {

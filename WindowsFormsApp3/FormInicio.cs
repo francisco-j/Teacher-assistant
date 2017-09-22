@@ -25,11 +25,13 @@ namespace WindowsFormsApp3
                 else
                 {
                     MessageBox.Show( "Ingresa la contraseña para poder iniciar sesión" );
+                    txbContraseña.Focus();
                 }
             }
             else
             {
                 MessageBox.Show( "Ingresa tu usuario para iniciar sesión" );
+                txbUsuario.Focus();
             }
         }
 
@@ -37,6 +39,7 @@ namespace WindowsFormsApp3
         {
             Form registrarse = new FormRegistrarse();
             registrarse.ShowDialog();
+            txbUsuario.Focus();
         }
     }
 }
