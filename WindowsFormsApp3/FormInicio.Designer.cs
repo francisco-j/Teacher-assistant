@@ -72,18 +72,18 @@
             // 
             // picNombre
             // 
-            this.picNombre.Image = global::WindowsFormsApp3.Properties.Resources.logo_texto;
-            this.picNombre.Location = new System.Drawing.Point(132, 489);
-            this.picNombre.Name = "picNombre";
-            this.picNombre.Size = new System.Drawing.Size(167, 30);
-            this.picNombre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picNombre.TabIndex = 4;
-            this.picNombre.TabStop = false;
+            this.pictureBox1.Image = global::WindowsFormsApp3.Properties.Resources.icoLogoTexto;
+            this.pictureBox1.Location = new System.Drawing.Point(121, 552);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(167, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // picLogo
             // 
-            this.picLogo.Image = global::WindowsFormsApp3.Properties.Resources.logo_solo;
-            this.picLogo.Location = new System.Drawing.Point(12, 464);
+            this.picLogo.Image = global::WindowsFormsApp3.Properties.Resources.icoLogoSolo;
+            this.picLogo.Location = new System.Drawing.Point(1, 527);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(114, 55);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

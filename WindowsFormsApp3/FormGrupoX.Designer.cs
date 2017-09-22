@@ -73,7 +73,7 @@
             this.btnTareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnTareas.Image = global::WindowsFormsApp3.Properties.Resources.Tareas__2_;
+            this.btnTareas.Image = global::WindowsFormsApp3.Properties.Resources.icoTareas;
             this.btnTareas.Location = new System.Drawing.Point(12, 174);
             this.btnTareas.Name = "btnTareas";
             this.btnTareas.Size = new System.Drawing.Size(70, 70);
@@ -88,7 +88,7 @@
             this.btnAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlumnos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnAlumnos.Image = global::WindowsFormsApp3.Properties.Resources.Alumnos__2_;
+            this.btnAlumnos.Image = global::WindowsFormsApp3.Properties.Resources.icoAlumnos;
             this.btnAlumnos.Location = new System.Drawing.Point(12, 242);
             this.btnAlumnos.Name = "btnAlumnos";
             this.btnAlumnos.Size = new System.Drawing.Size(70, 70);
@@ -104,7 +104,7 @@
             this.btnEvaluaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEvaluaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEvaluaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnEvaluaciones.Image = global::WindowsFormsApp3.Properties.Resources.Evaluaciones;
+            this.btnEvaluaciones.Image = global::WindowsFormsApp3.Properties.Resources.icoEvaluaciones;
             this.btnEvaluaciones.Location = new System.Drawing.Point(12, 312);
             this.btnEvaluaciones.Name = "btnEvaluaciones";
             this.btnEvaluaciones.Size = new System.Drawing.Size(70, 70);
@@ -119,7 +119,7 @@
             this.btnNotas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNotas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnNotas.Image = global::WindowsFormsApp3.Properties.Resources.Notas__2_;
+            this.btnNotas.Image = global::WindowsFormsApp3.Properties.Resources.icoNotas;
             this.btnNotas.Location = new System.Drawing.Point(12, 384);
             this.btnNotas.Name = "btnNotas";
             this.btnNotas.Size = new System.Drawing.Size(70, 70);
@@ -135,7 +135,7 @@
             this.btnAsistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAsistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAsistencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnAsistencia.Image = global::WindowsFormsApp3.Properties.Resources.Asistencia;
+            this.btnAsistencia.Image = global::WindowsFormsApp3.Properties.Resources.icoAsistencia;
             this.btnAsistencia.Location = new System.Drawing.Point(12, 105);
             this.btnAsistencia.Name = "btnAsistencia";
             this.btnAsistencia.Size = new System.Drawing.Size(70, 70);
