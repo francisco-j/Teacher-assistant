@@ -39,6 +39,7 @@
             this.lblNombres = new System.Windows.Forms.Label();
             this.groupBoxAsistencia = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBoxAsistencia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
@@ -61,9 +62,9 @@
             this.lblDatosGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDatosGrupo.Location = new System.Drawing.Point(160, 9);
             this.lblDatosGrupo.Name = "lblDatosGrupo";
-            this.lblDatosGrupo.Size = new System.Drawing.Size(139, 50);
+            this.lblDatosGrupo.Size = new System.Drawing.Size(154, 50);
             this.lblDatosGrupo.TabIndex = 13;
-            this.lblDatosGrupo.Text = "30 Alumnos\r\nPrimaria jose...";
+            this.lblDatosGrupo.Text = "N Alumnos\r\nPrimaria nombre";
             // 
             // btnTareas
             // 
@@ -94,6 +95,7 @@
             this.btnAlumnos.TabIndex = 15;
             this.btnAlumnos.Text = " ";
             this.btnAlumnos.UseVisualStyleBackColor = false;
+            this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click);
             // 
             // btnEvaluaciones
             // 
@@ -146,7 +148,7 @@
             this.btnAgregarDia.FlatAppearance.BorderSize = 0;
             this.btnAgregarDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarDia.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarDia.Location = new System.Drawing.Point(593, 360);
+            this.btnAgregarDia.Location = new System.Drawing.Point(599, 20);
             this.btnAgregarDia.Name = "btnAgregarDia";
             this.btnAgregarDia.Size = new System.Drawing.Size(63, 67);
             this.btnAgregarDia.TabIndex = 15;
@@ -158,7 +160,7 @@
             this.lblNombres.AutoSize = true;
             this.lblNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(240)))), ((int)(((byte)(215)))));
-            this.lblNombres.Location = new System.Drawing.Point(15, 37);
+            this.lblNombres.Location = new System.Drawing.Point(6, 17);
             this.lblNombres.Name = "lblNombres";
             this.lblNombres.Size = new System.Drawing.Size(87, 25);
             this.lblNombres.TabIndex = 1;
@@ -178,11 +180,21 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(40, 71);
+            this.splitContainer1.Location = new System.Drawing.Point(11, 45);
             this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Size = new System.Drawing.Size(356, 268);
-            this.splitContainer1.SplitterDistance = 118;
+            this.splitContainer1.Size = new System.Drawing.Size(582, 382);
+            this.splitContainer1.SplitterDistance = 192;
             this.splitContainer1.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(382, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 39);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "materia";
             // 
             // FormGrupo
             // 
@@ -197,6 +209,7 @@
             this.Controls.Add(this.btnAlumnos);
             this.Controls.Add(this.btnTareas);
             this.Controls.Add(this.btnAsistencia);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDatosGrupo);
             this.Controls.Add(this.lblGrupo);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
@@ -225,5 +238,6 @@
         private System.Windows.Forms.Label lblNombres;
         private System.Windows.Forms.GroupBox groupBoxAsistencia;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Label label1;
     }
 }

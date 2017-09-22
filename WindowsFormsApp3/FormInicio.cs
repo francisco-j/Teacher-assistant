@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Text;
-using System.Data;
-using System.Linq;
-using System.Drawing;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace WindowsFormsApp3
 {
@@ -19,7 +12,34 @@ namespace WindowsFormsApp3
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            Program.Login(txbContraseña.Text); //le dice a "program" que quiere hacer loggin
+            string contraseña = txbContraseña.Text;
+            string usuario = txbUsuario.Text;
+            //Validación para asegurarnos que ingresó algo como contraseña
+            //**La validación de que la contraseña sea la correcta se hará en Program.cs
+            if( usuario != "" )
+            {
+                if (contraseña != "")
+                {
+                    Program.Login( usuario, contraseña );
+                }
+                else
+                {
+                    MessageBox.Show( "Ingresa la contraseña para poder iniciar sesión" );
+                    txbContraseña.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show( "Ingresa tu usuario para iniciar sesión" );
+                txbUsuario.Focus();
+            }
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            Form registrarse = new FormRegistrarse();
+            registrarse.ShowDialog();
+            txbUsuario.Focus();
         }
     }
 }
