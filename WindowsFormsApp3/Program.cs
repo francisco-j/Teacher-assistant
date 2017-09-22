@@ -15,6 +15,7 @@ namespace WindowsFormsApp3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Console.WriteLine("coneccion: " + dbConection.canConnect());
             inicio = new FormInicio();  //Instancia el form inicio
             Application.Run(inicio);    //lo corre
             //falta mostrar al frente

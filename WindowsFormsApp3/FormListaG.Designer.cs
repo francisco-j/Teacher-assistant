@@ -105,8 +105,8 @@
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Image = global::WindowsFormsApp3.Properties.Resources.buscar;
-            this.btnBuscar.Location = new System.Drawing.Point( 991, 24 );
+            this.btnBuscar.Image = global::WindowsFormsApp3.Properties.Resources.icoBuscar;
+            this.btnBuscar.Location = new System.Drawing.Point(295, 510);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size( 44, 30 );
             this.btnBuscar.TabIndex = 7;
