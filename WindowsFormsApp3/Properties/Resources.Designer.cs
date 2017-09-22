@@ -163,16 +163,6 @@ namespace WindowsFormsApp3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap iconmonstr_arrow_57_48 {
-            get {
-                object obj = ResourceManager.GetObject("iconmonstr-arrow-57-48", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap icoNotas {
             get {
                 object obj = ResourceManager.GetObject("icoNotas", resourceCulture);
