@@ -39,6 +39,7 @@
             this.lblNombres = new System.Windows.Forms.Label();
             this.groupBoxAsistencia = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBoxAsistencia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
@@ -61,9 +62,9 @@
             this.lblDatosGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDatosGrupo.Location = new System.Drawing.Point(160, 9);
             this.lblDatosGrupo.Name = "lblDatosGrupo";
-            this.lblDatosGrupo.Size = new System.Drawing.Size(139, 50);
+            this.lblDatosGrupo.Size = new System.Drawing.Size(154, 50);
             this.lblDatosGrupo.TabIndex = 13;
-            this.lblDatosGrupo.Text = "30 Alumnos\r\nPrimaria jose...";
+            this.lblDatosGrupo.Text = "N Alumnos\r\nPrimaria nombre";
             // 
             // btnTareas
             // 
@@ -72,7 +73,7 @@
             this.btnTareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnTareas.Image = global::WindowsFormsApp3.Properties.Resources.Tareas__2_;
+            this.btnTareas.Image = global::WindowsFormsApp3.Properties.Resources.icoTareas;
             this.btnTareas.Location = new System.Drawing.Point(12, 174);
             this.btnTareas.Name = "btnTareas";
             this.btnTareas.Size = new System.Drawing.Size(70, 70);
@@ -87,7 +88,7 @@
             this.btnAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlumnos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnAlumnos.Image = global::WindowsFormsApp3.Properties.Resources.Alumnos__2_;
+            this.btnAlumnos.Image = global::WindowsFormsApp3.Properties.Resources.icoAlumnos;
             this.btnAlumnos.Location = new System.Drawing.Point(12, 242);
             this.btnAlumnos.Name = "btnAlumnos";
             this.btnAlumnos.Size = new System.Drawing.Size(70, 70);
@@ -103,7 +104,7 @@
             this.btnEvaluaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEvaluaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEvaluaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnEvaluaciones.Image = global::WindowsFormsApp3.Properties.Resources.Evaluaciones;
+            this.btnEvaluaciones.Image = global::WindowsFormsApp3.Properties.Resources.icoEvaluaciones;
             this.btnEvaluaciones.Location = new System.Drawing.Point(12, 312);
             this.btnEvaluaciones.Name = "btnEvaluaciones";
             this.btnEvaluaciones.Size = new System.Drawing.Size(70, 70);
@@ -118,7 +119,7 @@
             this.btnNotas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNotas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnNotas.Image = global::WindowsFormsApp3.Properties.Resources.Notas__2_;
+            this.btnNotas.Image = global::WindowsFormsApp3.Properties.Resources.icoNotas;
             this.btnNotas.Location = new System.Drawing.Point(12, 384);
             this.btnNotas.Name = "btnNotas";
             this.btnNotas.Size = new System.Drawing.Size(70, 70);
@@ -134,7 +135,7 @@
             this.btnAsistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAsistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAsistencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnAsistencia.Image = global::WindowsFormsApp3.Properties.Resources.Asistencia;
+            this.btnAsistencia.Image = global::WindowsFormsApp3.Properties.Resources.icoAsistencia;
             this.btnAsistencia.Location = new System.Drawing.Point(12, 105);
             this.btnAsistencia.Name = "btnAsistencia";
             this.btnAsistencia.Size = new System.Drawing.Size(70, 70);
@@ -147,7 +148,7 @@
             this.btnAgregarDia.FlatAppearance.BorderSize = 0;
             this.btnAgregarDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarDia.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarDia.Location = new System.Drawing.Point(593, 360);
+            this.btnAgregarDia.Location = new System.Drawing.Point(599, 20);
             this.btnAgregarDia.Name = "btnAgregarDia";
             this.btnAgregarDia.Size = new System.Drawing.Size(63, 67);
             this.btnAgregarDia.TabIndex = 15;
@@ -159,7 +160,7 @@
             this.lblNombres.AutoSize = true;
             this.lblNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(240)))), ((int)(((byte)(215)))));
-            this.lblNombres.Location = new System.Drawing.Point(15, 37);
+            this.lblNombres.Location = new System.Drawing.Point(6, 17);
             this.lblNombres.Name = "lblNombres";
             this.lblNombres.Size = new System.Drawing.Size(87, 25);
             this.lblNombres.TabIndex = 1;
@@ -179,11 +180,21 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(40, 71);
+            this.splitContainer1.Location = new System.Drawing.Point(11, 45);
             this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Size = new System.Drawing.Size(356, 268);
-            this.splitContainer1.SplitterDistance = 118;
+            this.splitContainer1.Size = new System.Drawing.Size(582, 382);
+            this.splitContainer1.SplitterDistance = 192;
             this.splitContainer1.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(382, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 39);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "materia";
             // 
             // FormGrupo
             // 
@@ -198,6 +209,7 @@
             this.Controls.Add(this.btnAlumnos);
             this.Controls.Add(this.btnTareas);
             this.Controls.Add(this.btnAsistencia);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDatosGrupo);
             this.Controls.Add(this.lblGrupo);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
@@ -226,5 +238,6 @@
         private System.Windows.Forms.Label lblNombres;
         private System.Windows.Forms.GroupBox groupBoxAsistencia;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Label label1;
     }
 }
