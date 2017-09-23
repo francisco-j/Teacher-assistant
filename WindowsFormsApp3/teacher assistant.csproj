@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarGrupo.Designer.cs">
+      <DependentUpon>AgregarGrupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="clases\Alumno.cs" />
     <Compile Include="clases\dbConection.cs" />
     <Compile Include="clases\Grupo.cs" />
@@ -80,6 +86,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AgregarGrupo.resx">
+      <DependentUpon>AgregarGrupo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>
     </EmbeddedResource>

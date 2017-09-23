@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+using WindowsFormsApp3.clases;
+using System.Collections.Generic;
 
 namespace WindowsFormsApp3
 {
@@ -16,7 +19,7 @@ namespace WindowsFormsApp3
             string usuario = txbUsuario.Text;
             //Validación para asegurarnos que ingresó algo como contraseña
             //**La validación de que la contraseña sea la correcta se hará en Program.cs
-            if( usuario != "" )
+            if (usuario != "")
             {
                 if (contraseña != "")
                 {
@@ -39,6 +42,11 @@ namespace WindowsFormsApp3
         {
             Form registrarse = new FormRegistrarse();
             registrarse.ShowDialog();
+            txbUsuario.Focus();
+        }
+
+        private void FormInicio_Load(object sender, EventArgs e)
+        {
             txbUsuario.Focus();
         }
     }

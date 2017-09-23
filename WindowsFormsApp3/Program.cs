@@ -17,7 +17,8 @@ namespace WindowsFormsApp3
             Application.SetCompatibleTextRenderingDefault(false);
             Console.WriteLine("coneccion: " + dbConection.canConnect());
             inicio = new FormInicio();
-            Application.Run(inicio);
+            inicio.Show();
+            Application.Run();
             //falta mostrar al frente
         }
 
@@ -33,7 +34,7 @@ namespace WindowsFormsApp3
                 listaGrupos = new FormListaGrupos();
                 //Lo mostramos en la pantalla y ocultamos el anterior, el Form de inicio
                 listaGrupos.Show();
-                inicio.Hide();
+                inicio.Close();
             }
             else
             {
@@ -42,17 +43,11 @@ namespace WindowsFormsApp3
         }
 
         //Para cerrar sesión y regresar al Form de Login
-        internal static void LogOut()  
+        internal static void LogOut( Form ventana )  
         {
-            //Se recorren todas las ventanas que están abiertas y se ocultan para mostrar la de login
-            foreach (Form vent in Application.OpenForms)
-            {
-                //Es más probable que la ventana que encuentre no sea la de inicio y la tenga que ocultar, de lo contrario mostrará la ventan de inicio
-                if( vent.Name != "FormInicio")
-                    vent.Hide();
-                else
-                    vent.Show();
-            }
+            inicio = new FormInicio();
+            inicio.Show();
+            ventana.Dispose();
         }
 
 //***************************** ventanas *******************************************
@@ -62,6 +57,11 @@ namespace WindowsFormsApp3
         {
             Form listaMaterias = new FormListaMaterias( nombreGrupo );
             listaMaterias.Show();
+        }
+
+        internal static void returnToListaGrupos( )
+        {
+            listaGrupos.Show();
         }
         
         //muestra el estuduante indicado

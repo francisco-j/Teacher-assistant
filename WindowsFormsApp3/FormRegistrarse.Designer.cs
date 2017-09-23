@@ -112,7 +112,9 @@
             this.Controls.Add(this.txbContraseña);
             this.Controls.Add(this.txbUsuario);
             this.Name = "FormRegistrarse";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRegistrarse";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

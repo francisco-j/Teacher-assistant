@@ -28,20 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.containerGrupos = new System.Windows.Forms.Panel();
             this.lblGrupos = new System.Windows.Forms.Label();
             this.txbBusqueda = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnAgregarDia = new System.Windows.Forms.Button();
+            this.btnAgregarGrupo = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.containerGrupos = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
-            // 
-            // containerGrupos
-            // 
-            this.containerGrupos.AutoScroll = true;
-            this.containerGrupos.Location = new System.Drawing.Point(52, 131);
-            this.containerGrupos.Name = "containerGrupos";
-            this.containerGrupos.Size = new System.Drawing.Size(333, 375);
-            this.containerGrupos.TabIndex = 18;
             // 
             // lblGrupos
             // 
@@ -75,41 +68,66 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // btnAgregarDia
+            // btnAgregarGrupo
             // 
-            this.btnAgregarDia.FlatAppearance.BorderSize = 0;
-            this.btnAgregarDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarDia.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarDia.Location = new System.Drawing.Point(439, 439);
-            this.btnAgregarDia.Name = "btnAgregarDia";
-            this.btnAgregarDia.Size = new System.Drawing.Size(63, 67);
-            this.btnAgregarDia.TabIndex = 22;
-            this.btnAgregarDia.Text = "+";
-            this.btnAgregarDia.UseVisualStyleBackColor = true;
+            this.btnAgregarGrupo.FlatAppearance.BorderSize = 0;
+            this.btnAgregarGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarGrupo.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarGrupo.Location = new System.Drawing.Point(439, 439);
+            this.btnAgregarGrupo.Name = "btnAgregarGrupo";
+            this.btnAgregarGrupo.Size = new System.Drawing.Size(63, 67);
+            this.btnAgregarGrupo.TabIndex = 22;
+            this.btnAgregarGrupo.Text = "+";
+            this.btnAgregarGrupo.UseVisualStyleBackColor = true;
+            this.btnAgregarGrupo.Click += new System.EventHandler(this.btnAgregarGrupo_Click);
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoBack;
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Location = new System.Drawing.Point(12, 12);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(32, 32);
+            this.btnLogOut.TabIndex = 23;
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // containerGrupos
+            // 
+            this.containerGrupos.AutoScroll = true;
+            this.containerGrupos.Location = new System.Drawing.Point(52, 131);
+            this.containerGrupos.Name = "containerGrupos";
+            this.containerGrupos.Size = new System.Drawing.Size(310, 357);
+            this.containerGrupos.TabIndex = 25;
             // 
             // FormListaGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(576, 547);
-            this.Controls.Add(this.btnAgregarDia);
+            this.Controls.Add(this.containerGrupos);
+            this.Controls.Add(this.btnLogOut);
+            this.Controls.Add(this.btnAgregarGrupo);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txbBusqueda);
             this.Controls.Add(this.lblGrupos);
-            this.Controls.Add(this.containerGrupos);
             this.Name = "FormListaGrupos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de grupos";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel containerGrupos;
         private System.Windows.Forms.Label lblGrupos;
         private System.Windows.Forms.TextBox txbBusqueda;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button btnAgregarDia;
+        private System.Windows.Forms.Button btnAgregarGrupo;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.FlowLayoutPanel containerGrupos;
     }
 }

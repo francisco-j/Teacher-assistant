@@ -49,7 +49,6 @@
             this.txbContraseña.PasswordChar = '¤';
             this.txbContraseña.Size = new System.Drawing.Size(204, 20);
             this.txbContraseña.TabIndex = 0;
-            this.txbContraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnIniciar
             // 
@@ -134,8 +133,10 @@
             this.Controls.Add(this.txbContraseña);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.Name = "FormInicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio de Sesion";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.FormInicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUserImage)).EndInit();
             this.ResumeLayout(false);

@@ -28,7 +28,7 @@ namespace WindowsFormsApp3
                 botonGrupo.Size = tamaño;
 
                 //Se le establece un nombre al botón generado
-                botonGrupo.Text = "Grupo " + ( i + 1 );
+                botonGrupo.Text = "Materia " + ( i + 1 );
                 //Se le cambia la fuente a las letras del botón
                 System.Drawing.Font fuente = new System.Drawing.Font( "Microsoft Sans Serif", 20 );
                 botonGrupo.Font = fuente;
@@ -51,7 +51,8 @@ namespace WindowsFormsApp3
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            Program.LogOut(); // le dice a program que cierre secion
+            Program.returnToListaGrupos( );
+            this.Dispose();
         }
 
         private void btnGrupA_Click(object sender, EventArgs e)
