@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp3
 {
-    partial class AgregarGrupo
+    partial class FormAgregarGrupo
     {
         /// <summary>
         /// Required designer variable.

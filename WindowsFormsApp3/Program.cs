@@ -27,11 +27,16 @@ namespace WindowsFormsApp3
         //Para inciar sesión, abre el Form de lista de grupos
         internal static void Login(String usuario, String contraseña ) 
         {
+            int idUsuario;
+
             //La contraseña la obtendremos de la base de datos y verificaremos que coincida
-            if ( dbConection.isCorrecto(usuario, contraseña) )
+            if (dbConection.isCorrecto(ref idUsuario; usuario, contraseña) )
             {
+                //lee que grupos pertenecen al usuario
+                int[] gruposAsociados = dbConection.gruposAsociadosCon(ususario);
+
                 //Instanciamos el siguiente Form "Lista de grupos"
-                listaGrupos = new FormListaGrupos();
+                listaGrupos = new FormListaGrupos( gruposAsociados );
                 //Lo mostramos en la pantalla y ocultamos el anterior, el Form de inicio
                 listaGrupos.Show();
                 inicio.Close();
@@ -63,7 +68,12 @@ namespace WindowsFormsApp3
         {
             listaGrupos.Show();
         }
-        
+
+        internal static void busqueda(string text)
+        {
+            throw new NotImplementedException();
+        }
+
         //muestra el estuduante indicado
         internal static void ShowStudent(ushort studentId)  
         {

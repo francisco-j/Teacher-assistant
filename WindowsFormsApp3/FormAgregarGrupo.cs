@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp3
 {
-    public partial class AgregarGrupo : Form
+    public partial class FormAgregarGrupo : Form
     {
-        public AgregarGrupo()
+        public FormAgregarGrupo()
         {
             InitializeComponent();
         }

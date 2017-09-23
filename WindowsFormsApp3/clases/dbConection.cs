@@ -42,10 +42,15 @@ namespace WindowsFormsApp3.clases
 
         }
 
-// ******************** validacion ***************************************
+        internal static int[] gruposAsociadosCon(object ususario)
+        {
+            throw new NotImplementedException();
+        }
 
-        //verifica que la contrase;a y usuario coinsidan
-        internal static bool isCorrecto(string usuario, string contrasena)
+        // ******************** validacion ***************************************
+
+        //verifica que la contrasena y usuario coinsidan
+        internal static bool isCorrecto(ref int idUsuario, string usuario, string contrasena)
         {
             conection.Open();
             comand.Connection = conection;
@@ -54,6 +59,9 @@ namespace WindowsFormsApp3.clases
 
             if (reader.HasRows)
             {
+                // asignar valor a id
+                //id = ;
+
                 conection.Close();
                 return true;
             }

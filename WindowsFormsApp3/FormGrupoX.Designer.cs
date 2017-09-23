@@ -39,7 +39,7 @@
             this.lblNombres = new System.Windows.Forms.Label();
             this.groupBoxAsistencia = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblMateria = new System.Windows.Forms.Label();
             this.groupBoxAsistencia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
@@ -49,7 +49,7 @@
             // 
             this.lblGrupo.AutoSize = true;
             this.lblGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(240)))), ((int)(((byte)(215)))));
+            this.lblGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.lblGrupo.Location = new System.Drawing.Point(12, 9);
             this.lblGrupo.Name = "lblGrupo";
             this.lblGrupo.Size = new System.Drawing.Size(127, 63);
@@ -60,11 +60,12 @@
             // 
             this.lblDatosGrupo.AutoSize = true;
             this.lblDatosGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatosGrupo.Location = new System.Drawing.Point(160, 9);
+            this.lblDatosGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(240)))), ((int)(((byte)(215)))));
+            this.lblDatosGrupo.Location = new System.Drawing.Point(145, 9);
             this.lblDatosGrupo.Name = "lblDatosGrupo";
-            this.lblDatosGrupo.Size = new System.Drawing.Size(154, 50);
+            this.lblDatosGrupo.Size = new System.Drawing.Size(168, 50);
             this.lblDatosGrupo.TabIndex = 13;
-            this.lblDatosGrupo.Text = "N Alumnos\r\nPrimaria nombre";
+            this.lblDatosGrupo.Text = "(#) Alumnos\r\nPrimaria (nombre)";
             // 
             // btnTareas
             // 
@@ -186,15 +187,16 @@
             this.splitContainer1.SplitterDistance = 192;
             this.splitContainer1.TabIndex = 16;
             // 
-            // label1
+            // lblMateria
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(382, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 39);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "materia";
+            this.lblMateria.AutoSize = true;
+            this.lblMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.lblMateria.ForeColor = System.Drawing.Color.Sienna;
+            this.lblMateria.Location = new System.Drawing.Point(382, 9);
+            this.lblMateria.Name = "lblMateria";
+            this.lblMateria.Size = new System.Drawing.Size(152, 46);
+            this.lblMateria.TabIndex = 13;
+            this.lblMateria.Text = "materia";
             // 
             // FormGrupo
             // 
@@ -209,7 +211,7 @@
             this.Controls.Add(this.btnAlumnos);
             this.Controls.Add(this.btnTareas);
             this.Controls.Add(this.btnAsistencia);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblMateria);
             this.Controls.Add(this.lblDatosGrupo);
             this.Controls.Add(this.lblGrupo);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
@@ -238,6 +240,6 @@
         private System.Windows.Forms.Label lblNombres;
         private System.Windows.Forms.GroupBox groupBoxAsistencia;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMateria;
     }
 }
