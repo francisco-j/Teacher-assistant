@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.Drawing;
 using WindowsFormsApp3.clases;
 using System.Collections.Generic;
 namespace WindowsFormsApp3
 {
     public partial class FormListaGrupos : Form
     {
-        private int pixelUltimoBoton;
-        private int pixelUltimaLabel;
+        //La siguiente variable obtendrá de la base de datos la cantidad de grupos registrados para este maestro 
         private int numeroBotones;
+        //La siguiente variable se utiliazará para cargar todos los botones en el contenedor containerGrupos
         private Button boton;
+        //Vector que almacena colores que asignará a los botones que vayan siendo agregados, máximo habrá 10 botones de grupo por lo que se cubren todos los casos
+        private Color[ ] coloresBotones = new Color[ 10 ] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
 
         public FormListaGrupos()
         {
-            this.Name = "FormListaGrupos";
             InitializeComponent();
 
-            pixelUltimoBoton = 30;
-            pixelUltimaLabel = 30;
             numeroBotones = 0;
 
             for( int i = 0; i < 1; i++, numeroBotones++ )
@@ -26,10 +26,9 @@ namespace WindowsFormsApp3
                 boton = new Button();
                 containerGrupos.Controls.Add( boton );
 
-                configurarBoton( ref boton, "Grupo" + ( i + 1 ), "Grupo " + ( i + 1 ), 150, 115, 30, ref pixelUltimoBoton, "Microsoft Sans Serif", 20 );
+                configurarBoton( ref boton, "Grupo" + ( i + 1 ), "Grupo " + ( i + 1 ), 150, 115, "Microsoft Sans Serif", 20, coloresBotones[ i ] );
 
                 boton.Click += new System.EventHandler( boton_Click );
-                pixelUltimoBoton += 150;
             }
         }
 
@@ -40,7 +39,7 @@ namespace WindowsFormsApp3
             this.Hide();
         }
 
-        private void configurarBoton(ref Button boton, string nombre, string text, int ancho, int alto, int x, ref int y, string fuente, int tamañoLetra)
+        private void configurarBoton(ref Button boton, string nombre, string text, int ancho, int alto, string fuente, int tamañoLetra, Color color)
         {
             boton.Name = nombre;
             boton.Text = text;
@@ -50,13 +49,10 @@ namespace WindowsFormsApp3
             tamaño.Height = alto;
             boton.Size = tamaño;
 
-            System.Drawing.Point coordenadas = new System.Drawing.Point();
-            coordenadas.X = x;
-            coordenadas.Y = y;
-            boton.Location = coordenadas;
-
             System.Drawing.Font letra = new System.Drawing.Font( fuente, tamañoLetra );
             boton.Font = letra;
+
+            boton.BackColor = color;
         }
 
         private void btnBuscar_Click(object sender, System.EventArgs e)
@@ -71,13 +67,19 @@ namespace WindowsFormsApp3
 
         private void btnAgregarGrupo_Click(object sender, System.EventArgs e)
         {
-            numeroBotones++;
-            Button botonNuevo = new Button();
-            configurarBoton( ref botonNuevo, "Grupo" + numeroBotones, "Grupo " + numeroBotones, 150, 115, 30, ref pixelUltimoBoton, "Microsoft Sans Serif", 20 );
-            containerGrupos.Controls.Add( botonNuevo );
-            pixelUltimoBoton += 10;
+            if (numeroBotones < 10)
+            {
+                numeroBotones++;
+                Button botonNuevo = new Button();
+                configurarBoton( ref botonNuevo, "Grupo" + numeroBotones, "Grupo " + numeroBotones, 150, 115, "Microsoft Sans Serif", 20, coloresBotones[ numeroBotones - 1 ] );
+                containerGrupos.Controls.Add( botonNuevo );
 
-            botonNuevo.Click += new System.EventHandler( boton_Click );
+                botonNuevo.Click += new System.EventHandler( boton_Click );
+            }
+            else
+            {
+                MessageBox.Show( "Sólo se pueden tener un máximo de 10 grupos por sesión" );
+            }
         }
     }
 }
