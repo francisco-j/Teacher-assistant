@@ -91,24 +91,43 @@ namespace WindowsFormsApp3.clases
             return true;
         }
 
-//************************** otros *********************************************
-        
-        //experimentacion
-        public int temp()
+        internal static void agregarAlumno()
         {
-            adapter.SelectCommand.CommandText = "SELECT * FROM Contactos";
-            conection.Open();
-            adapter.SelectCommand.Connection = conection;
-
-            OleDbDataReader reader = adapter.SelectCommand.ExecuteReader();
-            reader.Read();
-            int id = Convert.ToInt16(reader["Id"].ToString());
-
-            conection.Close();
-
-            return id;
+            throw new NotImplementedException();
+            //some code
         }
 
+        internal static void agregarGrupo()
+        {
+            throw new NotImplementedException();
+            //some code
+        }
+
+        internal static void agregarTarea()
+        {
+            throw new NotImplementedException();
+            //some code
+        }
+
+
+
+        //************************** otros *********************************************
+
+        //experimentacion
+        //public int temp()
+        //{
+        //    adapter.SelectCommand.CommandText = "SELECT * FROM Contactos";
+        //    conection.Open();
+        //    adapter.SelectCommand.Connection = conection;
+
+        //    OleDbDataReader reader = adapter.SelectCommand.ExecuteReader();
+        //    reader.Read();
+        //    int id = Convert.ToInt16(reader["Id"].ToString());
+
+        //    conection.Close();
+
+        //    return id;
+        //}
         
     }
 }

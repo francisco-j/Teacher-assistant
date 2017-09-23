@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Threading.Tasks;
-using System.Drawing;
 using WindowsFormsApp3.clases;
 using System.Collections.Generic;
+
 namespace WindowsFormsApp3
 {
     public partial class FormListaGrupos : Form
@@ -34,7 +35,7 @@ namespace WindowsFormsApp3
 
         private void boton_Click(object sender, System.EventArgs e)
         {
-            Program.showListaMaterias( ( sender as Button ).Text );
+            Program.showListaMaterias((sender as Button).Text);
             //Se oculta esta ventana para que cuando se regrese no se vuelva a cargar todo
             this.Hide();
         }
@@ -44,12 +45,12 @@ namespace WindowsFormsApp3
             boton.Name = nombre;
             boton.Text = text;
 
-            System.Drawing.Size tamaño = new System.Drawing.Size();
+            Size tamaño = new Size();
             tamaño.Width = ancho;
             tamaño.Height = alto;
             boton.Size = tamaño;
 
-            System.Drawing.Font letra = new System.Drawing.Font( fuente, tamañoLetra );
+            Font letra = new Font( fuente, tamañoLetra );
             boton.Font = letra;
 
             boton.BackColor = color;
