@@ -45,11 +45,20 @@ namespace WindowsFormsApp3.clases
 // ******************** validacion ***************************************
 
         //verifica que la contrase;a y usuario coinsidan
-        internal static bool isCorrecto(string usuario, string contraseña)
+        internal static bool isCorrecto(string usuario, string contrasena)
         {
+            conection.Open();
+            comand.Connection = conection;
+            comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "' AND contrasena='"+contrasena+"'";
+            OleDbDataReader reader = comand.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                conection.Close();
+                return true;
+            }
+            conection.Close();
             return true;
-            //throw new NotImplementedException();
-            //some code
         }
 
 //************************  lectura ******************************************
@@ -62,7 +71,7 @@ namespace WindowsFormsApp3.clases
         {
             conection.Open();
             comand.Connection = conection;
-            comand.CommandText = "select * from Usuarios where usuario='" + usuario + "'" ;
+            comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "'" ;
             OleDbDataReader reader = comand.ExecuteReader();
 
             if (reader.HasRows)
@@ -72,10 +81,12 @@ namespace WindowsFormsApp3.clases
                 conection.Close();
                 return false;
             }
+
             reader.Close();
-            comand.CommandText = "INSERT INTO Usuarios (id, usuario, contrasena) VALUES(2,'" + usuario + "', '" + contra + "')";
-            comand.CommandType = CommandType.Text;
-            Console.WriteLine(comand.ExecuteNonQuery());
+            comand = new OleDbCommand();
+            comand.CommandText = "INSERT INTO Usuarios (usuario, contrasena) VALUES('"+usuario+"', '"+contra+"')";
+            comand.Connection = conection;
+            Console.WriteLine(comand.ExecuteNonQuery()+" lienas con cambios");
             conection.Close();
             return true;
         }
