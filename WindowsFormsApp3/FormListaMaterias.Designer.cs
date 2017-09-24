@@ -181,7 +181,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FormListaMaterias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormListaG_FormClosed);
             this.Load += new System.EventHandler(this.FormListaG_Load);
             this.groupBoxAsistencia.ResumeLayout(false);

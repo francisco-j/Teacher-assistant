@@ -99,7 +99,7 @@
             this.containerGrupos.AutoScroll = true;
             this.containerGrupos.Location = new System.Drawing.Point(52, 131);
             this.containerGrupos.Name = "containerGrupos";
-            this.containerGrupos.Size = new System.Drawing.Size(302, 357);
+            this.containerGrupos.Size = new System.Drawing.Size(243, 357);
             this.containerGrupos.TabIndex = 25;
             // 
             // FormListaGrupos
@@ -116,7 +116,6 @@
             this.Name = "FormListaGrupos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de grupos";
-            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

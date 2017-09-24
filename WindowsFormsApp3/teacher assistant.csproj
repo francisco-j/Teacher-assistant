@@ -84,6 +84,7 @@
     <Compile Include="FormRegistrarse.Designer.cs">
       <DependentUpon>FormRegistrarse.cs</DependentUpon>
     </Compile>
+    <Compile Include="PersonalizacionComponentes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAgregarGrupo.resx">
