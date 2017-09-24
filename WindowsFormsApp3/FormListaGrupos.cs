@@ -36,13 +36,14 @@ namespace WindowsFormsApp3
 
                 boton.Click += new System.EventHandler( boton_Click );
 
+                /*NO BORRAR
                 escuelaGrupo = new Label();
                 descripcionGrupo = new Label();
                 PersonalizacionComponentes.configurarLabelGrupos( ref escuelaGrupo, "Escuela " + ( i + 1 ), new Font( "Microsoft Sans Serif", 12 ) );
                 PersonalizacionComponentes.configurarLabelGrupos( ref descripcionGrupo, "Descripción " + ( i + 1 ), new Font( "Microsoft Sans Serif", 12 ) );
 
                 containerGrupos.Controls.Add( escuelaGrupo );
-                containerGrupos.Controls.Add( descripcionGrupo );
+                containerGrupos.Controls.Add( descripcionGrupo );*/
             }
         }
 
@@ -77,12 +78,12 @@ namespace WindowsFormsApp3
 
                 botonNuevo.Click += new System.EventHandler( boton_Click );
                 botonNuevo.Focus();
-
+                /*NO BORRAR
                 PersonalizacionComponentes.configurarLabelGrupos( ref escuelaGrupo, datosNuevoGrupo[ 2 ], new Font( "Microsoft Sans Serif", 12 ) );
                 PersonalizacionComponentes.configurarLabelGrupos( ref descripcionGrupo, datosNuevoGrupo[ 3 ], new Font( "Microsoft Sans Serif", 12 ) );
 
                 containerGrupos.Controls.Add( escuelaGrupo );
-                containerGrupos.Controls.Add( descripcionGrupo );
+                containerGrupos.Controls.Add( descripcionGrupo );*/
             }
             else
             {
