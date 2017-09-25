@@ -21,32 +21,36 @@ namespace WindowsFormsApp3
         private Label escuelaGrupo;
         private Label descripcionGrupo;
 
-        public FormListaGrupos(/*int[] grupos*/)
+//*********************************  constructor ********************************
+        public FormListaGrupos( Grupo[] grupos )
         {
             InitializeComponent();
 
             numeroBotones = 0;
 
-            for( int i = 0; i < 1; i++, numeroBotones++ )
+            foreach (Grupo g in grupos)
             {
                 boton = new Button();
                 containerGrupos.Controls.Add( boton );
 
-                PersonalizacionComponentes.configurarBoton( ref boton, "Grupo" + ( i + 1 ), "Grupo " + ( i + 1 ), new Size(150, 115), new Font("Microsoft Sans Serif", 20), coloresBotones[ i ] );
+                PersonalizacionComponentes.configurarBoton( ref boton, "Grupo "+g.ToString(), "Grupo "+g.ToString(), new Size(150, 115), new Font("Microsoft Sans Serif", 20), coloresBotones[ 2 ] );
 
                 boton.Click += new System.EventHandler( boton_Click );
 
-                /*NO BORRAR
+                /*
+                 * NO BORRAR
                 escuelaGrupo = new Label();
                 descripcionGrupo = new Label();
                 PersonalizacionComponentes.configurarLabelGrupos( ref escuelaGrupo, "Escuela " + ( i + 1 ), new Font( "Microsoft Sans Serif", 12 ) );
                 PersonalizacionComponentes.configurarLabelGrupos( ref descripcionGrupo, "Descripción " + ( i + 1 ), new Font( "Microsoft Sans Serif", 12 ) );
 
                 containerGrupos.Controls.Add( escuelaGrupo );
-                containerGrupos.Controls.Add( descripcionGrupo );*/
+                containerGrupos.Controls.Add( descripcionGrupo );
+                */
             }
         }
 
+//**************************** btn_click ********************************************
         private void boton_Click(object sender, System.EventArgs e)
         {
             Program.showListaMaterias( ( sender as Button ).Text );
@@ -90,6 +94,7 @@ namespace WindowsFormsApp3
                 MessageBox.Show( "Sólo se pueden tener un máximo de 10 grupos por sesión" );
             }
         }
+
 
         public void setDatosGrupoNuevo( string grado, string grupo, string escuela, string descripcion )
         {

@@ -42,9 +42,13 @@ namespace WindowsFormsApp3.clases
 
         }
 
-        internal static int[] gruposAsociadosCon(object ususario)
+        internal static Grupo[] GruposAsociadosCon(object ususario)
         {
-            throw new NotImplementedException();
+            Grupo g =  new Grupo(1, 1, 'A', "chapalirta");
+            Grupo[] gs = { g };
+
+            return gs;
+
         }
 
         // ******************** validacion ***************************************

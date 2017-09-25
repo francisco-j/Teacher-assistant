@@ -34,11 +34,10 @@ namespace WindowsFormsApp3
             if (dbConection.isCorrecto(ref idUsuario, usuario, contraseña) )
             {
                 //lee que grupos pertenecen al usuario
-
-                //int[] gruposAsociados = dbConection.gruposAsociadosCon(usuario);
+                Grupo[] gruposAsociados = dbConection.GruposAsociadosCon(usuario);
 
                 //Instanciamos el siguiente Form "Lista de grupos"
-                listaGrupos = new FormListaGrupos( /*gruposAsociados*/ );
+                listaGrupos = new FormListaGrupos( gruposAsociados );
                 //Lo mostramos en la pantalla y ocultamos el anterior, el Form de inicio
                 listaGrupos.Show();
                 inicio.Close();
@@ -85,10 +84,6 @@ namespace WindowsFormsApp3
         //abre el formGroupX con el grupo indicado
         internal static void ShowGroup(ushort groupId)
         {
-/**
- * aqui crea una cosa pero muestra otra
- * crea un form y no lo amacena, luego muestra grupo
- **/
             new FormGrupo(groupId); //crea el form
             grupo.Show();   //lo muestra
         }

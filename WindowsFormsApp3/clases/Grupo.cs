@@ -6,16 +6,31 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp3
 {
-    class Grupo
+    public class Grupo
     {
-        private ushort grado; //año escolar 1, 2, 3, 4, 5, o 6
-        private Char grupo; //letra alfabetica
-        private string escuela; //nombre de la escuela
+        private int id;
+        private int grado;
+        private Char grupo;
+        private string escuela;
 
-        public String Nombre()
+// ******************* constructor **************************
+
+        public Grupo(int id, int grado, char grupo, string escuela) //constructor
         {
-            return grado + "º" + grupo;
+            this.id = id;
+            this.grado = grado;
+            this.grupo = grupo;
+            this.escuela = escuela;
         }
+
+// *********************** get ************************************
+
+         public int getId()
+        {
+            return this.id;
+        }
+
+// ************************** set ************************************
 
         public void SetGrado(ushort grado) //cambiar el grado
         {
@@ -32,12 +47,13 @@ namespace WindowsFormsApp3
             this.escuela = escuela;
         }
 
-        public Grupo(ushort grado, char grupo, string escuela) //constructor
+// ******************* otros metodos ***************************************
+
+        override public String ToString()
         {
-            this.grado = grado;
-            this.grupo = grupo;
-            this.escuela = escuela;
+            return grado + "º" + grupo;
         }
+
         
     }
 }

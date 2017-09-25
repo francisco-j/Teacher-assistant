@@ -48,14 +48,14 @@
             this.txbContraseña.Name = "txbContraseña";
             this.txbContraseña.PasswordChar = '¤';
             this.txbContraseña.Size = new System.Drawing.Size(204, 20);
-            this.txbContraseña.TabIndex = 0;
+            this.txbContraseña.TabIndex = 1;
             // 
             // btnIniciar
             // 
             this.btnIniciar.Location = new System.Drawing.Point(149, 330);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(115, 23);
-            this.btnIniciar.TabIndex = 3;
+            this.btnIniciar.TabIndex = 2;
             this.btnIniciar.Text = "Iniciar Sesión";
             this.btnIniciar.UseVisualStyleBackColor = true;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
@@ -85,7 +85,7 @@
             this.btnRegistrar.Location = new System.Drawing.Point(323, 67);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
-            this.btnRegistrar.TabIndex = 5;
+            this.btnRegistrar.TabIndex = 3;
             this.btnRegistrar.Text = "Registrarse";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -94,6 +94,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.label1.Location = new System.Drawing.Point(39, 277);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 20);
@@ -104,6 +105,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.label2.Location = new System.Drawing.Point(11, 308);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 20);
@@ -115,7 +117,7 @@
             this.txbUsuario.Location = new System.Drawing.Point(113, 279);
             this.txbUsuario.Name = "txbUsuario";
             this.txbUsuario.Size = new System.Drawing.Size(204, 20);
-            this.txbUsuario.TabIndex = 8;
+            this.txbUsuario.TabIndex = 0;
             // 
             // FormInicio
             // 
