@@ -34,7 +34,7 @@ namespace WindowsFormsApp3
             if (dbConection.isCorrecto(ref idUsuario, usuario, contraseña) )
             {
                 //lee que grupos pertenecen al usuario
-                Grupo[] gruposAsociados = dbConection.GruposAsociadosCon(usuario);
+                Grupo[] gruposAsociados = dbConection.GruposAsociadosCon(idUsuario);
 
                 //Instanciamos el siguiente Form "Lista de grupos"
                 listaGrupos = new FormListaGrupos( gruposAsociados );

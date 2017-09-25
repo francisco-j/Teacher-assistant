@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-
 namespace WindowsFormsApp3.clases
 {
     class dbConection
@@ -42,17 +41,41 @@ namespace WindowsFormsApp3.clases
 
         }
 
-        internal static Grupo[] GruposAsociadosCon(object ususario)
+        // retorna los grupos que controla el maestro indicado
+        internal static Grupo[] GruposAsociadosCon(int idUsuario)
         {
+            //provicional
+            /*
             Grupo g =  new Grupo(1, 1, 'A', "chapalirta");
             Grupo[] gs = { g };
+            */
 
-            return gs;
+            //codigo real
+            conection.Open();
+            comand.Connection = conection;
+            comand.CommandText = "SELECT * FROM Salones WHERE maestro='" + idUsuario.ToString() + "'";
+            OleDbDataReader reader = comand.ExecuteReader();
+
+            List<Grupo> lGrupos = new List<Grupo>();
+
+            while (reader.Read())
+            {
+                int id = Convert.ToInt16(reader["idSalon"].ToString());
+                int grado = Convert.ToInt16(reader["grado"].ToString());
+                char grupo = reader["grado"].ToString().First();
+                string escuela = reader["escuela"].ToString();
+                Grupo g = new Grupo(id, grado, grupo, escuela);
+
+                lGrupos.Add(g);
+            }
+
+            reader.Close();
+            conection.Close();
+
+            return lGrupos.ToArray();
 
         }
-
-        // ******************** validacion ***************************************
-
+        
         //verifica que la contrasena y usuario coinsidan
         internal static bool isCorrecto(ref int idUsuario, string usuario, string contrasena)
         {
@@ -64,7 +87,8 @@ namespace WindowsFormsApp3.clases
             if (reader.HasRows)
             {
                 // asignar valor a id
-                //id = ;
+                //porvicional
+                idUsuario = 1 ;
 
                 conection.Close();
                 return true;
