@@ -45,64 +45,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormAgregarGrupo.cs">
+    <Compile Include="vistas\FormAgregarGrupo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAgregarGrupo.Designer.cs">
+    <Compile Include="vistas\FormAgregarGrupo.Designer.cs">
       <DependentUpon>FormAgregarGrupo.cs</DependentUpon>
     </Compile>
     <Compile Include="clases\Alumno.cs" />
     <Compile Include="clases\dbConection.cs" />
     <Compile Include="clases\Grupo.cs" />
-    <Compile Include="FormInicio.cs">
+    <Compile Include="vistas\FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormInicio.Designer.cs">
+    <Compile Include="vistas\FormInicio.Designer.cs">
       <DependentUpon>FormInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormListaMaterias.cs">
+    <Compile Include="vistas\FormListaMaterias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormListaMaterias.Designer.cs">
+    <Compile Include="vistas\FormListaMaterias.Designer.cs">
       <DependentUpon>FormListaMaterias.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGrupoX.cs">
+    <Compile Include="vistas\FormGrupoX.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGrupoX.Designer.cs">
+    <Compile Include="vistas\FormGrupoX.Designer.cs">
       <DependentUpon>FormGrupoX.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormListaGrupos.cs">
+    <Compile Include="vistas\FormListaGrupos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormListaGrupos.Designer.cs">
+    <Compile Include="vistas\FormListaGrupos.Designer.cs">
       <DependentUpon>FormListaGrupos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRegistrarse.cs">
+    <Compile Include="vistas\FormRegistrarse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRegistrarse.Designer.cs">
+    <Compile Include="vistas\FormRegistrarse.Designer.cs">
       <DependentUpon>FormRegistrarse.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonalizacionComponentes.cs" />
+    <Compile Include="clases\PersonalizacionComponentes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormAgregarGrupo.resx">
+    <EmbeddedResource Include="vistas\FormAgregarGrupo.resx">
       <DependentUpon>FormAgregarGrupo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormInicio.resx">
+    <EmbeddedResource Include="vistas\FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormListaMaterias.resx">
+    <EmbeddedResource Include="vistas\FormListaMaterias.resx">
       <DependentUpon>FormListaMaterias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGrupoX.resx">
+    <EmbeddedResource Include="vistas\FormGrupoX.resx">
       <DependentUpon>FormGrupoX.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormListaGrupos.resx">
+    <EmbeddedResource Include="vistas\FormListaGrupos.resx">
       <DependentUpon>FormListaGrupos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRegistrarse.resx">
+    <EmbeddedResource Include="vistas\FormRegistrarse.resx">
       <DependentUpon>FormRegistrarse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
