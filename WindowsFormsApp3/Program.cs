@@ -15,7 +15,7 @@ namespace WindowsFormsApp3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Console.WriteLine("coneccion: " + dbConection.canConnect());
+            dbConection.canConnect();
             inicio = new FormInicio();
             inicio.Show();
             Application.Run();
@@ -25,16 +25,16 @@ namespace WindowsFormsApp3
 //****************************** logg  **********************************************
 
         //Para inciar sesión, abre el Form de lista de grupos
-        internal static void Login(String usuario, String contraseña ) 
+        internal static void Login(String usuario, String contrasena ) 
         {
             //Se le asgna cero porque no se puede mandar como parámetro si no le has asignado nada
             int idUsuario = 0;
 
             //La contraseña la obtendremos de la base de datos y verificaremos que coincida
-            if (dbConection.isCorrecto(ref idUsuario, usuario, contraseña) )
+            if (dbConection.isCorrecto(ref idUsuario, usuario, contrasena) )
             {
                 //lee que grupos pertenecen al usuario
-                Grupo[] gruposAsociados = dbConection.GruposAsociadosCon(idUsuario);
+                Grupo[] gruposAsociados = dbConection.GruposAsociadosCon( idUsuario );
 
                 //Instanciamos el siguiente Form "Lista de grupos"
                 listaGrupos = new FormListaGrupos( gruposAsociados );
@@ -44,7 +44,7 @@ namespace WindowsFormsApp3
             }
             else
             {
-                MessageBox.Show( "La contraseña ingresada es incorrecta, por favor intenta de nuevo" );
+                throw new ApplicationException("Usuario y contraseña no coinsiden \npor favor intenta de nuevo");
             }
         }
 
@@ -92,7 +92,7 @@ namespace WindowsFormsApp3
 
         internal static bool registrar(string usuario, string contra)
         {
-            return dbConection.registrarUsuario( usuario, contra );
+            return dbConection.RegistrarUsuario( usuario, contra );
         }
 
 // ************************** metodos privados ****************************************

@@ -18,7 +18,7 @@ namespace WindowsFormsApp3.clases
         private static OleDbCommand comand = new OleDbCommand();
         private static OleDbDataAdapter adapter = new OleDbDataAdapter();
 
-        // verid=fica que la conexion se pueda relizar
+        // verifica que la conexion se pueda relizar, muestra respuesta en output
         public static bool canConnect()
         {
             try
@@ -27,15 +27,19 @@ namespace WindowsFormsApp3.clases
 
                 if (conection.State == ConnectionState.Open)
                 {
+                    Console.WriteLine("conexion exitosa");
                     conection.Close();
-                    // retorna true si se puede realizar una conecion, false a culquier otra cosa
                     return true;
                 }
                 else
+                {
+                    Console.WriteLine("conexion fallida");
                     return false;
+                }
             }
             catch (Exception ex)
             {
+                Console.WriteLine( "conexion fallida, error: "+ex.Message );
                 return false;
             }
 
@@ -53,8 +57,9 @@ namespace WindowsFormsApp3.clases
             //codigo real
             conection.Open();
             comand.Connection = conection;
-            comand.CommandText = "SELECT * FROM Salones WHERE maestro='" + idUsuario.ToString() + "'";
-            OleDbDataReader reader = comand.ExecuteReader();
+            comand.CommandText = "SELECT * FROM Salones WHERE maestro=" + idUsuario.ToString();
+            OleDbDataReader reader = null;
+            reader = comand.ExecuteReader();
 
             List<Grupo> lGrupos = new List<Grupo>();
 
@@ -62,7 +67,7 @@ namespace WindowsFormsApp3.clases
             {
                 int id = Convert.ToInt16(reader["idSalon"].ToString());
                 int grado = Convert.ToInt16(reader["grado"].ToString());
-                char grupo = reader["grado"].ToString().First();
+                char grupo = reader["grupo"].ToString().First();
                 string escuela = reader["escuela"].ToString();
                 Grupo g = new Grupo(id, grado, grupo, escuela);
 
@@ -93,8 +98,11 @@ namespace WindowsFormsApp3.clases
                 conection.Close();
                 return true;
             }
-            conection.Close();
-            return true;
+            else
+            {
+                conection.Close();
+                return false;
+            }
         }
 
 //************************  lectura ******************************************
@@ -103,7 +111,7 @@ namespace WindowsFormsApp3.clases
 
 //************************  escritura ******************************************
 
-        internal static bool registrarUsuario(string usuario, string contra)
+        internal static bool RegistrarUsuario(string usuario, string contra)
         {
             conection.Open();
             comand.Connection = conection;
@@ -112,34 +120,35 @@ namespace WindowsFormsApp3.clases
 
             if (reader.HasRows)
             {
-                MessageBox.Show( "EL usuario ya existe :v " );
-                //throw new Exception("ya existe este usuario");
+                //MessageBox.Show( "EL usuario ya existe" );
                 conection.Close();
-                return false;
+                throw new ApplicationException ("Ya existe este usuario");
+            }
+            else
+            {
+                reader.Close();
+                comand = new OleDbCommand();
+                comand.CommandText = "INSERT INTO Usuarios (usuario, contrasena) VALUES('"+usuario+"', '"+contra+"')";
+                comand.Connection = conection;
+                Console.WriteLine(comand.ExecuteNonQuery()+" lienas con cambios");
+                conection.Close();
+                return true;
+                }
             }
 
-            reader.Close();
-            comand = new OleDbCommand();
-            comand.CommandText = "INSERT INTO Usuarios (usuario, contrasena) VALUES('"+usuario+"', '"+contra+"')";
-            comand.Connection = conection;
-            Console.WriteLine(comand.ExecuteNonQuery()+" lienas con cambios");
-            conection.Close();
-            return true;
-        }
-
-        internal static void agregarAlumno()
+        internal static void AgregarAlumno()
         {
             throw new NotImplementedException();
             //some code
         }
 
-        internal static void agregarGrupo()
+        internal static void AgregarGrupo()
         {
             throw new NotImplementedException();
             //some code
         }
 
-        internal static void agregarTarea()
+        internal static void AgregarTarea()
         {
             throw new NotImplementedException();
             //some code

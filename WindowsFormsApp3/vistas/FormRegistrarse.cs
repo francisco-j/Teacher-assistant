@@ -40,11 +40,19 @@ namespace WindowsFormsApp3
             }
             else
             {
-                if( Program.registrar( usuario, contraseña ) )
+                try
                 {
-                    MessageBox.Show( "El maestro " + usuario + " se ha guardado exitosamente" );
-                    this.Dispose();
+                    if( Program.registrar( usuario, contraseña ) )
+                    {
+                        MessageBox.Show( "El maestro " + usuario + " se ha guardado exitosamente" );
+                        this.Dispose();
+                    }
                 }
+                catch (ApplicationException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                
             }
         }
 

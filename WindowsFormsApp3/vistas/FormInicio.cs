@@ -23,17 +23,25 @@ namespace WindowsFormsApp3
             {
                 if (contraseña != "")
                 {
-                    Program.Login( usuario, contraseña );
+                    try
+                    {
+                        Program.Login( usuario, contraseña );
+                    }
+                    catch (ApplicationException ex)
+                    {
+                        MessageBox.Show(this, ex.Message); 
+                    }
+
                 }
                 else
                 {
-                    MessageBox.Show( "Ingresa la contraseña para poder iniciar sesión" );
+                    MessageBox.Show(this, "Ingresa la contraseña para poder iniciar sesión" );
                     txbContraseña.Focus();
                 }
             }
             else
             {
-                MessageBox.Show( "Ingresa tu usuario para iniciar sesión" );
+                MessageBox.Show(this, "Ingresa tu usuario para iniciar sesión" );
                 txbUsuario.Focus();
             }
         }
@@ -49,5 +57,10 @@ namespace WindowsFormsApp3
         {
             txbUsuario.Focus();
         }
+
+        //*********************** errores ****************************
+        private string erTitulo = "Error inesperado";
+        private string erTituloContra = "datos incorrectos";
+
     }
 }
