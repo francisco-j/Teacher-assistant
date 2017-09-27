@@ -142,10 +142,9 @@ namespace WindowsFormsApp3.clases
             //some code
         }
 
-        internal static void AgregarGrupo()
+        internal static void AgregarGrupo(int grado, char grupo, String escuela, int maesto)
         {
             throw new NotImplementedException();
-            //some code
         }
 
         internal static void AgregarTarea()

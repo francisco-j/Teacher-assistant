@@ -12,19 +12,22 @@ namespace WindowsFormsApp3
 {
     class PersonalizacionComponentes
     {
-        /*
-        private Color[ ] coloresBotones = new Color[ 10 ] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
+        //constructor privaro para que no lo instancien
+        private PersonalizacionComponentes() { }
 
-        public enum Colores : int { Aqua = 0, Beige, Rojo, Rosa, Amarillo, Blanco, Nieve, Plateado, Salmon, AzulRoyal };
-        */
+        //Vector que almacena colores que asignará a los botones que vayan siendo agregados, máximo habrá 10 botones de grupo por lo que se cubren todos los casos
+        private static Color[] botonGrupoColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
 
-        public static void configurarBoton(ref Button boton, string nombre, string text, Size tamanio, Font fuente, Color color)
+        public static void configurarBotonGrupo(ref Button boton, Grupo grupo, int color)
         {
-            boton.Name = nombre;
-            boton.Text = text;
-            boton.Size = tamanio;
-            boton.Font = fuente;
-            boton.BackColor = color;
+            //boton, g.ToString(), g.ToString(), , , int color
+            boton.FlatStyle = FlatStyle.Flat;
+            boton.FlatAppearance.BorderSize = 0;
+            boton.Name = "Grupo " + grupo.ToString();
+            boton.Text = "Grupo " + grupo.ToString();
+            boton.Size = new Size(150, 115);
+            boton.Font = new Font("Microsoft Sans Serif", 20);
+            boton.BackColor = botonGrupoColores[color];
         }
 
         public static void configurarLabelGrupos( ref Label etiqueta, string texto, Font fuente )
