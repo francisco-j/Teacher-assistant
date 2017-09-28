@@ -171,6 +171,7 @@
     <None Include="Resources\Plus.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icoMas.png" />
     <Content Include="teacher assistant.mdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -71,14 +71,14 @@
             // 
             // btnAgregarGrupo
             // 
+            this.btnAgregarGrupo.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoMas;
             this.btnAgregarGrupo.FlatAppearance.BorderSize = 0;
             this.btnAgregarGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarGrupo.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarGrupo.Location = new System.Drawing.Point(507, 471);
             this.btnAgregarGrupo.Name = "btnAgregarGrupo";
-            this.btnAgregarGrupo.Size = new System.Drawing.Size(57, 64);
+            this.btnAgregarGrupo.Size = new System.Drawing.Size(32, 32);
             this.btnAgregarGrupo.TabIndex = 22;
-            this.btnAgregarGrupo.Text = "+";
             this.btnAgregarGrupo.UseVisualStyleBackColor = true;
             this.btnAgregarGrupo.Click += new System.EventHandler(this.btnAgregarGrupo_Click);
             // 
