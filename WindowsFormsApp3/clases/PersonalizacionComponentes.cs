@@ -25,7 +25,7 @@ namespace WindowsFormsApp3
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
             boton.Name = "Grupo " + grupo.ToString();
-            boton.Text = "Grupo " + grupo.ToString();
+            boton.Text = grupo.ToString();
             boton.Size = new Size(150, 115);
             boton.Font = new Font("Microsoft Sans Serif", 20);
             boton.BackColor = botonGrupoColores[color];

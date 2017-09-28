@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistrarse));
             this.txbUsuario = new System.Windows.Forms.TextBox();
             this.txbContraseña = new System.Windows.Forms.TextBox();
             this.txbConfirmacion = new System.Windows.Forms.TextBox();
@@ -103,6 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
             this.ClientSize = new System.Drawing.Size(394, 227);
             this.Controls.Add(this.lblConfirmación);
             this.Controls.Add(this.lblContraseña);
@@ -111,6 +113,7 @@
             this.Controls.Add(this.txbConfirmacion);
             this.Controls.Add(this.txbContraseña);
             this.Controls.Add(this.txbUsuario);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRegistrarse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRegistrarse";
