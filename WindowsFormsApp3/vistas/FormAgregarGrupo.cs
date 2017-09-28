@@ -31,41 +31,17 @@ namespace WindowsFormsApp3
             /// </summary>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            int grado = (int)numGrado.Value;
+            char grupo = cbGrupo.Text.First();
+            string escuela = txbEscuela.Text;
+            int maestro = ventanaPadre.GetIdMaestro();
 
-            /*if( txbGrado.Text == "" )
-            {
-                MessageBox.Show( "El campo grado es obligatorio" );
-                txbGrado.Focus();
-            }
-            else if( txbGrupo.Text == "" )
-            {
-                MessageBox.Show( "El campo grupo es obligatorio" );
-                txbGrupo.Focus();
-            }
-            else*/
-            {
-                int grado = (int)numGrado.Value;
-                char grupo = cbGrupo.Text.First();
-                string escuela = txbEscuela.Text;
-                int maestro = ventanaPadre.GetIdMaestro();
-                //try catch
-                Program.agregarGrupo( grado, grupo, escuela, maestro );
-                ventanaPadre.CargarBotones();
-                this.Dispose();
-            }
+            //try catch
+            Program.agregarGrupo( grado, grupo, escuela, maestro );
+            ventanaPadre.CargarBotones();
+            this.Dispose();
+
         }
-        
-            /// <summary> verifica que no se ingresen letras en el txbGrado
-            /// </summary>
-        private void txbGrado_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!( char.IsNumber( e.KeyChar ) ) && ( e.KeyChar != ( char )Keys.Back ))
-            {
-                MessageBox.Show( "Sólo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation );
-                e.Handled = true;
-                return;
-            }
-            txbGrado.Text = "";
-        }
+
     }
 }

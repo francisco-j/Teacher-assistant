@@ -59,7 +59,7 @@ namespace WindowsFormsApp3
 
 // ***************************** metodos  *******************************************************
 
-            ///<sumary> limpia el contenedor y carga todos los grupos como botones nuebos </sumary>
+            ///<sumary> limpia el contenedor y carga todos los grupos como botones nuevos </sumary>
         public void CargarBotones()
         {
             grupos = Program.gruposDeMaestro(idMaestro);
@@ -92,6 +92,9 @@ namespace WindowsFormsApp3
             }
         }
 
+// ********************************** geter *********************************************
+
+        /// <summary> id del maestro que controla los grupos de este form </summary>
         public int GetIdMaestro()
         {
             return idMaestro;

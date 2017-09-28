@@ -16,11 +16,12 @@ namespace WindowsFormsApp3
         private PersonalizacionComponentes() { }
 
         //Vector que almacena colores que asignará a los botones que vayan siendo agregados, máximo habrá 10 botones de grupo por lo que se cubren todos los casos
-        private static Color[] botonGrupoColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
+        private static Color[] botonGrupoColores = new Color[10] {
+            Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue
+        };
 
         public static void configurarBotonGrupo(ref Button boton, Grupo grupo, int color)
         {
-            //boton, g.ToString(), g.ToString(), , , int color
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
             boton.Name = "Grupo " + grupo.ToString();

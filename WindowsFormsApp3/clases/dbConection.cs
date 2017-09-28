@@ -164,11 +164,17 @@ namespace WindowsFormsApp3.clases
 
         internal static void AgregarGrupo(int grado, char grupo, String escuela, int maesto)
         {
-            comand.CommandText = "INSERT INTO Salones (grado, grupo, escuela, maestro) VALUES("+grado+", '" + grupo + "', '" + escuela + "'" + maesto + ")";
+            comand.CommandText = "INSERT INTO Salones (grado, grupo, escuela, maestro) VALUES("+grado+", '" + grupo + "', '" + escuela + "'," + maesto + ")";
             comand.Connection = conection;
-            conection.Open();
-            Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
-            conection.Close();
+            try
+            {
+                conection.Open();
+                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+            }
+            finally
+            {
+                conection.Close();
+            }
         }
 
         internal static void AgregarTarea()

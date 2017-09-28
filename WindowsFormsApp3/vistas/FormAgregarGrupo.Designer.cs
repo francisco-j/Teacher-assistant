@@ -32,9 +32,7 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.txbEscuela = new System.Windows.Forms.TextBox();
             this.lblGrupo = new System.Windows.Forms.Label();
-            this.txbGrupo = new System.Windows.Forms.TextBox();
             this.lblGrado = new System.Windows.Forms.Label();
-            this.txbGrado = new System.Windows.Forms.TextBox();
             this.numGrado = new System.Windows.Forms.NumericUpDown();
             this.cbGrupo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numGrado)).BeginInit();
@@ -75,14 +73,6 @@
             this.lblGrupo.TabIndex = 9;
             this.lblGrupo.Text = "Grupo:";
             // 
-            // txbGrupo
-            // 
-            this.txbGrupo.Location = new System.Drawing.Point(10, 77);
-            this.txbGrupo.MaxLength = 1;
-            this.txbGrupo.Name = "txbGrupo";
-            this.txbGrupo.Size = new System.Drawing.Size(33, 20);
-            this.txbGrupo.TabIndex = 1;
-            // 
             // lblGrado
             // 
             this.lblGrado.AutoSize = true;
@@ -91,15 +81,6 @@
             this.lblGrado.Size = new System.Drawing.Size(39, 13);
             this.lblGrado.TabIndex = 0;
             this.lblGrado.Text = "Grado:";
-            // 
-            // txbGrado
-            // 
-            this.txbGrado.Location = new System.Drawing.Point(12, 103);
-            this.txbGrado.MaxLength = 1;
-            this.txbGrado.Name = "txbGrado";
-            this.txbGrado.Size = new System.Drawing.Size(31, 20);
-            this.txbGrado.TabIndex = 0;
-            this.txbGrado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbGrado_KeyPress);
             // 
             // numGrado
             // 
@@ -136,8 +117,6 @@
             this.ClientSize = new System.Drawing.Size(255, 148);
             this.Controls.Add(this.cbGrupo);
             this.Controls.Add(this.numGrado);
-            this.Controls.Add(this.txbGrado);
-            this.Controls.Add(this.txbGrupo);
             this.Controls.Add(this.txbEscuela);
             this.Controls.Add(this.lblGrado);
             this.Controls.Add(this.lblGrupo);
@@ -158,9 +137,7 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txbEscuela;
         private System.Windows.Forms.Label lblGrupo;
-        private System.Windows.Forms.TextBox txbGrupo;
         private System.Windows.Forms.Label lblGrado;
-        private System.Windows.Forms.TextBox txbGrado;
         private System.Windows.Forms.NumericUpDown numGrado;
         private System.Windows.Forms.ComboBox cbGrupo;
     }
