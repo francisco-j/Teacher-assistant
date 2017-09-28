@@ -34,7 +34,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnAgregarGrupo = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.containerGrupos = new System.Windows.Forms.FlowLayoutPanel();
+            this.contenedorGrupos = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // lblGrupos
@@ -95,13 +95,13 @@
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
-            // containerGrupos
+            // contenedorGrupos
             // 
-            this.containerGrupos.AutoScroll = true;
-            this.containerGrupos.Location = new System.Drawing.Point(52, 131);
-            this.containerGrupos.Name = "containerGrupos";
-            this.containerGrupos.Size = new System.Drawing.Size(450, 357);
-            this.containerGrupos.TabIndex = 25;
+            this.contenedorGrupos.AutoScroll = true;
+            this.contenedorGrupos.Location = new System.Drawing.Point(52, 131);
+            this.contenedorGrupos.Name = "contenedorGrupos";
+            this.contenedorGrupos.Size = new System.Drawing.Size(450, 357);
+            this.contenedorGrupos.TabIndex = 25;
             // 
             // FormListaGrupos
             // 
@@ -110,7 +110,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
             this.ClientSize = new System.Drawing.Size(576, 547);
             this.Controls.Add(this.btnAgregarGrupo);
-            this.Controls.Add(this.containerGrupos);
+            this.Controls.Add(this.contenedorGrupos);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txbBusqueda);
@@ -130,6 +130,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnAgregarGrupo;
         private System.Windows.Forms.Button btnLogOut;
-        private System.Windows.Forms.FlowLayoutPanel containerGrupos;
+        private System.Windows.Forms.FlowLayoutPanel contenedorGrupos;
     }
 }

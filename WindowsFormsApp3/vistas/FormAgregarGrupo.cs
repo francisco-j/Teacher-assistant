@@ -38,7 +38,7 @@ namespace WindowsFormsApp3
 
             //try catch
             Program.agregarGrupo( grado, grupo, escuela, maestro );
-            ventanaPadre.CargarBotones();
+            ventanaPadre.cargarBotones();
             this.Dispose();
 
         }

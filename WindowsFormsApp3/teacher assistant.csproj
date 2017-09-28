@@ -45,13 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clases\Materia.cs" />
     <Compile Include="vistas\FormAgregarGrupo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="vistas\FormAgregarGrupo.Designer.cs">
       <DependentUpon>FormAgregarGrupo.cs</DependentUpon>
     </Compile>
-    <Compile Include="clases\Alumno.cs" />
     <Compile Include="clases\dbConection.cs" />
     <Compile Include="clases\Grupo.cs" />
     <Compile Include="vistas\FormInicio.cs">

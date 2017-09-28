@@ -11,14 +11,15 @@ namespace WindowsFormsApp3.clases
 {
     class dbConection
     {
-//************************  control ********************************************
 
-        //crea la conecion
         private static OleDbConnection conection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\teacher assistant.mdb");
         private static OleDbCommand comand = new OleDbCommand();
         private static OleDbDataAdapter adapter = new OleDbDataAdapter();
 
-        // verifica que la conexion se pueda relizar, muestra respuesta en output
+
+//************************  control ********************************************
+
+        /// <summary> verifica que la conexion se pueda relizar, muestra respuesta en consola </summary>
         public static bool canConnect()
         {
             try
@@ -45,58 +46,79 @@ namespace WindowsFormsApp3.clases
 
         }
 
-        // retorna los grupos que controla el maestro indicado
+
+//************************  lectura ******************************************
+        
+        /// <summary> retorna los grupos asociados al maestro indicado </summary>
         internal static Grupo[] GruposAsociadosCon(int idUsuario)
         {
-            //pruebas
-            /*
-            List<Grupo> lGrupos = new List<Grupo>();
-            for (int i=1; i<=10; i++)
+            
+            try
             {
-                int id = i;
-                int grado = i;
-                char grupo = 'A';
-                string escuela = "escuela";
-                Grupo g = new Grupo(id, grado, grupo, escuela);
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Salones WHERE maestro=" + idUsuario;
+                OleDbDataReader reader = comand.ExecuteReader();
 
-                lGrupos.Add(g);
+                List<Grupo> lGrupos = new List<Grupo>();
+
+                while (reader.Read())
+                {
+                    int id = (int)reader["id"];
+                    int grado = (int)reader["grado"];
+                    char grupo = reader["grupo"].ToString().First();
+                    string escuela = reader["escuela"].ToString();
+                    Grupo g = new Grupo(id, grado, grupo, escuela);
+
+                    lGrupos.Add(g);
+                }
+                reader.Close();
+
+                return lGrupos.ToArray();
+            }
+            finally
+            {
+                conection.Close();
             }
 
-            return lGrupos.ToArray();
-            */
-
-            //codigo real
-            conection.Open();
-            comand.Connection = conection;
-            comand.CommandText = "SELECT * FROM Salones WHERE maestro=" + idUsuario.ToString();
-            OleDbDataReader reader = null;
-            reader = comand.ExecuteReader();
-
-            List<Grupo> lGrupos = new List<Grupo>();
-
-            while (reader.Read())
-            {
-                int id = Convert.ToInt16(reader["idSalon"].ToString());
-                int grado = Convert.ToInt16(reader["grado"].ToString());
-                char grupo = reader["grupo"].ToString().First();
-                string escuela = reader["escuela"].ToString();
-                Grupo g = new Grupo(id, grado, grupo, escuela);
-
-                lGrupos.Add(g);
-            }
-
-            reader.Close();
-            conection.Close();
-
-            return lGrupos.ToArray();
 
         }
 
-        //
+        /// <summary> retorna las materias asociadas al grupo indicado <summary>
+        internal static Materia[] materiasAsociadasCon(int idGrupo)
+        {
+            List<Materia> lMaterias = new List<Materia>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Materias WHERE maestro=" + idGrupo;
+                OleDbDataReader reader = comand.ExecuteReader();
 
-        /// <summary> verifica que la contrasena y usuario coinsidan
-        /// </summary>
-        /// <param name="idUsuario"> aqui se ponel el vallor del id del maestro </param>
+                while (reader.Read())
+                {
+                    int id = (int)reader["id"];
+                    string nombre = reader["nombre"].ToString();
+                    int grupo = (int)reader["salon"];
+                    Materia m = new Materia(id, nombre, grupo);
+
+                    lMaterias.Add(m);
+                }
+
+                reader.Close();
+            }
+            finally
+            {
+                conection.Close();
+            }
+            
+
+            return lMaterias.ToArray();
+
+        }
+
+        /// <summary> verifica que la contrasena y usuario coinsidan </summary>
+        /// <param name="idUsuario"> id del maestro </param>
         /// <param name="usuario"> nombre de usuario </param>
         /// <param name="contrasena"> constrase;a del usuario </param>
         /// <returns> true si la base de datos contiene un registro con ese usuario y esa contrase;a </returns>
@@ -122,16 +144,37 @@ namespace WindowsFormsApp3.clases
             }
         }
 
-//************************  lectura ******************************************
+        internal static Grupo getGrupo(int idGrupo)
+        {
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Salones WHERE id="+idGrupo;
+                OleDbDataReader reader = comand.ExecuteReader();
 
-        //some code
+                reader.Read();
 
-//************************  escritura ******************************************
+                int id = (int)reader["id"];
+                int grado = (int)reader["grado"];
+                char grupo = reader["grupo"].ToString().First();
+                string escuela = reader["escuela"].ToString();
 
-            /// <summary> registra el usuario indicado en la base de datos </summary>
-            /// <param name="usuario"> nombre de usuario </param>
-            /// <param name="contra"> contrase;a del usuario </param>
-            /// <returns></returns>
+                return new Grupo(id, grado, grupo, escuela);
+            }
+            finally
+            {
+                conection.Close();
+            }
+
+        }
+
+        //************************  escritura ******************************************
+
+        /// <summary> registra el usuario indicado en la base de datos </summary>
+        /// <param name="usuario"> nombre de usuario </param>
+        /// <param name="contra"> contrase;a del usuario </param>
+        /// <returns></returns>
         internal static void RegistrarUsuario(string usuario, string contra)
         {
             conection.Open();
@@ -159,7 +202,6 @@ namespace WindowsFormsApp3.clases
         internal static void AgregarAlumno()
         {
             throw new NotImplementedException();
-            //some code
         }
 
         internal static void AgregarGrupo(int grado, char grupo, String escuela, int maesto)
@@ -180,9 +222,7 @@ namespace WindowsFormsApp3.clases
         internal static void AgregarTarea()
         {
             throw new NotImplementedException();
-            //some code
         }
-
 
 
         //************************** otros *********************************************

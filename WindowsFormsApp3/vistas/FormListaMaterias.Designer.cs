@@ -39,7 +39,7 @@
             this.lblNombres = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnAgregarDia = new System.Windows.Forms.Button();
-            this.containerGrupos = new System.Windows.Forms.Panel();
+            this.contenedorGrupos = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxAsistencia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
@@ -107,7 +107,7 @@
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = global::WindowsFormsApp3.Properties.Resources.icoBuscar;
-            this.btnBuscar.Location = new System.Drawing.Point(301, 491);
+            this.btnBuscar.Location = new System.Drawing.Point(991, 26);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(32, 32);
             this.btnBuscar.TabIndex = 7;
@@ -156,13 +156,12 @@
             this.btnAgregarDia.Text = "+";
             this.btnAgregarDia.UseVisualStyleBackColor = true;
             // 
-            // containerGrupos
+            // contenedorGrupos
             // 
-            this.containerGrupos.AutoScroll = true;
-            this.containerGrupos.Location = new System.Drawing.Point(12, 96);
-            this.containerGrupos.Name = "containerGrupos";
-            this.containerGrupos.Size = new System.Drawing.Size(333, 375);
-            this.containerGrupos.TabIndex = 17;
+            this.contenedorGrupos.Location = new System.Drawing.Point(12, 96);
+            this.contenedorGrupos.Name = "contenedorGrupos";
+            this.contenedorGrupos.Size = new System.Drawing.Size(345, 389);
+            this.contenedorGrupos.TabIndex = 18;
             // 
             // FormListaMaterias
             // 
@@ -170,7 +169,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
             this.ClientSize = new System.Drawing.Size(1046, 578);
-            this.Controls.Add(this.containerGrupos);
+            this.Controls.Add(this.contenedorGrupos);
             this.Controls.Add(this.groupBoxAsistencia);
             this.Controls.Add(this.btnAjustes);
             this.Controls.Add(this.btnAgregarGrupo);
@@ -184,7 +183,6 @@
             this.Name = "FormListaMaterias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormListaG_FormClosed);
-            this.Load += new System.EventHandler(this.FormListaG_Load);
             this.groupBoxAsistencia.ResumeLayout(false);
             this.groupBoxAsistencia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -205,6 +203,6 @@
         private System.Windows.Forms.Label lblNombres;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btnAgregarDia;
-        private System.Windows.Forms.Panel containerGrupos;
+        private System.Windows.Forms.FlowLayoutPanel contenedorGrupos;
     }
 }

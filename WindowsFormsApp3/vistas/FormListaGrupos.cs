@@ -14,21 +14,18 @@ namespace WindowsFormsApp3
         // id del maestro que esta viendo la ventana
         private int idMaestro;
 
-        private Label escuelaGrupo;
-        private Label descripcionGrupo;
-
 //*********************************  constructor ********************************
 
-            ///<sumary> ventana que muestra los grupos asociados con un maestro </sumary>
-            /// <param name="idMaestro">
-            /// id del maestro </param>>
+        ///<sumary> ventana que muestra los grupos asociados con un maestro </sumary>
+        /// <param name="idMaestro">
+        /// id del maestro </param>>
         public FormListaGrupos( int idMaestro )
         {
             InitializeComponent();
 
             this.idMaestro = idMaestro;
 
-            CargarBotones();
+            cargarBotones();
             
         }
 
@@ -36,7 +33,10 @@ namespace WindowsFormsApp3
 
         private void boton_Click(object sender, System.EventArgs e)
         {
-            Program.showListaMaterias( ( sender as Button ).Text );
+            string grupo = (sender as Button).Name.Replace("btnGrupo", "");
+            int idGrupo = int.Parse(grupo);
+
+            Program.showListaMaterias( idGrupo );
             //Se oculta esta ventana para que cuando se regrese no se vuelva a cargar todo
             this.Hide();
         }
@@ -59,12 +59,12 @@ namespace WindowsFormsApp3
 
 // ***************************** metodos  *******************************************************
 
-            ///<sumary> limpia el contenedor y carga todos los grupos como botones nuevos </sumary>
-        public void CargarBotones()
+        ///<sumary> limpia el contenedor y carga todos los grupos como botones nuevos </sumary>
+        public void cargarBotones()
         {
             grupos = Program.gruposDeMaestro(idMaestro);
 
-            containerGrupos.Controls.Clear();
+            contenedorGrupos.Controls.Clear();
             int color = 0;
 
             Button boton;
@@ -72,15 +72,22 @@ namespace WindowsFormsApp3
             foreach (Grupo grp in grupos)
             {
                 boton = new Button();
-                containerGrupos.Controls.Add(boton);
-
-                PersonalizacionComponentes.configurarBotonGrupo(ref boton, grp, color);
-
                 boton.Click += new EventHandler(boton_Click);
 
+                /*      brandon
+                 * si querremos implementr las labels con la info de los grupos
+                 * solo hay que cambiar el boton por un contenedor
+                 * y que el metodo "configurarBotonGrupo" sea "configurarContenedorGrupo"
+                 * 
+                 * el metodo se encargara de agregar los labels y acomodar todo
+                 */
+
+                PersonalizacionComponentes.configurarBotonGrupo(ref boton, grp, color);
                 color++;
-                /*
-                 * NO BORRAR
+
+                contenedorGrupos.Controls.Add(boton);
+                
+                /* NO BORRAR
                 escuelaGrupo = new Label();
                 descripcionGrupo = new Label();
                 PersonalizacionComponentes.configurarLabelGrupos( ref escuelaGrupo, "Escuela " + ( i + 1 ), new Font( "Microsoft Sans Serif", 12 ) );

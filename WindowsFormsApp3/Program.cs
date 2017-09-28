@@ -22,14 +22,12 @@ namespace WindowsFormsApp3
             //falta mostrar al frente
         }
 
+
 //****************************** logg  **********************************************
 
-        /// <summary>
-        /// Incia sesión, abre el Form de lista de grupos </summary>
-        /// <param name="usuario"> 
-        /// nombre de usuario a iniciar </param>
-        /// <param name="contrasena">
-        /// constrase;a del usuario a ingresar </param>
+        /// <summary> Incia sesión, abre el Form de lista de grupos </summary>
+        /// <param name="usuario">  nombre de usuario a iniciar </param>
+        /// <param name="contrasena"> constrase;a del usuario a ingresar </param>
         internal static void Login(String usuario, String contrasena ) 
         {
             //Se le asgna cero porque no se puede mandar como parámetro si no le has asignado nada
@@ -50,16 +48,6 @@ namespace WindowsFormsApp3
             }
         }
 
-        /// <summary>
-        /// lee que grupos pertenecen al usuario indicado </summary>
-        /// <param name="idMaestro">
-        /// id del maestro con</param>
-        /// <returns>
-        /// array de objetos tipo Grupo sobre los que el maestro tiene control</returns>
-        public static Grupo[] gruposDeMaestro(int idMaestro)
-        {
-            return dbConection.GruposAsociadosCon(idMaestro);
-        }
 
         /// <summary>
         /// Para cerrar sesión y regresar al Form de Login </summary>
@@ -79,28 +67,20 @@ namespace WindowsFormsApp3
             listaGrupos.Show();
         }
 
-        internal static void busqueda(string text)
+        /// <summary> muestra el estuduante indicado </summary>
+        internal static void ShowStudent(ushort idStudent)  
         {
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        //muestra el estuduante indicado
-        internal static void ShowStudent(ushort studentId)  
+        /// <summary> muestra las materias del grupo especificado </summary>
+        internal static void showListaMaterias( int idGrupo )
         {
-            // some code //
-        }
-
-            /// <summary>
-            /// muestra las materias del grupo especificado
-            /// </summary>
-            /// <param name="nombreGrupo"></param>
-        internal static void showListaMaterias( string nombreGrupo )
-        {
-            Form listaMaterias = new FormListaMaterias( nombreGrupo );
+            Form listaMaterias = new FormListaMaterias( idGrupo );
             listaMaterias.Show();
         }
 
-        //abre el formGroupX con el grupo indicado
+        /// <summary> abre el formGroupX con el grupo indicado </summary>
         internal static void ShowGroup(ushort groupId)
         {
             new FormGrupo(groupId); //crea el form
@@ -109,18 +89,42 @@ namespace WindowsFormsApp3
 
 //****************************  db  **************************************************
 
+        internal static void busqueda(string text)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary> lee que grupos pertenecen al usuario indicado </summary>
+        /// <param name="idMaestro"> id del maestro con </param>
+        /// <returns> array de objetos tipo Grupo sobre los que el maestro tiene control</returns>
+        public static Grupo[] gruposDeMaestro(int idMaestro)
+        {
+            return dbConection.GruposAsociadosCon(idMaestro);
+        }
+
+        internal static Materia[] materiasDeGrupo(int idGrupo)
+        {
+            return dbConection.materiasAsociadasCon(idGrupo);
+        }
+
+        internal static Grupo getGrupo(int idGrupo)
+        {
+            return dbConection.getGrupo(idGrupo);
+        }
+
         /// <summary> registra un usuario en la base de datos </summary>
         /// <param name="usuario"> nombre de usuario a registrar </param>
         /// <param name="contra"> contrase;a del usuario a registrar </param>
         /// <throws> aplicationExeption cuando no se puede registrar </throws>
-        internal static void Registrar(string usuario, string contra)
+        internal static void registrarUsuario(string usuario, string contra)
         {
             dbConection.RegistrarUsuario( usuario, contra );
         }
 
-        internal static void agregarGrupo(int grado, char grupo, String escuela, int maesto)
+        /// <summary>  </summary>
+        internal static void agregarGrupo(int grado, char grupo, String escuela, int idMaesto)
         {
-            dbConection.AgregarGrupo(grado, grupo, escuela, maesto);
+            dbConection.AgregarGrupo(grado, grupo, escuela, idMaesto);
         }
 
 // ************************** metodos privados ****************************************

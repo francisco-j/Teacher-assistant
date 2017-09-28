@@ -1,51 +1,33 @@
 ﻿using System;
 using System.Windows.Forms;
+using WindowsFormsApp3.clases;
 
 namespace WindowsFormsApp3
 {
     public partial class FormListaMaterias : Form
     {
-        private int pixelUltimoBoton;
 
-        public FormListaMaterias( string nombreGrupo )
+        private int pixelUltimoBoton;
+        //grupo del que se estna mostrnado las materias
+        private int idGrupo;
+        private Materia[] materias;
+
+// ****************************** constructor ***************************************
+
+        /// <summary> ventana que muestra la lista de materias </summary>
+        public FormListaMaterias( int idGrupo )
         {
             InitializeComponent();
 
-            this.Text = nombreGrupo;
-            //Esta varible nos ayudará a saber dónde está posicionado en la pantalla el botón del último grupo
-            pixelUltimoBoton = 30;
+            this.idGrupo = idGrupo;
+            this.Text = Program.getGrupo(idGrupo).ToString();
 
-            /*El ciclo durará dependiendo de la cantidad de grupos que tenga el maestro, pero eso lo sacaremos de la base de datos,
-            por el momento pongo 4 para que siempre cargue esos cuatro grupos como prueba*/
-            for (int i = 0; i < 4; i++)
-            {
-                //BOTÓN
-                //Se crea un nuevo botón
-                Button botonGrupo = new Button();
-                //definir el tamaño del botón en pixeles
-                botonGrupo.Size = new System.Drawing.Size(150, 115);;
+            cargarBotones();
 
-                //Se le establece un nombre al botón generado
-                botonGrupo.Text = "Materia " + ( i + 1 );
-                //Se le cambia la fuente a las letras del botón
-                System.Drawing.Font fuente = new System.Drawing.Font( "Microsoft Sans Serif", 20 );
-                botonGrupo.Font = fuente;
-                //Se agrega el botón al contenedor que mostrará todos los grupos del maestro
-                containerGrupos.Controls.Add( botonGrupo );
-                //Se necesita el siguiente objeto para definir las coordenadas del botón en relación al contenedor al que lo agregamos
-                System.Drawing.Point coordenadas = new System.Drawing.Point();
-                //La coordenada de x siempre será la misma, sólo agregaremos los botones más abajo con una separación de 30 pixeles entre cada uno
-                coordenadas.X = 50;
-                coordenadas.Y = pixelUltimoBoton;
-                botonGrupo.Location = coordenadas;
-                //Se aumenta la posición del último botón en 150, la separación ya la tiene por defecto de 30 pixeles entre cada uno
-                pixelUltimoBoton += 150;
-
-
-                //LABEL
-                Label lblNombreGrupo = new Label();
-            }
         }
+
+
+// ******************** boton evt *****************************************
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
@@ -53,34 +35,57 @@ namespace WindowsFormsApp3
             this.Dispose();
         }
 
-        private void btnGrupA_Click(object sender, EventArgs e)
+        private void boton_Click(object sender, System.EventArgs e)
         {
-            Program.ShowGroup(1);
+            string materia = (sender as Button).Name.Replace("btnMateria", ""); 
+            int idMateria = int.Parse(materia);
+
+            Program.showListaMaterias(idGrupo);
+            //Se oculta esta ventana para que cuando se regrese no se vuelva a cargar todo
+            this.Hide();
         }
 
-        private void btnGrupB_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, System.EventArgs e)
         {
-            Program.ShowGroup(2);
+            Program.busqueda(txbBusqueda.Text);
         }
+
+        private void btnAgregarMateria_Click(object sender, System.EventArgs e)
+        {
+            throw new ApplicationException();
+
+            //FormAgregarMateria nuevaMateria = new FormAgregarMateria(this);
+            //nuevaMateria.ShowDialog(this);
+        }
+        //*********************************** metodos *****************************
+
+        ///<sumary> limpia el contenedor y carga todas las materias como botones nuevos </sumary>
+        public void cargarBotones()
+        {
+
+            materias = Program.materiasDeGrupo(idGrupo);
+
+            contenedorGrupos.Controls.Clear();
+            int color = 0;
+
+            foreach (Materia materia in materias)
+            {
+                Button botonMateria = new Button();
+
+                PersonalizacionComponentes.configurarBotonMateria(ref botonMateria, materia, color);
+                color++;
+
+                //Se agrega el botón al contenedor
+                contenedorGrupos.Controls.Add(botonMateria);
+                
+            }
+        }
+
+// ************************  closing  ***************************************************
 
         private void FormListaG_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit(); // cierra la aplicacion completa
-        }
-
-        private void btnPruebas_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormListaG_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAgregarDia_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
