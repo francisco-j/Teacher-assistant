@@ -52,9 +52,11 @@
             // 
             // btnIniciar
             // 
+            this.btnIniciar.AutoSize = true;
+            this.btnIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciar.Location = new System.Drawing.Point(149, 330);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(115, 23);
+            this.btnIniciar.Size = new System.Drawing.Size(115, 27);
             this.btnIniciar.TabIndex = 2;
             this.btnIniciar.Text = "Iniciar Sesión";
             this.btnIniciar.UseVisualStyleBackColor = true;
@@ -74,7 +76,7 @@
             // 
             this.picUserImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(216)))), ((int)(((byte)(213)))));
             this.picUserImage.Image = ((System.Drawing.Image)(resources.GetObject("picUserImage.Image")));
-            this.picUserImage.Location = new System.Drawing.Point(111, 57);
+            this.picUserImage.Location = new System.Drawing.Point(140, 57);
             this.picUserImage.Name = "picUserImage";
             this.picUserImage.Size = new System.Drawing.Size(153, 151);
             this.picUserImage.TabIndex = 1;
@@ -82,9 +84,11 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(323, 67);
+            this.btnRegistrar.AutoSize = true;
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.Location = new System.Drawing.Point(329, 12);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
+            this.btnRegistrar.Size = new System.Drawing.Size(97, 29);
             this.btnRegistrar.TabIndex = 3;
             this.btnRegistrar.Text = "Registrarse";
             this.btnRegistrar.UseVisualStyleBackColor = true;

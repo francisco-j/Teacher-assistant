@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGrupo));
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblDatosGrupo = new System.Windows.Forms.Label();
-            this.btnTareas = new System.Windows.Forms.Button();
-            this.btnAlumnos = new System.Windows.Forms.Button();
-            this.btnEvaluaciones = new System.Windows.Forms.Button();
-            this.btnNotas = new System.Windows.Forms.Button();
-            this.btnAsistencia = new System.Windows.Forms.Button();
-            this.btnAgregarDia = new System.Windows.Forms.Button();
             this.lblNombres = new System.Windows.Forms.Label();
             this.groupBoxAsistencia = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lblMateria = new System.Windows.Forms.Label();
+            this.btnAgregarDia = new System.Windows.Forms.Button();
+            this.btnNotas = new System.Windows.Forms.Button();
+            this.btnEvaluaciones = new System.Windows.Forms.Button();
+            this.btnAlumnos = new System.Windows.Forms.Button();
+            this.btnTareas = new System.Windows.Forms.Button();
+            this.btnAsistencia = new System.Windows.Forms.Button();
             this.groupBoxAsistencia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
@@ -67,95 +67,6 @@
             this.lblDatosGrupo.Size = new System.Drawing.Size(168, 50);
             this.lblDatosGrupo.TabIndex = 13;
             this.lblDatosGrupo.Text = "(#) Alumnos\r\nPrimaria (nombre)";
-            // 
-            // btnTareas
-            // 
-            this.btnTareas.BackColor = System.Drawing.Color.Transparent;
-            this.btnTareas.FlatAppearance.BorderSize = 0;
-            this.btnTareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnTareas.Image = global::WindowsFormsApp3.Properties.Resources.icoTareas;
-            this.btnTareas.Location = new System.Drawing.Point(12, 174);
-            this.btnTareas.Name = "btnTareas";
-            this.btnTareas.Size = new System.Drawing.Size(70, 70);
-            this.btnTareas.TabIndex = 15;
-            this.btnTareas.Text = " ";
-            this.btnTareas.UseVisualStyleBackColor = false;
-            // 
-            // btnAlumnos
-            // 
-            this.btnAlumnos.BackColor = System.Drawing.Color.Transparent;
-            this.btnAlumnos.FlatAppearance.BorderSize = 0;
-            this.btnAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlumnos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnAlumnos.Image = global::WindowsFormsApp3.Properties.Resources.icoAlumnos;
-            this.btnAlumnos.Location = new System.Drawing.Point(12, 242);
-            this.btnAlumnos.Name = "btnAlumnos";
-            this.btnAlumnos.Size = new System.Drawing.Size(70, 70);
-            this.btnAlumnos.TabIndex = 15;
-            this.btnAlumnos.Text = " ";
-            this.btnAlumnos.UseVisualStyleBackColor = false;
-            this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click);
-            // 
-            // btnEvaluaciones
-            // 
-            this.btnEvaluaciones.BackColor = System.Drawing.Color.Transparent;
-            this.btnEvaluaciones.FlatAppearance.BorderSize = 0;
-            this.btnEvaluaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEvaluaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEvaluaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnEvaluaciones.Image = global::WindowsFormsApp3.Properties.Resources.icoEvaluaciones;
-            this.btnEvaluaciones.Location = new System.Drawing.Point(12, 312);
-            this.btnEvaluaciones.Name = "btnEvaluaciones";
-            this.btnEvaluaciones.Size = new System.Drawing.Size(70, 70);
-            this.btnEvaluaciones.TabIndex = 15;
-            this.btnEvaluaciones.Text = " ";
-            this.btnEvaluaciones.UseVisualStyleBackColor = false;
-            // 
-            // btnNotas
-            // 
-            this.btnNotas.BackColor = System.Drawing.Color.Transparent;
-            this.btnNotas.FlatAppearance.BorderSize = 0;
-            this.btnNotas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNotas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnNotas.Image = global::WindowsFormsApp3.Properties.Resources.icoNotas;
-            this.btnNotas.Location = new System.Drawing.Point(12, 384);
-            this.btnNotas.Name = "btnNotas";
-            this.btnNotas.Size = new System.Drawing.Size(70, 70);
-            this.btnNotas.TabIndex = 15;
-            this.btnNotas.Text = " ";
-            this.btnNotas.UseVisualStyleBackColor = false;
-            // 
-            // btnAsistencia
-            // 
-            this.btnAsistencia.BackColor = System.Drawing.Color.Transparent;
-            this.btnAsistencia.FlatAppearance.BorderSize = 0;
-            this.btnAsistencia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnAsistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAsistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsistencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnAsistencia.Image = global::WindowsFormsApp3.Properties.Resources.icoAsistencia;
-            this.btnAsistencia.Location = new System.Drawing.Point(12, 105);
-            this.btnAsistencia.Name = "btnAsistencia";
-            this.btnAsistencia.Size = new System.Drawing.Size(70, 70);
-            this.btnAsistencia.TabIndex = 15;
-            this.btnAsistencia.UseVisualStyleBackColor = false;
-            this.btnAsistencia.Click += new System.EventHandler(this.btnAsistencia_Click);
-            // 
-            // btnAgregarDia
-            // 
-            this.btnAgregarDia.FlatAppearance.BorderSize = 0;
-            this.btnAgregarDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarDia.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarDia.Location = new System.Drawing.Point(599, 20);
-            this.btnAgregarDia.Name = "btnAgregarDia";
-            this.btnAgregarDia.Size = new System.Drawing.Size(63, 67);
-            this.btnAgregarDia.TabIndex = 15;
-            this.btnAgregarDia.Text = "+";
-            this.btnAgregarDia.UseVisualStyleBackColor = true;
             // 
             // lblNombres
             // 
@@ -197,7 +108,96 @@
             this.lblMateria.Name = "lblMateria";
             this.lblMateria.Size = new System.Drawing.Size(152, 46);
             this.lblMateria.TabIndex = 13;
-            this.lblMateria.Text = "materia";
+            this.lblMateria.Text = "Materia";
+            // 
+            // btnAgregarDia
+            // 
+            this.btnAgregarDia.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoMas;
+            this.btnAgregarDia.FlatAppearance.BorderSize = 0;
+            this.btnAgregarDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarDia.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarDia.Location = new System.Drawing.Point(599, 20);
+            this.btnAgregarDia.Name = "btnAgregarDia";
+            this.btnAgregarDia.Size = new System.Drawing.Size(32, 32);
+            this.btnAgregarDia.TabIndex = 15;
+            this.btnAgregarDia.UseVisualStyleBackColor = true;
+            // 
+            // btnNotas
+            // 
+            this.btnNotas.BackColor = System.Drawing.Color.Transparent;
+            this.btnNotas.FlatAppearance.BorderSize = 0;
+            this.btnNotas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNotas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
+            this.btnNotas.Image = global::WindowsFormsApp3.Properties.Resources.icoNotas;
+            this.btnNotas.Location = new System.Drawing.Point(12, 384);
+            this.btnNotas.Name = "btnNotas";
+            this.btnNotas.Size = new System.Drawing.Size(70, 70);
+            this.btnNotas.TabIndex = 15;
+            this.btnNotas.Text = " ";
+            this.btnNotas.UseVisualStyleBackColor = false;
+            // 
+            // btnEvaluaciones
+            // 
+            this.btnEvaluaciones.BackColor = System.Drawing.Color.Transparent;
+            this.btnEvaluaciones.FlatAppearance.BorderSize = 0;
+            this.btnEvaluaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEvaluaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEvaluaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
+            this.btnEvaluaciones.Image = global::WindowsFormsApp3.Properties.Resources.icoEvaluaciones;
+            this.btnEvaluaciones.Location = new System.Drawing.Point(12, 312);
+            this.btnEvaluaciones.Name = "btnEvaluaciones";
+            this.btnEvaluaciones.Size = new System.Drawing.Size(70, 70);
+            this.btnEvaluaciones.TabIndex = 15;
+            this.btnEvaluaciones.Text = " ";
+            this.btnEvaluaciones.UseVisualStyleBackColor = false;
+            // 
+            // btnAlumnos
+            // 
+            this.btnAlumnos.BackColor = System.Drawing.Color.Transparent;
+            this.btnAlumnos.FlatAppearance.BorderSize = 0;
+            this.btnAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlumnos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
+            this.btnAlumnos.Image = global::WindowsFormsApp3.Properties.Resources.icoAlumnos;
+            this.btnAlumnos.Location = new System.Drawing.Point(12, 242);
+            this.btnAlumnos.Name = "btnAlumnos";
+            this.btnAlumnos.Size = new System.Drawing.Size(70, 70);
+            this.btnAlumnos.TabIndex = 15;
+            this.btnAlumnos.Text = " ";
+            this.btnAlumnos.UseVisualStyleBackColor = false;
+            this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click);
+            // 
+            // btnTareas
+            // 
+            this.btnTareas.BackColor = System.Drawing.Color.Transparent;
+            this.btnTareas.FlatAppearance.BorderSize = 0;
+            this.btnTareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
+            this.btnTareas.Image = global::WindowsFormsApp3.Properties.Resources.icoTareas;
+            this.btnTareas.Location = new System.Drawing.Point(12, 174);
+            this.btnTareas.Name = "btnTareas";
+            this.btnTareas.Size = new System.Drawing.Size(70, 70);
+            this.btnTareas.TabIndex = 15;
+            this.btnTareas.Text = " ";
+            this.btnTareas.UseVisualStyleBackColor = false;
+            // 
+            // btnAsistencia
+            // 
+            this.btnAsistencia.BackColor = System.Drawing.Color.Transparent;
+            this.btnAsistencia.FlatAppearance.BorderSize = 0;
+            this.btnAsistencia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnAsistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsistencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
+            this.btnAsistencia.Image = global::WindowsFormsApp3.Properties.Resources.icoAsistencia;
+            this.btnAsistencia.Location = new System.Drawing.Point(12, 105);
+            this.btnAsistencia.Name = "btnAsistencia";
+            this.btnAsistencia.Size = new System.Drawing.Size(70, 70);
+            this.btnAsistencia.TabIndex = 15;
+            this.btnAsistencia.UseVisualStyleBackColor = false;
+            this.btnAsistencia.Click += new System.EventHandler(this.btnAsistencia_Click);
             // 
             // FormGrupo
             // 

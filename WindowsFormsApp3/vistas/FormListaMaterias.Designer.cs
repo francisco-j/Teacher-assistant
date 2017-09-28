@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListaMaterias));
             this.lblGrupos = new System.Windows.Forms.Label();
+            this.txbBusqueda = new System.Windows.Forms.TextBox();
             this.btnAjustes = new System.Windows.Forms.Button();
             this.btnAgregarGrupo = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.containerGrupos = new System.Windows.Forms.Panel();
-            this.txbBusqueda = new System.Windows.Forms.TextBox();
-            this.btnAgregarDia = new System.Windows.Forms.Button();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.lblNombres = new System.Windows.Forms.Label();
             this.groupBoxAsistencia = new System.Windows.Forms.GroupBox();
+            this.lblNombres = new System.Windows.Forms.Label();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnAgregarDia = new System.Windows.Forms.Button();
+            this.containerGrupos = new System.Windows.Forms.Panel();
+            this.groupBoxAsistencia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
-            this.groupBoxAsistencia.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGrupos
@@ -55,6 +55,15 @@
             this.lblGrupos.Size = new System.Drawing.Size(231, 61);
             this.lblGrupos.TabIndex = 2;
             this.lblGrupos.Text = "Materias";
+            // 
+            // txbBusqueda
+            // 
+            this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbBusqueda.Location = new System.Drawing.Point(774, 24);
+            this.txbBusqueda.Name = "txbBusqueda";
+            this.txbBusqueda.PasswordChar = 'a';
+            this.txbBusqueda.Size = new System.Drawing.Size(211, 30);
+            this.txbBusqueda.TabIndex = 13;
             // 
             // btnAjustes
             // 
@@ -74,7 +83,7 @@
             this.btnAgregarGrupo.FlatAppearance.BorderSize = 0;
             this.btnAgregarGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarGrupo.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarGrupo.Location = new System.Drawing.Point(12, 534);
+            this.btnAgregarGrupo.Location = new System.Drawing.Point(12, 491);
             this.btnAgregarGrupo.Name = "btnAgregarGrupo";
             this.btnAgregarGrupo.Size = new System.Drawing.Size(32, 32);
             this.btnAgregarGrupo.TabIndex = 16;
@@ -98,28 +107,42 @@
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = global::WindowsFormsApp3.Properties.Resources.icoBuscar;
-            this.btnBuscar.Location = new System.Drawing.Point(992, 27);
+            this.btnBuscar.Location = new System.Drawing.Point(301, 491);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(44, 30);
+            this.btnBuscar.Size = new System.Drawing.Size(32, 32);
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
-            // containerGrupos
+            // groupBoxAsistencia
             // 
-            this.containerGrupos.AutoScroll = true;
-            this.containerGrupos.Location = new System.Drawing.Point(12, 96);
-            this.containerGrupos.Name = "containerGrupos";
-            this.containerGrupos.Size = new System.Drawing.Size(333, 432);
-            this.containerGrupos.TabIndex = 17;
+            this.groupBoxAsistencia.Controls.Add(this.lblNombres);
+            this.groupBoxAsistencia.Controls.Add(this.splitContainer1);
+            this.groupBoxAsistencia.Controls.Add(this.btnAgregarDia);
+            this.groupBoxAsistencia.Location = new System.Drawing.Point(374, 96);
+            this.groupBoxAsistencia.Name = "groupBoxAsistencia";
+            this.groupBoxAsistencia.Size = new System.Drawing.Size(662, 433);
+            this.groupBoxAsistencia.TabIndex = 17;
+            this.groupBoxAsistencia.TabStop = false;
+            this.groupBoxAsistencia.Text = "Asistencias";
             // 
-            // txbBusqueda
+            // lblNombres
             // 
-            this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBusqueda.Location = new System.Drawing.Point(774, 24);
-            this.txbBusqueda.Name = "txbBusqueda";
-            this.txbBusqueda.PasswordChar = 'a';
-            this.txbBusqueda.Size = new System.Drawing.Size(211, 30);
-            this.txbBusqueda.TabIndex = 13;
+            this.lblNombres.AutoSize = true;
+            this.lblNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(240)))), ((int)(((byte)(215)))));
+            this.lblNombres.Location = new System.Drawing.Point(15, 37);
+            this.lblNombres.Name = "lblNombres";
+            this.lblNombres.Size = new System.Drawing.Size(87, 25);
+            this.lblNombres.TabIndex = 1;
+            this.lblNombres.Text = "Nombre:";
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Location = new System.Drawing.Point(40, 71);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Size = new System.Drawing.Size(356, 268);
+            this.splitContainer1.SplitterDistance = 118;
+            this.splitContainer1.TabIndex = 16;
             // 
             // btnAgregarDia
             // 
@@ -133,36 +156,13 @@
             this.btnAgregarDia.Text = "+";
             this.btnAgregarDia.UseVisualStyleBackColor = true;
             // 
-            // splitContainer1
+            // containerGrupos
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(40, 71);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Size = new System.Drawing.Size(522, 383);
-            this.splitContainer1.SplitterDistance = 167;
-            this.splitContainer1.TabIndex = 16;
-            // 
-            // lblNombres
-            // 
-            this.lblNombres.AutoSize = true;
-            this.lblNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(240)))), ((int)(((byte)(215)))));
-            this.lblNombres.Location = new System.Drawing.Point(15, 37);
-            this.lblNombres.Name = "lblNombres";
-            this.lblNombres.Size = new System.Drawing.Size(87, 25);
-            this.lblNombres.TabIndex = 1;
-            this.lblNombres.Text = "Nombre:";
-            // 
-            // groupBoxAsistencia
-            // 
-            this.groupBoxAsistencia.Controls.Add(this.lblNombres);
-            this.groupBoxAsistencia.Controls.Add(this.splitContainer1);
-            this.groupBoxAsistencia.Controls.Add(this.btnAgregarDia);
-            this.groupBoxAsistencia.Location = new System.Drawing.Point(374, 96);
-            this.groupBoxAsistencia.Name = "groupBoxAsistencia";
-            this.groupBoxAsistencia.Size = new System.Drawing.Size(662, 470);
-            this.groupBoxAsistencia.TabIndex = 17;
-            this.groupBoxAsistencia.TabStop = false;
-            this.groupBoxAsistencia.Text = "Asistencias";
+            this.containerGrupos.AutoScroll = true;
+            this.containerGrupos.Location = new System.Drawing.Point(12, 96);
+            this.containerGrupos.Name = "containerGrupos";
+            this.containerGrupos.Size = new System.Drawing.Size(333, 375);
+            this.containerGrupos.TabIndex = 17;
             // 
             // FormListaMaterias
             // 
@@ -185,10 +185,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormListaG_FormClosed);
             this.Load += new System.EventHandler(this.FormListaG_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
             this.groupBoxAsistencia.ResumeLayout(false);
             this.groupBoxAsistencia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,14 +197,14 @@
         #endregion
         private System.Windows.Forms.Label lblGrupos;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.TextBox txbBusqueda;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnAgregarGrupo;
         private System.Windows.Forms.Button btnAjustes;
-        private System.Windows.Forms.Panel containerGrupos;
-        private System.Windows.Forms.TextBox txbBusqueda;
-        private System.Windows.Forms.Button btnAgregarDia;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Label lblNombres;
         private System.Windows.Forms.GroupBox groupBoxAsistencia;
+        private System.Windows.Forms.Label lblNombres;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button btnAgregarDia;
+        private System.Windows.Forms.Panel containerGrupos;
     }
 }
