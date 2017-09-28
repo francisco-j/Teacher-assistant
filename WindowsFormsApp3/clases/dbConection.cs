@@ -52,7 +52,6 @@ namespace WindowsFormsApp3.clases
         /// <summary> retorna los grupos asociados al maestro indicado </summary>
         internal static Grupo[] GruposAsociadosCon(int idUsuario)
         {
-            
             try
             {
                 conection.Open();
@@ -80,8 +79,6 @@ namespace WindowsFormsApp3.clases
             {
                 conection.Close();
             }
-
-
         }
 
         /// <summary> retorna las materias asociadas al grupo indicado <summary>
@@ -92,7 +89,7 @@ namespace WindowsFormsApp3.clases
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Materias WHERE maestro=" + idGrupo;
+                comand.CommandText = "SELECT * FROM Materias WHERE salon=" + idGrupo;
                 OleDbDataReader reader = comand.ExecuteReader();
 
                 while (reader.Read())
@@ -104,24 +101,17 @@ namespace WindowsFormsApp3.clases
 
                     lMaterias.Add(m);
                 }
-
                 reader.Close();
             }
             finally
             {
                 conection.Close();
             }
-            
-
             return lMaterias.ToArray();
-
         }
 
+
         /// <summary> verifica que la contrasena y usuario coinsidan </summary>
-        /// <param name="idUsuario"> id del maestro </param>
-        /// <param name="usuario"> nombre de usuario </param>
-        /// <param name="contrasena"> constrase;a del usuario </param>
-        /// <returns> true si la base de datos contiene un registro con ese usuario y esa contrase;a </returns>
         internal static bool isCorrecto(ref int idUsuario, string usuario, string contrasena)
         {
             conection.Open();
@@ -144,6 +134,7 @@ namespace WindowsFormsApp3.clases
             }
         }
 
+        /// <summary> lle el grupo asociado con el id indicado </summary>
         internal static Grupo getGrupo(int idGrupo)
         {
             try
@@ -199,11 +190,6 @@ namespace WindowsFormsApp3.clases
                 }
             }
 
-        internal static void AgregarAlumno()
-        {
-            throw new NotImplementedException();
-        }
-
         internal static void AgregarGrupo(int grado, char grupo, String escuela, int maesto)
         {
             comand.CommandText = "INSERT INTO Salones (grado, grupo, escuela, maestro) VALUES("+grado+", '" + grupo + "', '" + escuela + "'," + maesto + ")";
@@ -219,7 +205,7 @@ namespace WindowsFormsApp3.clases
             }
         }
 
-        internal static void AgregarTarea()
+        internal static void AgregarMateria()
         {
             throw new NotImplementedException();
         }

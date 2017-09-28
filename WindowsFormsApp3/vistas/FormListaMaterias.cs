@@ -6,8 +6,6 @@ namespace WindowsFormsApp3
 {
     public partial class FormListaMaterias : Form
     {
-
-        private int pixelUltimoBoton;
         //grupo del que se estna mostrnado las materias
         private int idGrupo;
         private Materia[] materias;
@@ -35,6 +33,7 @@ namespace WindowsFormsApp3
             this.Dispose();
         }
 
+        /*
         private void boton_Click(object sender, System.EventArgs e)
         {
             string materia = (sender as Button).Name.Replace("btnMateria", ""); 
@@ -44,6 +43,7 @@ namespace WindowsFormsApp3
             //Se oculta esta ventana para que cuando se regrese no se vuelva a cargar todo
             this.Hide();
         }
+        */
 
         private void btnBuscar_Click(object sender, System.EventArgs e)
         {

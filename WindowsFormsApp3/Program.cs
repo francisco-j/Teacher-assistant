@@ -104,6 +104,7 @@ namespace WindowsFormsApp3
 
         internal static Materia[] materiasDeGrupo(int idGrupo)
         {
+            Console.WriteLine("mostrando materias del salon: "+idGrupo);
             return dbConection.materiasAsociadasCon(idGrupo);
         }
 

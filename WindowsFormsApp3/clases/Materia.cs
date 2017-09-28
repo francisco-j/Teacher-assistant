@@ -19,9 +19,9 @@ namespace WindowsFormsApp3.clases
             this.salon = salon;
         }
 
-        internal string getId()
+        internal int getId()
         {
-            throw new NotImplementedException();
+            return id;
         }
     }
 }
