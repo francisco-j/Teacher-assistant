@@ -42,11 +42,10 @@ namespace WindowsFormsApp3
             {
                 try
                 {
-                    if( Program.registrar( usuario, contraseña ) )
-                    {
-                        MessageBox.Show( "El maestro " + usuario + " se ha guardado exitosamente" );
-                        this.Dispose();
-                    }
+                    Program.Registrar(usuario, contraseña);
+                    MessageBox.Show( "El maestro " + usuario + " se ha guardado exitosamente" );
+                    this.Dispose();
+
                 }
                 catch (ApplicationException ex)
                 {

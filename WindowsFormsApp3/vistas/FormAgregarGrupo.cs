@@ -32,7 +32,7 @@ namespace WindowsFormsApp3
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-            if( txbGrado.Text == "" )
+            /*if( txbGrado.Text == "" )
             {
                 MessageBox.Show( "El campo grado es obligatorio" );
                 txbGrado.Focus();
@@ -42,7 +42,7 @@ namespace WindowsFormsApp3
                 MessageBox.Show( "El campo grupo es obligatorio" );
                 txbGrupo.Focus();
             }
-            else
+            else*/
             {
                 int grado = (int)numGrado.Value;
                 char grupo = cbGrupo.Text.First();

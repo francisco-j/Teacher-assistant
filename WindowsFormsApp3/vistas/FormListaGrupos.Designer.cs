@@ -73,9 +73,9 @@
             this.btnAgregarGrupo.FlatAppearance.BorderSize = 0;
             this.btnAgregarGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarGrupo.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarGrupo.Location = new System.Drawing.Point(439, 439);
+            this.btnAgregarGrupo.Location = new System.Drawing.Point(507, 471);
             this.btnAgregarGrupo.Name = "btnAgregarGrupo";
-            this.btnAgregarGrupo.Size = new System.Drawing.Size(63, 67);
+            this.btnAgregarGrupo.Size = new System.Drawing.Size(57, 64);
             this.btnAgregarGrupo.TabIndex = 22;
             this.btnAgregarGrupo.Text = "+";
             this.btnAgregarGrupo.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
             this.containerGrupos.AutoScroll = true;
             this.containerGrupos.Location = new System.Drawing.Point(52, 131);
             this.containerGrupos.Name = "containerGrupos";
-            this.containerGrupos.Size = new System.Drawing.Size(243, 357);
+            this.containerGrupos.Size = new System.Drawing.Size(450, 357);
             this.containerGrupos.TabIndex = 25;
             // 
             // FormListaGrupos
@@ -108,9 +108,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
             this.ClientSize = new System.Drawing.Size(576, 547);
+            this.Controls.Add(this.btnAgregarGrupo);
             this.Controls.Add(this.containerGrupos);
             this.Controls.Add(this.btnLogOut);
-            this.Controls.Add(this.btnAgregarGrupo);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txbBusqueda);
             this.Controls.Add(this.lblGrupos);

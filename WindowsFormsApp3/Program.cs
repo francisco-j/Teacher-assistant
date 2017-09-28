@@ -109,17 +109,13 @@ namespace WindowsFormsApp3
 
 //****************************  db  **************************************************
 
-            /// <summary>
-            /// registra un usuario en la base de datos </summary>
-            /// <param name="usuario">
-            /// nombre de usuario a registrar </param>
-            /// <param name="contra">
-            /// contrase;a del usuario a registrar </param>
-            /// <returns>
-            /// true si se guardo con exito </returns>
-        internal static bool registrar(string usuario, string contra)
+        /// <summary> registra un usuario en la base de datos </summary>
+        /// <param name="usuario"> nombre de usuario a registrar </param>
+        /// <param name="contra"> contrase;a del usuario a registrar </param>
+        /// <throws> aplicationExeption cuando no se puede registrar </throws>
+        internal static void Registrar(string usuario, string contra)
         {
-            return dbConection.RegistrarUsuario( usuario, contra );
+            dbConection.RegistrarUsuario( usuario, contra );
         }
 
         internal static void agregarGrupo(int grado, char grupo, String escuela, int maesto)

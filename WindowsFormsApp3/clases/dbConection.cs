@@ -48,10 +48,21 @@ namespace WindowsFormsApp3.clases
         // retorna los grupos que controla el maestro indicado
         internal static Grupo[] GruposAsociadosCon(int idUsuario)
         {
-            //provicional
+            //pruebas
             /*
-            Grupo g =  new Grupo(1, 1, 'A', "chapalirta");
-            Grupo[] gs = { g };
+            List<Grupo> lGrupos = new List<Grupo>();
+            for (int i=1; i<=10; i++)
+            {
+                int id = i;
+                int grado = i;
+                char grupo = 'A';
+                string escuela = "escuela";
+                Grupo g = new Grupo(id, grado, grupo, escuela);
+
+                lGrupos.Add(g);
+            }
+
+            return lGrupos.ToArray();
             */
 
             //codigo real
@@ -80,8 +91,15 @@ namespace WindowsFormsApp3.clases
             return lGrupos.ToArray();
 
         }
-        
-        //verifica que la contrasena y usuario coinsidan
+
+        //
+
+        /// <summary> verifica que la contrasena y usuario coinsidan
+        /// </summary>
+        /// <param name="idUsuario"> aqui se ponel el vallor del id del maestro </param>
+        /// <param name="usuario"> nombre de usuario </param>
+        /// <param name="contrasena"> constrase;a del usuario </param>
+        /// <returns> true si la base de datos contiene un registro con ese usuario y esa contrase;a </returns>
         internal static bool isCorrecto(ref int idUsuario, string usuario, string contrasena)
         {
             conection.Open();
@@ -91,9 +109,8 @@ namespace WindowsFormsApp3.clases
 
             if (reader.HasRows)
             {
-                // asignar valor a id
-                //porvicional
-                idUsuario = 1 ;
+                reader.Read();
+                idUsuario = (int)reader["id"];
 
                 conection.Close();
                 return true;
@@ -111,7 +128,11 @@ namespace WindowsFormsApp3.clases
 
 //************************  escritura ******************************************
 
-        internal static bool RegistrarUsuario(string usuario, string contra)
+            /// <summary> registra el usuario indicado en la base de datos </summary>
+            /// <param name="usuario"> nombre de usuario </param>
+            /// <param name="contra"> contrase;a del usuario </param>
+            /// <returns></returns>
+        internal static void RegistrarUsuario(string usuario, string contra)
         {
             conection.Open();
             comand.Connection = conection;
@@ -132,7 +153,6 @@ namespace WindowsFormsApp3.clases
                 comand.Connection = conection;
                 Console.WriteLine(comand.ExecuteNonQuery()+" lienas con cambios");
                 conection.Close();
-                return true;
                 }
             }
 
@@ -144,7 +164,11 @@ namespace WindowsFormsApp3.clases
 
         internal static void AgregarGrupo(int grado, char grupo, String escuela, int maesto)
         {
-            throw new NotImplementedException();
+            comand.CommandText = "INSERT INTO Salones (grado, grupo, escuela, maestro) VALUES("+grado+", '" + grupo + "', '" + escuela + "'" + maesto + ")";
+            comand.Connection = conection;
+            conection.Open();
+            Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+            conection.Close();
         }
 
         internal static void AgregarTarea()
