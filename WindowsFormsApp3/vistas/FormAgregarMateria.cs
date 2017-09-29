@@ -25,14 +25,22 @@ namespace WindowsFormsApp3.vistas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //validacion, que el nombre no este vacío
             string nombre = txbNombreMateria.Text;
             int salon = ventanaPadre.getIdGrupo();
 
-            //try catch
-            Program.agregarMateria(nombre, salon);
-            ventanaPadre.cargarBotones();
-            this.Dispose();
+            if (nombre == string.Empty)
+            {
+                txbNombreMateria.Focus();
+                txbNombreMateria.BackColor = Color.LightSalmon;
+            }
+            else
+            {
+                Program.agregarMateria(nombre, salon);
+                ventanaPadre.cargarBotones();
+                this.Dispose();
+            }
+
+            
         }
     }
 }

@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGrupoMateria));
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblDatosGrupo = new System.Windows.Forms.Label();
-            this.lblNombres = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.groupBoxAsistencia = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.lblMateria = new System.Windows.Forms.Label();
             this.btnAgregarDia = new System.Windows.Forms.Button();
+            this.lblMateria = new System.Windows.Forms.Label();
             this.btnNotas = new System.Windows.Forms.Button();
             this.btnEvaluaciones = new System.Windows.Forms.Button();
             this.btnAlumnos = new System.Windows.Forms.Button();
@@ -64,24 +64,24 @@
             this.lblDatosGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(240)))), ((int)(((byte)(215)))));
             this.lblDatosGrupo.Location = new System.Drawing.Point(145, 9);
             this.lblDatosGrupo.Name = "lblDatosGrupo";
-            this.lblDatosGrupo.Size = new System.Drawing.Size(168, 50);
+            this.lblDatosGrupo.Size = new System.Drawing.Size(94, 50);
             this.lblDatosGrupo.TabIndex = 13;
-            this.lblDatosGrupo.Text = "(#) Alumnos\r\nPrimaria (nombre)";
+            this.lblDatosGrupo.Text = " Alumnos\r\nPrimaria ";
             // 
-            // lblNombres
+            // lblNombre
             // 
-            this.lblNombres.AutoSize = true;
-            this.lblNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(240)))), ((int)(((byte)(215)))));
-            this.lblNombres.Location = new System.Drawing.Point(6, 17);
-            this.lblNombres.Name = "lblNombres";
-            this.lblNombres.Size = new System.Drawing.Size(87, 25);
-            this.lblNombres.TabIndex = 1;
-            this.lblNombres.Text = "Nombre:";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(240)))), ((int)(((byte)(215)))));
+            this.lblNombre.Location = new System.Drawing.Point(6, 17);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(87, 25);
+            this.lblNombre.TabIndex = 1;
+            this.lblNombre.Text = "Nombre:";
             // 
             // groupBoxAsistencia
             // 
-            this.groupBoxAsistencia.Controls.Add(this.lblNombres);
+            this.groupBoxAsistencia.Controls.Add(this.lblNombre);
             this.groupBoxAsistencia.Controls.Add(this.splitContainer1);
             this.groupBoxAsistencia.Controls.Add(this.btnAgregarDia);
             this.groupBoxAsistencia.Location = new System.Drawing.Point(125, 88);
@@ -99,17 +99,6 @@
             this.splitContainer1.SplitterDistance = 192;
             this.splitContainer1.TabIndex = 16;
             // 
-            // lblMateria
-            // 
-            this.lblMateria.AutoSize = true;
-            this.lblMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.lblMateria.ForeColor = System.Drawing.Color.Sienna;
-            this.lblMateria.Location = new System.Drawing.Point(382, 9);
-            this.lblMateria.Name = "lblMateria";
-            this.lblMateria.Size = new System.Drawing.Size(152, 46);
-            this.lblMateria.TabIndex = 13;
-            this.lblMateria.Text = "Materia";
-            // 
             // btnAgregarDia
             // 
             this.btnAgregarDia.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoMas;
@@ -121,6 +110,17 @@
             this.btnAgregarDia.Size = new System.Drawing.Size(32, 32);
             this.btnAgregarDia.TabIndex = 15;
             this.btnAgregarDia.UseVisualStyleBackColor = true;
+            // 
+            // lblMateria
+            // 
+            this.lblMateria.AutoSize = true;
+            this.lblMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.lblMateria.ForeColor = System.Drawing.Color.Sienna;
+            this.lblMateria.Location = new System.Drawing.Point(382, 9);
+            this.lblMateria.Name = "lblMateria";
+            this.lblMateria.Size = new System.Drawing.Size(152, 46);
+            this.lblMateria.TabIndex = 13;
+            this.lblMateria.Text = "Materia";
             // 
             // btnNotas
             // 
@@ -166,7 +166,6 @@
             this.btnAlumnos.TabIndex = 15;
             this.btnAlumnos.Text = " ";
             this.btnAlumnos.UseVisualStyleBackColor = false;
-            this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click);
             // 
             // btnTareas
             // 
@@ -199,7 +198,7 @@
             this.btnAsistencia.UseVisualStyleBackColor = false;
             this.btnAsistencia.Click += new System.EventHandler(this.btnAsistencia_Click);
             // 
-            // FormGrupo
+            // FormGrupoMateria
             // 
             this.AccessibleName = "FormGrupo";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,9 +216,9 @@
             this.Controls.Add(this.lblGrupo);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormGrupo";
+            this.Name = "FormGrupoMateria";
             this.Tag = "FormGrupo";
-            this.Text = "Grupo ";
+            this.Text = "Grupo materia";
             this.groupBoxAsistencia.ResumeLayout(false);
             this.groupBoxAsistencia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -239,7 +238,7 @@
         private System.Windows.Forms.Button btnEvaluaciones;
         private System.Windows.Forms.Button btnNotas;
         private System.Windows.Forms.Button btnAgregarDia;
-        private System.Windows.Forms.Label lblNombres;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.GroupBox groupBoxAsistencia;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label lblMateria;

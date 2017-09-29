@@ -7,7 +7,6 @@ namespace WindowsFormsApp3
 {
     public partial class FormListaMaterias : Form
     {
-        //grupo del que se estna mostrnado las materias
         private int idGrupo;
         private Materia[] materias;
 
@@ -40,7 +39,7 @@ namespace WindowsFormsApp3
             string materia = (sender as Button).Name.Replace("btnMateria", "");
             int idMateria = int.Parse(materia);
 
-            Program.showGrupoMateria(idMateria);
+            Program.showGrupoMateria(idMateria, idGrupo);
             this.Hide();
         }
 

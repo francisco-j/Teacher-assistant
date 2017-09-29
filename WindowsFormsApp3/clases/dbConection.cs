@@ -14,8 +14,8 @@ namespace WindowsFormsApp3.clases
 
         private static OleDbConnection conection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=teacher assistant.mdb");
         private static OleDbCommand comand = new OleDbCommand();
-        private static OleDbDataAdapter adapter = new OleDbDataAdapter();
-
+        private static OleDbDataReader reader;
+        
 
 //************************  control ********************************************
 
@@ -48,7 +48,7 @@ namespace WindowsFormsApp3.clases
 
 
 //************************  lectura ******************************************
-        
+
         /// <summary> retorna los grupos asociados al maestro indicado </summary>
         internal static Grupo[] GruposAsociadosCon(int idUsuario)
         {
@@ -57,7 +57,7 @@ namespace WindowsFormsApp3.clases
                 conection.Open();
                 comand.Connection = conection;
                 comand.CommandText = "SELECT * FROM Grupos WHERE maestro=" + idUsuario;
-                OleDbDataReader reader = comand.ExecuteReader();
+                reader = comand.ExecuteReader();
 
                 List<Grupo> lGrupos = new List<Grupo>();
 
@@ -71,12 +71,11 @@ namespace WindowsFormsApp3.clases
 
                     lGrupos.Add(g);
                 }
-                reader.Close();
-
                 return lGrupos.ToArray();
             }
             finally
             {
+                reader.Close();
                 conection.Close();
             }
         }
@@ -89,49 +88,55 @@ namespace WindowsFormsApp3.clases
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Materias WHERE salon=" + idGrupo;
-                OleDbDataReader reader = comand.ExecuteReader();
+                comand.CommandText = "SELECT * FROM Materias WHERE grupo=" + idGrupo;
+                reader = comand.ExecuteReader();
 
                 while (reader.Read())
                 {
                     int id = (int)reader["id"];
                     string nombre = reader["nombre"].ToString();
-                    int grupo = (int)reader["salon"];
+                    int grupo = (int)reader["grupo"];
                     Materia m = new Materia(id, nombre, grupo);
 
                     lMaterias.Add(m);
                 }
-                reader.Close();
             }
             finally
             {
+                reader.Close();
                 conection.Close();
             }
             return lMaterias.ToArray();
         }
 
-
         /// <summary> verifica que la contrasena y usuario coinsidan </summary>
         internal static bool isCorrecto(ref int idUsuario, string usuario, string contrasena)
         {
-            conection.Open();
-            comand.Connection = conection;
-            comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "' AND contrasena='"+contrasena+"'";
-            OleDbDataReader reader = comand.ExecuteReader();
-
-            if (reader.HasRows)
+            try
             {
-                reader.Read();
-                idUsuario = (int)reader["id"];
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "' AND contrasena='"+contrasena+"'";
+                reader = comand.ExecuteReader();
 
-                conection.Close();
-                return true;
+                if (reader.Read())
+                {
+                    idUsuario = (int)reader["id"];
+
+                    conection.Close();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            finally
             {
                 conection.Close();
-                return false;
+                reader.Close();
             }
+            
         }
 
         /// <summary> lle el grupo asociado con el id indicado </summary>
@@ -142,7 +147,7 @@ namespace WindowsFormsApp3.clases
                 conection.Open();
                 comand.Connection = conection;
                 comand.CommandText = "SELECT * FROM Grupos WHERE id="+idGrupo;
-                OleDbDataReader reader = comand.ExecuteReader();
+                reader = comand.ExecuteReader();
 
                 reader.Read();
 
@@ -160,18 +165,70 @@ namespace WindowsFormsApp3.clases
 
         }
 
-        //************************  escritura ******************************************
+        /// <summary> llena la informacion sobre el grupo y materia indicados </summary>
+        internal static void getInfo(int idMateria, int idGrupo, out string nombreGrupo, out string nombreMateria, out string numeroAlumnos, out string escuela)
+        {
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+
+
+                            // ** grupo ** //
+
+                comand.CommandText = "SELECT * FROM Grupos WHERE id=" + idGrupo;
+                reader = comand.ExecuteReader();
+
+                reader.Read();
+                //asigna el nombre del grupo
+                nombreGrupo = reader["grado"].ToString() + "º" + reader["grupo"].ToString();
+                //asigna el nombre de la escuela
+                escuela = reader["escuela"].ToString();
+                reader.Close();
+
+
+                            // ** materia ** //
+
+                comand.CommandText = "SELECT * FROM Materias WHERE id=" + idMateria;
+                reader = comand.ExecuteReader();
+                
+                reader.Read();
+                //asigna el nombre de la materia
+                nombreMateria = reader["nombre"].ToString();
+                reader.Close();
+                
+
+                            // ** alumnos ** //
+                comand.CommandText = "SELECT * FROM Alumnos WHERE grupo=" + idGrupo;
+                reader = comand.ExecuteReader();
+
+                int numAlum = 0;
+                while (reader.Read())
+                {
+                    numAlum++;
+                }
+                //asigna el numero de alumnos
+                numeroAlumnos = numAlum.ToString();
+                reader.Close();
+
+            }
+            finally
+            {
+                conection.Close();
+                reader.Close();
+            }
+        }
+
+
+//************************  escritura ******************************************
 
         /// <summary> registra el usuario indicado en la base de datos </summary>
-        /// <param name="usuario"> nombre de usuario </param>
-        /// <param name="contra"> contrase;a del usuario </param>
-        /// <returns></returns>
         internal static void RegistrarUsuario(string usuario, string contra)
         {
             conection.Open();
             comand.Connection = conection;
             comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "'" ;
-            OleDbDataReader reader = comand.ExecuteReader();
+            reader = comand.ExecuteReader();
 
             if (reader.HasRows)
             {
@@ -190,6 +247,7 @@ namespace WindowsFormsApp3.clases
                 }
             }
 
+        /// <summary> registra el grupo indicado en la base de datos </summary>
         internal static void AgregarGrupo(int grado, char grupo, String escuela, int maesto)
         {
             comand.CommandText = "INSERT INTO Grupos (grado, grupo, escuela, maestro) VALUES("+grado+", '" + grupo + "', '" + escuela + "'," + maesto + ")";
@@ -205,9 +263,10 @@ namespace WindowsFormsApp3.clases
             }
         }
 
+        /// <summary> registra la materia indicada en la base de datos </summary>
         internal static void AgregarMateria(String nombre, int salon)
         {
-            comand.CommandText = "INSERT INTO Materias (nombre, salon) VALUES('"+nombre+"'," +salon+ ")";
+            comand.CommandText = "INSERT INTO Materias (nombre, grupo) VALUES('"+nombre+"'," +salon+ ")";
             comand.Connection = conection;
             try
             {
@@ -221,7 +280,7 @@ namespace WindowsFormsApp3.clases
         }
 
 
-        //************************** otros *********************************************
+//************************** otros *********************************************
 
         //experimentacion
         //public int temp()

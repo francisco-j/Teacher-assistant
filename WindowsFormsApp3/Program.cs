@@ -21,7 +21,8 @@ namespace WindowsFormsApp3
             Application.Run();
         }
 
-        //****************************** logg  **********************************************
+
+//****************************** logg  **********************************************
 
         /// <summary> Incia sesión, abre el Form de lista de grupos </summary>
         /// <param name="usuario">  nombre de usuario a iniciar </param>
@@ -75,11 +76,11 @@ namespace WindowsFormsApp3
             listaMaterias.Show();
         }
 
-        /// <summary> abre el formGroupX con el grupo indicado </summary>
-        internal static void showGrupoMateria(int idMateria)
+        /// <summary> abre el formGrupoMateria con la materia indicada </summary>
+        internal static void showGrupoMateria(int idMateria, int idGrupo)
         {
-            grupo = new FormGrupoMateria(idMateria); //crea el form
-            grupo.Show();   //lo muestra
+            grupo = new FormGrupoMateria(idMateria, idGrupo);
+            grupo.Show();
         }
 
 //****************************  db  **************************************************
@@ -89,20 +90,20 @@ namespace WindowsFormsApp3
             throw new NotImplementedException();
         }
 
-        /// <summary> lee que grupos pertenecen al usuario indicado </summary>
-        /// <param name="idMaestro"> id del maestro con </param>
-        /// <returns> array de objetos tipo Grupo sobre los que el maestro tiene control</returns>
+        /// <summary> retorna los grupos que pertenecen al usuario indicado </summary>
         public static Grupo[] gruposDeMaestro(int idMaestro)
         {
             return dbConection.GruposAsociadosCon(idMaestro);
         }
 
+        /// <summary> retorna las materias que pertenecen al grupo indicado </summary>
         internal static Materia[] materiasDeGrupo(int idGrupo)
         {
             Console.WriteLine("mostrando materias del salon: "+idGrupo);
             return dbConection.materiasAsociadasCon(idGrupo);
         }
 
+        /// <summary> retorna el grupo con el id indicado </summary>
         internal static Grupo getGrupo(int idGrupo)
         {
             return dbConection.getGrupo(idGrupo);
@@ -112,11 +113,14 @@ namespace WindowsFormsApp3
         {
             dbConection.AgregarMateria(nombre, salon);
         }
+        
+        /// <summary> llena la informacion sobre el grupo y materia indicados </summary>
+        internal static void getIfo(int idMateria, int idGrupo, out string grupo, out string materia, out string numeroAlumnos, out string escuela)
+        {
+            dbConection.getInfo(idMateria, idGrupo, out grupo, out materia, out numeroAlumnos, out escuela);
+        }
 
-
-        /// <summary> registra un usuario en la base de datos </summary>
-        /// <param name="usuario"> nombre de usuario a registrar </param>
-        /// <param name="contra"> contrase;a del usuario a registrar </param>
+        /// <summary> registra al usuario indicado en la base de datos </summary>
         /// <throws> aplicationExeption cuando no se puede registrar </throws>
         internal static void registrarUsuario(string usuario, string contra)
         {
