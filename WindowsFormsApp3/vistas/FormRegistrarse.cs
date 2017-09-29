@@ -13,7 +13,7 @@ namespace WindowsFormsApp3
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             string usuario = txbUsuario.Text;
-            string contraseña = txbContraseña.Text;
+            string contraseña = txbContrasena.Text;
             string confirmacion = txbConfirmacion.Text;
 
             //Validaciones de que los campos no estén vacíos, usar regex
@@ -26,7 +26,7 @@ namespace WindowsFormsApp3
             else if (contraseña == "")
             {
                 MessageBox.Show("Define una contraseña por favor");
-                txbContraseña.Focus();
+                txbContrasena.Focus();
             }
             else if (confirmacion == "")
             {
@@ -36,7 +36,7 @@ namespace WindowsFormsApp3
             else if (confirmacion != contraseña)
             {
                 MessageBox.Show("La contraseña y la confirmación no coinciden");
-                txbContraseña.Focus();
+                txbContrasena.Focus();
             }
             else
             {

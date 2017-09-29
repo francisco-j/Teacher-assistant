@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgregarGrupo));
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblEscuela = new System.Windows.Forms.Label();
             this.txbEscuela = new System.Windows.Forms.TextBox();
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblGrado = new System.Windows.Forms.Label();
@@ -49,14 +49,14 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // lblNombre
+            // lblEscuela
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(46, 62);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(48, 13);
-            this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "Escuela:";
+            this.lblEscuela.AutoSize = true;
+            this.lblEscuela.Location = new System.Drawing.Point(46, 59);
+            this.lblEscuela.Name = "lblEscuela";
+            this.lblEscuela.Size = new System.Drawing.Size(48, 13);
+            this.lblEscuela.TabIndex = 1;
+            this.lblEscuela.Text = "Escuela:";
             // 
             // txbEscuela
             // 
@@ -122,11 +122,11 @@
             this.Controls.Add(this.txbEscuela);
             this.Controls.Add(this.lblGrado);
             this.Controls.Add(this.lblGrupo);
-            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.lblEscuela);
             this.Controls.Add(this.btnGuardar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAgregarGrupo";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Agregar nuevo grupo";
             ((System.ComponentModel.ISupportInitialize)(this.numGrado)).EndInit();
             this.ResumeLayout(false);
@@ -137,7 +137,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblEscuela;
         private System.Windows.Forms.TextBox txbEscuela;
         private System.Windows.Forms.Label lblGrupo;
         private System.Windows.Forms.Label lblGrado;

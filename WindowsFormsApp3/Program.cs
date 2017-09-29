@@ -22,8 +22,13 @@ namespace WindowsFormsApp3
             //falta mostrar al frente
         }
 
+        internal static void agregarMateria(string nombre, int salon)
+        {
+            throw new NotImplementedException();
+        }
 
-//****************************** logg  **********************************************
+
+        //****************************** logg  **********************************************
 
         /// <summary> Incia sesión, abre el Form de lista de grupos </summary>
         /// <param name="usuario">  nombre de usuario a iniciar </param>
@@ -48,11 +53,8 @@ namespace WindowsFormsApp3
             }
         }
 
-
-        /// <summary>
-        /// Para cerrar sesión y regresar al Form de Login </summary>
-        /// <param name="ventana">
-        /// ventana que ejecuto el  logout </param>
+        /// <summary> Para cerrar sesión y regresar al Form de Login </summary>
+        /// <param name="ventana"> ventana que ejecuto el  logout </param>
         internal static void LogOut( Form ventana )  
         {
             inicio = new FormInicio();
@@ -81,9 +83,9 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> abre el formGroupX con el grupo indicado </summary>
-        internal static void ShowGroup(ushort groupId)
+        internal static void showGroup(int groupId)
         {
-            new FormGrupo(groupId); //crea el form
+            grupo = new FormGrupo(groupId); //crea el form
             grupo.Show();   //lo muestra
         }
 

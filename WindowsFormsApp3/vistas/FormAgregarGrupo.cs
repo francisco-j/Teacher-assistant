@@ -16,9 +16,8 @@ namespace WindowsFormsApp3
 
 // ******************* constructor ****************************
 
-            /// <summary> ventana para agregar nuevos grupos
-            /// </summary>
-            /// <param name="ventanaPadre"></param>
+        /// <summary> ventana para agregar nuevos grupos </summary>
+        /// <param name="ventanaPadre"> FormListaGrupos padre </param>
         public FormAgregarGrupo( FormListaGrupos ventanaPadre )
         {
             InitializeComponent();
@@ -27,8 +26,7 @@ namespace WindowsFormsApp3
 
         }
 
-            /// <summary> guardar el grupo en la base de datos y luego lo agrega al formulario
-            /// </summary>
+        /// <summary> guardar el grupo en la base de datos y luego lo agrega al formulario </summary>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             int grado = (int)numGrado.Value;

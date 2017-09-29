@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using WindowsFormsApp3.clases;
+using WindowsFormsApp3.vistas;
 
 namespace WindowsFormsApp3
 {
@@ -10,9 +11,10 @@ namespace WindowsFormsApp3
         private int idGrupo;
         private Materia[] materias;
 
-// ****************************** constructor ***************************************
+        // ****************************** constructor ***************************************
 
         /// <summary> ventana que muestra la lista de materias </summary>
+        /// <param name="idGrupo"> id del grupo cuyas materias se mostraran </param>>
         public FormListaMaterias( int idGrupo )
         {
             InitializeComponent();
@@ -24,26 +26,29 @@ namespace WindowsFormsApp3
 
         }
 
+        internal int getIdGrupo()
+        {
+            return idGrupo;
+        }
 
-// ******************** boton evt *****************************************
+
+        // ******************** boton evt *****************************************
+
+        /// <summary> evento para los botonesMateria </summary>
+        private void boton_Click(object sender, System.EventArgs e)
+        {
+            string materia = (sender as Button).Name.Replace("btnMateria", "");
+            int idMateria = int.Parse(materia);
+
+            Program.showGroup(idMateria);
+            this.Hide();
+        }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Program.returnToListaGrupos( );
             this.Dispose();
         }
-
-        /*
-        private void boton_Click(object sender, System.EventArgs e)
-        {
-            string materia = (sender as Button).Name.Replace("btnMateria", ""); 
-            int idMateria = int.Parse(materia);
-
-            Program.showListaMaterias(idGrupo);
-            //Se oculta esta ventana para que cuando se regrese no se vuelva a cargar todo
-            this.Hide();
-        }
-        */
 
         private void btnBuscar_Click(object sender, System.EventArgs e)
         {
@@ -52,12 +57,11 @@ namespace WindowsFormsApp3
 
         private void btnAgregarMateria_Click(object sender, System.EventArgs e)
         {
-            throw new ApplicationException();
-
-            //FormAgregarMateria nuevaMateria = new FormAgregarMateria(this);
-            //nuevaMateria.ShowDialog(this);
+            FormAgregarMateria nuevaMateria = new FormAgregarMateria(this);
+            nuevaMateria.ShowDialog(this);
         }
-        //*********************************** metodos *****************************
+
+//*********************************** metodos *****************************
 
         ///<sumary> limpia el contenedor y carga todas las materias como botones nuevos </sumary>
         public void cargarBotones()
@@ -68,15 +72,18 @@ namespace WindowsFormsApp3
             contenedorGrupos.Controls.Clear();
             int color = 0;
 
+            Button boton;
+
             foreach (Materia materia in materias)
             {
-                Button botonMateria = new Button();
+                boton = new Button();
+                boton.Click += new EventHandler(boton_Click);
 
-                PersonalizacionComponentes.configurarBotonMateria(ref botonMateria, materia, color);
+                PersonalizacionComponentes.configurarBotonMateria(ref boton, materia, color);
                 color++;
 
                 //Se agrega el botón al contenedor
-                contenedorGrupos.Controls.Add(botonMateria);
+                contenedorGrupos.Controls.Add(boton);
                 
             }
         }

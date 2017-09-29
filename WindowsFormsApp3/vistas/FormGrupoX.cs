@@ -6,7 +6,7 @@ namespace WindowsFormsApp3
     {
         GroupBox groupVisible;
 
-        public FormGrupo(ushort groupId) //recibe el id del grupo a mostrar
+        public FormGrupo(int groupId) //recibe el id del grupo a mostrar
         {
             InitializeComponent();
             this.Text += groupId;  //en el titulo del form agrega el nombre del grupo

@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistrarse));
             this.txbUsuario = new System.Windows.Forms.TextBox();
-            this.txbContraseña = new System.Windows.Forms.TextBox();
+            this.txbContrasena = new System.Windows.Forms.TextBox();
             this.txbConfirmacion = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.lblContraseña = new System.Windows.Forms.Label();
-            this.lblConfirmación = new System.Windows.Forms.Label();
+            this.lblContrasena = new System.Windows.Forms.Label();
+            this.lblConfirmacion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txbUsuario
@@ -45,12 +45,12 @@
             this.txbUsuario.Size = new System.Drawing.Size(131, 20);
             this.txbUsuario.TabIndex = 0;
             // 
-            // txbContraseña
+            // txbContrasena
             // 
-            this.txbContraseña.Location = new System.Drawing.Point(215, 75);
-            this.txbContraseña.Name = "txbContraseña";
-            this.txbContraseña.Size = new System.Drawing.Size(131, 20);
-            this.txbContraseña.TabIndex = 1;
+            this.txbContrasena.Location = new System.Drawing.Point(215, 75);
+            this.txbContrasena.Name = "txbContrasena";
+            this.txbContrasena.Size = new System.Drawing.Size(131, 20);
+            this.txbContrasena.TabIndex = 1;
             // 
             // txbConfirmacion
             // 
@@ -80,25 +80,25 @@
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
-            // lblContraseña
+            // lblContrasena
             // 
-            this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContraseña.Location = new System.Drawing.Point(104, 75);
-            this.lblContraseña.Name = "lblContraseña";
-            this.lblContraseña.Size = new System.Drawing.Size(96, 20);
-            this.lblContraseña.TabIndex = 5;
-            this.lblContraseña.Text = "Contraseña:";
+            this.lblContrasena.AutoSize = true;
+            this.lblContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContrasena.Location = new System.Drawing.Point(104, 75);
+            this.lblContrasena.Name = "lblContrasena";
+            this.lblContrasena.Size = new System.Drawing.Size(96, 20);
+            this.lblContrasena.TabIndex = 5;
+            this.lblContrasena.Text = "Contraseña:";
             // 
-            // lblConfirmación
+            // lblConfirmacion
             // 
-            this.lblConfirmación.AutoSize = true;
-            this.lblConfirmación.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmación.Location = new System.Drawing.Point(34, 113);
-            this.lblConfirmación.Name = "lblConfirmación";
-            this.lblConfirmación.Size = new System.Drawing.Size(166, 20);
-            this.lblConfirmación.TabIndex = 6;
-            this.lblConfirmación.Text = "Confirmar contraseña:";
+            this.lblConfirmacion.AutoSize = true;
+            this.lblConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmacion.Location = new System.Drawing.Point(34, 113);
+            this.lblConfirmacion.Name = "lblConfirmacion";
+            this.lblConfirmacion.Size = new System.Drawing.Size(166, 20);
+            this.lblConfirmacion.TabIndex = 6;
+            this.lblConfirmacion.Text = "Confirmar contraseña:";
             // 
             // FormRegistrarse
             // 
@@ -106,16 +106,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
             this.ClientSize = new System.Drawing.Size(394, 227);
-            this.Controls.Add(this.lblConfirmación);
-            this.Controls.Add(this.lblContraseña);
+            this.Controls.Add(this.lblConfirmacion);
+            this.Controls.Add(this.lblContrasena);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.txbConfirmacion);
-            this.Controls.Add(this.txbContraseña);
+            this.Controls.Add(this.txbContrasena);
             this.Controls.Add(this.txbUsuario);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRegistrarse";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormRegistrarse";
             this.TopMost = true;
             this.ResumeLayout(false);
@@ -126,11 +126,11 @@
         #endregion
 
         private System.Windows.Forms.TextBox txbUsuario;
-        private System.Windows.Forms.TextBox txbContraseña;
+        private System.Windows.Forms.TextBox txbContrasena;
         private System.Windows.Forms.TextBox txbConfirmacion;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Label lblContraseña;
-        private System.Windows.Forms.Label lblConfirmación;
+        private System.Windows.Forms.Label lblContrasena;
+        private System.Windows.Forms.Label lblConfirmacion;
     }
 }

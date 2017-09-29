@@ -54,6 +54,12 @@
     </Compile>
     <Compile Include="clases\dbConection.cs" />
     <Compile Include="clases\Grupo.cs" />
+    <Compile Include="vistas\FormAgregarMateria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\FormAgregarMateria.Designer.cs">
+      <DependentUpon>FormAgregarMateria.cs</DependentUpon>
+    </Compile>
     <Compile Include="vistas\FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="vistas\FormAgregarGrupo.resx">
       <DependentUpon>FormAgregarGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\FormAgregarMateria.resx">
+      <DependentUpon>FormAgregarMateria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>

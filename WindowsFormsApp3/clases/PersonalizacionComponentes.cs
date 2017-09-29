@@ -13,9 +13,9 @@ namespace WindowsFormsApp3
     class PersonalizacionComponentes
     {
 
-        //colores que se asignan a los botones de grupos, máximo habrá 10 botones de grupos
+        /// <summary> colores que se asignan a los botones de grupos, máximo habrá 10 botones de grupos </summary>
         private static Color[] botonGrupoColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
-        //colores que se asignan a los botones de materias, máximo habrá 10 botones de materias
+        /// <summary> colores que se asignan a los botones de materias, máximo habrá 10 botones de materias </summary>
         private static Color[] botonMateriaColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
         private static Font miFuente = new Font("Microsoft Sans Serif", 20);
 
@@ -34,12 +34,12 @@ namespace WindowsFormsApp3
         public static void configurarBotonGrupo(ref Button boton, Grupo grupo, int color)
         {
             boton.Font = miFuente;
-            boton.Size = new Size(150, 115);
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
             boton.BackColor = botonGrupoColores[color];
 
             boton.Text = grupo.ToString();
+            boton.Size = new Size(150, 115);
             boton.Name = "btnGrupo" + grupo.getId();
         }
 
@@ -50,12 +50,12 @@ namespace WindowsFormsApp3
         public static void configurarBotonMateria(ref Button boton, Materia materia, int color)
         {
             boton.Font = miFuente;
-            boton.Size = new Size(150, 80);
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
             boton.BackColor = botonMateriaColores[color];
 
             boton.Text = materia.toString();
+            boton.Size = new Size(150, 80);
             boton.Name = "btnMateria" + materia.getId();
         }
 

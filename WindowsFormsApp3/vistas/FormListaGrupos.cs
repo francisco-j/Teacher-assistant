@@ -1,24 +1,19 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
-using System.Threading.Tasks;
-using WindowsFormsApp3.clases;
-using System.Collections.Generic;
+using WindowsFormsApp3.vistas;
 
 namespace WindowsFormsApp3
 {
     public partial class FormListaGrupos : Form
     {
-        //grupos a mostrar como botones
-        private Grupo[] grupos;
         // id del maestro que esta viendo la ventana
         private int idMaestro;
+        private Grupo[] grupos;
 
 //*********************************  constructor ********************************
 
         ///<sumary> ventana que muestra los grupos asociados con un maestro </sumary>
-        /// <param name="idMaestro">
-        /// id del maestro </param>>
+        /// <param name="idMaestro"> id del maestro cuyos grupos se mostraran </param>>
         public FormListaGrupos( int idMaestro )
         {
             InitializeComponent();
@@ -31,13 +26,13 @@ namespace WindowsFormsApp3
 
 //**************************** btn_click ********************************************
 
+        /// <summary> evento para los botonesGrupo  </summary>
         private void boton_Click(object sender, System.EventArgs e)
         {
             string grupo = (sender as Button).Name.Replace("btnGrupo", "");
             int idGrupo = int.Parse(grupo);
 
             Program.showListaMaterias( idGrupo );
-            //Se oculta esta ventana para que cuando se regrese no se vuelva a cargar todo
             this.Hide();
         }
 
