@@ -12,7 +12,7 @@ namespace WindowsFormsApp3.clases
     class dbConection
     {
 
-        private static OleDbConnection conection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\teacher assistant.mdb");
+        private static OleDbConnection conection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=teacher assistant.mdb");
         private static OleDbCommand comand = new OleDbCommand();
         private static OleDbDataAdapter adapter = new OleDbDataAdapter();
 
@@ -56,7 +56,7 @@ namespace WindowsFormsApp3.clases
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Salones WHERE maestro=" + idUsuario;
+                comand.CommandText = "SELECT * FROM Grupos WHERE maestro=" + idUsuario;
                 OleDbDataReader reader = comand.ExecuteReader();
 
                 List<Grupo> lGrupos = new List<Grupo>();
@@ -141,7 +141,7 @@ namespace WindowsFormsApp3.clases
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Salones WHERE id="+idGrupo;
+                comand.CommandText = "SELECT * FROM Grupos WHERE id="+idGrupo;
                 OleDbDataReader reader = comand.ExecuteReader();
 
                 reader.Read();
@@ -192,7 +192,7 @@ namespace WindowsFormsApp3.clases
 
         internal static void AgregarGrupo(int grado, char grupo, String escuela, int maesto)
         {
-            comand.CommandText = "INSERT INTO Salones (grado, grupo, escuela, maestro) VALUES("+grado+", '" + grupo + "', '" + escuela + "'," + maesto + ")";
+            comand.CommandText = "INSERT INTO Grupos (grado, grupo, escuela, maestro) VALUES("+grado+", '" + grupo + "', '" + escuela + "'," + maesto + ")";
             comand.Connection = conection;
             try
             {
