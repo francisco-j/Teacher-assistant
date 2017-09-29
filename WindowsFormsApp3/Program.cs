@@ -19,14 +19,7 @@ namespace WindowsFormsApp3
             inicio = new FormInicio();
             inicio.Show();
             Application.Run();
-            //falta mostrar al frente
         }
-
-        internal static void agregarMateria(string nombre, int salon)
-        {
-            throw new NotImplementedException();
-        }
-
 
         //****************************** logg  **********************************************
 
@@ -83,9 +76,9 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> abre el formGroupX con el grupo indicado </summary>
-        internal static void showGroup(int groupId)
+        internal static void showGrupoMateria(int idMateria)
         {
-            grupo = new FormGrupo(groupId); //crea el form
+            grupo = new FormGrupoMateria(idMateria); //crea el form
             grupo.Show();   //lo muestra
         }
 
@@ -114,6 +107,12 @@ namespace WindowsFormsApp3
         {
             return dbConection.getGrupo(idGrupo);
         }
+
+        internal static void agregarMateria(string nombre, int salon)
+        {
+            dbConection.AgregarMateria(nombre, salon);
+        }
+
 
         /// <summary> registra un usuario en la base de datos </summary>
         /// <param name="usuario"> nombre de usuario a registrar </param>

@@ -2,14 +2,16 @@
 
 namespace WindowsFormsApp3
 {
-    public partial class FormGrupo : Form
+    public partial class FormGrupoMateria : Form
     {
         GroupBox groupVisible;
 
-        public FormGrupo(int groupId) //recibe el id del grupo a mostrar
+        /// <summary> ventana principal del progrma </summary>
+        /// <param name="groupId"> id del grupo a mostrar </param>
+        public FormGrupoMateria(int idMateria)
         {
             InitializeComponent();
-            this.Text += groupId;  //en el titulo del form agrega el nombre del grupo
+            this.Text += idMateria;  //en el titulo del form agrega el nombre del grupo
             //lblDatosGrupo.Text = Alumnos + " Alumnos\r\n" + "Primaria" + escuela; //llena la informacion del grupo
 
             groupBoxAsistencia.Visible = true;

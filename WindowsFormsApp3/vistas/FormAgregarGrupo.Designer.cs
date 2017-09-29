@@ -44,7 +44,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(88, 103);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 4;
+            this.btnGuardar.TabIndex = 3;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -86,9 +86,24 @@
             // numGrado
             // 
             this.numGrado.Location = new System.Drawing.Point(84, 18);
+            this.numGrado.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numGrado.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numGrado.Name = "numGrado";
             this.numGrado.Size = new System.Drawing.Size(34, 20);
-            this.numGrado.TabIndex = 11;
+            this.numGrado.TabIndex = 0;
+            this.numGrado.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // cbGrupo
             // 
@@ -109,7 +124,8 @@
             this.cbGrupo.Location = new System.Drawing.Point(163, 17);
             this.cbGrupo.Name = "cbGrupo";
             this.cbGrupo.Size = new System.Drawing.Size(37, 21);
-            this.cbGrupo.TabIndex = 12;
+            this.cbGrupo.TabIndex = 1;
+            this.cbGrupo.Text = "A";
             // 
             // FormAgregarGrupo
             // 

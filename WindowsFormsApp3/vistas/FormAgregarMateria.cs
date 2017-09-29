@@ -25,6 +25,7 @@ namespace WindowsFormsApp3.vistas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            //validacion, que el nombre no este vacío
             string nombre = txbNombreMateria.Text;
             int salon = ventanaPadre.getIdGrupo();
 

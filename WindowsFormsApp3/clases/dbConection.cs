@@ -205,9 +205,19 @@ namespace WindowsFormsApp3.clases
             }
         }
 
-        internal static void AgregarMateria()
+        internal static void AgregarMateria(String nombre, int salon)
         {
-            throw new NotImplementedException();
+            comand.CommandText = "INSERT INTO Materias (nombre, salon) VALUES('"+nombre+"'," +salon+ ")";
+            comand.Connection = conection;
+            try
+            {
+                conection.Open();
+                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+            }
+            finally
+            {
+                conection.Close();
+            }
         }
 
 

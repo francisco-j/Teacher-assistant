@@ -72,11 +72,11 @@
     <Compile Include="vistas\FormListaMaterias.Designer.cs">
       <DependentUpon>FormListaMaterias.cs</DependentUpon>
     </Compile>
-    <Compile Include="vistas\FormGrupoX.cs">
+    <Compile Include="vistas\FormGrupoMateria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="vistas\FormGrupoX.Designer.cs">
-      <DependentUpon>FormGrupoX.cs</DependentUpon>
+    <Compile Include="vistas\FormGrupoMateria.Designer.cs">
+      <DependentUpon>FormGrupoMateria.cs</DependentUpon>
     </Compile>
     <Compile Include="vistas\FormListaGrupos.cs">
       <SubType>Form</SubType>
@@ -105,8 +105,8 @@
     <EmbeddedResource Include="vistas\FormListaMaterias.resx">
       <DependentUpon>FormListaMaterias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="vistas\FormGrupoX.resx">
-      <DependentUpon>FormGrupoX.cs</DependentUpon>
+    <EmbeddedResource Include="vistas\FormGrupoMateria.resx">
+      <DependentUpon>FormGrupoMateria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormListaGrupos.resx">
       <DependentUpon>FormListaGrupos.cs</DependentUpon>

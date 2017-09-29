@@ -32,7 +32,7 @@
             this.lblGrupos = new System.Windows.Forms.Label();
             this.txbBusqueda = new System.Windows.Forms.TextBox();
             this.btnAjustes = new System.Windows.Forms.Button();
-            this.btnAgregarGrupo = new System.Windows.Forms.Button();
+            this.btnAgregarMateria = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBoxAsistencia = new System.Windows.Forms.GroupBox();
@@ -50,7 +50,7 @@
             this.lblGrupos.AutoSize = true;
             this.lblGrupos.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGrupos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.lblGrupos.Location = new System.Drawing.Point(126, 20);
+            this.lblGrupos.Location = new System.Drawing.Point(88, 16);
             this.lblGrupos.Name = "lblGrupos";
             this.lblGrupos.Size = new System.Drawing.Size(231, 61);
             this.lblGrupos.TabIndex = 2;
@@ -77,17 +77,18 @@
             this.btnAjustes.TabIndex = 16;
             this.btnAjustes.UseVisualStyleBackColor = true;
             // 
-            // btnAgregarGrupo
+            // btnAgregarMateria
             // 
-            this.btnAgregarGrupo.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAgregar;
-            this.btnAgregarGrupo.FlatAppearance.BorderSize = 0;
-            this.btnAgregarGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarGrupo.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarGrupo.Location = new System.Drawing.Point(12, 491);
-            this.btnAgregarGrupo.Name = "btnAgregarGrupo";
-            this.btnAgregarGrupo.Size = new System.Drawing.Size(32, 32);
-            this.btnAgregarGrupo.TabIndex = 16;
-            this.btnAgregarGrupo.UseVisualStyleBackColor = true;
+            this.btnAgregarMateria.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAgregar;
+            this.btnAgregarMateria.FlatAppearance.BorderSize = 0;
+            this.btnAgregarMateria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarMateria.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarMateria.Location = new System.Drawing.Point(12, 491);
+            this.btnAgregarMateria.Name = "btnAgregarMateria";
+            this.btnAgregarMateria.Size = new System.Drawing.Size(32, 32);
+            this.btnAgregarMateria.TabIndex = 16;
+            this.btnAgregarMateria.UseVisualStyleBackColor = true;
+            this.btnAgregarMateria.Click += new System.EventHandler(this.btnAgregarMateria_Click);
             // 
             // btnLogOut
             // 
@@ -172,7 +173,7 @@
             this.Controls.Add(this.contenedorGrupos);
             this.Controls.Add(this.groupBoxAsistencia);
             this.Controls.Add(this.btnAjustes);
-            this.Controls.Add(this.btnAgregarGrupo);
+            this.Controls.Add(this.btnAgregarMateria);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.txbBusqueda);
             this.Controls.Add(this.btnBuscar);
@@ -197,7 +198,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txbBusqueda;
         private System.Windows.Forms.Button btnLogOut;
-        private System.Windows.Forms.Button btnAgregarGrupo;
+        private System.Windows.Forms.Button btnAgregarMateria;
         private System.Windows.Forms.Button btnAjustes;
         private System.Windows.Forms.GroupBox groupBoxAsistencia;
         private System.Windows.Forms.Label lblNombres;

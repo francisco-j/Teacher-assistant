@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp3
 {
-    partial class FormGrupo
+    partial class FormGrupoMateria
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGrupo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGrupoMateria));
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblDatosGrupo = new System.Windows.Forms.Label();
             this.lblNombres = new System.Windows.Forms.Label();

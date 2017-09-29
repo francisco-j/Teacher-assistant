@@ -40,7 +40,7 @@ namespace WindowsFormsApp3
             string materia = (sender as Button).Name.Replace("btnMateria", "");
             int idMateria = int.Parse(materia);
 
-            Program.showGroup(idMateria);
+            Program.showGrupoMateria(idMateria);
             this.Hide();
         }
 
