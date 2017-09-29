@@ -23,5 +23,10 @@ namespace WindowsFormsApp3.clases
         {
             return id;
         }
+
+        public string toString()
+        {
+            return nombre;
+        }
     }
 }

@@ -81,7 +81,7 @@ namespace WindowsFormsApp3.clases
             }
         }
 
-        /// <summary> retorna las materias asociadas al grupo indicado <summary>
+        /// <summary> Retorna las materias asociadas al grupo indicado <summary>
         internal static Materia[] materiasAsociadasCon(int idGrupo)
         {
             List<Materia> lMaterias = new List<Materia>();

@@ -5,15 +5,13 @@ using System.Threading.Tasks;
 using WindowsFormsApp3.clases;
 using System.Collections.Generic;
 
-/*Esta clase será la encargada de guardar los métodos que usaremos para personalizar los botones, labels y demás componenetes
- que estaremos generando en tiempo de ejecución, cabe aclarar que todos serán static para que 
- no sea necesario instanciarlos*/
+ /// <summary> clase encargada de guardar los métodos que usaremos para personalizar componentes como:
+ /// los botones, labels y demás componenetes que estaremos generando en tiempo de ejecución
+ /// todos los metodos son static por que la clase no se instancia </summary>
 namespace WindowsFormsApp3
 {
     class PersonalizacionComponentes
     {
-
-// ************************************** propiedades ***********************************
 
         //colores que se asignan a los botones de grupos, máximo habrá 10 botones de grupos
         private static Color[] botonGrupoColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
@@ -52,12 +50,12 @@ namespace WindowsFormsApp3
         public static void configurarBotonMateria(ref Button boton, Materia materia, int color)
         {
             boton.Font = miFuente;
-            boton.Size = new Size(150, 115);
+            boton.Size = new Size(150, 80);
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
             boton.BackColor = botonMateriaColores[color];
 
-            boton.Text = materia.ToString();
+            boton.Text = materia.toString();
             boton.Name = "btnMateria" + materia.getId();
         }
 
