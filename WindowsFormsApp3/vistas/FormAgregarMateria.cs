@@ -16,7 +16,7 @@ namespace WindowsFormsApp3.vistas
 
         /// <summary> ventana para agregar nuevas materias </summary>
         /// <param name="ventanaPadre"> FormListaMaterias padre </param>
-        public FormAgregarMateria( FormListaMaterias ventanaPadre )
+        public FormAgregarMateria(FormListaMaterias ventanaPadre)
         {
             InitializeComponent();
 
@@ -40,7 +40,7 @@ namespace WindowsFormsApp3.vistas
                 this.Dispose();
             }
 
-            
+
         }
     }
 }

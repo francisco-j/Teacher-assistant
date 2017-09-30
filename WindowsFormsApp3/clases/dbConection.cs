@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
-using System.Text;
 using System.Linq;
+using System.Text;
 using System.Data.OleDb;
 using System.Windows.Forms;
 using System.Threading.Tasks;
@@ -15,9 +15,9 @@ namespace WindowsFormsApp3.clases
         private static OleDbConnection conection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=teacher assistant.mdb");
         private static OleDbCommand comand = new OleDbCommand();
         private static OleDbDataReader reader;
-        
 
-//************************  control ********************************************
+
+        //************************  control ********************************************
 
         /// <summary> verifica que la conexion se pueda relizar, muestra respuesta en consola </summary>
         public static bool canConnect()
@@ -40,14 +40,14 @@ namespace WindowsFormsApp3.clases
             }
             catch (Exception ex)
             {
-                Console.WriteLine( "conexion fallida, error: "+ex.Message );
+                Console.WriteLine("conexion fallida, error: " + ex.Message);
                 return false;
             }
 
         }
 
 
-//************************  lectura ******************************************
+        //************************  lectura ******************************************
 
         /// <summary> retorna los grupos asociados al maestro indicado </summary>
         internal static Grupo[] GruposAsociadosCon(int idUsuario)
@@ -116,7 +116,7 @@ namespace WindowsFormsApp3.clases
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "' AND contrasena='"+contrasena+"'";
+                comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "' AND contrasena='" + contrasena + "'";
                 reader = comand.ExecuteReader();
 
                 if (reader.Read())
@@ -136,7 +136,7 @@ namespace WindowsFormsApp3.clases
                 conection.Close();
                 reader.Close();
             }
-            
+
         }
 
         /// <summary> lle el grupo asociado con el id indicado </summary>
@@ -146,7 +146,7 @@ namespace WindowsFormsApp3.clases
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Grupos WHERE id="+idGrupo;
+                comand.CommandText = "SELECT * FROM Grupos WHERE id=" + idGrupo;
                 reader = comand.ExecuteReader();
 
                 reader.Read();
@@ -160,13 +160,14 @@ namespace WindowsFormsApp3.clases
             }
             finally
             {
+                reader.Close();
                 conection.Close();
             }
 
         }
 
         /// <summary> llena la informacion sobre el grupo y materia indicados </summary>
-        internal static void getInfo(int idMateria, int idGrupo, out string nombreGrupo, out string nombreMateria, out string numeroAlumnos, out string escuela)
+        internal static void getInfo(int idMateria, int idGrupo, out string nombreGrupo, out string nombreMateria, out string numeroAlumnos, out string nombreEscuela)
         {
             try
             {
@@ -174,7 +175,7 @@ namespace WindowsFormsApp3.clases
                 comand.Connection = conection;
 
 
-                            // ** grupo ** //
+                // ** grupo ** //
 
                 comand.CommandText = "SELECT * FROM Grupos WHERE id=" + idGrupo;
                 reader = comand.ExecuteReader();
@@ -183,22 +184,22 @@ namespace WindowsFormsApp3.clases
                 //asigna el nombre del grupo
                 nombreGrupo = reader["grado"].ToString() + "º" + reader["grupo"].ToString();
                 //asigna el nombre de la escuela
-                escuela = reader["escuela"].ToString();
+                nombreEscuela = reader["escuela"].ToString();
                 reader.Close();
 
 
-                            // ** materia ** //
+                // ** materia ** //
 
                 comand.CommandText = "SELECT * FROM Materias WHERE id=" + idMateria;
                 reader = comand.ExecuteReader();
-                
+
                 reader.Read();
                 //asigna el nombre de la materia
                 nombreMateria = reader["nombre"].ToString();
                 reader.Close();
-                
 
-                            // ** alumnos ** //
+
+                // ** alumnos ** //
                 comand.CommandText = "SELECT * FROM Alumnos WHERE grupo=" + idGrupo;
                 reader = comand.ExecuteReader();
 
@@ -220,37 +221,44 @@ namespace WindowsFormsApp3.clases
         }
 
 
-//************************  escritura ******************************************
+        //************************  escritura ******************************************
 
         /// <summary> registra el usuario indicado en la base de datos </summary>
         internal static void RegistrarUsuario(string usuario, string contra)
         {
-            conection.Open();
-            comand.Connection = conection;
-            comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "'" ;
-            reader = comand.ExecuteReader();
-
-            if (reader.HasRows)
+            try
             {
-                //MessageBox.Show( "EL usuario ya existe" );
-                conection.Close();
-                throw new ApplicationException ("Ya existe este usuario");
-            }
-            else
-            {
-                reader.Close();
-                comand = new OleDbCommand();
-                comand.CommandText = "INSERT INTO Usuarios (usuario, contrasena) VALUES('"+usuario+"', '"+contra+"')";
+                conection.Open();
                 comand.Connection = conection;
-                Console.WriteLine(comand.ExecuteNonQuery()+" lienas con cambios");
-                conection.Close();
+                comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "'";
+                reader = comand.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    //MessageBox.Show( "EL usuario ya existe" );
+                    conection.Close();
+                    throw new ApplicationException("Ya existe este usuario");
+                }
+                else
+                {
+                    reader.Close();
+                    comand = new OleDbCommand();
+                    comand.CommandText = "INSERT INTO Usuarios (usuario, contrasena) VALUES('" + usuario + "', '" + contra + "')";
+                    comand.Connection = conection;
+                    Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
                 }
             }
+            finally
+            {
+                conection.Close();
+            }
+        }
+
 
         /// <summary> registra el grupo indicado en la base de datos </summary>
         internal static void AgregarGrupo(int grado, char grupo, String escuela, int maesto)
         {
-            comand.CommandText = "INSERT INTO Grupos (grado, grupo, escuela, maestro) VALUES("+grado+", '" + grupo + "', '" + escuela + "'," + maesto + ")";
+            comand.CommandText = "INSERT INTO Grupos (grado, grupo, escuela, maestro) VALUES(" + grado + ", '" + grupo + "', '" + escuela + "'," + maesto + ")";
             comand.Connection = conection;
             try
             {
@@ -266,7 +274,7 @@ namespace WindowsFormsApp3.clases
         /// <summary> registra la materia indicada en la base de datos </summary>
         internal static void AgregarMateria(String nombre, int salon)
         {
-            comand.CommandText = "INSERT INTO Materias (nombre, grupo) VALUES('"+nombre+"'," +salon+ ")";
+            comand.CommandText = "INSERT INTO Materias (nombre, grupo) VALUES('" + nombre + "'," + salon + ")";
             comand.Connection = conection;
             try
             {
@@ -280,7 +288,7 @@ namespace WindowsFormsApp3.clases
         }
 
 
-//************************** otros *********************************************
+        //************************** otros *********************************************
 
         //experimentacion
         //public int temp()
@@ -297,6 +305,6 @@ namespace WindowsFormsApp3.clases
 
         //    return id;
         //}
-        
+
     }
 }

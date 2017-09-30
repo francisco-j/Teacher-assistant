@@ -43,7 +43,7 @@ namespace WindowsFormsApp3
                 try
                 {
                     Program.registrarUsuario(usuario, contraseña);
-                    MessageBox.Show( "El maestro " + usuario + " se ha guardado exitosamente" );
+                    MessageBox.Show("El maestro " + usuario + " se ha guardado exitosamente");
                     this.Dispose();
 
                 }
@@ -51,7 +51,7 @@ namespace WindowsFormsApp3
                 {
                     MessageBox.Show(ex.Message);
                 }
-                
+
             }
         }
 

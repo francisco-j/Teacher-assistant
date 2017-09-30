@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using WindowsFormsApp3.clases;
 using System.Collections.Generic;
 
- /// <summary> clase encargada de guardar los métodos que usaremos para personalizar componentes como:
- /// los botones, labels y demás componenetes que estaremos generando en tiempo de ejecución
- /// todos los metodos son static por que la clase no se instancia </summary>
+/// <summary> clase encargada de guardar los métodos que usaremos para personalizar componentes como:
+/// los botones, labels y demás componenetes que estaremos generando en tiempo de ejecución
+/// todos los metodos son static por que la clase no se instancia </summary>
 namespace WindowsFormsApp3
 {
     class PersonalizacionComponentes
@@ -19,13 +19,13 @@ namespace WindowsFormsApp3
         private static Color[] botonMateriaColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
         private static Font miFuente = new Font("Microsoft Sans Serif", 20);
 
-//********************************** constructor **************************************
+        //********************************** constructor **************************************
 
         //privado para que no lo instancien
         private PersonalizacionComponentes() { }
 
 
-// **************************************  metodos ********************************************
+        // **************************************  metodos ********************************************
 
         /// <summary> decora el boton con la informacion del grupo indicado </summary>
         /// <param name="boton"> boton a decorar </param>
@@ -60,7 +60,7 @@ namespace WindowsFormsApp3
         }
 
         /// <summary>  </summary>
-        public static void configurarLabelGrupos( ref Label etiqueta, string texto, Font fuente )
+        public static void configurarLabelGrupos(ref Label etiqueta, string texto, Font fuente)
         {
             etiqueta.AutoSize = true;
             etiqueta.Text = texto;

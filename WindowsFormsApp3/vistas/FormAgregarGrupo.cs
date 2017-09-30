@@ -14,11 +14,11 @@ namespace WindowsFormsApp3
     {
         FormListaGrupos ventanaPadre;
 
-// ******************* constructor ****************************
+        // ******************* constructor ****************************
 
         /// <summary> ventana para agregar nuevos grupos </summary>
         /// <param name="ventanaPadre"> FormListaGrupos padre </param>
-        public FormAgregarGrupo( FormListaGrupos ventanaPadre )
+        public FormAgregarGrupo(FormListaGrupos ventanaPadre)
         {
             InitializeComponent();
 
@@ -35,7 +35,7 @@ namespace WindowsFormsApp3
             int maestro = ventanaPadre.GetIdMaestro();
 
             //try catch
-            Program.agregarGrupo( grado, grupo, escuela, maestro );
+            Program.agregarGrupo(grado, grupo, escuela, maestro);
             ventanaPadre.cargarBotones();
             this.Dispose();
 

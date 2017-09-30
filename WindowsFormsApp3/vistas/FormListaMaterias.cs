@@ -14,7 +14,7 @@ namespace WindowsFormsApp3
 
         /// <summary> ventana que muestra la lista de materias </summary>
         /// <param name="idGrupo"> id del grupo cuyas materias se mostraran </param>>
-        public FormListaMaterias( int idGrupo )
+        public FormListaMaterias(int idGrupo)
         {
             InitializeComponent();
 
@@ -45,7 +45,7 @@ namespace WindowsFormsApp3
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            Program.returnToListaGrupos( );
+            Program.returnToListaGrupos();
             this.Dispose();
         }
 
@@ -60,7 +60,7 @@ namespace WindowsFormsApp3
             nuevaMateria.ShowDialog(this);
         }
 
-//*********************************** metodos *****************************
+        //*********************************** metodos *****************************
 
         ///<sumary> limpia el contenedor y carga todas las materias como botones nuevos </sumary>
         public void cargarBotones()
@@ -83,11 +83,11 @@ namespace WindowsFormsApp3
 
                 //Se agrega el botón al contenedor
                 contenedorGrupos.Controls.Add(boton);
-                
+
             }
         }
 
-// ************************  closing  ***************************************************
+        // ************************  closing  ***************************************************
 
         private void FormListaG_FormClosed(object sender, FormClosedEventArgs e)
         {
