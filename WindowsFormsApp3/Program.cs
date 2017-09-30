@@ -99,7 +99,6 @@ namespace WindowsFormsApp3
         /// <summary> retorna las materias que pertenecen al grupo indicado </summary>
         internal static Materia[] materiasDeGrupo(int idGrupo)
         {
-            Console.WriteLine("mostrando materias del salon: " + idGrupo);
             return dbConection.materiasAsociadasCon(idGrupo);
         }
 
@@ -131,6 +130,11 @@ namespace WindowsFormsApp3
         internal static void agregarGrupo(int grado, char grupo, String escuela, int idMaesto)
         {
             dbConection.AgregarGrupo(grado, grupo, escuela, idMaesto);
+        }
+
+        internal static int numeroAlumnosEn(int idGrupo)
+        {
+            return dbConection.numeroAlumnosEn(idGrupo);
         }
 
         // ************************** metodos privados ****************************************

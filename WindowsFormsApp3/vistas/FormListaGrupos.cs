@@ -27,7 +27,7 @@ namespace WindowsFormsApp3
         //**************************** btn_click ********************************************
 
         /// <summary> evento para los botonesGrupo  </summary>
-        private void boton_Click(object sender, System.EventArgs e)
+        public void boton_Click(object sender, System.EventArgs e)
         {
             string grupo = (sender as Button).Name.Replace("btnGrupo", "");
             int idGrupo = int.Parse(grupo);
@@ -61,36 +61,18 @@ namespace WindowsFormsApp3
 
             contenedorGrupos.Controls.Clear();
             int color = 0;
-
-            Button boton;
+            
+            Panel contenedor;
 
             foreach (Grupo grp in grupos)
             {
-                boton = new Button();
+                Button boton = PersonalizacionComponentes.hacerBotonGrupo(grp, color);
                 boton.Click += new EventHandler(boton_Click);
+                contenedor = PersonalizacionComponentes.hacerConternedorGrupo(ref boton, grp);
 
-                /*      brandon
-                 * si querremos implementr las labels con la info de los grupos
-                 * solo hay que cambiar el boton por un contenedor
-                 * y que el metodo "configurarBotonGrupo" sea "configurarContenedorGrupo"
-                 * 
-                 * el metodo se encargara de agregar los labels y acomodar todo
-                 */
+                contenedorGrupos.Controls.Add(contenedor);
 
-                PersonalizacionComponentes.configurarBotonGrupo(ref boton, grp, color);
                 color++;
-
-                contenedorGrupos.Controls.Add(boton);
-
-                /* NO BORRAR
-                escuelaGrupo = new Label();
-                descripcionGrupo = new Label();
-                PersonalizacionComponentes.configurarLabelGrupos( ref escuelaGrupo, "Escuela " + ( i + 1 ), new Font( "Microsoft Sans Serif", 12 ) );
-                PersonalizacionComponentes.configurarLabelGrupos( ref descripcionGrupo, "Descripción " + ( i + 1 ), new Font( "Microsoft Sans Serif", 12 ) );
-
-                containerGrupos.Controls.Add( escuelaGrupo );
-                containerGrupos.Controls.Add( descripcionGrupo );
-                */
             }
         }
 

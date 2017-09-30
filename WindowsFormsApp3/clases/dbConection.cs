@@ -200,16 +200,8 @@ namespace WindowsFormsApp3.clases
 
 
                 // ** alumnos ** //
-                comand.CommandText = "SELECT * FROM Alumnos WHERE grupo=" + idGrupo;
-                reader = comand.ExecuteReader();
-
-                int numAlum = 0;
-                while (reader.Read())
-                {
-                    numAlum++;
-                }
-                //asigna el numero de alumnos
-                numeroAlumnos = numAlum.ToString();
+                
+                numeroAlumnos = numeroAlumnosEn(idGrupo).ToString();
                 reader.Close();
 
             }
@@ -217,6 +209,29 @@ namespace WindowsFormsApp3.clases
             {
                 conection.Close();
                 reader.Close();
+            }
+        }
+
+        internal static int numeroAlumnosEn(int idGrupo)
+        {
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+
+                comand.CommandText = "SELECT * FROM Alumnos WHERE grupo=" + idGrupo;
+                reader = comand.ExecuteReader();
+
+                int numAlum = 0;
+                while (reader.Read())
+                    numAlum++;
+
+                return numAlum;
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
             }
         }
 

@@ -35,6 +35,11 @@
             this.btnAgregarGrupo = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.contenedorGrupos = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.contenedorGrupos.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGrupos
@@ -98,10 +103,38 @@
             // contenedorGrupos
             // 
             this.contenedorGrupos.AutoScroll = true;
+            this.contenedorGrupos.Controls.Add(this.flowLayoutPanel1);
             this.contenedorGrupos.Location = new System.Drawing.Point(52, 131);
             this.contenedorGrupos.Name = "contenedorGrupos";
             this.contenedorGrupos.Size = new System.Drawing.Size(450, 357);
             this.contenedorGrupos.TabIndex = 25;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(84, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 26);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "escuela\r\nN alumnos";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(201, 100);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // FormListaGrupos
             // 
@@ -119,6 +152,9 @@
             this.Name = "FormListaGrupos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de grupos";
+            this.contenedorGrupos.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,5 +167,8 @@
         private System.Windows.Forms.Button btnAgregarGrupo;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.FlowLayoutPanel contenedorGrupos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

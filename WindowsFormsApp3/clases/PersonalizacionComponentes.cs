@@ -27,12 +27,32 @@ namespace WindowsFormsApp3
 
         // **************************************  metodos ********************************************
 
-        /// <summary> decora el boton con la informacion del grupo indicado </summary>
-        /// <param name="boton"> boton a decorar </param>
+        /// <summary> debuelbe el contenedor con la informacion del grupo indicado </summary>
+        /// <param name="boton"> contenedor a decorar </param>
+        /// <param name="grupo"> grupo del que se tomara la informacion </param>
+        public static FlowLayoutPanel hacerConternedorGrupo(ref Button boton, Grupo grupo)
+        {
+            FlowLayoutPanel contenedor = new FlowLayoutPanel();
+
+            contenedor.AutoSize = true;
+            contenedor.Controls.Add(boton);
+
+
+            Label escuela = new Label();
+            escuela.Text += "Primaria " + grupo.getEscuela();
+            escuela.Text += "\n";
+            escuela.Text += Program.numeroAlumnosEn(grupo.getId()) + " alumnos";
+            contenedor.Controls.Add(escuela);
+
+            return contenedor;
+        }
+
+        /// <summary> debuelbe el boton con la informacion del grupo indicado </summary>
         /// <param name="grupo"> grupo del que se tomara la informacion </param>
         /// <param name="color"> color del boton </param>
-        public static void configurarBotonGrupo(ref Button boton, Grupo grupo, int color)
+        public static Button hacerBotonGrupo(Grupo grupo, int color)
         {
+            Button boton = new Button();
             boton.Font = miFuente;
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
@@ -41,6 +61,7 @@ namespace WindowsFormsApp3
             boton.Text = grupo.ToString();
             boton.Size = new Size(150, 115);
             boton.Name = "btnGrupo" + grupo.getId();
+            return boton;
         }
 
         /// <summary> decora el boton con la informacion de la materia indicada </summary>
@@ -55,17 +76,9 @@ namespace WindowsFormsApp3
             boton.BackColor = botonMateriaColores[color];
 
             boton.Text = materia.toString();
-            boton.Size = new Size(150, 80);
+            boton.Size = new Size(180, 70);
             boton.Name = "btnMateria" + materia.getId();
         }
-
-        /// <summary>  </summary>
-        public static void configurarLabelGrupos(ref Label etiqueta, string texto, Font fuente)
-        {
-            etiqueta.AutoSize = true;
-            etiqueta.Text = texto;
-            etiqueta.Font = fuente;
-            etiqueta.ForeColor = Color.Black;
-        }
+        
     }
 }

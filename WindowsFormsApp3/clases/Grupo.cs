@@ -30,6 +30,11 @@ namespace WindowsFormsApp3
             return this.id;
         }
 
+        public string getEscuela()
+        {
+            return escuela;
+        }
+
 // ************************** set ************************************
 
         public void SetGrado(ushort grado) //cambiar el grado
