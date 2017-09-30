@@ -108,9 +108,9 @@ namespace WindowsFormsApp3
             return dbConection.getGrupo(idGrupo);
         }
 
-        internal static void agregarMateria(string nombre, int salon)
+        internal static int numeroAlumnosEn(int idGrupo)
         {
-            dbConection.AgregarMateria(nombre, salon);
+            return dbConection.numeroAlumnosEn(idGrupo);
         }
 
         /// <summary> llena la informacion sobre el grupo y materia indicados </summary>
@@ -120,21 +120,20 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> registra al usuario indicado en la base de datos </summary>
-        /// <throws> aplicationExeption cuando no se puede registrar </throws>
         internal static void registrarUsuario(string usuario, string contra)
         {
             dbConection.RegistrarUsuario(usuario, contra);
+        }
+
+        internal static void agregarMateria(string nombre, int salon)
+        {
+            dbConection.AgregarMateria(nombre, salon);
         }
 
         /// <summary>  </summary>
         internal static void agregarGrupo(int grado, char grupo, String escuela, int idMaesto)
         {
             dbConection.AgregarGrupo(grado, grupo, escuela, idMaesto);
-        }
-
-        internal static int numeroAlumnosEn(int idGrupo)
-        {
-            return dbConection.numeroAlumnosEn(idGrupo);
         }
 
         // ************************** metodos privados ****************************************

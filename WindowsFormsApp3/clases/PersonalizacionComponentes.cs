@@ -17,7 +17,11 @@ namespace WindowsFormsApp3
         private static Color[] botonGrupoColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
         /// <summary> colores que se asignan a los botones de materias, máximo habrá 10 botones de materias </summary>
         private static Color[] botonMateriaColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
-        private static Font miFuente = new Font("Microsoft Sans Serif", 20);
+        
+        //fuentes:
+        private static Font miFuenteGrupo = new Font("Microsoft Sans Serif", 30, FontStyle.Bold);
+        private static Font miFuenteMateria = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
+        private static Font miFuenteInfo = new Font("Microsoft Sans Serif", 16);
 
         //********************************** constructor **************************************
 
@@ -38,11 +42,12 @@ namespace WindowsFormsApp3
             contenedor.Controls.Add(boton);
 
 
-            Label escuela = new Label();
-            escuela.Text += "Primaria " + grupo.getEscuela();
-            escuela.Text += "\n";
-            escuela.Text += Program.numeroAlumnosEn(grupo.getId()) + " alumnos";
-            contenedor.Controls.Add(escuela);
+            Label info = new Label();
+            info.Font = miFuenteInfo;
+            info.AutoSize = true;
+            info.Text += grupo.getEscuela() + "\n";
+            info.Text += Program.numeroAlumnosEn(grupo.getId()) + " alumnos";
+            contenedor.Controls.Add(info);
 
             return contenedor;
         }
@@ -53,7 +58,7 @@ namespace WindowsFormsApp3
         public static Button hacerBotonGrupo(Grupo grupo, int color)
         {
             Button boton = new Button();
-            boton.Font = miFuente;
+            boton.Font = miFuenteGrupo;
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
             boton.BackColor = botonGrupoColores[color];
@@ -70,7 +75,7 @@ namespace WindowsFormsApp3
         /// <param name="color"> color del boton </param>
         public static void configurarBotonMateria(ref Button boton, Materia materia, int color)
         {
-            boton.Font = miFuente;
+            boton.Font = miFuenteMateria;
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
             boton.BackColor = botonMateriaColores[color];

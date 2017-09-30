@@ -26,15 +26,21 @@ namespace WindowsFormsApp3.vistas
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string nombre = txbNombreMateria.Text;
-            int salon = ventanaPadre.getIdGrupo();
-
+            
             if (nombre == string.Empty)
             {
+                System.Media.SystemSounds.Beep.Play();
                 txbNombreMateria.Focus();
                 txbNombreMateria.BackColor = Color.LightSalmon;
+
             }
             else
             {
+                //inicial con mayuscula y el reso minusculas
+                nombre = nombre.First().ToString().ToUpper() + nombre.Substring(1);
+
+                int salon = ventanaPadre.getIdGrupo();
+
                 Program.agregarMateria(nombre, salon);
                 ventanaPadre.cargarBotones();
                 this.Dispose();
