@@ -231,10 +231,11 @@ namespace WindowsFormsApp3.clases
 
 
                 // ** alumnos ** //
+
+                conection.Close();
                 
                 numeroAlumnos = numeroAlumnosEn(idGrupo).ToString();
                 reader.Close();
-
             }
             finally
             {

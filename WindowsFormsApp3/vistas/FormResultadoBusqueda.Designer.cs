@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormResultadoBusqueda));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lstBxGrados = new System.Windows.Forms.ListBox();
             this.lstBxNombres = new System.Windows.Forms.ListBox();
@@ -113,8 +114,9 @@
             this.Controls.Add(this.txbBusqueda);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormResultadoBusqueda";
-            this.Text = "FormResultadoBusqueda";
+            this.Text = "Resultado de Busqueda";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

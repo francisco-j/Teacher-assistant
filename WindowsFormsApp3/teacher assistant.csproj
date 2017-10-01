@@ -61,6 +61,12 @@
     <Compile Include="vistas\FormAgregarMateria.Designer.cs">
       <DependentUpon>FormAgregarMateria.cs</DependentUpon>
     </Compile>
+    <Compile Include="vistas\FormBorrarGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\FormBorrarGrupo.Designer.cs">
+      <DependentUpon>FormBorrarGrupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="vistas\FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormAgregarMateria.resx">
       <DependentUpon>FormAgregarMateria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\FormBorrarGrupo.resx">
+      <DependentUpon>FormBorrarGrupo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>

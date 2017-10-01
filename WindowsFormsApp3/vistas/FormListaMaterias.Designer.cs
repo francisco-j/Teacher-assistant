@@ -63,7 +63,6 @@
             this.txbBusqueda.Name = "txbBusqueda";
             this.txbBusqueda.Size = new System.Drawing.Size(211, 30);
             this.txbBusqueda.TabIndex = 13;
-            this.txbBusqueda.TextChanged += new System.EventHandler(this.txbBusqueda_TextChanged);
             // 
             // btnAjustes
             // 

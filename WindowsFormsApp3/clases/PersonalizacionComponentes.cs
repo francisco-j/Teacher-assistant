@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Threading.Tasks;
 using WindowsFormsApp3.clases;
 using System.Collections.Generic;
+using WindowsFormsApp3.vistas;
 
 /// <summary> clase encargada de guardar los métodos que usaremos para personalizar componentes como:
 /// los botones, labels y demás componenetes que estaremos generando en tiempo de ejecución
@@ -48,7 +49,7 @@ namespace WindowsFormsApp3
             boton.FlatAppearance.BorderSize = 0;
             boton.BackColor = botonGrupoColores[color];
 
-            //label
+            //label (estilo, tamano e info)
             info.Font = miFuenteInfo;
             info.AutoSize = true;
             info.Text += grupo.getEscuela() + "\n";
@@ -61,22 +62,27 @@ namespace WindowsFormsApp3
             contenedor.Controls.Add(boton);
             contenedor.Controls.Add(info);
             
-            //menu contextual del boton
-            MenuItem[] mi = { new MenuItem("Editar"), new MenuItem("Borar"), new MenuItem("Exportar") };
+            //menu contextual del boton(al hacer click derecho:)
+            MenuItem[] mi = {
+                new MenuItem("Editar",editar_Click),
+                new MenuItem("Borar",borrar_Click),
+                new MenuItem("Exportar",exportar_Click)
+            };
             cm.MenuItems.AddRange(mi);
             boton.ContextMenu = cm;
 
             //eventos
-            boton.Click += new EventHandler(boton_Click);
+            boton.Click += new EventHandler(grupo_Click);
             //click derecho;
             
             return contenedor;
         }
 
-
         /// <summary> decora el boton con la informacion de la materia indicada </summary>
-        public static void configurarBotonMateria(ref Button boton, Materia materia, int color)
+        public static Button configurarBotonMateria(Materia materia, int color)
         {
+            Button boton = new Button();
+
             boton.Font = miFuenteMateria;
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
@@ -85,12 +91,16 @@ namespace WindowsFormsApp3
             boton.Text = materia.toString();
             boton.Size = new Size(180, 70);
             boton.Name = "btnMateria" + materia.getId();
+
+            boton.Click += new EventHandler(materia_Click);
+
+            return boton;
         }
 
 // **************************  eventos para asignar *********************************
         
         /// <summary> evento para los botonesGrupo  </summary>
-        private static void boton_Click(object sender, System.EventArgs e)
+        private static void grupo_Click(object sender, System.EventArgs e)
         {
             string grupo = (sender as Button).Name.Replace("btnGrupo", "");
             int idGrupo = int.Parse(grupo);
@@ -99,7 +109,35 @@ namespace WindowsFormsApp3
             Program.listaGrupos.Hide();
         }
 
+        /// <summary> evento para los botonesMateria </summary>
+        private static void materia_Click(object sender, System.EventArgs e)
+        {
+            string materia = (sender as Button).Name.Replace("btnMateria", "");
+            int idMateria = int.Parse(materia);
 
+            Program.showGrupoMateria(idMateria, ((FormListaMaterias)Program.listaMaterias).getIdGrupo());
+            Program.listaMaterias.Hide();
+        }
+        
+        /// <summary> para menu contextual de grupo </summary>
+        private static void editar_Click(object sender, System.EventArgs e)
+        {
+            //Program.listaGrupos.ShowDialog(new FormAgregarGrupo( "id grupo" ));
+            throw new NotImplementedException();
+        }
+
+        /// <summary> para menu contextual de grupo </summary>
+        private static void borrar_Click(object sender, System.EventArgs e)
+        {
+            //Program.listaMaterias.ShowDialog(new FormBorrarGrupo( "grupo" ));
+            throw new NotImplementedException();
+        }
+
+        /// <summary> para menu contextual de grupo </summary>
+        private static void exportar_Click(object sender, System.EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

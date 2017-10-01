@@ -22,6 +22,7 @@ namespace WindowsFormsApp3
             personalizarVentana(idMateria, idGrupo);
 
             //dodos los groupBox son visibles=false por defecto
+            groupVisible = grpBxAsistencia;
             show(grpBxAsistencia);
 
         }
