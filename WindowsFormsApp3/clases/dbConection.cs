@@ -116,15 +116,16 @@ namespace WindowsFormsApp3.clases
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Alumnos WHERE nombres like '%" + text + "%'";
+                //compara con nombre y apellidos
+                comand.CommandText = "SELECT * FROM Alumnos WHERE nombres like '%" + text + "%' or apellidoPaterno like '%" + text + "%' or apellidoMaterno like '%" + text + "%'";
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())
                 {
                     int id = (int)reader["id"];
                     string nombre = reader["nombres"].ToString();
-                    string apellidoP = reader["apellido paterno"].ToString();
-                    string apellidoM = reader["apellido materno"].ToString();
+                    string apellidoP = reader["apellidoPaterno"].ToString();
+                    string apellidoM = reader["apellidoMaterno"].ToString();
                     int grupo = (int)reader["grupo"];
                     Alumno a = new Alumno(id, nombre, apellidoP, apellidoM, grupo);
 

@@ -61,9 +61,9 @@
             this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbBusqueda.Location = new System.Drawing.Point(774, 24);
             this.txbBusqueda.Name = "txbBusqueda";
-            this.txbBusqueda.PasswordChar = 'a';
             this.txbBusqueda.Size = new System.Drawing.Size(211, 30);
             this.txbBusqueda.TabIndex = 13;
+            this.txbBusqueda.TextChanged += new System.EventHandler(this.txbBusqueda_TextChanged);
             // 
             // btnAjustes
             // 
@@ -113,6 +113,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(32, 32);
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
             // groupBoxAsistencia
             // 

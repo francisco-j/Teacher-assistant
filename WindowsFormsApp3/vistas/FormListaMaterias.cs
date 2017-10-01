@@ -95,5 +95,15 @@ namespace WindowsFormsApp3
         {
             Application.Exit(); // cierra la aplicacion completa
         }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            Program.showResultadoBusqueda(txbBusqueda.Text);
+        }
+
+        private void txbBusqueda_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
