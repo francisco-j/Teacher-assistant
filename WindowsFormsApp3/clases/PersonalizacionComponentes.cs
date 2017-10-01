@@ -36,7 +36,6 @@ namespace WindowsFormsApp3
             //componentes (declarar todo)
             Label info = new Label();
             Button boton = new Button();
-            ContextMenu cm = new ContextMenu();
             FlowLayoutPanel contenedor = new FlowLayoutPanel();
 
             //boton (informacion y estilo)
@@ -61,19 +60,18 @@ namespace WindowsFormsApp3
             //contenedor(llenar)
             contenedor.Controls.Add(boton);
             contenedor.Controls.Add(info);
-            
-            //menu contextual del boton(click derecho:)
+
+            //menu contextual del boton(click derecho)
             MenuItem[] mi = {
-                new MenuItem("Editar",editar_Click),
-                new MenuItem("Borar",borrar_Click),
-                new MenuItem("Exportar",exportar_Click)
-            };
+                    new MenuItem("Editar",editarG_Click),
+                    new MenuItem("Borar",borrarG_Click),
+                    new MenuItem("Exportar",exportarG_Click)
+                };
             mi[0].Name = "Editar" + grupo.getId().ToString();
             mi[1].Name = "Borar" + grupo.getId().ToString();
             mi[2].Name = "Exportar" + grupo.getId().ToString();
 
-            cm.MenuItems.AddRange(mi);
-            boton.ContextMenu = cm;
+            boton.ContextMenu = new ContextMenu(mi);
 
             //eventos
             boton.Click += new EventHandler(grupo_Click);
@@ -85,6 +83,7 @@ namespace WindowsFormsApp3
         /// <summary> decora el boton con la informacion de la materia indicada </summary>
         public static Button configurarBotonMateria(Materia materia, int color)
         {
+            //boton
             Button boton = new Button();
 
             boton.Font = miFuenteMateria;
@@ -96,13 +95,28 @@ namespace WindowsFormsApp3
             boton.Size = new Size(180, 70);
             boton.Name = "btnMateria" + materia.getId();
 
+            //evento
             boton.Click += new EventHandler(materia_Click);
+
+            //menu contextual del boton(click derecho)
+            MenuItem[] mi = {
+                    new MenuItem("Editar",editarM_Click),
+                    new MenuItem("Borar",borrarM_Click),
+                    new MenuItem("Exportar",exportarM_Click)
+                };
+            mi[0].Name = "Editar" + materia.getId().ToString();
+            mi[1].Name = "Borar" + materia.getId().ToString();
+            mi[2].Name = "Exportar" + materia.getId().ToString();
+            
+            boton.ContextMenu = new ContextMenu(mi);
 
             return boton;
         }
 
 // **************************  eventos para asignar *********************************
         
+                        // ** grupos ** //
+
         /// <summary> evento para los botonesGrupo  </summary>
         private static void grupo_Click(object sender, System.EventArgs e)
         {
@@ -113,6 +127,30 @@ namespace WindowsFormsApp3
             Program.listaGrupos.Hide();
         }
 
+        /// <summary> para menu contextual de grupo </summary>
+        private static void editarG_Click(object sender, System.EventArgs e)
+        {
+            int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Editar", ""));
+            new FormAgregarGrupo(idGrupo);
+        }
+
+        /// <summary> para menu contextual de grupo </summary>
+        private static void borrarG_Click(object sender, System.EventArgs e)
+        {
+            int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Borar", ""));
+            new FormBorrarGrupo(idGrupo);
+        }
+
+        /// <summary> para menu contextual de grupo </summary>
+        private static void exportarG_Click(object sender, System.EventArgs e)
+        {
+            throw new NotImplementedException();
+            //int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Exportar", ""));
+            //Program.listaGrupos.ShowDialog(new FormExportarGrupo(idGrupo));
+        }
+
+                        // ** materias ** //
+        
         /// <summary> evento para los botonesMateria </summary>
         private static void materia_Click(object sender, System.EventArgs e)
         {
@@ -124,21 +162,22 @@ namespace WindowsFormsApp3
         }
         
         /// <summary> para menu contextual de grupo </summary>
-        private static void editar_Click(object sender, System.EventArgs e)
+        private static void editarM_Click(object sender, System.EventArgs e)
         {
-            int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Editar", ""));
-            new FormAgregarGrupo(idGrupo);
+            int idMateria = int.Parse((sender as MenuItem).Name.Replace("Editar", ""));
+            new FormAgregarMateria(idMateria);
         }
 
         /// <summary> para menu contextual de grupo </summary>
-        private static void borrar_Click(object sender, System.EventArgs e)
+        private static void borrarM_Click(object sender, System.EventArgs e)
         {
-            int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Borar", ""));
-            new FormBorrarGrupo(idGrupo);
+            throw new NotImplementedException();
+            //int idMateria = int.Parse((sender as MenuItem).Name.Replace("Borar", ""));
+            //new FormBorrarMateria(idMateria);
         }
 
         /// <summary> para menu contextual de grupo </summary>
-        private static void exportar_Click(object sender, System.EventArgs e)
+        private static void exportarM_Click(object sender, System.EventArgs e)
         {
             throw new NotImplementedException();
             //int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Exportar", ""));

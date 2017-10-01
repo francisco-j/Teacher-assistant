@@ -47,7 +47,7 @@ namespace WindowsFormsApp3.clases
         }
 
 
-        //************************  lectura ******************************************
+//************************  lectura ******************************************
 
         /// <summary> retorna los grupos asociados al maestro indicado </summary>
         internal static Grupo[] GruposAsociadosCon(int idUsuario)
@@ -138,6 +138,29 @@ namespace WindowsFormsApp3.clases
                 conection.Close();
             }
             return lAlumnos.ToArray();
+        }
+
+        internal static string getNombreMateria(int idMateria)
+        {
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Materias WHERE id=" + idMateria;
+                reader = comand.ExecuteReader();
+
+                reader.Read();
+                
+                string nombre = reader["nombre"].ToString();
+
+                return nombre;
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+
         }
 
         /// <summary> verifica que la contrasena y usuario coinsidan </summary>
@@ -302,7 +325,6 @@ namespace WindowsFormsApp3.clases
             }
         }
 
-
         /// <summary> registra el grupo indicado en la base de datos </summary>
         internal static void AgregarGrupo(int grado, char grupo, String escuela, int maesto)
         {
@@ -352,7 +374,23 @@ namespace WindowsFormsApp3.clases
                 conection.Close();
             }
         }
-//************************** otros *********************************************
+
+        internal static void actualizarMateria(int idMateria, string nombre)
+        {
+            comand.CommandText = "UPDATE Materias SET nombre = '" + nombre + "' WHERE id = " + idMateria;
+            comand.Connection = conection;
+            try
+            {
+                conection.Open();
+                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+            }
+            finally
+            {
+                conection.Close();
+            }
+        }
+
+        //************************** otros *********************************************
 
         //experimentacion
         //public int temp()

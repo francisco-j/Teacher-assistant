@@ -25,7 +25,7 @@ namespace WindowsFormsApp3
         }
 
 
-        //****************************** logg  **********************************************
+//****************************** logg  **********************************************
 
         /// <summary> Incia sesión, abre el Form de lista de grupos </summary>
         /// <param name="usuario">  nombre de usuario a iniciar </param>
@@ -60,6 +60,11 @@ namespace WindowsFormsApp3
             inicio.Show();
         }
 
+        internal static void actualizarMateria(int idMateria, string nombre)
+        {
+            dbConection.actualizarMateria(idMateria, nombre);
+        }
+
         //***************************** ventanas *******************************************
 
         internal static void returnToListaGrupos()
@@ -86,7 +91,7 @@ namespace WindowsFormsApp3
             grupo.Show();
         }
 
-        //****************************  db  **************************************************
+//****************************  db  **************************************************
 
         internal static Alumno[] busqueda(string text)
         {
@@ -109,6 +114,11 @@ namespace WindowsFormsApp3
         internal static Grupo getGrupo(int idGrupo)
         {
             return dbConection.getGrupo(idGrupo);
+        }
+
+        internal static string getNombreMateria(int idMateria)
+        {
+            return dbConection.getNombreMateria(idMateria);
         }
 
         internal static int numeroAlumnosEn(int idGrupo)

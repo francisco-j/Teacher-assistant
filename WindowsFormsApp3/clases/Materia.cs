@@ -12,6 +12,7 @@ namespace WindowsFormsApp3.clases
         private string nombre;
         private int salon;
 
+// ******************************* constructor ************************
         public Materia(int id, string nombre, int salon)
         {
             this.id = id;
@@ -19,9 +20,15 @@ namespace WindowsFormsApp3.clases
             this.salon = salon;
         }
 
+// ********************************** geters *******************************
         internal int getId()
         {
             return id;
+        }
+
+        public string getNombre()
+        {
+            return nombre;
         }
 
         public string toString()

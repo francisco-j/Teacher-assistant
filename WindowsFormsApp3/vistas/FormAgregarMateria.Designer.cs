@@ -32,6 +32,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txbNombreMateria = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -63,12 +64,22 @@
             this.txbNombreMateria.Size = new System.Drawing.Size(122, 20);
             this.txbNombreMateria.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(80, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
+            // 
             // FormAgregarMateria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
             this.ClientSize = new System.Drawing.Size(255, 148);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txbNombreMateria);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.btnGuardar);
@@ -86,5 +97,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txbNombreMateria;
+        private System.Windows.Forms.Label label1;
     }
 }
