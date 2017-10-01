@@ -17,7 +17,7 @@ namespace WindowsFormsApp3.clases
         private static OleDbDataReader reader;
 
 
-        //************************  control ********************************************
+//************************  control ********************************************
 
         /// <summary> verifica que la conexion se pueda relizar, muestra respuesta en consola </summary>
         public static bool canConnect()
@@ -390,7 +390,28 @@ namespace WindowsFormsApp3.clases
             }
         }
 
-        //************************** otros *********************************************
+
+// ********************************  borrar *********************************
+
+
+        internal static void borrarGrupo(int idrupo)
+        {
+            comand.CommandText = "DELETE FROM Grupos WHERE id = " + idrupo;
+            comand.Connection = conection;
+            try
+            {
+                conection.Open();
+                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+            }
+            finally
+            {
+                conection.Close();
+            }
+            
+        }
+
+
+//************************** otros *********************************************
 
         //experimentacion
         //public int temp()

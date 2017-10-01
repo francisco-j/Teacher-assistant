@@ -29,14 +29,20 @@ namespace WindowsFormsApp3
         {
             return this.id;
         }
+
+        /// <summary> nombre de la escuela /// </summary>
         public string getEscuela()
         {
             return escuela;
         }
+
+        /// <summary> numero de grado </summary>
         public int getGrado()
         {
             return grado;
         }
+
+        /// <summary> grupo del grupo  EJ: 1ºA -> "A"</summary>
         public string getGrupo()
         {
             return grupo.ToString();

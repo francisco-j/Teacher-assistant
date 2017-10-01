@@ -40,7 +40,7 @@ namespace WindowsFormsApp3
 
             this.idGrupo = idGrupo;
             numGrado.Value = grupo.getGrado();
-            cbGrupo.Text = grupo.getGrupo();
+            cbGrupo.Text = grupo.ToString();
             txbEscuela.Text = grupo.getEscuela();
 
             btnGuardar.Click += btnModificar_Click;

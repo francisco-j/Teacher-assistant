@@ -155,6 +155,13 @@ namespace WindowsFormsApp3
             dbConection.actualizarGrupo(id, grado, grupo, escuela);
         }
 
+        internal static void borrarGrupo(int idrupo)
+        {
+            dbConection.borrarGrupo(idrupo);
+        }
+
+
+
         // ************************** metodos privados ****************************************
 
         //some code

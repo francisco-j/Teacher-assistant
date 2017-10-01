@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBorrarGrupo));
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
             this.cbGrupo = new System.Windows.Forms.ComboBox();
             this.numGrado = new System.Windows.Forms.NumericUpDown();
             this.txbEscuela = new System.Windows.Forms.TextBox();
@@ -49,15 +49,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "confirma la informacion del grupo para borrarlo.\r\npuedes ver la parte superior.";
             // 
-            // button1
+            // btnBorrar
             // 
-            this.button1.Location = new System.Drawing.Point(120, 182);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "borrar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBorrar.Location = new System.Drawing.Point(120, 182);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrar.TabIndex = 1;
+            this.btnBorrar.Text = "borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // cbGrupo
             // 
@@ -91,11 +91,6 @@
             this.numGrado.Name = "numGrado";
             this.numGrado.Size = new System.Drawing.Size(34, 20);
             this.numGrado.TabIndex = 10;
-            this.numGrado.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // txbEscuela
             // 
@@ -143,7 +138,7 @@
             this.Controls.Add(this.lblGrado);
             this.Controls.Add(this.lblGrupo);
             this.Controls.Add(this.lblEscuela);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormBorrarGrupo";
@@ -157,7 +152,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.ComboBox cbGrupo;
         private System.Windows.Forms.NumericUpDown numGrado;
         private System.Windows.Forms.TextBox txbEscuela;

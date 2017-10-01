@@ -102,11 +102,9 @@ namespace WindowsFormsApp3
             MenuItem[] mi = {
                     new MenuItem("Editar",editarM_Click),
                     new MenuItem("Borar",borrarM_Click),
-                    new MenuItem("Exportar",exportarM_Click)
                 };
             mi[0].Name = "Editar" + materia.getId().ToString();
             mi[1].Name = "Borar" + materia.getId().ToString();
-            mi[2].Name = "Exportar" + materia.getId().ToString();
             
             boton.ContextMenu = new ContextMenu(mi);
 
@@ -174,14 +172,6 @@ namespace WindowsFormsApp3
             throw new NotImplementedException();
             //int idMateria = int.Parse((sender as MenuItem).Name.Replace("Borar", ""));
             //new FormBorrarMateria(idMateria);
-        }
-
-        /// <summary> para menu contextual de grupo </summary>
-        private static void exportarM_Click(object sender, System.EventArgs e)
-        {
-            throw new NotImplementedException();
-            //int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Exportar", ""));
-            //Program.listaGrupos.ShowDialog(new FormExportarGrupo(idGrupo));
         }
 
     }

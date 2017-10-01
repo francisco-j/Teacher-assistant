@@ -12,16 +12,31 @@ namespace WindowsFormsApp3.vistas
 {
     public partial class FormBorrarGrupo : Form
     {
-        public FormBorrarGrupo( int idGrupo)
+        Grupo grupo;
+
+        public FormBorrarGrupo(int idGrupo)
         {
             InitializeComponent();
             //poner el nombre del grupo en la barra de arriba
+
+            grupo = Program.getGrupo(idGrupo);
             this.Visible = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnBorrar_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if ( numGrado.Value == grupo.getGrado() &&
+                cbGrupo.Text == grupo.getGrupo() && 
+                txbEscuela.Text == grupo.getEscuela() )
+            {
+                Program.borrarGrupo(grupo.getId());
+                Program.listaGrupos.cargarBotones();
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("incorrecto");
+            }
         }
     }
 }
