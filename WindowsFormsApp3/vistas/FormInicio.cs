@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Threading.Tasks;
 using WindowsFormsApp3.clases;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace WindowsFormsApp3
 {
@@ -11,38 +12,41 @@ namespace WindowsFormsApp3
         public FormInicio()
         {
             InitializeComponent();
+            this.Show();
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            string contraseña = txbContraseña.Text;
-            string usuario = txbUsuario.Text;
-            //Validación para asegurarnos que ingresó algo como contraseña
-            //**La validación de que la contraseña sea la correcta se hará en Program.cs
-            if (usuario != "")
-            {
-                if (contraseña != "")
-                {
-                    try
-                    {
-                        Program.Login( usuario, contraseña );
-                    }
-                    catch (ApplicationException ex)
-                    {
-                        MessageBox.Show(this, ex.Message); 
-                    }
+            txbUsuario.BackColor = Color.White;
+            txbContrasena.BackColor = Color.White;
 
-                }
-                else
-                {
-                    MessageBox.Show(this, "Ingresa la contraseña para poder iniciar sesión" );
-                    txbContraseña.Focus();
-                }
+            string contrasena = txbContrasena.Text;
+            string usuario = txbUsuario.Text;
+
+            //*La validación de que la contraseña sea la correcta se hará en Program.cs
+            if (usuario == string.Empty)
+            {
+                System.Media.SystemSounds.Beep.Play();
+                txbUsuario.Focus();
+                txbUsuario.BackColor = Color.LightSalmon;
+            }
+            else if (contrasena == string.Empty)
+            {
+                System.Media.SystemSounds.Beep.Play();
+                txbContrasena.Focus();
+                txbContrasena.BackColor = Color.LightSalmon;
             }
             else
             {
-                MessageBox.Show(this, "Ingresa tu usuario para iniciar sesión" );
-                txbUsuario.Focus();
+                try
+                {
+                    Program.Login( usuario, contrasena );
+                }
+                catch (ApplicationException ex)
+                {
+                    MessageBox.Show(this, ex.Message); 
+                }
+
             }
         }
 

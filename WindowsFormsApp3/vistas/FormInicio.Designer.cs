@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicio));
-            this.txbContraseña = new System.Windows.Forms.TextBox();
+            this.txbContrasena = new System.Windows.Forms.TextBox();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.picUserImage = new System.Windows.Forms.PictureBox();
@@ -41,14 +41,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.picUserImage)).BeginInit();
             this.SuspendLayout();
             // 
-            // txbContraseña
+            // txbContrasena
             // 
-            this.txbContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(109)))), ((int)(((byte)(94)))));
-            this.txbContraseña.Location = new System.Drawing.Point(113, 304);
-            this.txbContraseña.Name = "txbContraseña";
-            this.txbContraseña.PasswordChar = '¤';
-            this.txbContraseña.Size = new System.Drawing.Size(204, 20);
-            this.txbContraseña.TabIndex = 1;
+            this.txbContrasena.BackColor = System.Drawing.Color.White;
+            this.txbContrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(109)))), ((int)(((byte)(94)))));
+            this.txbContrasena.Location = new System.Drawing.Point(113, 304);
+            this.txbContrasena.Name = "txbContrasena";
+            this.txbContrasena.PasswordChar = '•';
+            this.txbContrasena.Size = new System.Drawing.Size(204, 20);
+            this.txbContrasena.TabIndex = 1;
             // 
             // btnIniciar
             // 
@@ -136,7 +137,7 @@
             this.Controls.Add(this.picLogo);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.picUserImage);
-            this.Controls.Add(this.txbContraseña);
+            this.Controls.Add(this.txbContrasena);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormInicio";
@@ -152,7 +153,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txbContraseña;
+        private System.Windows.Forms.TextBox txbContrasena;
         private System.Windows.Forms.PictureBox picUserImage;
         private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.PictureBox picLogo;

@@ -19,21 +19,10 @@ namespace WindowsFormsApp3
             this.idMateria = idMateria;
             this.idGrupo = idGrupo;
 
-            string grupo, materia, numeroAlumnos, escuela;
+            personalizarVentana(idMateria, idGrupo);
 
-            Program.getIfo(idMateria, idGrupo, out grupo, out materia, out numeroAlumnos, out escuela);
-
-            lblGrupo.Text = grupo;
-            lblMateria.Text = materia;
-            lblDatosGrupo.Text = numeroAlumnos + lblDatosGrupo.Text + escuela;
-
-            this.Text = grupo + " " + materia;
-            
-            groupBoxAsistencia.Visible = true;
-            /*
-             * aqui ponermos los demas groupBoxes
-             * */
-            groupVisible = groupBoxAsistencia;
+            //dodos los groupBox son visibles=false por defecto
+            show(grpBxAsistencia);
 
         }
 
@@ -43,7 +32,7 @@ namespace WindowsFormsApp3
         /// <summary> muestra la ventana asistencia y las demas invisibles </summary>
         private void btnAsistencia_Click(object sender, System.EventArgs e)
         {
-            show(groupBoxAsistencia);
+            show(grpBxAsistencia);
         }
 
 
@@ -57,5 +46,19 @@ namespace WindowsFormsApp3
             groupVisible = newVisible;
         }
         
+// **************************************** privados **************************************************
+
+        private void personalizarVentana(int idMateria,int idGrupo)
+        {
+            string grupo, materia, numeroAlumnos, escuela;
+
+            Program.getIfo(idMateria, idGrupo, out grupo, out materia, out numeroAlumnos, out escuela);
+
+            lblGrupo.Text = grupo;
+            lblMateria.Text = materia;
+            lblDatosGrupo.Text = numeroAlumnos + lblDatosGrupo.Text + escuela;
+
+            this.Text = grupo + " " + materia;
+        }
     }
 }

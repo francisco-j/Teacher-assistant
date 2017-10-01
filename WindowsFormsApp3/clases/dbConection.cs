@@ -109,6 +109,36 @@ namespace WindowsFormsApp3.clases
             return lMaterias.ToArray();
         }
 
+        internal static Alumno[] buscar(string text)
+        {
+            List<Alumno> lAlumnos = new List<Alumno>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Alumnos WHERE nombres like '%" + text + "%'";
+                reader = comand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = (int)reader["id"];
+                    string nombre = reader["nombres"].ToString();
+                    string apellidoP = reader["apellido paterno"].ToString();
+                    string apellidoM = reader["apellido materno"].ToString();
+                    int grupo = (int)reader["grupo"];
+                    Alumno a = new Alumno(id, nombre, apellidoP, apellidoM, grupo);
+
+                    lAlumnos.Add(a);
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return lAlumnos.ToArray();
+        }
+
         /// <summary> verifica que la contrasena y usuario coinsidan </summary>
         internal static bool isCorrecto(ref int idUsuario, string usuario, string contrasena)
         {

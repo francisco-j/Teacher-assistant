@@ -2,13 +2,14 @@
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using WindowsFormsApp3.clases;
+using WindowsFormsApp3.vistas;
 using System.Collections.Generic;
 
 namespace WindowsFormsApp3
 {
     static class Program
     {
-        private static Form inicio, listaGrupos, listaMaterias, grupo, alumno;
+        private static Form inicio, resultadoBusqueda, listaGrupos, listaMaterias, grupo, alumno;
 
         [STAThread]
         static void Main()
@@ -17,7 +18,6 @@ namespace WindowsFormsApp3
             Application.SetCompatibleTextRenderingDefault(false);
             dbConection.canConnect();
             inicio = new FormInicio();
-            inicio.Show();
             Application.Run();
         }
 
@@ -37,9 +37,7 @@ namespace WindowsFormsApp3
             {
                 //Instanciamos el siguiente Form "Lista de grupos"
                 listaGrupos = new FormListaGrupos(idUsuario);
-                //Lo mostramos en la pantalla y ocultamos el anterior, el Form de inicio
-                listaGrupos.Show();
-                inicio.Close();
+                inicio.Hide();
             }
             else
             {
@@ -51,7 +49,11 @@ namespace WindowsFormsApp3
         /// <param name="ventana"> ventana que ejecuto el  logout </param>
         internal static void LogOut(Form ventana)
         {
-            inicio = new FormInicio();
+            //foreach (Form vent in Application.OpenForms)
+            //{
+            //    vent.Close();
+            //    vent.Dispose();
+            //}
             inicio.Show();
             ventana.Dispose();
         }
@@ -63,6 +65,11 @@ namespace WindowsFormsApp3
             listaGrupos.Show();
         }
 
+        internal static void showResultadoBusqueda(string busqueda)
+        {
+            resultadoBusqueda = new FormResultadoBusqueda(busqueda);
+        }
+
         /// <summary> muestra el estuduante indicado </summary>
         internal static void ShowStudent(ushort idStudent)
         {
@@ -72,8 +79,7 @@ namespace WindowsFormsApp3
         /// <summary> muestra las materias del grupo especificado </summary>
         internal static void showListaMaterias(int idGrupo)
         {
-            Form listaMaterias = new FormListaMaterias(idGrupo);
-            listaMaterias.Show();
+            listaMaterias = new FormListaMaterias(idGrupo);
         }
 
         /// <summary> abre el formGrupoMateria con la materia indicada </summary>
@@ -85,9 +91,9 @@ namespace WindowsFormsApp3
 
         //****************************  db  **************************************************
 
-        internal static void busqueda(string text)
+        internal static Alumno[] busqueda(string text)
         {
-            throw new NotImplementedException();
+            return dbConection.buscar(text);
         }
 
         /// <summary> retorna los grupos que pertenecen al usuario indicado </summary>

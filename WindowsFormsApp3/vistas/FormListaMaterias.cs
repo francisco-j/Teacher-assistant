@@ -23,6 +23,8 @@ namespace WindowsFormsApp3
 
             cargarBotones();
 
+            this.Show();
+
         }
 
         internal int getIdGrupo()

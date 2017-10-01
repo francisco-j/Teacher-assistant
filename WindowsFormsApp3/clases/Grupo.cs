@@ -37,23 +37,10 @@ namespace WindowsFormsApp3
 
 // ************************** set ************************************
 
-        public void SetGrado(ushort grado) //cambiar el grado
-        {
-            this.grado = grado;
-        }
-
-        public void SetGrupo(char grupo) //cambiar el grupo
-        {
-            this.grupo = grupo;
-        }
-
-        public void SetEscuela(String escuela) //cambiar la escuela
-        {
-            this.escuela = escuela;
-        }
 
 // ******************* otros metodos ***************************************
 
+        /// <summary> debuelbe grado + "º" + grupo </summary>
         override public String ToString()
         {
             return grado + "º" + grupo;

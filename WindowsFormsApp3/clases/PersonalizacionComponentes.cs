@@ -58,6 +58,12 @@ namespace WindowsFormsApp3
         public static Button hacerBotonGrupo(Grupo grupo, int color)
         {
             Button boton = new Button();
+
+            ContextMenu cm = new ContextMenu();
+            MenuItem[] mi = { new MenuItem("Editar"), new MenuItem("Borar"), new MenuItem("Exportar") };
+            cm.MenuItems.AddRange(mi);
+            boton.ContextMenu = cm;
+
             boton.Font = miFuenteGrupo;
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;

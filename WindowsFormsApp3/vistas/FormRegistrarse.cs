@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp3
@@ -12,25 +13,32 @@ namespace WindowsFormsApp3
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            txbUsuario.BackColor = Color.White;
+            txbContrasena.BackColor = Color.White;
+            txbConfirmacion.BackColor = Color.White;
+
             string usuario = txbUsuario.Text;
             string contraseña = txbContrasena.Text;
             string confirmacion = txbConfirmacion.Text;
 
             //Validaciones de que los campos no estén vacíos, usar regex
             //Definir cuántos caracteres se aceptan por cada txb
-            if (usuario == "")
+            if (usuario == string.Empty)
             {
-                MessageBox.Show("Ingresa el nombre de usuario por favor");
+                System.Media.SystemSounds.Beep.Play();
+                txbUsuario.BackColor = Color.LightSalmon;
                 txbUsuario.Focus();
             }
-            else if (contraseña == "")
+            else if (contraseña == string.Empty)
             {
-                MessageBox.Show("Define una contraseña por favor");
+                System.Media.SystemSounds.Beep.Play();
+                txbContrasena.BackColor = Color.LightSalmon;
                 txbContrasena.Focus();
             }
-            else if (confirmacion == "")
+            else if (confirmacion == string.Empty)
             {
-                MessageBox.Show("Debes confirmar la contraseña");
+                System.Media.SystemSounds.Beep.Play();
+                txbConfirmacion.BackColor = Color.LightSalmon;
                 txbConfirmacion.Focus();
             }
             else if (confirmacion != contraseña)

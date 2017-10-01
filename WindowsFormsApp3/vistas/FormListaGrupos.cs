@@ -22,6 +22,8 @@ namespace WindowsFormsApp3
 
             cargarBotones();
 
+            this.Show();
+
         }
 
         //**************************** btn_click ********************************************
@@ -38,7 +40,7 @@ namespace WindowsFormsApp3
 
         private void btnBuscar_Click(object sender, System.EventArgs e)
         {
-            Program.busqueda(txbBusqueda.Text);
+            Program.showResultadoBusqueda(txbBusqueda.Text);
         }
 
         private void btnLogOut_Click(object sender, System.EventArgs e)
@@ -69,7 +71,6 @@ namespace WindowsFormsApp3
                 Button boton = PersonalizacionComponentes.hacerBotonGrupo(grp, color);
                 boton.Click += new EventHandler(boton_Click);
                 contenedor = PersonalizacionComponentes.hacerConternedorGrupo(ref boton, grp);
-
                 contenedorGrupos.Controls.Add(contenedor);
 
                 color++;
