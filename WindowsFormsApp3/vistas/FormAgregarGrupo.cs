@@ -14,7 +14,10 @@ namespace WindowsFormsApp3
     {
         FormListaGrupos ventanaPadre;
 
-        // ******************* constructor ****************************
+        //para cuando se modifica un grupo
+        int idGrupo;
+
+        // ******************* constructores ****************************
 
         /// <summary> ventana para agregar nuevos grupos </summary>
         /// <param name="ventanaPadre"> FormListaGrupos padre </param>
@@ -26,8 +29,23 @@ namespace WindowsFormsApp3
 
         }
 
+        /// <summary> ventana para modificarar un grupo existente </summary>
+        public FormAgregarGrupo(int idGrupo)
+        {
+            InitializeComponent();
+            this.Text = "Editar Grupo";
+
+            Grupo grupo = Program.getGrupo(idGrupo);
+
+            this.idGrupo = idGrupo;
+            numGrado.Value = grupo.getGrado();
+            cbGrupo.Text = grupo.getGrupo();
+            txbEscuela.Text = grupo.getEscuela();
+
+        }
+
         /// <summary> guardar el grupo en la base de datos y luego lo agrega al formulario </summary>
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             int grado = (int)numGrado.Value;
             char grupo = cbGrupo.Text.First();
@@ -40,6 +58,23 @@ namespace WindowsFormsApp3
             this.Dispose();
 
         }
+
+        /// <summary> guardar el grupo en la base de datos y luego lo agrega al formulario </summary>
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            int grado = (int)numGrado.Value;
+            char grupo = cbGrupo.Text.First();
+            string escuela = txbEscuela.Text;
+            int maestro = ventanaPadre.GetIdMaestro();
+
+            //try catch
+            Program.modificarGrupo(idGrupo, grado, grupo, escuela);
+            ventanaPadre.cargarBotones();
+            this.Dispose();
+
+        }
+
+
 
     }
 }

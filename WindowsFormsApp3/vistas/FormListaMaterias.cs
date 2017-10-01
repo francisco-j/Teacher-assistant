@@ -98,7 +98,7 @@ namespace WindowsFormsApp3
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
-            Program.showResultadoBusqueda(txbBusqueda.Text);
+            new FormResultadoBusqueda(txbBusqueda.Text);
         }
 
         private void txbBusqueda_TextChanged(object sender, EventArgs e)

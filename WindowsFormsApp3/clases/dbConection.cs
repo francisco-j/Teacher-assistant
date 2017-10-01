@@ -243,6 +243,7 @@ namespace WindowsFormsApp3.clases
             }
         }
 
+        /// <summary> cuenta cuantos alumnos pertenecen al grupo indicado </summary>
         internal static int numeroAlumnosEn(int idGrupo)
         {
             try
@@ -267,7 +268,7 @@ namespace WindowsFormsApp3.clases
         }
 
 
-        //************************  escritura ******************************************
+//************************  escritura ******************************************
 
         /// <summary> registra el usuario indicado en la base de datos </summary>
         internal static void RegistrarUsuario(string usuario, string contra)
@@ -334,7 +335,23 @@ namespace WindowsFormsApp3.clases
         }
 
 
-        //************************** otros *********************************************
+//******************************** actualizar ***********************************************
+
+        internal static void actualizarGrupo(int idGrupo, int grado, char grupo, String escuela)
+        {
+            comand.CommandText = "UPDATE Grupos SET grado = "+grado+", grupo = '"+grupo+"', escuela = '" + escuela + "' WHERE id = "+idGrupo;
+            comand.Connection = conection;
+            try
+            {
+                conection.Open();
+                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+            }
+            finally
+            {
+                conection.Close();
+            }
+        }
+//************************** otros *********************************************
 
         //experimentacion
         //public int temp()

@@ -40,11 +40,11 @@ namespace WindowsFormsApp3
             {
                 try
                 {
-                    Program.Login( usuario, contrasena );
+                    Program.Login(usuario, contrasena);
                 }
                 catch (ApplicationException ex)
                 {
-                    MessageBox.Show(this, ex.Message); 
+                    MessageBox.Show(this, ex.Message);
                 }
 
             }
@@ -52,8 +52,7 @@ namespace WindowsFormsApp3
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            Form registrarse = new FormRegistrarse();
-            registrarse.ShowDialog();
+            new FormRegistrarse().ShowDialog();
             txbUsuario.Focus();
         }
 
@@ -62,9 +61,6 @@ namespace WindowsFormsApp3
             txbUsuario.Focus();
         }
 
-        //*********************** errores ****************************
-        private string erTitulo = "Error inesperado";
-        private string erTituloContra = "datos incorrectos";
-
     }
+
 }

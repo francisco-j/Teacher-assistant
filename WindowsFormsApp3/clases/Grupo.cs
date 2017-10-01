@@ -29,10 +29,17 @@ namespace WindowsFormsApp3
         {
             return this.id;
         }
-
         public string getEscuela()
         {
             return escuela;
+        }
+        public int getGrado()
+        {
+            return grado;
+        }
+        public string getGrupo()
+        {
+            return grupo.ToString();
         }
 
 // ************************** set ************************************

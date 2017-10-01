@@ -25,22 +25,11 @@ namespace WindowsFormsApp3
             this.Show();
 
         }
-
-        //**************************** btn_click ********************************************
-
-        /// <summary> evento para los botonesGrupo  </summary>
-        public void boton_Click(object sender, System.EventArgs e)
-        {
-            string grupo = (sender as Button).Name.Replace("btnGrupo", "");
-            int idGrupo = int.Parse(grupo);
-
-            Program.showListaMaterias(idGrupo);
-            this.Hide();
-        }
+//**************************** btn_click ********************************************
 
         private void btnBuscar_Click(object sender, System.EventArgs e)
         {
-            Program.showResultadoBusqueda(txbBusqueda.Text);
+            new FormResultadoBusqueda(txbBusqueda.Text);
         }
 
         private void btnLogOut_Click(object sender, System.EventArgs e)
@@ -54,7 +43,7 @@ namespace WindowsFormsApp3
             nuevoGrupo.ShowDialog(this);
         }
 
-        // ***************************** metodos  *******************************************************
+// ***************************** metodos  *******************************************************
 
         ///<sumary> limpia el contenedor y carga todos los grupos como botones nuevos </sumary>
         public void cargarBotones()
@@ -68,9 +57,7 @@ namespace WindowsFormsApp3
 
             foreach (Grupo grp in grupos)
             {
-                Button boton = PersonalizacionComponentes.hacerBotonGrupo(grp, color);
-                boton.Click += new EventHandler(boton_Click);
-                contenedor = PersonalizacionComponentes.hacerConternedorGrupo(ref boton, grp);
+                contenedor = PersonalizacionComponentes.hacerConternedorGrupo(grp, color);
                 contenedorGrupos.Controls.Add(contenedor);
 
                 color++;

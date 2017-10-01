@@ -9,7 +9,7 @@ namespace WindowsFormsApp3
 {
     static class Program
     {
-        private static Form inicio, resultadoBusqueda, listaGrupos, listaMaterias, grupo, alumno;
+        public static Form inicio, listaGrupos, listaMaterias, grupo;
 
         [STAThread]
         static void Main()
@@ -49,13 +49,12 @@ namespace WindowsFormsApp3
         /// <param name="ventana"> ventana que ejecuto el  logout </param>
         internal static void LogOut(Form ventana)
         {
-            //foreach (Form vent in Application.OpenForms)
-            //{
-            //    vent.Close();
-            //    vent.Dispose();
-            //}
+            foreach (Form vent in Application.OpenForms)
+            {
+                if(vent != inicio)
+                    vent.Dispose();
+            }
             inicio.Show();
-            ventana.Dispose();
         }
 
         //***************************** ventanas *******************************************
@@ -63,11 +62,6 @@ namespace WindowsFormsApp3
         internal static void returnToListaGrupos()
         {
             listaGrupos.Show();
-        }
-
-        internal static void showResultadoBusqueda(string busqueda)
-        {
-            resultadoBusqueda = new FormResultadoBusqueda(busqueda);
         }
 
         /// <summary> muestra el estuduante indicado </summary>
@@ -136,10 +130,16 @@ namespace WindowsFormsApp3
             dbConection.AgregarMateria(nombre, salon);
         }
 
-        /// <summary>  </summary>
+        /// <summary> registra el eusuario en la DB </summary>
         internal static void agregarGrupo(int grado, char grupo, String escuela, int idMaesto)
         {
             dbConection.AgregarGrupo(grado, grupo, escuela, idMaesto);
+        }
+
+        /// <summary> registra el eusuario en la DB </summary>
+        internal static void modificarGrupo(int id, int grado, char grupo, String escuela)
+        {
+            dbConection.actualizarGrupo(id, grado, grupo, escuela);
         }
 
         // ************************** metodos privados ****************************************

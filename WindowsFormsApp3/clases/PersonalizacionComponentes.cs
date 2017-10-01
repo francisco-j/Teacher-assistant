@@ -12,73 +12,69 @@ namespace WindowsFormsApp3
 {
     class PersonalizacionComponentes
     {
-
-        /// <summary> colores que se asignan a los botones de grupos, máximo habrá 10 botones de grupos </summary>
         private static Color[] botonGrupoColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
-        /// <summary> colores que se asignan a los botones de materias, máximo habrá 10 botones de materias </summary>
         private static Color[] botonMateriaColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
-        
-        //fuentes:
         private static Font miFuenteGrupo = new Font("Microsoft Sans Serif", 30, FontStyle.Bold);
         private static Font miFuenteMateria = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
         private static Font miFuenteInfo = new Font("Microsoft Sans Serif", 16);
 
-        //********************************** constructor **************************************
+
+//********************************** constructor **************************************
 
         //privado para que no lo instancien
         private PersonalizacionComponentes() { }
 
 
-        // **************************************  metodos ********************************************
+// **************************************  metodos ********************************************
 
         /// <summary> debuelbe el contenedor con la informacion del grupo indicado </summary>
         /// <param name="boton"> contenedor a decorar </param>
         /// <param name="grupo"> grupo del que se tomara la informacion </param>
-        public static FlowLayoutPanel hacerConternedorGrupo(ref Button boton, Grupo grupo)
+        public static FlowLayoutPanel hacerConternedorGrupo(Grupo grupo, int color)
         {
+            //componentes (declarar todo)
+            Label info = new Label();
+            Button boton = new Button();
+            ContextMenu cm = new ContextMenu();
             FlowLayoutPanel contenedor = new FlowLayoutPanel();
 
-            contenedor.AutoSize = true;
-            contenedor.Controls.Add(boton);
-
-
-            Label info = new Label();
-            info.Font = miFuenteInfo;
-            info.AutoSize = true;
-            info.Text += grupo.getEscuela() + "\n";
-            info.Text += Program.numeroAlumnosEn(grupo.getId()) + " alumnos";
-            contenedor.Controls.Add(info);
-
-            return contenedor;
-        }
-
-        /// <summary> debuelbe el boton con la informacion del grupo indicado </summary>
-        /// <param name="grupo"> grupo del que se tomara la informacion </param>
-        /// <param name="color"> color del boton </param>
-        public static Button hacerBotonGrupo(Grupo grupo, int color)
-        {
-            Button boton = new Button();
-
-            ContextMenu cm = new ContextMenu();
-            MenuItem[] mi = { new MenuItem("Editar"), new MenuItem("Borar"), new MenuItem("Exportar") };
-            cm.MenuItems.AddRange(mi);
-            boton.ContextMenu = cm;
+            //boton (informacion y estilo)
+            boton.Text = grupo.ToString();
+            boton.Name = "btnGrupo" + grupo.getId();
 
             boton.Font = miFuenteGrupo;
+            boton.Size = new Size(150, 115);
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
             boton.BackColor = botonGrupoColores[color];
 
-            boton.Text = grupo.ToString();
-            boton.Size = new Size(150, 115);
-            boton.Name = "btnGrupo" + grupo.getId();
-            return boton;
+            //label
+            info.Font = miFuenteInfo;
+            info.AutoSize = true;
+            info.Text += grupo.getEscuela() + "\n";
+            info.Text += Program.numeroAlumnosEn(grupo.getId()) + " alumnos";
+
+            //contenedor (tamano)
+            contenedor.AutoSize = true;
+
+            //contenedor(llenar)
+            contenedor.Controls.Add(boton);
+            contenedor.Controls.Add(info);
+            
+            //menu contextual del boton
+            MenuItem[] mi = { new MenuItem("Editar"), new MenuItem("Borar"), new MenuItem("Exportar") };
+            cm.MenuItems.AddRange(mi);
+            boton.ContextMenu = cm;
+
+            //eventos
+            boton.Click += new EventHandler(boton_Click);
+            //click derecho;
+            
+            return contenedor;
         }
 
+
         /// <summary> decora el boton con la informacion de la materia indicada </summary>
-        /// <param name="boton"> boton a decorar </param>
-        /// <param name="materia"> materia de la que se tomara la informacion </param>
-        /// <param name="color"> color del boton </param>
         public static void configurarBotonMateria(ref Button boton, Materia materia, int color)
         {
             boton.Font = miFuenteMateria;
@@ -90,6 +86,20 @@ namespace WindowsFormsApp3
             boton.Size = new Size(180, 70);
             boton.Name = "btnMateria" + materia.getId();
         }
+
+// **************************  eventos para asignar *********************************
         
+        /// <summary> evento para los botonesGrupo  </summary>
+        private static void boton_Click(object sender, System.EventArgs e)
+        {
+            string grupo = (sender as Button).Name.Replace("btnGrupo", "");
+            int idGrupo = int.Parse(grupo);
+
+            Program.showListaMaterias(idGrupo);
+            Program.listaGrupos.Hide();
+        }
+
+
+
     }
 }
