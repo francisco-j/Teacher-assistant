@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Linq;
+using System.Drawing;
 using System.Windows.Forms;
+using System.ComponentModel;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace WindowsFormsApp3
 {
@@ -45,6 +45,8 @@ namespace WindowsFormsApp3
 
             btnGuardar.Click += btnModificar_Click;
 
+            this.Visible = true;
+
         }
 
 // ************************** eventos para asignar *************************************
@@ -70,14 +72,12 @@ namespace WindowsFormsApp3
             int grado = (int)numGrado.Value;
             char grupo = cbGrupo.Text.First();
             string escuela = txbEscuela.Text;
-            int maestro = ventanaPadre.GetIdMaestro();
 
             //try catch
             Program.modificarGrupo(idGrupo, grado, grupo, escuela);
-            ventanaPadre.cargarBotones();
+            Program.listaGrupos.cargarBotones();
             this.Dispose();
 
         }
-        
     }
 }

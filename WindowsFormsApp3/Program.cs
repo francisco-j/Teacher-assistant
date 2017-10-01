@@ -9,7 +9,10 @@ namespace WindowsFormsApp3
 {
     static class Program
     {
-        public static Form inicio, listaGrupos, listaMaterias, grupo;
+        public static Form inicio;
+        public static FormListaGrupos listaGrupos;
+        public static FormListaMaterias listaMaterias;
+        public static Form grupo;
 
         [STAThread]
         static void Main()

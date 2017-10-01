@@ -62,12 +62,16 @@ namespace WindowsFormsApp3
             contenedor.Controls.Add(boton);
             contenedor.Controls.Add(info);
             
-            //menu contextual del boton(al hacer click derecho:)
+            //menu contextual del boton(click derecho:)
             MenuItem[] mi = {
                 new MenuItem("Editar",editar_Click),
                 new MenuItem("Borar",borrar_Click),
                 new MenuItem("Exportar",exportar_Click)
             };
+            mi[0].Name = "Editar" + grupo.getId().ToString();
+            mi[1].Name = "Borar" + grupo.getId().ToString();
+            mi[2].Name = "Exportar" + grupo.getId().ToString();
+
             cm.MenuItems.AddRange(mi);
             boton.ContextMenu = cm;
 
@@ -122,21 +126,23 @@ namespace WindowsFormsApp3
         /// <summary> para menu contextual de grupo </summary>
         private static void editar_Click(object sender, System.EventArgs e)
         {
-            //Program.listaGrupos.ShowDialog(new FormAgregarGrupo( "id grupo" ));
-            throw new NotImplementedException();
+            int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Editar", ""));
+            new FormAgregarGrupo(idGrupo);
         }
 
         /// <summary> para menu contextual de grupo </summary>
         private static void borrar_Click(object sender, System.EventArgs e)
         {
-            //Program.listaMaterias.ShowDialog(new FormBorrarGrupo( "grupo" ));
-            throw new NotImplementedException();
+            int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Borar", ""));
+            new FormBorrarGrupo(idGrupo);
         }
 
         /// <summary> para menu contextual de grupo </summary>
         private static void exportar_Click(object sender, System.EventArgs e)
         {
             throw new NotImplementedException();
+            //int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Exportar", ""));
+            //Program.listaGrupos.ShowDialog(new FormExportarGrupo(idGrupo));
         }
 
     }

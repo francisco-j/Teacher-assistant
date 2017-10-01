@@ -24,7 +24,7 @@ namespace WindowsFormsApp3.clases
             this.grupo = grupo;
         }
 
-        //************************************* metodos ****************************************************
+//************************************* metodos ****************************************************
 
         /// <summary> debuelbe el nombre del alumno por nombre </summary>
         public string nombreCompletoPN()
