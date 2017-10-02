@@ -47,6 +47,12 @@
   <ItemGroup>
     <Compile Include="clases\Alumno.cs" />
     <Compile Include="clases\Materia.cs" />
+    <Compile Include="vistas\FormAgregarAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\FormAgregarAlumno.Designer.cs">
+      <DependentUpon>FormAgregarAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="vistas\FormAgregarGrupo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     <Compile Include="vistas\FormResultadoBusqueda.Designer.cs">
       <DependentUpon>FormResultadoBusqueda.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="vistas\FormAgregarAlumno.resx">
+      <DependentUpon>FormAgregarAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormAgregarGrupo.resx">
       <DependentUpon>FormAgregarGrupo.cs</DependentUpon>
     </EmbeddedResource>

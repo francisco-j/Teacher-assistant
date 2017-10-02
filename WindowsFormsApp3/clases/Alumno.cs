@@ -23,8 +23,16 @@ namespace WindowsFormsApp3.clases
             this.apellidoM = apellidoM;
             this.grupo = grupo;
         }
+        public Alumno(int grupo, string nombre, string apellidoP, string apellidoM)
+        {
+            this.id = id;
+            this.nombre = nombre;
+            this.apellidoP = apellidoP;
+            this.apellidoM = apellidoM;
+            this.grupo = grupo;
+        }
 
-//************************************* metodos ****************************************************
+        //************************************* metodos ****************************************************
 
         /// <summary> debuelbe el nombre del alumno por nombre </summary>
         public string nombreCompletoPN()
@@ -44,5 +52,19 @@ namespace WindowsFormsApp3.clases
             return grupo;
         }
 
+        public string getNombres()
+        {
+            return nombre;
+        }
+
+        public string getPaterno()
+        {
+            return apellidoP;
+        }
+
+        public string getMaterno()
+        {
+            return apellidoM;
+        }
     }
 }

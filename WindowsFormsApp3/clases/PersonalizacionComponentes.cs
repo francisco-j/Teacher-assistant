@@ -80,10 +80,10 @@ namespace WindowsFormsApp3
             return contenedor;
         }
 
-        /// <summary> decora el boton con la informacion de la materia indicada </summary>
+        /// <summary> decora el botón con la información de la materia indicada </summary>
         public static Button configurarBotonMateria(Materia materia, int color)
         {
-            //boton
+            //botón
             Button boton = new Button();
 
             boton.Font = miFuenteMateria;
@@ -92,7 +92,7 @@ namespace WindowsFormsApp3
             boton.BackColor = botonMateriaColores[color];
 
             boton.Text = materia.toString();
-            boton.Size = new Size(180, 70);
+            boton.Size = new Size(200, 80);
             boton.Name = "btnMateria" + materia.getId();
 
             //evento
@@ -108,6 +108,7 @@ namespace WindowsFormsApp3
             
             boton.ContextMenu = new ContextMenu(mi);
 
+            boton.Visible = true;
             return boton;
         }
 

@@ -36,11 +36,11 @@ namespace WindowsFormsApp3.vistas
             InitializeComponent();
             this.idMateria = idMateria;
 
-            txbNombreMateria.Text = Program.getNombreMateria(idMateria);
+            //txbNombreMateria.Text = Program.getNombreMateria(idMateria);
 
-            btnGuardar.Click += btnGuardar_Click;
+            //btnGuardar.Click += btnGuardar_Click;
 
-            this.Show();
+            //this.Show();
         }
 
 
@@ -61,12 +61,10 @@ namespace WindowsFormsApp3.vistas
                 //inicial con mayuscula y el reso minusculas
                 nombre = nombre.First().ToString().ToUpper() + nombre.Substring(1).ToLower();
 
-                Program.actualizarMateria(idMateria, nombre);
+                Program.agregarMateria( nombre, idMateria );
                 Program.listaMaterias.cargarBotones();
                 this.Dispose();
             }
-
-
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
