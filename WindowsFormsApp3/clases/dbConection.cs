@@ -296,6 +296,40 @@ namespace WindowsFormsApp3.clases
             }
         }
 
+        /// <summary>
+        /// Se obtienen todos los alumnos del grupo enviado como parámetro
+        /// </summary>
+        /// <param name="idGrupo"> id del grupo que buscamos </param>
+        /// <returns></returns>
+        internal static Alumno[ ] alumnosGrupo( int idGrupo )
+        {
+            List<Alumno> lAlumnos = new List<Alumno>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                //compara con nombre y apellidos
+                comand.CommandText = "SELECT * FROM Alumnos WHERE grupo=" + idGrupo;
+                reader = comand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = ( int )reader[ "id" ];
+                    string nombre = reader[ "nombres" ].ToString();
+                    string apellidoP = reader[ "apellidoPaterno" ].ToString();
+                    string apellidoM = reader[ "apellidoMaterno" ].ToString();
+                    int grupo = ( int )reader[ "grupo" ];
+                    Alumno a = new Alumno( id, nombre, apellidoP, apellidoM, grupo );
+
+                    lAlumnos.Add( a );
+                }
+            } finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return lAlumnos.ToArray();
+        }
 
 //************************  escritura ******************************************
 
@@ -362,6 +396,23 @@ namespace WindowsFormsApp3.clases
             }
         }
 
+        /// <summary>
+        /// Registra un nuevo alumno en la BD
+        /// </summary>
+        /// <param name="alumno"></param>
+        internal static void agregarAlumno( Alumno alumno )
+        {
+            comand.CommandText = "INSERT INTO Alumnos (nombres, apellidoPaterno, apellidoMaterno, grupo) VALUES('" + alumno.getNombres() + "','" + alumno.getPaterno() + "','" + alumno.getMaterno() + "'," + alumno.getGupo() + ")";
+            comand.Connection = conection;
+            try
+            {
+                conection.Open();
+                Console.WriteLine( comand.ExecuteNonQuery() + " lienas con cambios" );
+            } finally
+            {
+                conection.Close();
+            }
+        }
 
 //******************************** actualizar ***********************************************
 

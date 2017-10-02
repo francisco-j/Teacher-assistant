@@ -35,14 +35,11 @@
             this.btnAgregarMateria = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.groupBoxAsistencia = new System.Windows.Forms.GroupBox();
-            this.lblNombres = new System.Windows.Forms.Label();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnAgregarDia = new System.Windows.Forms.Button();
-            this.contenedorGrupos = new System.Windows.Forms.FlowLayoutPanel();
-            this.groupBoxAsistencia.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.SuspendLayout();
+            this.contenedorMaterias = new System.Windows.Forms.FlowLayoutPanel();
+            this.grbAsistencia = new System.Windows.Forms.GroupBox();
+            this.panelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAgregarAlumno = new System.Windows.Forms.Button();
+            this.grbAsistencia.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGrupos
@@ -114,55 +111,43 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
-            // groupBoxAsistencia
+            // contenedorMaterias
             // 
-            this.groupBoxAsistencia.Controls.Add(this.lblNombres);
-            this.groupBoxAsistencia.Controls.Add(this.splitContainer1);
-            this.groupBoxAsistencia.Controls.Add(this.btnAgregarDia);
-            this.groupBoxAsistencia.Location = new System.Drawing.Point(374, 96);
-            this.groupBoxAsistencia.Name = "groupBoxAsistencia";
-            this.groupBoxAsistencia.Size = new System.Drawing.Size(662, 433);
-            this.groupBoxAsistencia.TabIndex = 17;
-            this.groupBoxAsistencia.TabStop = false;
-            this.groupBoxAsistencia.Text = "Asistencias";
+            this.contenedorMaterias.Location = new System.Drawing.Point(64, 96);
+            this.contenedorMaterias.Name = "contenedorMaterias";
+            this.contenedorMaterias.Size = new System.Drawing.Size(274, 389);
+            this.contenedorMaterias.TabIndex = 18;
             // 
-            // lblNombres
+            // grbAsistencia
             // 
-            this.lblNombres.AutoSize = true;
-            this.lblNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(240)))), ((int)(((byte)(215)))));
-            this.lblNombres.Location = new System.Drawing.Point(15, 37);
-            this.lblNombres.Name = "lblNombres";
-            this.lblNombres.Size = new System.Drawing.Size(87, 25);
-            this.lblNombres.TabIndex = 1;
-            this.lblNombres.Text = "Nombre:";
+            this.grbAsistencia.Controls.Add(this.panelAlumnos);
+            this.grbAsistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbAsistencia.Location = new System.Drawing.Point(360, 96);
+            this.grbAsistencia.Name = "grbAsistencia";
+            this.grbAsistencia.Size = new System.Drawing.Size(663, 389);
+            this.grbAsistencia.TabIndex = 0;
+            this.grbAsistencia.TabStop = false;
+            this.grbAsistencia.Text = "Asistencia";
             // 
-            // splitContainer1
+            // panelAlumnos
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(40, 71);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Size = new System.Drawing.Size(356, 268);
-            this.splitContainer1.SplitterDistance = 118;
-            this.splitContainer1.TabIndex = 16;
+            this.panelAlumnos.Location = new System.Drawing.Point(13, 27);
+            this.panelAlumnos.Name = "panelAlumnos";
+            this.panelAlumnos.Size = new System.Drawing.Size(244, 356);
+            this.panelAlumnos.TabIndex = 0;
             // 
-            // btnAgregarDia
+            // btnAgregarAlumno
             // 
-            this.btnAgregarDia.FlatAppearance.BorderSize = 0;
-            this.btnAgregarDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarDia.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarDia.Location = new System.Drawing.Point(593, 360);
-            this.btnAgregarDia.Name = "btnAgregarDia";
-            this.btnAgregarDia.Size = new System.Drawing.Size(63, 67);
-            this.btnAgregarDia.TabIndex = 15;
-            this.btnAgregarDia.Text = "+";
-            this.btnAgregarDia.UseVisualStyleBackColor = true;
-            // 
-            // contenedorGrupos
-            // 
-            this.contenedorGrupos.Location = new System.Drawing.Point(12, 96);
-            this.contenedorGrupos.Name = "contenedorGrupos";
-            this.contenedorGrupos.Size = new System.Drawing.Size(345, 389);
-            this.contenedorGrupos.TabIndex = 18;
+            this.btnAgregarAlumno.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAgregar;
+            this.btnAgregarAlumno.FlatAppearance.BorderSize = 0;
+            this.btnAgregarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarAlumno.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarAlumno.Location = new System.Drawing.Point(991, 500);
+            this.btnAgregarAlumno.Name = "btnAgregarAlumno";
+            this.btnAgregarAlumno.Size = new System.Drawing.Size(32, 32);
+            this.btnAgregarAlumno.TabIndex = 19;
+            this.btnAgregarAlumno.UseVisualStyleBackColor = true;
+            this.btnAgregarAlumno.Click += new System.EventHandler(this.btnAgregarAlumno_Click);
             // 
             // FormListaMaterias
             // 
@@ -170,8 +155,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
             this.ClientSize = new System.Drawing.Size(1046, 578);
-            this.Controls.Add(this.contenedorGrupos);
-            this.Controls.Add(this.groupBoxAsistencia);
+            this.Controls.Add(this.btnAgregarAlumno);
+            this.Controls.Add(this.grbAsistencia);
+            this.Controls.Add(this.contenedorMaterias);
             this.Controls.Add(this.btnAjustes);
             this.Controls.Add(this.btnAgregarMateria);
             this.Controls.Add(this.btnLogOut);
@@ -184,10 +170,7 @@
             this.Name = "FormListaMaterias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormListaG_FormClosed);
-            this.groupBoxAsistencia.ResumeLayout(false);
-            this.groupBoxAsistencia.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.grbAsistencia.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,10 +183,9 @@
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnAgregarMateria;
         private System.Windows.Forms.Button btnAjustes;
-        private System.Windows.Forms.GroupBox groupBoxAsistencia;
-        private System.Windows.Forms.Label lblNombres;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button btnAgregarDia;
-        private System.Windows.Forms.FlowLayoutPanel contenedorGrupos;
+        private System.Windows.Forms.FlowLayoutPanel contenedorMaterias;
+        private System.Windows.Forms.GroupBox grbAsistencia;
+        private System.Windows.Forms.FlowLayoutPanel panelAlumnos;
+        private System.Windows.Forms.Button btnAgregarAlumno;
     }
 }

@@ -160,7 +160,24 @@ namespace WindowsFormsApp3
             dbConection.borrarGrupo(idrupo);
         }
 
+        /// <summary>
+        /// Solicita todos los alumnos de tal grupo a la base de datos
+        /// </summary>
+        /// <param name="idGrupo"> Grupo al que pertenecen los alumnos </param>
+        /// <returns></returns>
+        internal static Alumno[] alumnosGrupo( int idGrupo )
+        {
+            return dbConection.alumnosGrupo( idGrupo );
+        }
 
+        /// <summary>
+        /// Llama a la base de datos para agregar un alumno
+        /// </summary>
+        /// <param name="alumno"></param>
+        internal static void agregarAlumno( Alumno alumno )
+        {
+            dbConection.agregarAlumno( alumno );
+        }
 
         // ************************** metodos privados ****************************************
 
