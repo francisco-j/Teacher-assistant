@@ -3,8 +3,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using WindowsFormsApp3.clases;
-using System.Collections.Generic;
 using WindowsFormsApp3.vistas;
+using System.Collections.Generic;
 
 /// <summary> clase encargada de guardar los métodos que usaremos para personalizar componentes como:
 /// los botones, labels y demás componenetes que estaremos generando en tiempo de ejecución
@@ -18,6 +18,7 @@ namespace WindowsFormsApp3
         private static Font miFuenteGrupo = new Font("Microsoft Sans Serif", 30, FontStyle.Bold);
         private static Font miFuenteMateria = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
         private static Font miFuenteInfo = new Font("Microsoft Sans Serif", 16);
+        private static Font miFuentelblAlumno = new Font("Microsoft Sans Serif", 16);
 
 
 //********************************** constructor **************************************
@@ -80,8 +81,30 @@ namespace WindowsFormsApp3
             return contenedor;
         }
 
+        /// <summary> crea un panel con los checkBox para asistencias necesarios </summary>
+        internal static FlowLayoutPanel hacerPanelAsistencias(int idAlumno, int idGrupo)
+        {
+            FlowLayoutPanel panel = new FlowLayoutPanel();
+
+            panel.Controls.Add(new CheckBox());
+
+            return panel;
+        }
+
+        /// <summary> debuelbe el label con el nombre del alumno indicado </summary>
+        internal static Label hacerLabelAlumno(Alumno alumno)
+        {
+            Label nombre = new Label();
+
+            nombre.AutoSize = true;
+            nombre.Font = miFuentelblAlumno;
+            nombre.Text = alumno.nombreCompletoPA();
+
+            return nombre;
+        }
+
         /// <summary> decora el botón con la información de la materia indicada </summary>
-        public static Button configurarBotonMateria(Materia materia, int color)
+        public static Button hacerBotonMateria(Materia materia, int color)
         {
             //botón
             Button boton = new Button();

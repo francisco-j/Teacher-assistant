@@ -37,6 +37,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.contenedorMaterias = new System.Windows.Forms.FlowLayoutPanel();
             this.grbAsistencia = new System.Windows.Forms.GroupBox();
+            this.panelAsistencias = new System.Windows.Forms.FlowLayoutPanel();
             this.panelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAgregarAlumno = new System.Windows.Forms.Button();
             this.grbAsistencia.SuspendLayout();
@@ -115,25 +116,35 @@
             // 
             this.contenedorMaterias.Location = new System.Drawing.Point(64, 96);
             this.contenedorMaterias.Name = "contenedorMaterias";
-            this.contenedorMaterias.Size = new System.Drawing.Size(274, 389);
+            this.contenedorMaterias.Size = new System.Drawing.Size(219, 389);
             this.contenedorMaterias.TabIndex = 18;
             // 
             // grbAsistencia
             // 
+            this.grbAsistencia.Controls.Add(this.panelAsistencias);
             this.grbAsistencia.Controls.Add(this.panelAlumnos);
             this.grbAsistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbAsistencia.Location = new System.Drawing.Point(360, 96);
+            this.grbAsistencia.Location = new System.Drawing.Point(289, 96);
             this.grbAsistencia.Name = "grbAsistencia";
-            this.grbAsistencia.Size = new System.Drawing.Size(663, 389);
+            this.grbAsistencia.Size = new System.Drawing.Size(734, 389);
             this.grbAsistencia.TabIndex = 0;
             this.grbAsistencia.TabStop = false;
             this.grbAsistencia.Text = "Asistencia";
             // 
+            // panelAsistencias
+            // 
+            this.panelAsistencias.AutoSize = true;
+            this.panelAsistencias.Location = new System.Drawing.Point(338, 27);
+            this.panelAsistencias.Name = "panelAsistencias";
+            this.panelAsistencias.Size = new System.Drawing.Size(133, 64);
+            this.panelAsistencias.TabIndex = 1;
+            // 
             // panelAlumnos
             // 
+            this.panelAlumnos.AutoSize = true;
             this.panelAlumnos.Location = new System.Drawing.Point(13, 27);
             this.panelAlumnos.Name = "panelAlumnos";
-            this.panelAlumnos.Size = new System.Drawing.Size(244, 356);
+            this.panelAlumnos.Size = new System.Drawing.Size(319, 64);
             this.panelAlumnos.TabIndex = 0;
             // 
             // btnAgregarAlumno
@@ -154,7 +165,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(1046, 578);
+            this.ClientSize = new System.Drawing.Size(1046, 532);
             this.Controls.Add(this.btnAgregarAlumno);
             this.Controls.Add(this.grbAsistencia);
             this.Controls.Add(this.contenedorMaterias);
@@ -171,6 +182,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormListaG_FormClosed);
             this.grbAsistencia.ResumeLayout(false);
+            this.grbAsistencia.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,5 +199,6 @@
         private System.Windows.Forms.GroupBox grbAsistencia;
         private System.Windows.Forms.FlowLayoutPanel panelAlumnos;
         private System.Windows.Forms.Button btnAgregarAlumno;
+        private System.Windows.Forms.FlowLayoutPanel panelAsistencias;
     }
 }

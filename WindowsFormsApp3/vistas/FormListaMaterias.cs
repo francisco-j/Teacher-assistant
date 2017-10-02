@@ -59,24 +59,24 @@ namespace WindowsFormsApp3
             return idGrupo;
         }
 
-        /// <summary>
-        /// Obtiene de BD todos los alumnos y los muestra en la lista de asistencia
-        /// </summary>
+        /// <summary> Obtiene de BD todos los alumnos y los muestra en la lista de asistencia </summary>
         private void cargarAlumnos()
         {
-            //Falta agregar los checkBox de asistencia, por el momento sólo muestra los nombres
-            alumnosGrupo = Program.alumnosGrupo( idGrupo );
             panelAlumnos.Controls.Clear();
+            panelAsistencias.Controls.Clear();
+
+            alumnosGrupo = Program.alumnosGrupo( idGrupo );
 
             foreach (Alumno alumno in alumnosGrupo)
             {
-                Label nombre = new Label();
-                nombre.AutoSize = true;
-                nombre.Font = new Font( "Microsoft Sans Serif", 16 );
-                nombre.Text = alumno.nombreCompletoPA();
-
+                Label nombre = PersonalizacionComponentes.hacerLabelAlumno(alumno);
                 panelAlumnos.Controls.Add( nombre );
+
+                FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(alumno.getId(), alumno.getGupo());
+                panelAsistencias.Controls.Add(asistencias);
             }
+
+            panelAlumnos.Size = panelAlumnos.PreferredSize;
         }
 
         ///<sumary> limpia el contenedor y carga todas las materias como botones nuevos </sumary>
@@ -89,7 +89,7 @@ namespace WindowsFormsApp3
 
             foreach (Materia materia in materias)
             {
-                Button boton = PersonalizacionComponentes.configurarBotonMateria(materia, color);
+                Button boton = PersonalizacionComponentes.hacerBotonMateria(materia, color);
                 contenedorMaterias.Controls.Add(boton);
                 
                 color++;
