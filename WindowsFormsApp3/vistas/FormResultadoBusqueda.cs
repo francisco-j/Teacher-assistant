@@ -31,14 +31,6 @@ namespace WindowsFormsApp3.vistas
         }
 
 
-//*************************************** btn_click  ****************************
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            mostrar(txbBusqueda.Text);
-        }
-
-
 //********************************  metodos  ******************************************
 
         /// <summary> busca en la DB y agrega a la lista </summary>
@@ -59,6 +51,7 @@ namespace WindowsFormsApp3.vistas
                 foreach (Alumno a in alumnos)
                 {
                     lstBxNombres.Items.Add(a.nombreCompletoPN());
+
                     Grupo g = Program.getGrupo(a.getGupo());
                     lstBxGrados.Items.Add(g.ToString());
                 }
@@ -67,5 +60,18 @@ namespace WindowsFormsApp3.vistas
             }
         }
 
+
+//*************************************** btn_click  ****************************
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            mostrar(txbBusqueda.Text);
+        }
+
+        private void lstBxNombres_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int index = lstBxNombres.SelectedIndex;
+            new FormAlumno(alumnos[index].getId());
+        }
     }
 }

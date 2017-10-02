@@ -44,5 +44,10 @@ namespace WindowsFormsApp3.clases
             return grupo;
         }
 
+        public int getId()
+        {
+            return id;
+        }
+
     }
 }

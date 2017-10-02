@@ -71,6 +71,7 @@
             this.lstBxNombres.Name = "lstBxNombres";
             this.lstBxNombres.Size = new System.Drawing.Size(220, 24);
             this.lstBxNombres.TabIndex = 1;
+            this.lstBxNombres.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstBxNombres_MouseDoubleClick);
             // 
             // txbBusqueda
             // 
