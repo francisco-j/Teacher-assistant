@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace WindowsFormsApp3.clases
 {
-    class Alumno
+    public class Alumno
     {
         private int id;
         private string nombre;
@@ -32,7 +32,7 @@ namespace WindowsFormsApp3.clases
             this.grupo = grupo;
         }
 
-        //************************************* metodos ****************************************************
+//************************************* metodos ****************************************************
 
         /// <summary> debuelbe el nombre del alumno por nombre </summary>
         public string nombreCompletoPN()
@@ -46,6 +46,8 @@ namespace WindowsFormsApp3.clases
             return apellidoP + " " + apellidoM + " " + nombre;
 
         }
+
+// ******************************* geters *********************************************************
 
         public int getGupo()
         {

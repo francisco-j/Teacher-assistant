@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgregarAlumno));
             this.txbNombre = new System.Windows.Forms.TextBox();
             this.txbPaterno = new System.Windows.Forms.TextBox();
             this.txbMaterno = new System.Windows.Forms.TextBox();
@@ -108,7 +109,8 @@
             this.Controls.Add(this.txbPaterno);
             this.Controls.Add(this.txbNombre);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormAgregarAlumno";
             this.Text = "Agregar Alumno";
             this.ResumeLayout(false);

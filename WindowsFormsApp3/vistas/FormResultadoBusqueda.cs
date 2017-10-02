@@ -71,7 +71,7 @@ namespace WindowsFormsApp3.vistas
         private void lstBxNombres_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             int index = lstBxNombres.SelectedIndex;
-            new FormAlumno(alumnos[index].getId());
+            new FormAlumno(alumnos[index]);
         }
     }
 }
