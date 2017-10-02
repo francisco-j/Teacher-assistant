@@ -47,7 +47,38 @@ namespace WindowsFormsApp3.clases
         }
 
 
-//************************  lectura ******************************************
+        /// <summary> verifica que la contrasena y usuario coinsidan </summary>
+        internal static bool isCorrecto(ref int idUsuario, string usuario, string contrasena)
+        {
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "' AND contrasena='" + contrasena + "'";
+                reader = comand.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    idUsuario = (int)reader["id"];
+
+                    conection.Close();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            finally
+            {
+                conection.Close();
+                reader.Close();
+            }
+
+        }
+
+
+//************************  lectura  listas ******************************************
 
         /// <summary> retorna los grupos asociados al maestro indicado </summary>
         internal static Grupo[] GruposAsociadosCon(int idUsuario)
@@ -140,6 +171,10 @@ namespace WindowsFormsApp3.clases
             return lAlumnos.ToArray();
         }
 
+
+// ************************** lectura info ***********************************
+
+        /// <summary> nombre de la materia indicada </summary>
         internal static string getNombreMateria(int idMateria)
         {
             try
@@ -159,36 +194,6 @@ namespace WindowsFormsApp3.clases
             {
                 reader.Close();
                 conection.Close();
-            }
-
-        }
-
-        /// <summary> verifica que la contrasena y usuario coinsidan </summary>
-        internal static bool isCorrecto(ref int idUsuario, string usuario, string contrasena)
-        {
-            try
-            {
-                conection.Open();
-                comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "' AND contrasena='" + contrasena + "'";
-                reader = comand.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    idUsuario = (int)reader["id"];
-
-                    conection.Close();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            finally
-            {
-                conection.Close();
-                reader.Close();
             }
 
         }
@@ -393,7 +398,7 @@ namespace WindowsFormsApp3.clases
 
 // ********************************  borrar *********************************
 
-
+        /// <summary> borra el grupo de la tabla grupos </summary>
         internal static void borrarGrupo(int idrupo)
         {
             comand.CommandText = "DELETE FROM Grupos WHERE id = " + idrupo;

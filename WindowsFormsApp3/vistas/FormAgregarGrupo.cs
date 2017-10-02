@@ -20,7 +20,6 @@ namespace WindowsFormsApp3
 // ******************* constructores ****************************
 
         /// <summary> ventana para agregar nuevos grupos </summary>
-        /// <param name="ventanaPadre"> FormListaGrupos padre </param>
         public FormAgregarGrupo(FormListaGrupos ventanaPadre)
         {
             InitializeComponent();
@@ -50,8 +49,8 @@ namespace WindowsFormsApp3
         }
 
 // ************************** eventos para asignar *************************************
-
-        /// <summary> guardar el grupo en la base de datos y luego lo agrega al formulario </summary>
+        
+        /// <summary> para crear un nuevo grupo </summary>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             int grado = (int)numGrado.Value;
@@ -65,8 +64,8 @@ namespace WindowsFormsApp3
             this.Dispose();
 
         }
-
-        /// <summary> guardar el grupo en la base de datos y luego lo agrega al formulario </summary>
+        
+        /// <summary> para modoficar un grupo existente </summary>
         private void btnModificar_Click(object sender, EventArgs e)
         {
             int grado = (int)numGrado.Value;

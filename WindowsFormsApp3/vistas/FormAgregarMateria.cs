@@ -20,7 +20,6 @@ namespace WindowsFormsApp3.vistas
 
 // **************************** constructores *************************************
         /// <summary> ventana para agregar nuevas materias </summary>
-        /// <param name="ventanaPadre"> FormListaMaterias padre </param>
         public FormAgregarMateria(FormListaMaterias ventanaPadre)
         {
             InitializeComponent();
@@ -29,8 +28,7 @@ namespace WindowsFormsApp3.vistas
             btnGuardar.Click += btnAgregar_Click;
         }
 
-        /// <summary> ventana para agregar nuevas materias </summary>
-        /// <param name="idMateria"> materia a modificar </param>
+        /// <summary> ventana para modifica una materia existente </summary>
         public FormAgregarMateria(int idMateria)
         {
             InitializeComponent();
@@ -45,6 +43,8 @@ namespace WindowsFormsApp3.vistas
 
 
 //******************************  eventos a asignar ************************************
+        
+        /// <summary> para modificar una materia existente </summary>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string nombre = txbNombreMateria.Text;
@@ -69,6 +69,7 @@ namespace WindowsFormsApp3.vistas
 
         }
 
+        /// <summary> para crear una nueva materia </summary>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             string nombre = txbNombreMateria.Text;
