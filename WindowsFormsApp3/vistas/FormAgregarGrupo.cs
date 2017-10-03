@@ -12,39 +12,36 @@ namespace WindowsFormsApp3
 {
     public partial class FormAgregarGrupo : Form
     {
-        FormListaGrupos ventanaPadre;
-
         //para cuando se modifica un grupo
         int idGrupo;
+
+        //para cuando se crea un grupo
+        int idMaestro;
 
 // ******************* constructores ****************************
 
         /// <summary> ventana para agregar nuevos grupos </summary>
-        public FormAgregarGrupo(FormListaGrupos ventanaPadre)
+        public FormAgregarGrupo(int idMaestro)
         {
             InitializeComponent();
 
-            this.ventanaPadre = ventanaPadre;
+            this.idMaestro = idMaestro;
 
             btnGuardar.Click += btnAgregar_Click;
         }
 
         /// <summary> ventana para modificarar un grupo existente </summary>
-        public FormAgregarGrupo(int idGrupo)
+        public FormAgregarGrupo(Grupo grupo)
         {
             InitializeComponent();
-            this.Text = "Editar Grupo";
-
-            Grupo grupo = Program.getGrupo(idGrupo);
-
-            this.idGrupo = idGrupo;
+            this.Text = "Editar Grupo " +grupo.ToString();
+            
+            this.idGrupo = grupo.getId();
             numGrado.Value = grupo.getGrado();
             cbGrupo.Text = grupo.ToString();
             txbEscuela.Text = grupo.getEscuela();
 
             btnGuardar.Click += btnModificar_Click;
-
-            this.Visible = true;
 
         }
 
@@ -56,11 +53,10 @@ namespace WindowsFormsApp3
             int grado = (int)numGrado.Value;
             char grupo = cbGrupo.Text.First();
             string escuela = txbEscuela.Text;
-            int maestro = ventanaPadre.GetIdMaestro();
+            int maestro = idMaestro;
 
             //try catch
             Program.agregarGrupo(grado, grupo, escuela, maestro);
-            ventanaPadre.cargarBotones();
             this.Dispose();
 
         }
@@ -74,7 +70,6 @@ namespace WindowsFormsApp3
 
             //try catch
             Program.modificarGrupo(idGrupo, grado, grupo, escuela);
-            Program.listaGrupos.cargarBotones();
             this.Dispose();
 
         }

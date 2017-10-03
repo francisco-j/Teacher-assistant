@@ -39,8 +39,11 @@ namespace WindowsFormsApp3
 
         private void btnAgregarGrupo_Click(object sender, System.EventArgs e)
         {
-            FormAgregarGrupo nuevoGrupo = new FormAgregarGrupo(this);
+            
+            FormAgregarGrupo nuevoGrupo = new FormAgregarGrupo(idMaestro);
             nuevoGrupo.ShowDialog(this);
+
+            cargarBotones();
         }
 
 // ***************************** metodos  *******************************************************
@@ -64,7 +67,7 @@ namespace WindowsFormsApp3
             }
         }
 
-        // ********************************** geter *********************************************
+// ********************************** geter *********************************************
 
         /// <summary> id del maestro que controla los grupos de este form </summary>
         public int GetIdMaestro()

@@ -47,6 +47,18 @@ namespace WindowsFormsApp3
             nuevaMateria.ShowDialog();
         }
 
+
+        /// <summary> Muestra un ventana para agregar un alumno a la BD </summary>
+        private void btnAgregarAlumno_Click(object sender, EventArgs e)
+        {
+            FormAgregarAlumno alumnoNuevo = new FormAgregarAlumno(idGrupo);
+
+            alumnoNuevo.ShowDialog();
+
+            //Refresca la lista de alumnos
+            cargarAlumnos();
+        }
+
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
             new FormResultadoBusqueda(txbBusqueda.Text);
@@ -104,19 +116,5 @@ namespace WindowsFormsApp3
             Application.Exit(); 
         }
 
-        /// <summary>
-        /// Muestra un ventana para agregar un alumno a la BD
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnAgregarAlumno_Click(object sender, EventArgs e)
-        {
-            FormAgregarAlumno alumnoNuevo = new FormAgregarAlumno( idGrupo );
-
-            alumnoNuevo.ShowDialog();
-
-            //Refresca la lista de alumnos
-            cargarAlumnos();
-        }
     }
 }

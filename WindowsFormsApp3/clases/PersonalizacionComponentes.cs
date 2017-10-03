@@ -153,7 +153,11 @@ namespace WindowsFormsApp3
         private static void editarG_Click(object sender, System.EventArgs e)
         {
             int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Editar", ""));
-            new FormAgregarGrupo(idGrupo);
+            FormAgregarGrupo modificarGrupo = new FormAgregarGrupo(Program.getGrupo(idGrupo));
+            modificarGrupo.ShowDialog();
+
+            Program.listaGrupos.cargarBotones();
+
         }
 
         /// <summary> para menu contextual de grupo </summary>

@@ -13,6 +13,8 @@ namespace WindowsFormsApp3.vistas
 {
     public partial class FormAgregarAlumno : Form
     {
+
+//********************************* constructor *****************************************
         private int idGrupo;
         public FormAgregarAlumno( int idGrupo )
         {
@@ -20,6 +22,9 @@ namespace WindowsFormsApp3.vistas
 
             this.idGrupo = idGrupo;
         }
+
+
+//********************************************* btn_event *****************************************
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
