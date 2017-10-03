@@ -41,12 +41,12 @@ namespace WindowsFormsApp3.vistas
 
 
 //******************************  eventos a asignar ************************************
-        
+
         /// <summary> para modificar una materia existente </summary>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string nombre = txbNombreMateria.Text;
-            
+
             if (nombre == string.Empty)
             {
                 System.Media.SystemSounds.Beep.Play();
@@ -78,18 +78,14 @@ namespace WindowsFormsApp3.vistas
             }
             else
             {
-                //inicial con mayuscula y el reso minusculas
+                //inicial con mayuscula y el reso normal
                 nombre = nombre.First().ToString().ToUpper() + nombre.Substring(1);
 
                 Program.agregarMateria(nombre, idGrupo);
+
                 this.Dispose();
             }
 
-
-        }
-
-        private void FormAgregarMateria_Load(object sender, EventArgs e)
-        {
 
         }
     }

@@ -390,7 +390,7 @@ namespace WindowsFormsApp3.clases
             try
             {
                 conection.Open();
-                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+                Console.WriteLine(comand.ExecuteNonQuery() + " nueva materia " + nombre + salon);
             }
             finally
             {
@@ -418,14 +418,14 @@ namespace WindowsFormsApp3.clases
 
 //******************************** actualizar ***********************************************
 
-        internal static void actualizarGrupo(int idGrupo, int grado, char grupo, String escuela)
+        internal static void modificarGrupo(int idGrupo, int grado, char grupo, String escuela)
         {
             comand.CommandText = "UPDATE Grupos SET grado = "+grado+", grupo = '"+grupo+"', escuela = '" + escuela + "' WHERE id = "+idGrupo;
             comand.Connection = conection;
             try
             {
                 conection.Open();
-                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+                Console.WriteLine(comand.ExecuteNonQuery() + " cambios en grupo " + idGrupo + escuela + grado + grupo);
             }
             finally
             {
@@ -433,14 +433,14 @@ namespace WindowsFormsApp3.clases
             }
         }
 
-        internal static void actualizarMateria(int idMateria, string nombre)
+        internal static void modificarMateria(int idMateria, string nombre)
         {
             comand.CommandText = "UPDATE Materias SET nombre = '" + nombre + "' WHERE id = " + idMateria;
             comand.Connection = conection;
             try
             {
                 conection.Open();
-                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+                Console.WriteLine(comand.ExecuteNonQuery() + " cambios en materia " + idMateria + nombre);
             }
             finally
             {

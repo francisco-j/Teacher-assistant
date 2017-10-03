@@ -156,13 +156,13 @@ namespace WindowsFormsApp3
         /// <summary> modifica info de la materia en la DB </summary>
         internal static void modificarMateria(int idMateria, string nombre)
         {
-            dbConection.actualizarMateria(idMateria, nombre);
+            dbConection.modificarMateria(idMateria, nombre);
         }
 
         /// <summary> modifica info del usuario en la DB </summary>
         internal static void modificarGrupo(int id, int grado, char grupo, String escuela)
         {
-            dbConection.actualizarGrupo(id, grado, grupo, escuela);
+            dbConection.modificarGrupo(id, grado, grupo, escuela);
         }
 
         internal static void borrarGrupo(int idrupo)

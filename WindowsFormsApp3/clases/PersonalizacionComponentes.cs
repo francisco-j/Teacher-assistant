@@ -191,8 +191,8 @@ namespace WindowsFormsApp3
         private static void editarM_Click(object sender, System.EventArgs e)
         {
             int idMateria = int.Parse((sender as MenuItem).Name.Replace("Editar", ""));
-            FormAgregarMateria modoficarMateria =new FormAgregarMateria(Program.getMateria(idMateria));
 
+            FormAgregarMateria modoficarMateria =new FormAgregarMateria(Program.getMateria(idMateria));
             modoficarMateria.ShowDialog();
 
             Program.listaMaterias.cargarBotones();

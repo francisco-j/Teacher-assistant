@@ -42,7 +42,6 @@
             this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // lblNombre
             // 
@@ -76,7 +75,6 @@
             this.Name = "FormAgregarMateria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Agregar materia";
-            this.Load += new System.EventHandler(this.FormAgregarMateria_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
