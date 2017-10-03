@@ -13,32 +13,30 @@ namespace WindowsFormsApp3.vistas
 {
     public partial class FormAgregarMateria : Form
     {
-        FormListaMaterias ventanaPadre;
+        int idGrupo;
 
         //para cuando se modifica la materia
         int idMateria;
 
 // **************************** constructores *************************************
         /// <summary> ventana para agregar nuevas materias </summary>
-        public FormAgregarMateria(FormListaMaterias ventanaPadre)
+        public FormAgregarMateria(int idGrupo)
         {
             InitializeComponent();
-            this.ventanaPadre = ventanaPadre;
+            this.idGrupo = idGrupo;
 
             btnGuardar.Click += btnAgregar_Click;
         }
 
         /// <summary> ventana para modifica una materia existente </summary>
-        public FormAgregarMateria(int idMateria)
+        public FormAgregarMateria(Materia materia)
         {
             InitializeComponent();
-            this.idMateria = idMateria;
+            this.idMateria = materia.getId();
+            txbNombreMateria.Text = materia.getNombre();
 
-            //txbNombreMateria.Text = Program.getNombreMateria(idMateria);
-
-            //btnGuardar.Click += btnGuardar_Click;
-
-            //this.Show();
+            btnGuardar.Click += btnGuardar_Click;
+            
         }
 
 
@@ -59,10 +57,9 @@ namespace WindowsFormsApp3.vistas
             else
             {
                 //inicial con mayuscula y el reso minusculas
-                nombre = nombre.First().ToString().ToUpper() + nombre.Substring(1).ToLower();
+                nombre = nombre.First().ToString().ToUpper() + nombre.Substring(1);
 
-                Program.agregarMateria( nombre, idMateria );
-                Program.listaMaterias.cargarBotones();
+                Program.modificarMateria(idMateria, nombre);
                 this.Dispose();
             }
         }
@@ -84,13 +81,15 @@ namespace WindowsFormsApp3.vistas
                 //inicial con mayuscula y el reso minusculas
                 nombre = nombre.First().ToString().ToUpper() + nombre.Substring(1);
 
-                int salon = ventanaPadre.getIdGrupo();
-
-                Program.agregarMateria(nombre, salon);
-                ventanaPadre.cargarBotones();
+                Program.agregarMateria(nombre, idGrupo);
                 this.Dispose();
             }
 
+
+        }
+
+        private void FormAgregarMateria_Load(object sender, EventArgs e)
+        {
 
         }
     }

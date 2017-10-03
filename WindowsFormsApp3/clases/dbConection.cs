@@ -175,7 +175,7 @@ namespace WindowsFormsApp3.clases
 // ************************** lectura info ***********************************
 
         /// <summary> nombre de la materia indicada </summary>
-        internal static string getNombreMateria(int idMateria)
+        internal static Materia getMateria(int idMateria)
         {
             try
             {
@@ -185,10 +185,12 @@ namespace WindowsFormsApp3.clases
                 reader = comand.ExecuteReader();
 
                 reader.Read();
-                
-                string nombre = reader["nombre"].ToString();
 
-                return nombre;
+                int id = (int)reader["id"];
+                string nombre = reader["nombre"].ToString();
+                int salon = (int)reader["grupo"];
+
+                return new Materia(id, nombre, salon);
             }
             finally
             {

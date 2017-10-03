@@ -60,12 +60,8 @@ namespace WindowsFormsApp3
             inicio.Show();
         }
 
-        internal static void actualizarMateria(int idMateria, string nombre)
-        {
-            dbConection.actualizarMateria(idMateria, nombre);
-        }
 
-        //***************************** ventanas *******************************************
+//***************************** ventanas *******************************************
 
         internal static void returnToListaGrupos()
         {
@@ -91,7 +87,7 @@ namespace WindowsFormsApp3
             grupo.Show();
         }
 
-//****************************  db  **************************************************
+//****************************  db arrays  **************************************************
 
         internal static Alumno[] busqueda(string text)
         {
@@ -110,16 +106,71 @@ namespace WindowsFormsApp3
             return dbConection.materiasAsociadasCon(idGrupo);
         }
 
+        /// <summary> retorna los alumnos que pertenecen al grupo indicado </summary>
+        internal static Alumno[] alumnosGrupo( int idGrupo )
+        {
+            return dbConection.alumnosGrupo( idGrupo );
+        }
+
+//****************************  db objetos  **************************************************
+
         /// <summary> retorna el grupo con el id indicado </summary>
         internal static Grupo getGrupo(int idGrupo)
         {
             return dbConection.getGrupo(idGrupo);
         }
 
-        internal static string getNombreMateria(int idMateria)
+        /// <summary> retorna el grupo con el id indicado </summary>
+        internal static Materia getMateria(int idMateria)
         {
-            return dbConection.getNombreMateria(idMateria);
+            return dbConection.getMateria(idMateria);
         }
+
+
+//****************************  db scritura  **************************************************
+
+        /// <summary> registra al usuario indicado en la DB </summary>
+        internal static void registrarUsuario(string usuario, string contra)
+        {
+            dbConection.RegistrarUsuario(usuario, contra);
+        }
+
+        /// <summary> agrega la materia indicada a la DB </summary>
+        internal static void agregarMateria(string nombre, int salon)
+        {
+            dbConection.AgregarMateria(nombre, salon);
+        }
+
+        /// <summary> agrega el grupo indicado a la DB </summary>
+        internal static void agregarGrupo(int grado, char grupo, String escuela, int idMaesto)
+        {
+            dbConection.AgregarGrupo(grado, grupo, escuela, idMaesto);
+        }
+
+        /// <summary> agrega el alumno indicado a la DB </summary>
+        internal static void agregarAlumno( Alumno alumno )
+        {
+            dbConection.agregarAlumno( alumno );
+        }
+
+        /// <summary> modifica info de la materia en la DB </summary>
+        internal static void modificarMateria(int idMateria, string nombre)
+        {
+            dbConection.actualizarMateria(idMateria, nombre);
+        }
+
+        /// <summary> modifica info del usuario en la DB </summary>
+        internal static void modificarGrupo(int id, int grado, char grupo, String escuela)
+        {
+            dbConection.actualizarGrupo(id, grado, grupo, escuela);
+        }
+
+        internal static void borrarGrupo(int idrupo)
+        {
+            dbConection.borrarGrupo(idrupo);
+        }
+
+// ****************************** db lectura ********************************************
 
         internal static int numeroAlumnosEn(int idGrupo)
         {
@@ -131,57 +182,6 @@ namespace WindowsFormsApp3
         {
             dbConection.getInfo(idMateria, idGrupo, out grupo, out materia, out numeroAlumnos, out escuela);
         }
-
-        /// <summary> registra al usuario indicado en la base de datos </summary>
-        internal static void registrarUsuario(string usuario, string contra)
-        {
-            dbConection.RegistrarUsuario(usuario, contra);
-        }
-
-        internal static void agregarMateria(string nombre, int salon)
-        {
-            dbConection.AgregarMateria(nombre, salon);
-        }
-
-        /// <summary> registra el eusuario en la DB </summary>
-        internal static void agregarGrupo(int grado, char grupo, String escuela, int idMaesto)
-        {
-            dbConection.AgregarGrupo(grado, grupo, escuela, idMaesto);
-        }
-
-        /// <summary> registra el eusuario en la DB </summary>
-        internal static void modificarGrupo(int id, int grado, char grupo, String escuela)
-        {
-            dbConection.actualizarGrupo(id, grado, grupo, escuela);
-        }
-
-        internal static void borrarGrupo(int idrupo)
-        {
-            dbConection.borrarGrupo(idrupo);
-        }
-
-        /// <summary>
-        /// Solicita todos los alumnos de tal grupo a la base de datos
-        /// </summary>
-        /// <param name="idGrupo"> Grupo al que pertenecen los alumnos </param>
-        /// <returns></returns>
-        internal static Alumno[] alumnosGrupo( int idGrupo )
-        {
-            return dbConection.alumnosGrupo( idGrupo );
-        }
-
-        /// <summary>
-        /// Llama a la base de datos para agregar un alumno
-        /// </summary>
-        /// <param name="alumno"></param>
-        internal static void agregarAlumno( Alumno alumno )
-        {
-            dbConection.agregarAlumno( alumno );
-        }
-
-        // ************************** metodos privados ****************************************
-
-        //some code
 
     }
 }

@@ -44,7 +44,9 @@ namespace WindowsFormsApp3
         private void btnAgregarMateria_Click(object sender, System.EventArgs e)
         {
             FormAgregarMateria nuevaMateria = new FormAgregarMateria(idGrupo);
-            nuevaMateria.ShowDialog();
+            nuevaMateria.ShowDialog(this);
+
+            cargarBotones();
         }
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp3.clases
 {
-    class Materia
+    public class Materia
     {
         private int id;
         private string nombre;
