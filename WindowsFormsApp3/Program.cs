@@ -112,7 +112,19 @@ namespace WindowsFormsApp3
             return dbConection.alumnosGrupo( idGrupo );
         }
 
-//****************************  db objetos  **************************************************
+        /// <summary> array con los dias de clase del grupo </summary>
+        internal static DateTime[] getDiasClase(int idGrupo)
+        {
+            return dbConection.getDiasClase(idGrupo);
+        }
+
+        /// <summary> array con los dias que falto el alumno </summary>
+        internal static DateTime[] getFaltas(int idAlumno)
+        {
+            return dbConection.getFaltas(idAlumno);
+        }
+
+        //****************************  db objetos  **************************************************
 
         /// <summary> retorna el grupo con el id indicado </summary>
         internal static Grupo getGrupo(int idGrupo)

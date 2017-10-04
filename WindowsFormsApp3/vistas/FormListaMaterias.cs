@@ -26,10 +26,10 @@ namespace WindowsFormsApp3
             //Cargamos los botones de las materias
             cargarBotones();
 
-            this.Show();
-
             //Cargamos la lista de alumnos
             cargarAlumnos();
+
+            this.Show();
         }
 
 

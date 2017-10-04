@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Threading.Tasks;
@@ -85,8 +86,21 @@ namespace WindowsFormsApp3
         internal static FlowLayoutPanel hacerPanelAsistencias(int idAlumno, int idGrupo)
         {
             FlowLayoutPanel panel = new FlowLayoutPanel();
+            panel.AutoSize = true;
+            panel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
-            panel.Controls.Add(new CheckBox());
+            DateTime[] faltas = Program.getFaltas(idAlumno);
+
+            foreach ( DateTime dia in Program.getDiasClase(idGrupo))
+            {
+                if (faltas.Contains(dia))
+                    panel.Controls.Add(new dateCkBx(dia,false));
+                else
+                    panel.Controls.Add(new dateCkBx(dia,true));
+            }
+
+
+
 
             return panel;
         }

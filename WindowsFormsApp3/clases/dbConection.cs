@@ -139,6 +139,59 @@ namespace WindowsFormsApp3.clases
             return lMaterias.ToArray();
         }
 
+        /// <summary> array con los dias que falto el alumno </summary>
+        internal static DateTime[] getFaltas(int idAlumno)
+        {
+            List<DateTime> lFaltas = new List<DateTime>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM in-asistencias WHERE alumno =" + idAlumno;
+                reader = comand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    DateTime dia = (DateTime)reader["dia"];
+                    lFaltas.Add(dia);
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return lFaltas.ToArray();
+        }
+
+        /// <summary> array con los dias de clase del grupo </summary>
+        internal static DateTime[] getDiasClase(int idGrupo)
+        {
+            List<DateTime> lDias = new List<DateTime>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Grupos WHERE id =" + idGrupo;
+                reader = comand.ExecuteReader();
+
+                reader.Read();
+                DateTime inicio = (DateTime)reader["inicio"];
+                DateTime fin = (DateTime)reader["fin"];
+
+                lDias.Add(inicio);
+                //falta ciclo para agregar los de enmedio
+                lDias.Add(fin);
+
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return lDias.ToArray();
+        }
+
         /// <summary> devuelbe todos los alumnos que concidan con el string indicado
         ///  toma en cuenta nombre, apellidoM y apellidoM 
         ///  pero si el string abarca mas de uno no encontrara al alumno deseado </summary>
