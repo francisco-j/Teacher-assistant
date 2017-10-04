@@ -37,8 +37,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txbUsuario = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUserImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txbContrasena
@@ -75,11 +77,12 @@
             // 
             // picUserImage
             // 
-            this.picUserImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(216)))), ((int)(((byte)(213)))));
+            this.picUserImage.BackColor = System.Drawing.Color.Transparent;
             this.picUserImage.Image = ((System.Drawing.Image)(resources.GetObject("picUserImage.Image")));
-            this.picUserImage.Location = new System.Drawing.Point(140, 57);
+            this.picUserImage.Location = new System.Drawing.Point(132, 62);
             this.picUserImage.Name = "picUserImage";
-            this.picUserImage.Size = new System.Drawing.Size(153, 151);
+            this.picUserImage.Size = new System.Drawing.Size(166, 155);
+            this.picUserImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picUserImage.TabIndex = 1;
             this.picUserImage.TabStop = false;
             // 
@@ -87,7 +90,7 @@
             // 
             this.btnRegistrar.AutoSize = true;
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(329, 12);
+            this.btnRegistrar.Location = new System.Drawing.Point(320, 12);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(97, 29);
             this.btnRegistrar.TabIndex = 3;
@@ -124,12 +127,23 @@
             this.txbUsuario.Size = new System.Drawing.Size(204, 20);
             this.txbUsuario.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsApp3.Properties.Resources.icoLogoTexto;
+            this.pictureBox1.Location = new System.Drawing.Point(113, 550);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(204, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(438, 585);
+            this.ClientSize = new System.Drawing.Size(417, 585);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txbUsuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -145,6 +159,7 @@
             this.Text = "Inicio de Sesion";
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUserImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,6 +175,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbUsuario;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

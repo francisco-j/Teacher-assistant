@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clases\Alumno.cs" />
+    <Compile Include="clases\dateCkBx.cs" />
     <Compile Include="clases\Materia.cs" />
     <Compile Include="vistas\FormAgregarAlumno.cs">
       <SubType>Form</SubType>

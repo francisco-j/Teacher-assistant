@@ -40,57 +40,64 @@
             // 
             // txbNombre
             // 
-            this.txbNombre.Location = new System.Drawing.Point(208, 12);
+            this.txbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txbNombre.Location = new System.Drawing.Point(118, 30);
             this.txbNombre.Name = "txbNombre";
-            this.txbNombre.Size = new System.Drawing.Size(100, 31);
+            this.txbNombre.Size = new System.Drawing.Size(100, 20);
             this.txbNombre.TabIndex = 0;
             // 
             // txbPaterno
             // 
-            this.txbPaterno.Location = new System.Drawing.Point(208, 64);
+            this.txbPaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txbPaterno.Location = new System.Drawing.Point(118, 64);
             this.txbPaterno.Name = "txbPaterno";
-            this.txbPaterno.Size = new System.Drawing.Size(100, 31);
+            this.txbPaterno.Size = new System.Drawing.Size(100, 20);
             this.txbPaterno.TabIndex = 1;
             // 
             // txbMaterno
             // 
-            this.txbMaterno.Location = new System.Drawing.Point(208, 115);
+            this.txbMaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txbMaterno.Location = new System.Drawing.Point(118, 99);
             this.txbMaterno.Name = "txbMaterno";
-            this.txbMaterno.Size = new System.Drawing.Size(100, 31);
+            this.txbMaterno.Size = new System.Drawing.Size(100, 20);
             this.txbMaterno.TabIndex = 2;
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(96, 18);
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblNombre.Location = new System.Drawing.Point(63, 33);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(93, 25);
+            this.lblNombre.Size = new System.Drawing.Size(47, 13);
             this.lblNombre.TabIndex = 3;
             this.lblNombre.Text = "Nombre:";
             // 
             // lblApellidoP
             // 
             this.lblApellidoP.AutoSize = true;
-            this.lblApellidoP.Location = new System.Drawing.Point(13, 70);
+            this.lblApellidoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblApellidoP.Location = new System.Drawing.Point(23, 67);
             this.lblApellidoP.Name = "lblApellidoP";
-            this.lblApellidoP.Size = new System.Drawing.Size(176, 25);
+            this.lblApellidoP.Size = new System.Drawing.Size(87, 13);
             this.lblApellidoP.TabIndex = 4;
             this.lblApellidoP.Text = "Apellido Paterno:";
             // 
             // lblApellidoM
             // 
             this.lblApellidoM.AutoSize = true;
-            this.lblApellidoM.Location = new System.Drawing.Point(13, 121);
+            this.lblApellidoM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblApellidoM.Location = new System.Drawing.Point(21, 102);
             this.lblApellidoM.Name = "lblApellidoM";
-            this.lblApellidoM.Size = new System.Drawing.Size(180, 25);
+            this.lblApellidoM.Size = new System.Drawing.Size(89, 13);
             this.lblApellidoM.TabIndex = 5;
             this.lblApellidoM.Text = "Apellido Materno:";
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(149, 166);
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnGuardar.Location = new System.Drawing.Point(80, 141);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(100, 33);
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -100,7 +107,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 225);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
+            this.ClientSize = new System.Drawing.Size(256, 188);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.lblApellidoM);
             this.Controls.Add(this.lblApellidoP);

@@ -9,10 +9,10 @@ namespace WindowsFormsApp3
 {
     static class Program
     {
-        public static Form inicio;
+        public static FormInicio inicio;
         public static FormListaGrupos listaGrupos;
         public static FormListaMaterias listaMaterias;
-        public static Form grupo;
+        public static FormGrupoMateria grupo;
 
         [STAThread]
         static void Main()
@@ -30,11 +30,9 @@ namespace WindowsFormsApp3
         }
 
 
-        //****************************** logg  **********************************************
+//****************************** logg  **********************************************
 
-        /// <summary> Incia sesión, abre el Form de lista de grupos </summary>
-        /// <param name="usuario">  nombre de usuario a iniciar </param>
-        /// <param name="contrasena"> constrase;a del usuario a ingresar </param>
+        /// <summary> Incia sesión y abre "FormListaGrupos" </summary>
         internal static void Login(String usuario, String contrasena)
         {
             //Se le asgna cero porque no se puede mandar como parámetro si no le has asignado nada
@@ -73,12 +71,6 @@ namespace WindowsFormsApp3
             listaGrupos.Show();
         }
 
-        /// <summary> muestra el estuduante indicado </summary>
-        internal static void ShowStudent(ushort idStudent)
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary> muestra las materias del grupo especificado </summary>
         internal static void showListaMaterias(int idGrupo)
         {
@@ -94,6 +86,9 @@ namespace WindowsFormsApp3
 
 //****************************  db arrays  **************************************************
 
+        /// <summary> devuelbe todos los alumnos que concidan con el string indicado
+        ///  toma en cuenta nombre, apellidoM y apellidoM 
+        ///  pero si el string abarca mas de uno no encontrara al alumno deseado </summary>
         internal static Alumno[] busqueda(string text)
         {
             return dbConection.buscar(text);
@@ -132,7 +127,7 @@ namespace WindowsFormsApp3
         }
 
 
-//****************************  db scritura  **************************************************
+//****************************  db escritura  **************************************************
 
         /// <summary> registra al usuario indicado en la DB </summary>
         internal static void registrarUsuario(string usuario, string contra)
@@ -170,6 +165,7 @@ namespace WindowsFormsApp3
             dbConection.modificarGrupo(id, grado, grupo, escuela);
         }
 
+        /// <summary> borra el grupo indicado de la DB </summary>
         internal static void borrarGrupo(int idrupo)
         {
             dbConection.borrarGrupo(idrupo);
@@ -177,6 +173,7 @@ namespace WindowsFormsApp3
 
 // ****************************** db lectura ********************************************
 
+        /// <summary> cuenta cuantos alumos ahy en el gruo indicado </summary>
         internal static int numeroAlumnosEn(int idGrupo)
         {
             return dbConection.numeroAlumnosEn(idGrupo);

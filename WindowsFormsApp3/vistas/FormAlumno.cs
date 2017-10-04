@@ -15,7 +15,7 @@ namespace WindowsFormsApp3.vistas
     {
 
         int idAlumno;
-//
+
         public FormAlumno(int idAlumno)
         {
             InitializeComponent();

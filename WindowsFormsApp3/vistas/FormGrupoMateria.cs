@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp3
 {
@@ -22,20 +23,39 @@ namespace WindowsFormsApp3
             personalizarVentana(idMateria, idGrupo);
 
             //dodos los groupBox son visibles=false por defecto
-            groupVisible = grpBxAsistencia;
-            show(grpBxAsistencia);
+            //exepto el primero
+            groupVisible = grpBxTareas;
 
         }
 
 
 // ******************************** btn Eventos ***************************************************
 
-        /// <summary> muestra la ventana asistencia y las demas invisibles </summary>
-        private void btnAsistencia_Click(object sender, System.EventArgs e)
+        /// <summary> muestra la ventana tareas </summary>
+        private void btnTareas_Click(object sender, EventArgs e)
         {
-            show(grpBxAsistencia);
+            show(grpBxTareas);
         }
 
+        private void btnProyectos_Click(object sender, EventArgs e)
+        {
+            show(grpBxProyectos);
+        }
+
+        private void btnExamenes_Click(object sender, EventArgs e)
+        {
+            show(grpBxExamenes);
+        }
+
+        private void btnCalificaciones_Click(object sender, EventArgs e)
+        {
+            show(grpBxCalificaciones);
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
 // ************************************** metodos *****************************************************
 
@@ -46,8 +66,9 @@ namespace WindowsFormsApp3
             newVisible.Visible = true;
             groupVisible = newVisible;
         }
-        
-// **************************************** privados **************************************************
+
+
+        // **************************************** privados **************************************************
 
         private void personalizarVentana(int idMateria,int idGrupo)
         {

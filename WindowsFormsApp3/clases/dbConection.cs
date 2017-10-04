@@ -481,24 +481,5 @@ namespace WindowsFormsApp3.clases
         }
 
 
-
-        //************************** otros *********************************************
-
-        //experimentacion
-        //public int temp()
-        //{
-        //    adapter.SelectCommand.CommandText = "SELECT * FROM Contactos";
-        //    conection.Open();
-        //    adapter.SelectCommand.Connection = conection;
-
-        //    OleDbDataReader reader = adapter.SelectCommand.ExecuteReader();
-        //    reader.Read();
-        //    int id = Convert.ToInt16(reader["Id"].ToString());
-
-        //    conection.Close();
-
-        //    return id;
-        //}
-
     }
 }
