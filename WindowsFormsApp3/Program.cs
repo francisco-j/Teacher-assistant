@@ -24,8 +24,13 @@ namespace WindowsFormsApp3
             Application.Run();
         }
 
+        internal static void borrarMateria(int idMateria)
+        {
+            dbConection.borrarMateria(idMateria);
+        }
 
-//****************************** logg  **********************************************
+
+        //****************************** logg  **********************************************
 
         /// <summary> Incia sesión, abre el Form de lista de grupos </summary>
         /// <param name="usuario">  nombre de usuario a iniciar </param>
@@ -132,19 +137,19 @@ namespace WindowsFormsApp3
         /// <summary> registra al usuario indicado en la DB </summary>
         internal static void registrarUsuario(string usuario, string contra)
         {
-            dbConection.RegistrarUsuario(usuario, contra);
+            dbConection.registrarUsuario(usuario, contra);
         }
 
         /// <summary> agrega la materia indicada a la DB </summary>
         internal static void agregarMateria(string nombre, int salon)
         {
-            dbConection.AgregarMateria(nombre, salon);
+            dbConection.agregarMateria(nombre, salon);
         }
 
         /// <summary> agrega el grupo indicado a la DB </summary>
         internal static void agregarGrupo(int grado, char grupo, String escuela, int idMaesto)
         {
-            dbConection.AgregarGrupo(grado, grupo, escuela, idMaesto);
+            dbConection.agregarGrupo(grado, grupo, escuela, idMaesto);
         }
 
         /// <summary> agrega el alumno indicado a la DB </summary>

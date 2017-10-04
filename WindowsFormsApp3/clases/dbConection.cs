@@ -46,7 +46,6 @@ namespace WindowsFormsApp3.clases
 
         }
 
-
         /// <summary> verifica que la contrasena y usuario coinsidan </summary>
         internal static bool isCorrecto(ref int idUsuario, string usuario, string contrasena)
         {
@@ -140,6 +139,9 @@ namespace WindowsFormsApp3.clases
             return lMaterias.ToArray();
         }
 
+        /// <summary> devuelbe todos los alumnos que concidan con el string indicado
+        ///  toma en cuenta nombre, apellidoM y apellidoM 
+        ///  pero si el string abarca mas de uno no encontrara al alumno deseado </summary>
         internal static Alumno[] buscar(string text)
         {
             List<Alumno> lAlumnos = new List<Alumno>();
@@ -149,6 +151,38 @@ namespace WindowsFormsApp3.clases
                 comand.Connection = conection;
                 //compara con nombre y apellidos
                 comand.CommandText = "SELECT * FROM Alumnos WHERE nombres like '%" + text + "%' or apellidoPaterno like '%" + text + "%' or apellidoMaterno like '%" + text + "%'";
+                reader = comand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = (int)reader["id"];
+                    string nombre = reader["nombres"].ToString();
+                    string apellidoP = reader["apellidoPaterno"].ToString();
+                    string apellidoM = reader["apellidoMaterno"].ToString();
+                    int grupo = (int)reader["grupo"];
+                    Alumno a = new Alumno(id, nombre, apellidoP, apellidoM, grupo);
+
+                    lAlumnos.Add(a);
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return lAlumnos.ToArray();
+        }
+
+        /// <summary> Se obtienen todos los alumnos del grupo enviado como parámetro </summary>
+        internal static Alumno[] alumnosGrupo(int idGrupo)
+        {
+            List<Alumno> lAlumnos = new List<Alumno>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                //compara con nombre y apellidos
+                comand.CommandText = "SELECT * FROM Alumnos WHERE grupo=" + idGrupo;
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())
@@ -298,45 +332,11 @@ namespace WindowsFormsApp3.clases
             }
         }
 
-        /// <summary>
-        /// Se obtienen todos los alumnos del grupo enviado como parámetro
-        /// </summary>
-        /// <param name="idGrupo"> id del grupo que buscamos </param>
-        /// <returns></returns>
-        internal static Alumno[ ] alumnosGrupo( int idGrupo )
-        {
-            List<Alumno> lAlumnos = new List<Alumno>();
-            try
-            {
-                conection.Open();
-                comand.Connection = conection;
-                //compara con nombre y apellidos
-                comand.CommandText = "SELECT * FROM Alumnos WHERE grupo=" + idGrupo;
-                reader = comand.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    int id = ( int )reader[ "id" ];
-                    string nombre = reader[ "nombres" ].ToString();
-                    string apellidoP = reader[ "apellidoPaterno" ].ToString();
-                    string apellidoM = reader[ "apellidoMaterno" ].ToString();
-                    int grupo = ( int )reader[ "grupo" ];
-                    Alumno a = new Alumno( id, nombre, apellidoP, apellidoM, grupo );
-
-                    lAlumnos.Add( a );
-                }
-            } finally
-            {
-                reader.Close();
-                conection.Close();
-            }
-            return lAlumnos.ToArray();
-        }
-
+        
 //************************  escritura ******************************************
 
         /// <summary> registra el usuario indicado en la base de datos </summary>
-        internal static void RegistrarUsuario(string usuario, string contra)
+        internal static void registrarUsuario(string usuario, string contra)
         {
             try
             {
@@ -367,7 +367,7 @@ namespace WindowsFormsApp3.clases
         }
 
         /// <summary> registra el grupo indicado en la base de datos </summary>
-        internal static void AgregarGrupo(int grado, char grupo, String escuela, int maesto)
+        internal static void agregarGrupo(int grado, char grupo, String escuela, int maesto)
         {
             comand.CommandText = "INSERT INTO Grupos (grado, grupo, escuela, maestro) VALUES(" + grado + ", '" + grupo + "', '" + escuela + "'," + maesto + ")";
             comand.Connection = conection;
@@ -383,7 +383,7 @@ namespace WindowsFormsApp3.clases
         }
 
         /// <summary> registra la materia indicada en la base de datos </summary>
-        internal static void AgregarMateria(String nombre, int salon)
+        internal static void agregarMateria(String nombre, int salon)
         {
             comand.CommandText = "INSERT INTO Materias (nombre, grupo) VALUES('" + nombre + "'," + salon + ")";
             comand.Connection = conection;
@@ -398,10 +398,7 @@ namespace WindowsFormsApp3.clases
             }
         }
 
-        /// <summary>
-        /// Registra un nuevo alumno en la BD
-        /// </summary>
-        /// <param name="alumno"></param>
+        /// <summary> Registra un nuevo alumno en la BD </summary>
         internal static void agregarAlumno( Alumno alumno )
         {
             comand.CommandText = "INSERT INTO Alumnos (nombres, apellidoPaterno, apellidoMaterno, grupo) VALUES('" + alumno.getNombres() + "','" + alumno.getPaterno() + "','" + alumno.getMaterno() + "'," + alumno.getGupo() + ")";
@@ -452,14 +449,14 @@ namespace WindowsFormsApp3.clases
 // ********************************  borrar *********************************
 
         /// <summary> borra el grupo de la tabla grupos </summary>
-        internal static void borrarGrupo(int idrupo)
+        internal static void borrarGrupo(int idGrupo)
         {
-            comand.CommandText = "DELETE FROM Grupos WHERE id = " + idrupo;
+            comand.CommandText = "DELETE FROM Grupos WHERE id = " + idGrupo;
             comand.Connection = conection;
             try
             {
                 conection.Open();
-                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+                Console.WriteLine(comand.ExecuteNonQuery() + " borrada " + idGrupo);
             }
             finally
             {
@@ -468,8 +465,24 @@ namespace WindowsFormsApp3.clases
             
         }
 
+        internal static void borrarMateria(int idMateria)
+        {
+            comand.CommandText = "DELETE FROM Materias WHERE id = " + idMateria;
+            comand.Connection = conection;
+            try
+            {
+                conection.Open();
+                Console.WriteLine(comand.ExecuteNonQuery() + " borrada " + idMateria);
+            }
+            finally
+            {
+                conection.Close();
+            }
+        }
 
-//************************** otros *********************************************
+
+
+        //************************** otros *********************************************
 
         //experimentacion
         //public int temp()

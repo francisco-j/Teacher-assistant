@@ -30,12 +30,13 @@ namespace WindowsFormsApp3.vistas
                 txbEscuela.Text == grupo.getEscuela() )
             {
                 Program.borrarGrupo(grupo.getId());
-                Program.listaGrupos.cargarBotones();
                 this.Dispose();
             }
             else
             {
-                MessageBox.Show("incorrecto");
+                System.Media.SystemSounds.Beep.Play();
+                txbEscuela.Focus();
+                txbEscuela.BackColor = Color.LightSalmon;
             }
         }
     }

@@ -164,7 +164,11 @@ namespace WindowsFormsApp3
         private static void borrarG_Click(object sender, System.EventArgs e)
         {
             int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Borar", ""));
-            new FormBorrarGrupo(idGrupo);
+            FormBorrarGrupo borrarG = new FormBorrarGrupo(idGrupo);
+            borrarG.ShowDialog(Program.listaGrupos);
+
+            Program.listaGrupos.cargarBotones();
+
         }
 
         /// <summary> para menu contextual de grupo </summary>
@@ -201,9 +205,12 @@ namespace WindowsFormsApp3
         /// <summary> para menu contextual de grupo </summary>
         private static void borrarM_Click(object sender, System.EventArgs e)
         {
-            throw new NotImplementedException();
-            //int idMateria = int.Parse((sender as MenuItem).Name.Replace("Borar", ""));
-            //new FormBorrarMateria(idMateria);
+            int idMateria = int.Parse((sender as MenuItem).Name.Replace("Borar", ""));
+
+            FormBorrarMateria borrarM = new FormBorrarMateria(Program.getMateria(idMateria));
+            borrarM.ShowDialog();
+
+            Program.listaMaterias.cargarBotones();
         }
 
     }
