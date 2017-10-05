@@ -485,7 +485,7 @@ namespace WindowsFormsApp3.clases
         /// <summary> borra la falta del alumno indicado el dia indicado en la DB </summary>
         internal static void quitarFalta(int idAlumno, DateTime dia)
         {
-            comand.CommandText = "DELETE FROM Grupos WHERE alumno = " + idAlumno + "AND dia = #" + dia + "#";
+            comand.CommandText = "DELETE * FROM inAsistencias WHERE alumno = " + idAlumno + "AND dia = #" + dia.ToShortDateString() + "#";
             comand.Connection = conection;
             try
             {
@@ -564,7 +564,6 @@ namespace WindowsFormsApp3.clases
                 conection.Close();
             }
         }
-
 
     }
 }
