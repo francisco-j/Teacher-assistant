@@ -179,9 +179,11 @@ namespace WindowsFormsApp3.clases
                 DateTime inicio = (DateTime)reader["inicio"];
                 DateTime fin = (DateTime)reader["fin"];
 
-                lDias.Add(inicio);
-                //falta ciclo para agregar los de enmedio
-                lDias.Add(fin);
+                for (var dia = inicio; dia <= fin; dia = dia.AddDays(1))
+                {
+                    if (dia.DayOfWeek != DayOfWeek.Saturday && dia.DayOfWeek != DayOfWeek.Sunday)
+                        lDias.Add(dia);
+                }
 
             }
             finally
