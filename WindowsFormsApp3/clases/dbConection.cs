@@ -147,7 +147,7 @@ namespace WindowsFormsApp3.clases
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM in-asistencias WHERE alumno =" + idAlumno;
+                comand.CommandText =    "SELECT * FROM inAsistencias WHERE alumno =" + idAlumno;
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())

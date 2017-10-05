@@ -37,12 +37,14 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.contenedorMaterias = new System.Windows.Forms.FlowLayoutPanel();
             this.grbAsistencia = new System.Windows.Forms.GroupBox();
-            this.panelAsistencias = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnAgregarAlumno = new System.Windows.Forms.Button();
             this.flowLPAsistencias = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelAsistencias = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAgregarAlumno = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.grbAsistencia.SuspendLayout();
             this.flowLPAsistencias.SuspendLayout();
+            this.panelAsistencias.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGrupos
@@ -124,6 +126,7 @@
             // grbAsistencia
             // 
             this.grbAsistencia.Controls.Add(this.flowLPAsistencias);
+            this.grbAsistencia.Controls.Add(this.btnAgregarAlumno);
             this.grbAsistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbAsistencia.Location = new System.Drawing.Point(237, 80);
             this.grbAsistencia.Name = "grbAsistencia";
@@ -132,14 +135,15 @@
             this.grbAsistencia.TabStop = false;
             this.grbAsistencia.Text = "Asistencia";
             // 
-            // panelAsistencias
+            // flowLPAsistencias
             // 
-            this.panelAsistencias.AutoSize = true;
-            this.panelAsistencias.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.panelAsistencias.Location = new System.Drawing.Point(9, 3);
-            this.panelAsistencias.Name = "panelAsistencias";
-            this.panelAsistencias.Size = new System.Drawing.Size(0, 0);
-            this.panelAsistencias.TabIndex = 1;
+            this.flowLPAsistencias.AutoSize = true;
+            this.flowLPAsistencias.Controls.Add(this.panelAlumnos);
+            this.flowLPAsistencias.Controls.Add(this.panelAsistencias);
+            this.flowLPAsistencias.Location = new System.Drawing.Point(6, 30);
+            this.flowLPAsistencias.Name = "flowLPAsistencias";
+            this.flowLPAsistencias.Size = new System.Drawing.Size(170, 100);
+            this.flowLPAsistencias.TabIndex = 2;
             // 
             // panelAlumnos
             // 
@@ -151,37 +155,44 @@
             this.panelAlumnos.TabIndex = 0;
             this.panelAlumnos.WrapContents = false;
             // 
+            // panelAsistencias
+            // 
+            this.panelAsistencias.AutoSize = true;
+            this.panelAsistencias.Controls.Add(this.checkBox1);
+            this.panelAsistencias.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.panelAsistencias.Location = new System.Drawing.Point(9, 3);
+            this.panelAsistencias.Name = "panelAsistencias";
+            this.panelAsistencias.Size = new System.Drawing.Size(21, 20);
+            this.panelAsistencias.TabIndex = 1;
+            // 
             // btnAgregarAlumno
             // 
             this.btnAgregarAlumno.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAgregar;
             this.btnAgregarAlumno.FlatAppearance.BorderSize = 0;
             this.btnAgregarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarAlumno.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarAlumno.Location = new System.Drawing.Point(991, 500);
+            this.btnAgregarAlumno.Location = new System.Drawing.Point(695, 351);
             this.btnAgregarAlumno.Name = "btnAgregarAlumno";
             this.btnAgregarAlumno.Size = new System.Drawing.Size(32, 32);
             this.btnAgregarAlumno.TabIndex = 19;
             this.btnAgregarAlumno.UseVisualStyleBackColor = true;
             this.btnAgregarAlumno.Click += new System.EventHandler(this.btnAgregarAlumno_Click);
             // 
-            // flowLPAsistencias
+            // checkBox1
             // 
-            this.flowLPAsistencias.AutoSize = true;
-            this.flowLPAsistencias.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLPAsistencias.Controls.Add(this.panelAlumnos);
-            this.flowLPAsistencias.Controls.Add(this.panelAsistencias);
-            this.flowLPAsistencias.Location = new System.Drawing.Point(3, 27);
-            this.flowLPAsistencias.Name = "flowLPAsistencias";
-            this.flowLPAsistencias.Size = new System.Drawing.Size(12, 6);
-            this.flowLPAsistencias.TabIndex = 2;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(3, 3);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // FormListaMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(982, 481);
-            this.Controls.Add(this.btnAgregarAlumno);
+            this.ClientSize = new System.Drawing.Size(976, 474);
             this.Controls.Add(this.grbAsistencia);
             this.Controls.Add(this.contenedorMaterias);
             this.Controls.Add(this.btnAjustes);
@@ -200,6 +211,8 @@
             this.grbAsistencia.PerformLayout();
             this.flowLPAsistencias.ResumeLayout(false);
             this.flowLPAsistencias.PerformLayout();
+            this.panelAsistencias.ResumeLayout(false);
+            this.panelAsistencias.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,5 +231,6 @@
         private System.Windows.Forms.Button btnAgregarAlumno;
         private System.Windows.Forms.FlowLayoutPanel panelAsistencias;
         private System.Windows.Forms.FlowLayoutPanel flowLPAsistencias;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

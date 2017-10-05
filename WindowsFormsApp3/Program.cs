@@ -124,7 +124,8 @@ namespace WindowsFormsApp3
             return dbConection.getFaltas(idAlumno);
         }
 
-        //****************************  db objetos  **************************************************
+
+//****************************  db objetos  **************************************************
 
         /// <summary> retorna el grupo con el id indicado </summary>
         internal static Grupo getGrupo(int idGrupo)

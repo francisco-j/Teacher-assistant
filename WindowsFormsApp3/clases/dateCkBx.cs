@@ -16,6 +16,7 @@ namespace WindowsFormsApp3.clases
         {
             this.dia = dia;
             this.Checked = asistencia;
+            this.Size= new System.Drawing.Size(15, 14);
         }
     }
 }

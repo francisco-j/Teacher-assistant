@@ -83,7 +83,7 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> crea un panel con los checkBox para asistencias necesarios </summary>
-        internal static FlowLayoutPanel hacerPanelAsistencias(int idAlumno, int idGrupo)
+        internal static FlowLayoutPanel hacerPanelAsistencias(int idAlumno, DateTime[] diasClase)
         {
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.AutoSize = true;
@@ -91,16 +91,13 @@ namespace WindowsFormsApp3
 
             DateTime[] faltas = Program.getFaltas(idAlumno);
 
-            foreach ( DateTime dia in Program.getDiasClase(idGrupo))
+            foreach ( DateTime dia in diasClase)
             {
                 if (faltas.Contains(dia))
                     panel.Controls.Add(new dateCkBx(dia,false));
                 else
                     panel.Controls.Add(new dateCkBx(dia,true));
             }
-
-
-
 
             return panel;
         }

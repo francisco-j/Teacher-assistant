@@ -80,13 +80,14 @@ namespace WindowsFormsApp3
             panelAsistencias.Controls.Clear();
 
             alumnosGrupo = Program.alumnosGrupo( idGrupo );
+            DateTime[] diasClase = Program.getDiasClase(idGrupo);
 
             foreach (Alumno alumno in alumnosGrupo)
             {
                 Label nombre = PersonalizacionComponentes.hacerLabelAlumno(alumno);
                 panelAlumnos.Controls.Add( nombre );
 
-                FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(alumno.getId(), alumno.getGupo());
+                FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(alumno.getId(), diasClase);
                 panelAsistencias.Controls.Add(asistencias);
             }
 
