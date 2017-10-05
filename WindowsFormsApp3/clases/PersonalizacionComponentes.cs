@@ -86,6 +86,7 @@ namespace WindowsFormsApp3
         internal static FlowLayoutPanel hacerPanelAsistencias(int idAlumno, DateTime[] diasClase)
         {
             FlowLayoutPanel panel = new FlowLayoutPanel();
+            panel.Name = "asistencia"+idAlumno;
             panel.AutoSize = true;
             panel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 

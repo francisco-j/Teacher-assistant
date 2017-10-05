@@ -24,11 +24,6 @@ namespace WindowsFormsApp3
             Application.Run();
         }
 
-        internal static void borrarMateria(int idMateria)
-        {
-            dbConection.borrarMateria(idMateria);
-        }
-
 
 //****************************** logg  **********************************************
 
@@ -183,6 +178,22 @@ namespace WindowsFormsApp3
         {
             dbConection.borrarGrupo(idrupo);
         }
+
+        /// <summary> borra la materia indicada de la DB </summary>
+        internal static void borrarMateria(int idMateria)
+        {
+            dbConection.borrarMateria(idMateria);
+        }
+
+        /// <summary> pone o quita faltas al alumo indicado de acuerdo al parametro asistencia </summary>
+        internal static void tomarAsistencia(int idAlumno, DateTime dia, bool asisencia)
+        {
+            if (asisencia)
+                dbConection.quitarFalta(idAlumno, dia);
+            else
+                dbConection.ponerFalta(idAlumno, dia);
+        }
+
 
 // ****************************** db lectura ********************************************
 

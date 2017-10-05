@@ -466,6 +466,38 @@ namespace WindowsFormsApp3.clases
             }
         }
 
+        /// <summary> registra la falta del alumno indicado el dia indicado en la DB  </summary>
+        internal static void ponerFalta(int idAlumno, DateTime dia)
+        {
+            comand.CommandText = "INSERT INTO inAsistencias (alumno, dia) VALUES(" + idAlumno + ",#" + dia.ToShortDateString()  + "#)";
+            comand.Connection = conection;
+            try
+            {
+                conection.Open();
+                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+            }
+            finally
+            {
+                conection.Close();
+            }
+        }
+
+        /// <summary> borra la falta del alumno indicado el dia indicado en la DB </summary>
+        internal static void quitarFalta(int idAlumno, DateTime dia)
+        {
+            comand.CommandText = "DELETE FROM Grupos WHERE alumno = " + idAlumno + "AND dia = #" + dia + "#";
+            comand.Connection = conection;
+            try
+            {
+                conection.Open();
+                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+            }
+            finally
+            {
+                conection.Close();
+            }
+        }
+
 //******************************** actualizar ***********************************************
 
         internal static void modificarGrupo(int idGrupo, int grado, char grupo, String escuela)
