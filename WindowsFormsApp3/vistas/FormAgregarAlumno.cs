@@ -28,9 +28,9 @@ namespace WindowsFormsApp3.vistas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string nombre = txbNombre.Text;
-            string paterno = txbPaterno.Text;
-            string materno = txbMaterno.Text;
+            string nombre = txbNombre.Text.Trim();
+            string paterno = txbPaterno.Text.Trim();
+            string materno = txbMaterno.Text.Trim();
 
             //Validaciones de campos vacíos
             if( nombre == "" )

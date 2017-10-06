@@ -52,6 +52,7 @@
             this.txbContrasena.PasswordChar = '•';
             this.txbContrasena.Size = new System.Drawing.Size(204, 20);
             this.txbContrasena.TabIndex = 1;
+            this.txbContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbContrasena_KeyPress);
             // 
             // btnIniciar
             // 
@@ -126,6 +127,7 @@
             this.txbUsuario.Name = "txbUsuario";
             this.txbUsuario.Size = new System.Drawing.Size(204, 20);
             this.txbUsuario.TabIndex = 0;
+            this.txbUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbUsuario_KeyPress);
             // 
             // pictureBox1
             // 

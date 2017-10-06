@@ -120,5 +120,10 @@ namespace WindowsFormsApp3
             Application.Exit(); 
         }
 
+        private void txbBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnBuscar.PerformClick();
+        }
     }
 }

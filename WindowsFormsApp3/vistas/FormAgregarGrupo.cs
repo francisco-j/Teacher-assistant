@@ -52,7 +52,7 @@ namespace WindowsFormsApp3
         {
             int grado = (int)numGrado.Value;
             char grupo = cbGrupo.Text.First();
-            string escuela = txbEscuela.Text;
+            string escuela = txbEscuela.Text.Trim();
             int maestro = idMaestro;
 
             //try catch
@@ -66,11 +66,16 @@ namespace WindowsFormsApp3
         {
             int grado = (int)numGrado.Value;
             char grupo = cbGrupo.Text.First();
-            string escuela = txbEscuela.Text;
+            string escuela = txbEscuela.Text.Trim();
 
             //try catch
             Program.modificarGrupo(idGrupo, grado, grupo, escuela);
             this.Dispose();
+
+        }
+
+        private void FormAgregarGrupo_Load(object sender, EventArgs e)
+        {
 
         }
     }

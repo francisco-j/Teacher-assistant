@@ -17,7 +17,7 @@ namespace WindowsFormsApp3
             txbContrasena.BackColor = Color.White;
             txbConfirmacion.BackColor = Color.White;
 
-            string usuario = txbUsuario.Text;
+            string usuario = txbUsuario.Text.Trim();
             string contraseña = txbContrasena.Text;
             string confirmacion = txbConfirmacion.Text;
 
@@ -62,6 +62,5 @@ namespace WindowsFormsApp3
 
             }
         }
-
     }
 }

@@ -143,6 +143,7 @@
             this.Name = "FormAgregarGrupo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Agregar nuevo grupo";
+            this.Load += new System.EventHandler(this.FormAgregarGrupo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numGrado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

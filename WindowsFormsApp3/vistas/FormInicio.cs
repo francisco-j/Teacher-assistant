@@ -61,6 +61,18 @@ namespace WindowsFormsApp3
             txbUsuario.Focus();
         }
 
+        private void txbUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                txbContrasena.Focus();
+        }
+
+        private void txbContrasena_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnIniciar.PerformClick();
+        }
+
     }
 
 }

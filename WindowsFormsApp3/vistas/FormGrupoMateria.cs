@@ -11,8 +11,7 @@ namespace WindowsFormsApp3
 
 //*************************** constructor ******************************************
 
-        /// <summary> ventana principal del progrma </summary>
-        /// <param name="idMateria"> id de la materia a mostrar </param>
+        /// <summary> muestra informacion y funciones del grupo indicado </summary>
         public FormGrupoMateria(int idMateria, int idGrupo)
         {
             InitializeComponent();
@@ -21,9 +20,6 @@ namespace WindowsFormsApp3
             this.idGrupo = idGrupo;
 
             personalizarVentana(idMateria, idGrupo);
-
-            //dodos los groupBox son visibles=false por defecto
-            //exepto el primero
             groupVisible = grpBxTareas;
 
         }
@@ -54,7 +50,7 @@ namespace WindowsFormsApp3
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Program.showListaMaterias(idGrupo);
         }
 
 // ************************************** metodos *****************************************************
