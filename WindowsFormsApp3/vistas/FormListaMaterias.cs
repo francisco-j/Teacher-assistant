@@ -22,6 +22,7 @@ namespace WindowsFormsApp3
 
             this.idGrupo = idGrupo;
             this.Text = Program.getGrupo( idGrupo ).ToString();
+            lblGrupo.Text += this.Text;
 
             //Cargamos los botones de las materias
             cargarBotones();

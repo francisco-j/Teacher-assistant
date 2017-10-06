@@ -429,7 +429,7 @@ namespace WindowsFormsApp3.clases
             try
             {
                 conection.Open();
-                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+                Console.WriteLine(comand.ExecuteNonQuery() + " liena gregada");
             }
             finally
             {
@@ -461,7 +461,7 @@ namespace WindowsFormsApp3.clases
             try
             {
                 conection.Open();
-                Console.WriteLine( comand.ExecuteNonQuery() + " lienas con cambios" );
+                Console.WriteLine( comand.ExecuteNonQuery() + " lienaagregada" );
             } finally
             {
                 conection.Close();
@@ -476,7 +476,7 @@ namespace WindowsFormsApp3.clases
             try
             {
                 conection.Open();
-                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+                Console.WriteLine(comand.ExecuteNonQuery() + " falta agregada");
             }
             finally
             {
@@ -492,7 +492,7 @@ namespace WindowsFormsApp3.clases
             try
             {
                 conection.Open();
-                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+                Console.WriteLine(comand.ExecuteNonQuery() + " falta borrada");
             }
             finally
             {
