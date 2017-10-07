@@ -40,14 +40,14 @@
             // 
             // txbUsuario
             // 
-            this.txbUsuario.Location = new System.Drawing.Point(215, 42);
+            this.txbUsuario.Location = new System.Drawing.Point(197, 22);
             this.txbUsuario.Name = "txbUsuario";
             this.txbUsuario.Size = new System.Drawing.Size(131, 20);
             this.txbUsuario.TabIndex = 0;
             // 
             // txbContrasena
             // 
-            this.txbContrasena.Location = new System.Drawing.Point(215, 75);
+            this.txbContrasena.Location = new System.Drawing.Point(197, 55);
             this.txbContrasena.Name = "txbContrasena";
             this.txbContrasena.PasswordChar = '•';
             this.txbContrasena.Size = new System.Drawing.Size(131, 20);
@@ -55,7 +55,7 @@
             // 
             // txbConfirmacion
             // 
-            this.txbConfirmacion.Location = new System.Drawing.Point(215, 113);
+            this.txbConfirmacion.Location = new System.Drawing.Point(197, 93);
             this.txbConfirmacion.Name = "txbConfirmacion";
             this.txbConfirmacion.PasswordChar = '•';
             this.txbConfirmacion.Size = new System.Drawing.Size(131, 20);
@@ -65,7 +65,7 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(53, 42);
+            this.lblUsuario.Location = new System.Drawing.Point(35, 22);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(147, 20);
             this.lblUsuario.TabIndex = 3;
@@ -73,10 +73,10 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(151, 159);
+            this.btnRegistrar.Location = new System.Drawing.Point(133, 139);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
-            this.btnRegistrar.TabIndex = 4;
+            this.btnRegistrar.TabIndex = 3;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -85,7 +85,7 @@
             // 
             this.lblContrasena.AutoSize = true;
             this.lblContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContrasena.Location = new System.Drawing.Point(104, 75);
+            this.lblContrasena.Location = new System.Drawing.Point(86, 55);
             this.lblContrasena.Name = "lblContrasena";
             this.lblContrasena.Size = new System.Drawing.Size(96, 20);
             this.lblContrasena.TabIndex = 5;
@@ -95,7 +95,7 @@
             // 
             this.lblConfirmacion.AutoSize = true;
             this.lblConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmacion.Location = new System.Drawing.Point(34, 113);
+            this.lblConfirmacion.Location = new System.Drawing.Point(16, 93);
             this.lblConfirmacion.Name = "lblConfirmacion";
             this.lblConfirmacion.Size = new System.Drawing.Size(166, 20);
             this.lblConfirmacion.TabIndex = 6;
@@ -106,7 +106,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(394, 227);
+            this.ClientSize = new System.Drawing.Size(357, 183);
             this.Controls.Add(this.lblConfirmacion);
             this.Controls.Add(this.lblContrasena);
             this.Controls.Add(this.btnRegistrar);
@@ -117,7 +117,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRegistrarse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormRegistrarse";
+            this.Text = "Registro de usuario";
             this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();

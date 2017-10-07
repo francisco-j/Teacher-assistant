@@ -30,8 +30,8 @@ namespace WindowsFormsApp3
         /// <summary> Incia sesión y abre "FormListaGrupos" </summary>
         internal static void Login(String usuario, String contrasena)
         {
-            //Se le asgna cero porque no se puede mandar como parámetro si no le has asignado nada
-            int idUsuario = 0;
+            //parámetro de referencia para el evento dbConection.isCorrecto()
+            int idUsuario = new int();
 
             //La contraseña la obtendremos de la base de datos y verificaremos que coincida
             if (dbConection.isCorrecto(ref idUsuario, usuario, contrasena))
@@ -150,9 +150,9 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> agrega el grupo indicado a la DB </summary>
-        internal static void agregarGrupo(int grado, char grupo, String escuela, int idMaesto)
+        internal static void agregarGrupo(int grado, char grupo, String escuela, int idMaesto, DateTime inicioCurso, DateTime finCurso)
         {
-            dbConection.agregarGrupo(grado, grupo, escuela, idMaesto);
+            dbConection.agregarGrupo(grado, grupo, escuela, idMaesto, inicioCurso, finCurso);
         }
 
         /// <summary> agrega el alumno indicado a la DB </summary>
@@ -168,9 +168,9 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> modifica info del usuario en la DB </summary>
-        internal static void modificarGrupo(int id, int grado, char grupo, String escuela)
+        internal static void modificarGrupo(int id, int grado, char grupo, String escuela, DateTime inicioCurso, DateTime finCurso)
         {
-            dbConection.modificarGrupo(id, grado, grupo, escuela);
+            dbConection.modificarGrupo(id, grado, grupo, escuela, inicioCurso, finCurso);
         }
 
         /// <summary> borra el grupo indicado de la DB </summary>

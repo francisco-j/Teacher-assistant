@@ -12,18 +12,25 @@ namespace WindowsFormsApp3
         private int grado;
         private Char grupo;
         private string escuela;
+        DateTime inicioCurso;
+        DateTime finCurso;
+
 
 // ******************* constructor **************************
 
-        public Grupo(int id, int grado, char grupo, string escuela) //constructor
+        public Grupo(int id, int grado, char grupo, string escuela, DateTime inicioCurso, DateTime finCurso)
         {
             this.id = id;
             this.grado = grado;
             this.grupo = grupo;
             this.escuela = escuela;
+            this.finCurso = finCurso;
+            this.inicioCurso = inicioCurso;
         }
 
-// *********************** get ************************************
+
+
+        // *********************** get ************************************
 
         public int getId()
         {
@@ -48,8 +55,16 @@ namespace WindowsFormsApp3
             return grupo.ToString();
         }
 
-// ************************** set ************************************
+        internal DateTime getInicioCurso()
+        {
+            return inicioCurso;
+        }
 
+        internal DateTime getFinCurso()
+        {
+            return finCurso;
+        }
+        
 
 // ******************* otros metodos ***************************************
 

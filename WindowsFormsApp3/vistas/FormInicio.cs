@@ -1,29 +1,31 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using WindowsFormsApp3.clases;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace WindowsFormsApp3
 {
     public partial class FormInicio : Form
     {
+
+// ******************************** costructor *********************************
         public FormInicio()
         {
             InitializeComponent();
             this.Show();
         }
 
+// ****************************** btn_event *******************************************
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             txbUsuario.BackColor = Color.White;
             txbContrasena.BackColor = Color.White;
 
             string contrasena = txbContrasena.Text;
-            string usuario = txbUsuario.Text;
-
-            //*La validación de que la contraseña sea la correcta se hará en Program.cs
+            string usuario = txbUsuario.Text.Trim();
+            
             if (usuario == string.Empty)
             {
                 System.Media.SystemSounds.Beep.Play();
@@ -56,11 +58,8 @@ namespace WindowsFormsApp3
             txbUsuario.Focus();
         }
 
-        private void FormInicio_Load(object sender, EventArgs e)
-        {
-            txbUsuario.Focus();
-        }
 
+// *****************************  eventos_enter ********************************************
         private void txbUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)

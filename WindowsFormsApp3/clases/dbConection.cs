@@ -97,7 +97,10 @@ namespace WindowsFormsApp3.clases
                     int grado = (int)reader["grado"];
                     char grupo = reader["grupo"].ToString().First();
                     string escuela = reader["escuela"].ToString();
-                    Grupo g = new Grupo(id, grado, grupo, escuela);
+                    DateTime inicio = (DateTime)reader["inicio"];
+                    DateTime fin = (DateTime)reader["fin"];
+
+                    Grupo g = new Grupo(id, grado, grupo, escuela, inicio, fin);
 
                     lGrupos.Add(g);
                 }
@@ -194,9 +197,7 @@ namespace WindowsFormsApp3.clases
             return lDias.ToArray();
         }
 
-        /// <summary> devuelbe todos los alumnos que concidan con el string indicado
-        ///  toma en cuenta nombre, apellidoM y apellidoM 
-        ///  pero si el string abarca mas de uno no encontrara al alumno deseado </summary>
+        /// <summary> devuelbe todos los alumnos que concidan con el string indicado. Toma en cuenta nombre, apellidoM y apellidoM. Pero si el string abarca mas de uno no encontrara al alumno deseado </summary>
         internal static Alumno[] buscar(string text)
         {
             List<Alumno> lAlumnos = new List<Alumno>();
@@ -305,8 +306,10 @@ namespace WindowsFormsApp3.clases
                 int grado = (int)reader["grado"];
                 char grupo = reader["grupo"].ToString().First();
                 string escuela = reader["escuela"].ToString();
+                DateTime inicio = (DateTime)reader["inicio"];
+                DateTime fin = (DateTime)reader["fin"];
 
-                return new Grupo(id, grado, grupo, escuela);
+                return new Grupo(id, grado, grupo, escuela, inicio, fin);
             }
             finally
             {
@@ -422,9 +425,9 @@ namespace WindowsFormsApp3.clases
         }
 
         /// <summary> registra el grupo indicado en la base de datos </summary>
-        internal static void agregarGrupo(int grado, char grupo, String escuela, int maesto)
+        internal static void agregarGrupo(int grado, char grupo, String escuela, int maesto, DateTime inicioCurso, DateTime finCurso)
         {
-            comand.CommandText = "INSERT INTO Grupos (grado, grupo, escuela, maestro) VALUES(" + grado + ", '" + grupo + "', '" + escuela + "'," + maesto + ")";
+            comand.CommandText = "INSERT INTO Grupos (grado, grupo, escuela, maestro, inicio, fin) VALUES(" + grado + ", '" + grupo + "', '" + escuela + "'," + maesto + ",#" + inicioCurso.ToShortDateString() + "#,#" + inicioCurso.ToShortDateString() + "#)";
             comand.Connection = conection;
             try
             {
@@ -502,9 +505,16 @@ namespace WindowsFormsApp3.clases
 
 //******************************** actualizar ***********************************************
 
-        internal static void modificarGrupo(int idGrupo, int grado, char grupo, String escuela)
+        internal static void modificarGrupo(int idGrupo, int grado, char grupo, String escuela, DateTime inicioCurso, DateTime finCurso)
         {
-            comand.CommandText = "UPDATE Grupos SET grado = "+grado+", grupo = '"+grupo+"', escuela = '" + escuela + "' WHERE id = "+idGrupo;
+            comand.CommandText =
+                "UPDATE Grupos SET "
+                    + "grado = "+grado+", "
+                    + "grupo = '"+ grupo + "', "
+                    + "escuela = '" + escuela + "',"
+                    + "inicio = #" + inicioCurso.ToShortDateString() + "#,"
+                    + "fin = #" + finCurso.ToShortDateString() + "#"
+                + "WHERE id = " + idGrupo ;
             comand.Connection = conection;
             try
             {

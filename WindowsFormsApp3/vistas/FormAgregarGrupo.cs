@@ -40,6 +40,8 @@ namespace WindowsFormsApp3
             numGrado.Value = grupo.getGrado();
             cbGrupo.Text = grupo.ToString();
             txbEscuela.Text = grupo.getEscuela();
+            dtPickerInicio.Value = grupo.getInicioCurso();
+            dtPickerFin.Value = grupo.getFinCurso();
 
             btnGuardar.Click += btnModificar_Click;
 
@@ -54,9 +56,11 @@ namespace WindowsFormsApp3
             char grupo = cbGrupo.Text.First();
             string escuela = txbEscuela.Text.Trim();
             int maestro = idMaestro;
+            DateTime inicioCurso = dtPickerInicio.Value;
+            DateTime finCurso = dtPickerInicio.Value;
 
             //try catch
-            Program.agregarGrupo(grado, grupo, escuela, maestro);
+            Program.agregarGrupo(grado, grupo, escuela, maestro, inicioCurso, finCurso);
             this.Dispose();
 
         }
@@ -67,11 +71,12 @@ namespace WindowsFormsApp3
             int grado = (int)numGrado.Value;
             char grupo = cbGrupo.Text.First();
             string escuela = txbEscuela.Text.Trim();
+            DateTime inicioCurso = dtPickerInicio.Value;
+            DateTime finCurso = dtPickerFin.Value;
 
             //try catch
-            Program.modificarGrupo(idGrupo, grado, grupo, escuela);
+            Program.modificarGrupo(idGrupo, grado, grupo, escuela, inicioCurso, finCurso);
             this.Dispose();
-
         }
 
         private void FormAgregarGrupo_Load(object sender, EventArgs e)
