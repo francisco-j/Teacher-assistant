@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp3
 {
     public partial class FormGrupoMateria : Form
     {
-        GroupBox groupVisible;
+        FlowLayoutPanel tareas, proyectos, examenes, calificaciones;
         int idMateria, idGrupo;
 
 
@@ -20,7 +21,8 @@ namespace WindowsFormsApp3
             this.idGrupo = idGrupo;
 
             personalizarVentana(idMateria, idGrupo);
-            groupVisible = grpBxTareas;
+
+            btnTareas.PerformClick();
 
         }
 
@@ -30,22 +32,41 @@ namespace WindowsFormsApp3
         /// <summary> muestra la ventana tareas </summary>
         private void btnTareas_Click(object sender, EventArgs e)
         {
-            show(grpBxTareas);
+            grpBxModulo.Controls.Clear();
+
+            FlowLayoutPanel panel = PersonalizacionComponentes.hacerPanelGenerico();
+            grpBxModulo.Controls.Add(panel);
+            panel.Location = new Point(3, 16);
+            
+
+            grpBxModulo.Text = "tareas";
         }
 
         private void btnProyectos_Click(object sender, EventArgs e)
         {
-            show(grpBxProyectos);
+            grpBxModulo.Controls.Clear();
+
+            grpBxModulo.Controls.Add(PersonalizacionComponentes.hacerPanelGenerico());
+
+            grpBxModulo.Text = "proyectos";
         }
 
         private void btnExamenes_Click(object sender, EventArgs e)
         {
-            show(grpBxExamenes);
+            grpBxModulo.Controls.Clear();
+
+            grpBxModulo.Controls.Add(PersonalizacionComponentes.hacerPanelGenerico());
+
+            grpBxModulo.Text = "examenes";
         }
 
         private void btnCalificaciones_Click(object sender, EventArgs e)
         {
-            show(grpBxCalificaciones);
+            grpBxModulo.Controls.Clear();
+
+            grpBxModulo.Controls.Add(PersonalizacionComponentes.hacerPanelGenerico());
+
+            grpBxModulo.Text = "examenes";
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -53,18 +74,8 @@ namespace WindowsFormsApp3
             Program.showListaMaterias(idGrupo);
         }
 
-// ************************************** metodos *****************************************************
 
-        /// <summary> muestra el groupBox indicado y oculta el visible anteriormente </summary>
-        private void show(GroupBox newVisible)
-        {
-            groupVisible.Visible = false;
-            newVisible.Visible = true;
-            groupVisible = newVisible;
-        }
-
-
-        // **************************************** privados **************************************************
+// **************************************** privados **************************************************
 
         private void personalizarVentana(int idMateria,int idGrupo)
         {
@@ -78,5 +89,25 @@ namespace WindowsFormsApp3
 
             this.Text = grupo + " " + materia;
         }
+
+        private void crearFLPanel (ref FlowLayoutPanel flPanel)
+        {
+            Console.Write("new ");
+            flPanel = new FlowLayoutPanel();
+
+            if (flPanel == tareas)
+                flPanel.Name = "tareas";
+            else if (flPanel == proyectos)
+                flPanel.Name = "proyectos";
+            else if (flPanel == examenes)
+                flPanel.Name = "examenes";
+            else if (flPanel == calificaciones)
+                flPanel.Name = "calificaciones";
+
+            Console.WriteLine(flPanel.Name + ".");
+
+            flPanel.AutoSize = true;
+        }
+
     }
 }

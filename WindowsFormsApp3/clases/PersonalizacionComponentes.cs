@@ -88,7 +88,6 @@ namespace WindowsFormsApp3
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.Name = "asistencia"+idAlumno;
             panel.AutoSize = true;
-            panel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
             DateTime[] faltas = Program.getFaltas(idAlumno);
 
@@ -100,6 +99,21 @@ namespace WindowsFormsApp3
                     panel.Controls.Add(new dateCkBx(dia,true));
             }
 
+            return panel;
+        }
+
+        /// <summary> va a ser para grupoMateria, pero le falta mucha mejora </summary>
+        internal static FlowLayoutPanel hacerPanelGenerico()
+        {
+            FlowLayoutPanel panel = new FlowLayoutPanel();
+            panel.AutoSize = true;
+
+            Label label = new Label();
+            label.AutoSize = true;
+            label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16);
+            label.Text = "label";
+            panel.Controls.Add(label);
+            
             return panel;
         }
 
