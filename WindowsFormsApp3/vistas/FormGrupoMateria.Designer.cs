@@ -32,6 +32,7 @@
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblDatosGrupo = new System.Windows.Forms.Label();
             this.grpBxModulo = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblMateria = new System.Windows.Forms.Label();
             this.btnCalificaciones = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.btnProyectos = new System.Windows.Forms.Button();
             this.btnTareas = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.grpBxModulo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +75,13 @@
             this.grpBxModulo.TabIndex = 16;
             this.grpBxModulo.TabStop = false;
             this.grpBxModulo.Text = "Modulo";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel1.TabIndex = 16;
             // 
             // btnAgregar
             // 
@@ -176,13 +183,6 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
-            this.flowLayoutPanel1.TabIndex = 16;
-            // 
             // FormGrupoMateria
             // 
             this.AccessibleName = "FormGrupo";
@@ -204,6 +204,7 @@
             this.Name = "FormGrupoMateria";
             this.Tag = "FormGrupo";
             this.Text = "Grupo materia";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGrupoMateria_FormClosed);
             this.grpBxModulo.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

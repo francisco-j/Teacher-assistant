@@ -89,13 +89,14 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoBack;
+            this.btnLogOut.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.iconmonstr_log_out_4_48;
             this.btnLogOut.FlatAppearance.BorderSize = 0;
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(12, 12);
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnLogOut.Location = new System.Drawing.Point(2, 1);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(32, 32);
+            this.btnLogOut.Size = new System.Drawing.Size(47, 49);
             this.btnLogOut.TabIndex = 23;
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
@@ -158,6 +159,7 @@
             this.Name = "FormListaGrupos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de grupos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormListaGrupos_FormClosed);
             this.contenedorGrupos.ResumeLayout(false);
             this.contenedorGrupos.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);

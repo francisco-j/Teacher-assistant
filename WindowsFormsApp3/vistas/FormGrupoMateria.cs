@@ -60,6 +60,11 @@ namespace WindowsFormsApp3
             grpBxModulo.Text = "examenes";
         }
 
+        private void FormGrupoMateria_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void btnCalificaciones_Click(object sender, EventArgs e)
         {
             grpBxModulo.Controls.Clear();
@@ -71,7 +76,8 @@ namespace WindowsFormsApp3
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Program.showListaMaterias(idGrupo);
+            Program.returnToListaMaterias();
+            this.Dispose();
         }
 
 
