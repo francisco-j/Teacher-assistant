@@ -12,7 +12,7 @@ namespace WindowsFormsApp3
 
         //*********************************  constructor ********************************
 
-        ///<sumary> ventana que muestra los grupos asociados con un maestro </sumary>
+        ///<sumary> ventana que muestra los grupos asociados con un Maestro </sumary>
         /// <param name="idMaestro"> id del maestro cuyos grupos se mostraran </param>>
         public FormListaGrupos(int idMaestro)
         {
