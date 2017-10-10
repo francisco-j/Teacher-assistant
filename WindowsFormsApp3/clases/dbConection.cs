@@ -509,12 +509,12 @@ namespace WindowsFormsApp3.clases
         {
             comand.CommandText =
                 "UPDATE Grupos SET "
-                    + "grado = "+grado+", "
-                    + "grupo = '"+ grupo + "', "
-                    + "escuela = '" + escuela + "',"
-                    + "inicio = #" + inicioCurso.ToShortDateString() + "#,"
-                    + "fin = #" + finCurso.ToShortDateString() + "#"
-                + "WHERE id = " + idGrupo ;
+                    + "grado = "+    grado+", "
+                    + "grupo = '"+   grupo + "', "
+                    + "escuela = '"+ escuela + "',"
+                    + "inicio = #"+  inicioCurso.ToShortDateString() + "#,"
+                    + "fin = #" +    finCurso.ToShortDateString() + "#"
+                + "WHERE id = " +    idGrupo ;
             comand.Connection = conection;
             try
             {

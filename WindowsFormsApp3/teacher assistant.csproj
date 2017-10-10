@@ -190,9 +190,6 @@
     <None Include="Resources\buscar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon back.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -202,22 +199,10 @@
     <None Include="Resources\logo texto.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Alumnos %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Asistencia.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Evaluaciones.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Notas %282%29.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Tareas %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconmonstr-arrow-57-48.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Menu.png" />
@@ -230,8 +215,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icoTeacherAssistant.ico" />
-    <None Include="Resources\logout.png" />
-    <None Include="Resources\iconmonstr-log-out-4-48.png" />
+    <None Include="Resources\Examenes.png" />
+    <None Include="Resources\Examene o calificaciones.png" />
+    <None Include="Resources\iconmonstr-log-out-4-481.png" />
     <Content Include="teacher assistant.mdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

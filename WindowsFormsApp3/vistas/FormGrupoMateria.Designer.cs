@@ -32,7 +32,7 @@
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblDatosGrupo = new System.Windows.Forms.Label();
             this.grpBxModulo = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.fLPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblMateria = new System.Windows.Forms.Label();
             this.btnCalificaciones = new System.Windows.Forms.Button();
@@ -59,16 +59,17 @@
             this.lblDatosGrupo.AutoSize = true;
             this.lblDatosGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDatosGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(240)))), ((int)(((byte)(215)))));
-            this.lblDatosGrupo.Location = new System.Drawing.Point(203, 9);
+            this.lblDatosGrupo.Location = new System.Drawing.Point(188, 9);
             this.lblDatosGrupo.Name = "lblDatosGrupo";
-            this.lblDatosGrupo.Size = new System.Drawing.Size(94, 50);
+            this.lblDatosGrupo.Size = new System.Drawing.Size(94, 25);
             this.lblDatosGrupo.TabIndex = 13;
-            this.lblDatosGrupo.Text = " Alumnos\r\nPrimaria ";
+            this.lblDatosGrupo.Text = " Alumnos\r\n";
             // 
             // grpBxModulo
             // 
-            this.grpBxModulo.Controls.Add(this.flowLayoutPanel1);
+            this.grpBxModulo.Controls.Add(this.fLPanel);
             this.grpBxModulo.Controls.Add(this.btnAgregar);
+            this.grpBxModulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.grpBxModulo.Location = new System.Drawing.Point(109, 88);
             this.grpBxModulo.Name = "grpBxModulo";
             this.grpBxModulo.Size = new System.Drawing.Size(674, 430);
@@ -76,12 +77,13 @@
             this.grpBxModulo.TabStop = false;
             this.grpBxModulo.Text = "Modulo";
             // 
-            // flowLayoutPanel1
+            // fLPanel
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
-            this.flowLayoutPanel1.TabIndex = 16;
+            this.fLPanel.AutoSize = true;
+            this.fLPanel.Location = new System.Drawing.Point(6, 28);
+            this.fLPanel.Name = "fLPanel";
+            this.fLPanel.Size = new System.Drawing.Size(103, 75);
+            this.fLPanel.TabIndex = 16;
             // 
             // btnAgregar
             // 
@@ -113,7 +115,7 @@
             this.btnCalificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalificaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalificaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnCalificaciones.Image = global::WindowsFormsApp3.Properties.Resources.icoNotas;
+            this.btnCalificaciones.Image = global::WindowsFormsApp3.Properties.Resources.icoCalificaciones;
             this.btnCalificaciones.Location = new System.Drawing.Point(12, 312);
             this.btnCalificaciones.Name = "btnCalificaciones";
             this.btnCalificaciones.Size = new System.Drawing.Size(70, 70);
@@ -129,7 +131,7 @@
             this.btnExamenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExamenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExamenes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnExamenes.Image = global::WindowsFormsApp3.Properties.Resources.icoEvaluaciones;
+            this.btnExamenes.Image = global::WindowsFormsApp3.Properties.Resources.icoExamenes;
             this.btnExamenes.Location = new System.Drawing.Point(12, 242);
             this.btnExamenes.Name = "btnExamenes";
             this.btnExamenes.Size = new System.Drawing.Size(70, 70);
@@ -145,7 +147,7 @@
             this.btnProyectos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProyectos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProyectos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnProyectos.Image = global::WindowsFormsApp3.Properties.Resources.icoTareas;
+            this.btnProyectos.Image = global::WindowsFormsApp3.Properties.Resources.icoProyectos;
             this.btnProyectos.Location = new System.Drawing.Point(12, 174);
             this.btnProyectos.Name = "btnProyectos";
             this.btnProyectos.Size = new System.Drawing.Size(70, 70);
@@ -158,7 +160,6 @@
             // 
             this.btnTareas.BackColor = System.Drawing.Color.Transparent;
             this.btnTareas.FlatAppearance.BorderSize = 0;
-            this.btnTareas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnTareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
@@ -206,6 +207,7 @@
             this.Text = "Grupo materia";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGrupoMateria_FormClosed);
             this.grpBxModulo.ResumeLayout(false);
+            this.grpBxModulo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,6 +225,6 @@
         private System.Windows.Forms.GroupBox grpBxModulo;
         private System.Windows.Forms.Label lblMateria;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel fLPanel;
     }
 }

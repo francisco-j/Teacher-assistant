@@ -103,18 +103,26 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> va a ser para grupoMateria, pero le falta mucha mejora </summary>
-        internal static FlowLayoutPanel hacerPanelGenerico()
+        internal static void decorarPanelTareas(ref FlowLayoutPanel panel, Alumno[] alumnos, int idGrupo, int idMateria)
         {
-            FlowLayoutPanel panel = new FlowLayoutPanel();
-            panel.AutoSize = true;
-
-            Label label = new Label();
-            label.AutoSize = true;
-            label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16);
-            label.Text = "label";
-            panel.Controls.Add(label);
+            panel.Controls.Clear();
             
-            return panel;
+            FlowLayoutPanel panelAlumnos = new FlowLayoutPanel();
+            FlowLayoutPanel panelTareas = new FlowLayoutPanel();
+            
+            DateTime[] tareas = Program.getTareassClase(idGrupo);
+
+            foreach (Alumno alumno in alumnos)
+            {
+                Label nombre = hacerLabelAlumno(alumno);
+                panelAlumnos.Controls.Add(nombre);
+
+                FlowLayoutPanel panelTareas = PersonalizacionComponentes.hacerPanelAsistencias(alumno.getId(), diasClase);
+                panelTareas.Controls.Add(panelTareas);
+            }
+
+            panelAlumnos.Size = panelAlumnos.PreferredSize;
+
         }
 
         /// <summary> debuelbe el label con el nombre del alumno indicado </summary>

@@ -89,7 +89,7 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.iconmonstr_log_out_4_48;
+            this.btnLogOut.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoLogOut;
             this.btnLogOut.FlatAppearance.BorderSize = 0;
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

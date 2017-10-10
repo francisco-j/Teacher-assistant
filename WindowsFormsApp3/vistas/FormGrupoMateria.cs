@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using WindowsFormsApp3.clases;
 
 namespace WindowsFormsApp3
 {
     public partial class FormGrupoMateria : Form
     {
-        FlowLayoutPanel tareas, proyectos, examenes, calificaciones;
         int idMateria, idGrupo;
+        Alumno[] alumnos;
 
 
 //*************************** constructor ******************************************
@@ -18,7 +19,7 @@ namespace WindowsFormsApp3
             InitializeComponent();
 
             this.idMateria = idMateria;
-            this.idGrupo = idGrupo;
+            alumnos = Program.alumnosGrupo(idGrupo);
 
             personalizarVentana(idMateria, idGrupo);
 
@@ -32,46 +33,26 @@ namespace WindowsFormsApp3
         /// <summary> muestra la ventana tareas </summary>
         private void btnTareas_Click(object sender, EventArgs e)
         {
-            grpBxModulo.Controls.Clear();
-
-            FlowLayoutPanel panel = PersonalizacionComponentes.hacerPanelGenerico();
-            grpBxModulo.Controls.Add(panel);
-            panel.Location = new Point(3, 16);
-            
-
             grpBxModulo.Text = "tareas";
+            PersonalizacionComponentes.decorarPanelTareas(ref fLPanel, alumnos, idMateria);
         }
 
         private void btnProyectos_Click(object sender, EventArgs e)
         {
-            grpBxModulo.Controls.Clear();
-
-            grpBxModulo.Controls.Add(PersonalizacionComponentes.hacerPanelGenerico());
-
             grpBxModulo.Text = "proyectos";
+            //PersonalizacionComponentes.decorarPanelProyectos(ref fLPanel);
         }
 
         private void btnExamenes_Click(object sender, EventArgs e)
         {
-            grpBxModulo.Controls.Clear();
-
-            grpBxModulo.Controls.Add(PersonalizacionComponentes.hacerPanelGenerico());
-
             grpBxModulo.Text = "examenes";
-        }
-
-        private void FormGrupoMateria_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
+            //PersonalizacionComponentes.decorarPanelExamenes(ref fLPanel);
         }
 
         private void btnCalificaciones_Click(object sender, EventArgs e)
         {
-            grpBxModulo.Controls.Clear();
-
-            grpBxModulo.Controls.Add(PersonalizacionComponentes.hacerPanelGenerico());
-
-            grpBxModulo.Text = "examenes";
+            grpBxModulo.Text = "calificaciones";
+            //PersonalizacionComponentes.decorarPanelCalificaciones(ref fLPanel);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -80,6 +61,13 @@ namespace WindowsFormsApp3
             this.Dispose();
         }
 
+
+//**************************************** otros eventos *******************************************
+
+        private void FormGrupoMateria_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
 
 // **************************************** privados **************************************************
 
@@ -94,25 +82,6 @@ namespace WindowsFormsApp3
             lblDatosGrupo.Text = numeroAlumnos + lblDatosGrupo.Text + escuela;
 
             this.Text = grupo + " " + materia;
-        }
-
-        private void crearFLPanel (ref FlowLayoutPanel flPanel)
-        {
-            Console.Write("new ");
-            flPanel = new FlowLayoutPanel();
-
-            if (flPanel == tareas)
-                flPanel.Name = "tareas";
-            else if (flPanel == proyectos)
-                flPanel.Name = "proyectos";
-            else if (flPanel == examenes)
-                flPanel.Name = "examenes";
-            else if (flPanel == calificaciones)
-                flPanel.Name = "calificaciones";
-
-            Console.WriteLine(flPanel.Name + ".");
-
-            flPanel.AutoSize = true;
         }
 
     }
