@@ -12,7 +12,7 @@ namespace WindowsFormsApp3
 
         //*********************************  constructor ********************************
 
-        ///<sumary> ventana que muestra los grupos asociados con un maestro </sumary>
+        ///<sumary> ventana que muestra los grupos asociados con un Maestro </sumary>
         /// <param name="idMaestro"> id del maestro cuyos grupos se mostraran </param>>
         public FormListaGrupos(int idMaestro)
         {
@@ -34,12 +34,12 @@ namespace WindowsFormsApp3
 
         private void btnLogOut_Click(object sender, System.EventArgs e)
         {
-            Program.LogOut(this);
+            Program.LogOut();
+            this.Dispose();
         }
 
         private void btnAgregarGrupo_Click(object sender, System.EventArgs e)
         {
-            
             FormAgregarGrupo nuevoGrupo = new FormAgregarGrupo(idMaestro);
             nuevoGrupo.ShowDialog(this);
 
@@ -79,6 +79,11 @@ namespace WindowsFormsApp3
         {
             if (e.KeyChar == 13)
                 btnBuscar.PerformClick();
+        }
+
+        private void FormListaGrupos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -43,6 +43,7 @@ namespace WindowsFormsApp3
                 try
                 {
                     Program.Login(usuario, contrasena);
+                    this.Dispose();
                 }
                 catch (ApplicationException ex)
                 {
@@ -72,6 +73,10 @@ namespace WindowsFormsApp3
                 btnIniciar.PerformClick();
         }
 
+        private void FormInicio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 
 }

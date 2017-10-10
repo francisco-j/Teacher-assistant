@@ -38,7 +38,6 @@ namespace WindowsFormsApp3
             {
                 //Instanciamos el siguiente Form "Lista de grupos"
                 listaGrupos = new FormListaGrupos(idUsuario);
-                inicio.Hide();
             }
             else
             {
@@ -48,14 +47,10 @@ namespace WindowsFormsApp3
 
         /// <summary> Para cerrar sesión y regresar al Form de Login </summary>
         /// <param name="ventana"> ventana que ejecuto el  logout </param>
-        internal static void LogOut(Form ventana)
+        internal static void LogOut()
         {
-            foreach (Form vent in Application.OpenForms)
-            {
-                if(vent != inicio)
-                    vent.Dispose();
-            }
-            inicio.Show();
+            FormInicio login = new FormInicio();
+            login.Visible = true;
         }
 
 
@@ -70,6 +65,11 @@ namespace WindowsFormsApp3
         internal static void showListaMaterias(int idGrupo)
         {
             listaMaterias = new FormListaMaterias(idGrupo);
+        }
+
+        internal static void returnToListaMaterias()
+        {
+            listaMaterias.Show();
         }
 
         /// <summary> abre el formGrupoMateria con la materia indicada </summary>

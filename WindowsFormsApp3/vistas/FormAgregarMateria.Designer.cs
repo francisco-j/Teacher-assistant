@@ -73,7 +73,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAgregarMateria";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar materia";
             this.ResumeLayout(false);
             this.PerformLayout();
