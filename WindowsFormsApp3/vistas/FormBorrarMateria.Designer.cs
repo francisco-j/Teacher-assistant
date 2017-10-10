@@ -42,7 +42,7 @@
             this.txbNombreMateria.Location = new System.Drawing.Point(63, 43);
             this.txbNombreMateria.Name = "txbNombreMateria";
             this.txbNombreMateria.Size = new System.Drawing.Size(122, 20);
-            this.txbNombreMateria.TabIndex = 5;
+            this.txbNombreMateria.TabIndex = 0;
             // 
             // lblNombre
             // 
@@ -59,7 +59,7 @@
             this.btnBorrar.Location = new System.Drawing.Point(93, 113);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(75, 23);
-            this.btnBorrar.TabIndex = 3;
+            this.btnBorrar.TabIndex = 1;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);

@@ -17,10 +17,9 @@ namespace WindowsFormsApp3.vistas
         public FormBorrarGrupo(int idGrupo)
         {
             InitializeComponent();
-            //poner el nombre del grupo en la barra de arriba
 
             grupo = Program.getGrupo(idGrupo);
-            this.Visible = true;
+            this.Text += grupo.ToString();
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -38,6 +37,11 @@ namespace WindowsFormsApp3.vistas
                 txbEscuela.Focus();
                 txbEscuela.BackColor = Color.LightSalmon;
             }
+        }
+
+        private void FormBorrarGrupo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

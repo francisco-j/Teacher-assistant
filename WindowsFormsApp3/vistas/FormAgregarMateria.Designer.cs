@@ -39,7 +39,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(83, 93);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 0;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
@@ -60,7 +60,7 @@
             this.txbNombreMateria.Location = new System.Drawing.Point(59, 43);
             this.txbNombreMateria.Name = "txbNombreMateria";
             this.txbNombreMateria.Size = new System.Drawing.Size(122, 20);
-            this.txbNombreMateria.TabIndex = 2;
+            this.txbNombreMateria.TabIndex = 0;
             // 
             // FormAgregarMateria
             // 

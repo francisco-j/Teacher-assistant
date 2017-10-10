@@ -57,7 +57,7 @@ namespace WindowsFormsApp3
             string escuela = txbEscuela.Text.Trim();
             int maestro = idMaestro;
             DateTime inicioCurso = dtPickerInicio.Value;
-            DateTime finCurso = dtPickerInicio.Value;
+            DateTime finCurso = dtPickerFin.Value;
 
             //try catch
             Program.agregarGrupo(grado, grupo, escuela, maestro, inicioCurso, finCurso);

@@ -17,7 +17,7 @@ namespace WindowsFormsApp3
         private static Color[] botonGrupoColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
         private static Color[] botonMateriaColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
         private static Font miFuenteGrupo = new Font("Microsoft Sans Serif", 30, FontStyle.Bold);
-        private static Font miFuenteMateria = new Font("Microsoft Sans Serif",18 , FontStyle.Bold);
+        private static Font miFuenteMateria = new Font("Microsoft Sans Serif",12 , FontStyle.Bold);
         private static Font miFuenteInfo = new Font("Microsoft Sans Serif", 16);
         private static Font miFuentelblAlumno = new Font("Microsoft Sans Serif", 16);
 
@@ -141,7 +141,7 @@ namespace WindowsFormsApp3
             boton.BackColor = botonMateriaColores[color];
 
             boton.Text = materia.toString();
-            boton.Size = new Size(180, 60);
+            boton.Size = new Size(172, 48);
             boton.Name = "btnMateria" + materia.getId();
 
             //evento

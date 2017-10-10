@@ -98,7 +98,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(80, 141);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 6;
+            this.btnGuardar.TabIndex = 3;
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);

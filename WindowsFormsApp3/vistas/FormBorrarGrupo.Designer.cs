@@ -54,7 +54,7 @@
             this.btnBorrar.Location = new System.Drawing.Point(120, 182);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(75, 23);
-            this.btnBorrar.TabIndex = 1;
+            this.btnBorrar.TabIndex = 3;
             this.btnBorrar.Text = "borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
@@ -78,7 +78,7 @@
             this.cbGrupo.Location = new System.Drawing.Point(183, 99);
             this.cbGrupo.Name = "cbGrupo";
             this.cbGrupo.Size = new System.Drawing.Size(37, 21);
-            this.cbGrupo.TabIndex = 12;
+            this.cbGrupo.TabIndex = 1;
             // 
             // numGrado
             // 
@@ -90,14 +90,14 @@
             0});
             this.numGrado.Name = "numGrado";
             this.numGrado.Size = new System.Drawing.Size(34, 20);
-            this.numGrado.TabIndex = 10;
+            this.numGrado.TabIndex = 0;
             // 
             // txbEscuela
             // 
             this.txbEscuela.Location = new System.Drawing.Point(120, 141);
             this.txbEscuela.Name = "txbEscuela";
             this.txbEscuela.Size = new System.Drawing.Size(100, 20);
-            this.txbEscuela.TabIndex = 14;
+            this.txbEscuela.TabIndex = 2;
             // 
             // lblGrado
             // 
@@ -142,7 +142,8 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormBorrarGrupo";
-            this.Text = "Borrar Grupo";
+            this.Text = "Borrar ";
+            this.Load += new System.EventHandler(this.FormBorrarGrupo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numGrado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
