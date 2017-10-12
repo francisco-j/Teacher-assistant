@@ -42,15 +42,14 @@
             // 
             this.txbUsuario.Location = new System.Drawing.Point(197, 22);
             this.txbUsuario.Name = "txbUsuario";
-            this.txbUsuario.Size = new System.Drawing.Size(131, 20);
+            this.txbUsuario.Size = new System.Drawing.Size(130, 20);
             this.txbUsuario.TabIndex = 0;
             // 
             // txbContrasena
             // 
             this.txbContrasena.Location = new System.Drawing.Point(197, 55);
             this.txbContrasena.Name = "txbContrasena";
-            this.txbContrasena.PasswordChar = '•';
-            this.txbContrasena.Size = new System.Drawing.Size(131, 20);
+            this.txbContrasena.Size = new System.Drawing.Size(130, 20);
             this.txbContrasena.TabIndex = 1;
             // 
             // txbConfirmacion
@@ -58,7 +57,7 @@
             this.txbConfirmacion.Location = new System.Drawing.Point(197, 93);
             this.txbConfirmacion.Name = "txbConfirmacion";
             this.txbConfirmacion.PasswordChar = '•';
-            this.txbConfirmacion.Size = new System.Drawing.Size(131, 20);
+            this.txbConfirmacion.Size = new System.Drawing.Size(130, 20);
             this.txbConfirmacion.TabIndex = 2;
             // 
             // lblUsuario
@@ -106,7 +105,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(357, 183);
+            this.ClientSize = new System.Drawing.Size(354, 181);
             this.Controls.Add(this.lblConfirmacion);
             this.Controls.Add(this.lblContrasena);
             this.Controls.Add(this.btnRegistrar);

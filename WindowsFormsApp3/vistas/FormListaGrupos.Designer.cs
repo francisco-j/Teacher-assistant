@@ -45,18 +45,18 @@
             // lblGrupos
             // 
             this.lblGrupos.AutoSize = true;
-            this.lblGrupos.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrupos.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGrupos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.lblGrupos.Location = new System.Drawing.Point(41, 36);
+            this.lblGrupos.Location = new System.Drawing.Point(90, 10);
             this.lblGrupos.Name = "lblGrupos";
-            this.lblGrupos.Size = new System.Drawing.Size(200, 61);
+            this.lblGrupos.Size = new System.Drawing.Size(204, 63);
             this.lblGrupos.TabIndex = 19;
             this.lblGrupos.Text = "Grupos";
             // 
             // txbBusqueda
             // 
             this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBusqueda.Location = new System.Drawing.Point(291, 62);
+            this.txbBusqueda.Location = new System.Drawing.Point(12, 499);
             this.txbBusqueda.Name = "txbBusqueda";
             this.txbBusqueda.Size = new System.Drawing.Size(211, 30);
             this.txbBusqueda.TabIndex = 20;
@@ -67,7 +67,7 @@
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = global::WindowsFormsApp3.Properties.Resources.icoBuscar;
-            this.btnBuscar.Location = new System.Drawing.Point(508, 62);
+            this.btnBuscar.Location = new System.Drawing.Point(229, 499);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(44, 30);
             this.btnBuscar.TabIndex = 21;
@@ -80,7 +80,7 @@
             this.btnAgregarGrupo.FlatAppearance.BorderSize = 0;
             this.btnAgregarGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarGrupo.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarGrupo.Location = new System.Drawing.Point(507, 471);
+            this.btnAgregarGrupo.Location = new System.Drawing.Point(290, 479);
             this.btnAgregarGrupo.Name = "btnAgregarGrupo";
             this.btnAgregarGrupo.Size = new System.Drawing.Size(32, 32);
             this.btnAgregarGrupo.TabIndex = 22;
@@ -105,9 +105,9 @@
             // 
             this.contenedorGrupos.AutoScroll = true;
             this.contenedorGrupos.Controls.Add(this.flowLayoutPanel1);
-            this.contenedorGrupos.Location = new System.Drawing.Point(52, 131);
+            this.contenedorGrupos.Location = new System.Drawing.Point(12, 83);
             this.contenedorGrupos.Name = "contenedorGrupos";
-            this.contenedorGrupos.Size = new System.Drawing.Size(450, 357);
+            this.contenedorGrupos.Size = new System.Drawing.Size(322, 387);
             this.contenedorGrupos.TabIndex = 25;
             // 
             // flowLayoutPanel1
@@ -119,6 +119,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(279, 121);
             this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // button1
             // 
@@ -148,7 +149,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(576, 547);
+            this.ClientSize = new System.Drawing.Size(349, 541);
             this.Controls.Add(this.btnAgregarGrupo);
             this.Controls.Add(this.contenedorGrupos);
             this.Controls.Add(this.btnLogOut);

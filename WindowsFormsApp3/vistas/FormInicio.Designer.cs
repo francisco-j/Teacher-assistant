@@ -50,7 +50,7 @@
             this.txbContrasena.Location = new System.Drawing.Point(113, 304);
             this.txbContrasena.Name = "txbContrasena";
             this.txbContrasena.PasswordChar = '•';
-            this.txbContrasena.Size = new System.Drawing.Size(204, 20);
+            this.txbContrasena.Size = new System.Drawing.Size(200, 20);
             this.txbContrasena.TabIndex = 1;
             this.txbContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbContrasena_KeyPress);
             // 
@@ -125,7 +125,7 @@
             // 
             this.txbUsuario.Location = new System.Drawing.Point(113, 279);
             this.txbUsuario.Name = "txbUsuario";
-            this.txbUsuario.Size = new System.Drawing.Size(204, 20);
+            this.txbUsuario.Size = new System.Drawing.Size(200, 20);
             this.txbUsuario.TabIndex = 0;
             this.txbUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbUsuario_KeyPress);
             // 

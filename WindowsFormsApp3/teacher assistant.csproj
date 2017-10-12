@@ -76,6 +76,12 @@
     <Compile Include="vistas\FormAlumno.Designer.cs">
       <DependentUpon>FormAlumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="vistas\FormBorrarAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\FormBorrarAlumno.Designer.cs">
+      <DependentUpon>FormBorrarAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="vistas\FormBorrarGrupo.cs">
       <SubType>Form</SubType>
     </Compile>

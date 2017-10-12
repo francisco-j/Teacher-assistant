@@ -16,6 +16,10 @@ namespace WindowsFormsApp3.clases
         private static OleDbCommand comand = new OleDbCommand();
         private static OleDbDataReader reader;
 
+//************************** constructor ************************************
+
+        private dbConection() { }
+
 
 //************************  control ********************************************
 
@@ -142,21 +146,28 @@ namespace WindowsFormsApp3.clases
             return lMaterias.ToArray();
         }
 
-        /// <summary> array con los dias que falto el alumno </summary>
-        internal static DateTime[] getFaltas(int idAlumno)
+        /// <summary> Se obtienen todos los alumnos del grupo enviado como parámetro </summary>
+        internal static Alumno[] alumnosGrupo(int idGrupo)
         {
-            List<DateTime> lFaltas = new List<DateTime>();
+            List<Alumno> lAlumnos = new List<Alumno>();
             try
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText =    "SELECT * FROM inAsistencias WHERE alumno =" + idAlumno;
+                //compara con nombre y apellidos
+                comand.CommandText = "SELECT * FROM Alumnos WHERE grupo=" + idGrupo;
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    DateTime dia = (DateTime)reader["dia"];
-                    lFaltas.Add(dia);
+                    int id = (int)reader["id"];
+                    string nombre = reader["nombres"].ToString();
+                    string apellidoP = reader["apellidoPaterno"].ToString();
+                    string apellidoM = reader["apellidoMaterno"].ToString();
+                    int grupo = (int)reader["grupo"];
+                    Alumno a = new Alumno(id, nombre, apellidoP, apellidoM, grupo);
+
+                    lAlumnos.Add(a);
                 }
             }
             finally
@@ -164,7 +175,39 @@ namespace WindowsFormsApp3.clases
                 reader.Close();
                 conection.Close();
             }
-            return lFaltas.ToArray();
+            return lAlumnos.ToArray();
+        }
+
+        /// <summary> devuelbe todos los alumnos que concidan con el string indicado. Toma en cuenta nombre, apellidoM y apellidoM. Pero si el string abarca mas de uno no encontrara al alumno deseado </summary>
+        internal static Alumno[] buscar(string name)
+        {
+            List<Alumno> lAlumnos = new List<Alumno>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                //compara con nombre y apellidos
+                comand.CommandText = "SELECT * FROM Alumnos WHERE nombres like '%" + name + "%' or apellidoPaterno like '%" + text + "%' or apellidoMaterno like '%" + text + "%'";
+                reader = comand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = (int)reader["id"];
+                    string nombre = reader["nombres"].ToString();
+                    string apellidoP = reader["apellidoPaterno"].ToString();
+                    string apellidoM = reader["apellidoMaterno"].ToString();
+                    int grupo = (int)reader["grupo"];
+                    Alumno a = new Alumno(id, nombre, apellidoP, apellidoM, grupo);
+
+                    lAlumnos.Add(a);
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return lAlumnos.ToArray();
         }
 
         /// <summary> array con los dias de clase del grupo </summary>
@@ -197,28 +240,21 @@ namespace WindowsFormsApp3.clases
             return lDias.ToArray();
         }
 
-        /// <summary> devuelbe todos los alumnos que concidan con el string indicado. Toma en cuenta nombre, apellidoM y apellidoM. Pero si el string abarca mas de uno no encontrara al alumno deseado </summary>
-        internal static Alumno[] buscar(string text)
+        /// <summary> array con los dias que falto el alumno </summary>
+        internal static DateTime[] getFaltas(int idAlumno)
         {
-            List<Alumno> lAlumnos = new List<Alumno>();
+            List<DateTime> lFaltas = new List<DateTime>();
             try
             {
                 conection.Open();
                 comand.Connection = conection;
-                //compara con nombre y apellidos
-                comand.CommandText = "SELECT * FROM Alumnos WHERE nombres like '%" + text + "%' or apellidoPaterno like '%" + text + "%' or apellidoMaterno like '%" + text + "%'";
+                comand.CommandText =    "SELECT * FROM inAsistencias WHERE alumno =" + idAlumno;
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    int id = (int)reader["id"];
-                    string nombre = reader["nombres"].ToString();
-                    string apellidoP = reader["apellidoPaterno"].ToString();
-                    string apellidoM = reader["apellidoMaterno"].ToString();
-                    int grupo = (int)reader["grupo"];
-                    Alumno a = new Alumno(id, nombre, apellidoP, apellidoM, grupo);
-
-                    lAlumnos.Add(a);
+                    DateTime dia = (DateTime)reader["dia"];
+                    lFaltas.Add(dia);
                 }
             }
             finally
@@ -226,39 +262,7 @@ namespace WindowsFormsApp3.clases
                 reader.Close();
                 conection.Close();
             }
-            return lAlumnos.ToArray();
-        }
-
-        /// <summary> Se obtienen todos los alumnos del grupo enviado como parámetro </summary>
-        internal static Alumno[] alumnosGrupo(int idGrupo)
-        {
-            List<Alumno> lAlumnos = new List<Alumno>();
-            try
-            {
-                conection.Open();
-                comand.Connection = conection;
-                //compara con nombre y apellidos
-                comand.CommandText = "SELECT * FROM Alumnos WHERE grupo=" + idGrupo;
-                reader = comand.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    int id = (int)reader["id"];
-                    string nombre = reader["nombres"].ToString();
-                    string apellidoP = reader["apellidoPaterno"].ToString();
-                    string apellidoM = reader["apellidoMaterno"].ToString();
-                    int grupo = (int)reader["grupo"];
-                    Alumno a = new Alumno(id, nombre, apellidoP, apellidoM, grupo);
-
-                    lAlumnos.Add(a);
-                }
-            }
-            finally
-            {
-                reader.Close();
-                conection.Close();
-            }
-            return lAlumnos.ToArray();
+            return lFaltas.ToArray();
         }
 
 
@@ -319,6 +323,30 @@ namespace WindowsFormsApp3.clases
 
         }
 
+        /// <summary> cuenta cuantos alumnos pertenecen al grupo indicado </summary>
+        internal static int numeroAlumnosEn(int idGrupo)
+        {
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+
+                comand.CommandText = "SELECT * FROM Alumnos WHERE grupo=" + idGrupo;
+                reader = comand.ExecuteReader();
+
+                int numAlum = 0;
+                while (reader.Read())
+                    numAlum++;
+
+                return numAlum;
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+        }
+
         /// <summary> llena la informacion sobre el grupo y materia indicados </summary>
         internal static void getInfo(int idMateria, int idGrupo, out string nombreGrupo, out string nombreMateria, out string numeroAlumnos, out string nombreEscuela)
         {
@@ -363,30 +391,6 @@ namespace WindowsFormsApp3.clases
             {
                 conection.Close();
                 reader.Close();
-            }
-        }
-
-        /// <summary> cuenta cuantos alumnos pertenecen al grupo indicado </summary>
-        internal static int numeroAlumnosEn(int idGrupo)
-        {
-            try
-            {
-                conection.Open();
-                comand.Connection = conection;
-
-                comand.CommandText = "SELECT * FROM Alumnos WHERE grupo=" + idGrupo;
-                reader = comand.ExecuteReader();
-
-                int numAlum = 0;
-                while (reader.Read())
-                    numAlum++;
-
-                return numAlum;
-            }
-            finally
-            {
-                reader.Close();
-                conection.Close();
             }
         }
 
@@ -457,7 +461,7 @@ namespace WindowsFormsApp3.clases
         }
 
         /// <summary> Registra un nuevo alumno en la BD </summary>
-        internal static void agregarAlumno( Alumno alumno )
+        internal static void agregarAlumno(Alumno alumno)
         {
             comand.CommandText = "INSERT INTO Alumnos (nombres, apellidoPaterno, apellidoMaterno, grupo) VALUES('" + alumno.getNombres() + "','" + alumno.getPaterno() + "','" + alumno.getMaterno() + "'," + alumno.getGupo() + ")";
             comand.Connection = conection;
