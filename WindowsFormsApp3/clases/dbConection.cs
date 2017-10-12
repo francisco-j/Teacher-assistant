@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace WindowsFormsApp3.clases
 {
-    class dbConection
+    static class dbConection
     {
 
         private static OleDbConnection conection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=teacher assistant.mdb");
@@ -187,7 +187,7 @@ namespace WindowsFormsApp3.clases
                 conection.Open();
                 comand.Connection = conection;
                 //compara con nombre y apellidos
-                comand.CommandText = "SELECT * FROM Alumnos WHERE nombres like '%" + name + "%' or apellidoPaterno like '%" + text + "%' or apellidoMaterno like '%" + text + "%'";
+                comand.CommandText = "SELECT * FROM Alumnos WHERE nombres like '%" + name + "%' or apellidoPaterno like '%" + name + "%' or apellidoMaterno like '%" + name + "%'";
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())

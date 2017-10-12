@@ -7,7 +7,7 @@ namespace WindowsFormsApp3
 {
     public partial class FormGrupoMateria : Form
     {
-        int idMateria, idGrupo;
+        int idMateria;
         Alumno[] alumnos;
 
 

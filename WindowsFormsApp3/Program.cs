@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Threading.Tasks;
 using WindowsFormsApp3.clases;
-using WindowsFormsApp3.vistas;
-using System.Collections.Generic;
 
 namespace WindowsFormsApp3
 {

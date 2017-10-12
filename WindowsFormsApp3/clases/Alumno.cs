@@ -15,6 +15,8 @@ namespace WindowsFormsApp3.clases
         private int grupo;
 
 //***********************************  constructor **********************************************
+    
+        /// <summary> para lecturas </summary>
         public Alumno(int id, string nombre, string apellidoP, string apellidoM, int grupo)
         {
             this.id = id;
@@ -23,9 +25,10 @@ namespace WindowsFormsApp3.clases
             this.apellidoM = apellidoM;
             this.grupo = grupo;
         }
+
+        /// <summary> para cuando recien se crea un alumno y se va a agregar a la DB </summary>
         public Alumno(int grupo, string nombre, string apellidoP, string apellidoM)
         {
-            this.id = id;
             this.nombre = nombre;
             this.apellidoP = apellidoP;
             this.apellidoM = apellidoM;

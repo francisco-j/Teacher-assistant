@@ -12,7 +12,7 @@ using System.Collections.Generic;
 /// todos los metodos son static por que la clase no se instancia </summary>
 namespace WindowsFormsApp3
 {
-    class PersonalizacionComponentes
+    static class PersonalizacionComponentes
     {
         private static Color[] botonGrupoColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
         private static Color[] botonMateriaColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
