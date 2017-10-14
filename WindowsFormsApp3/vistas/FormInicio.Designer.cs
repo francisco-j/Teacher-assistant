@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicio));
             this.txbContrasena = new System.Windows.Forms.TextBox();
             this.btnIniciar = new System.Windows.Forms.Button();
-            this.picLogo = new System.Windows.Forms.PictureBox();
-            this.picUserImage = new System.Windows.Forms.PictureBox();
+            this.picVulcanoLogo = new System.Windows.Forms.PictureBox();
+            this.picTaLogo = new System.Windows.Forms.PictureBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txbUsuario = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picUserImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picVulcanoLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,26 +66,26 @@
             this.btnIniciar.UseVisualStyleBackColor = true;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
-            // picLogo
+            // picVulcanoLogo
             // 
-            this.picLogo.Image = global::WindowsFormsApp3.Properties.Resources.icoLogoSolo;
-            this.picLogo.Location = new System.Drawing.Point(1, 527);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(114, 55);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogo.TabIndex = 4;
-            this.picLogo.TabStop = false;
+            this.picVulcanoLogo.Image = global::WindowsFormsApp3.Properties.Resources.icoLogoSolo;
+            this.picVulcanoLogo.Location = new System.Drawing.Point(1, 527);
+            this.picVulcanoLogo.Name = "picVulcanoLogo";
+            this.picVulcanoLogo.Size = new System.Drawing.Size(114, 55);
+            this.picVulcanoLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picVulcanoLogo.TabIndex = 4;
+            this.picVulcanoLogo.TabStop = false;
             // 
-            // picUserImage
+            // picTaLogo
             // 
-            this.picUserImage.BackColor = System.Drawing.Color.Transparent;
-            this.picUserImage.Image = ((System.Drawing.Image)(resources.GetObject("picUserImage.Image")));
-            this.picUserImage.Location = new System.Drawing.Point(132, 62);
-            this.picUserImage.Name = "picUserImage";
-            this.picUserImage.Size = new System.Drawing.Size(166, 155);
-            this.picUserImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picUserImage.TabIndex = 1;
-            this.picUserImage.TabStop = false;
+            this.picTaLogo.BackColor = System.Drawing.Color.Transparent;
+            this.picTaLogo.Image = ((System.Drawing.Image)(resources.GetObject("picTaLogo.Image")));
+            this.picTaLogo.Location = new System.Drawing.Point(132, 62);
+            this.picTaLogo.Name = "picTaLogo";
+            this.picTaLogo.Size = new System.Drawing.Size(166, 155);
+            this.picTaLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picTaLogo.TabIndex = 1;
+            this.picTaLogo.TabStop = false;
             // 
             // btnRegistrar
             // 
@@ -150,9 +150,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRegistrar);
-            this.Controls.Add(this.picLogo);
+            this.Controls.Add(this.picVulcanoLogo);
             this.Controls.Add(this.btnIniciar);
-            this.Controls.Add(this.picUserImage);
+            this.Controls.Add(this.picTaLogo);
             this.Controls.Add(this.txbContrasena);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -160,8 +160,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio de Sesion";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormInicio_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picUserImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picVulcanoLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTaLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -171,9 +171,9 @@
         #endregion
 
         private System.Windows.Forms.TextBox txbContrasena;
-        private System.Windows.Forms.PictureBox picUserImage;
+        private System.Windows.Forms.PictureBox picTaLogo;
         private System.Windows.Forms.Button btnIniciar;
-        private System.Windows.Forms.PictureBox picLogo;
+        private System.Windows.Forms.PictureBox picVulcanoLogo;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
