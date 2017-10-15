@@ -225,6 +225,7 @@
     <None Include="Resources\Examenes.png" />
     <None Include="Resources\Examene o calificaciones.png" />
     <None Include="Resources\iconmonstr-log-out-4-481.png" />
+    <None Include="Resources\icoLogOut1.png" />
     <Content Include="teacher assistant.mdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

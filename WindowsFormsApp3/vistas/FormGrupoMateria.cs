@@ -8,6 +8,7 @@ namespace WindowsFormsApp3
     public partial class FormGrupoMateria : Form
     {
         int idMateria;
+        int idGrupo;
         Alumno[] alumnos;
 
 
@@ -19,6 +20,8 @@ namespace WindowsFormsApp3
             InitializeComponent();
 
             this.idMateria = idMateria;
+
+            this.idGrupo = idGrupo;
             alumnos = Program.alumnosGrupo(idGrupo);
 
             personalizarVentana(idMateria, idGrupo);
@@ -34,7 +37,7 @@ namespace WindowsFormsApp3
         private void btnTareas_Click(object sender, EventArgs e)
         {
             grpBxModulo.Text = "tareas";
-            PersonalizacionComponentes.decorarPanelTareas(ref fLPanel, alumnos, idMateria);
+            PersonalizacionComponentes.decorarPanelTareas(ref fLPanel, alumnos, idGrupo, idMateria);
         }
 
         private void btnProyectos_Click(object sender, EventArgs e)

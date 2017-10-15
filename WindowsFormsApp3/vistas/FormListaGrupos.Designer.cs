@@ -38,6 +38,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.contenedorGrupos.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,7 +47,7 @@
             // 
             this.lblGrupos.AutoSize = true;
             this.lblGrupos.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrupos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.lblGrupos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
             this.lblGrupos.Location = new System.Drawing.Point(90, 10);
             this.lblGrupos.Name = "lblGrupos";
             this.lblGrupos.Size = new System.Drawing.Size(204, 63);
@@ -56,9 +57,9 @@
             // txbBusqueda
             // 
             this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBusqueda.Location = new System.Drawing.Point(12, 499);
+            this.txbBusqueda.Location = new System.Drawing.Point(607, 36);
             this.txbBusqueda.Name = "txbBusqueda";
-            this.txbBusqueda.Size = new System.Drawing.Size(211, 30);
+            this.txbBusqueda.Size = new System.Drawing.Size(245, 30);
             this.txbBusqueda.TabIndex = 20;
             this.txbBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbBusqueda_KeyPress);
             // 
@@ -67,7 +68,7 @@
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = global::WindowsFormsApp3.Properties.Resources.icoBuscar;
-            this.btnBuscar.Location = new System.Drawing.Point(229, 499);
+            this.btnBuscar.Location = new System.Drawing.Point(858, 36);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(44, 30);
             this.btnBuscar.TabIndex = 21;
@@ -80,7 +81,7 @@
             this.btnAgregarGrupo.FlatAppearance.BorderSize = 0;
             this.btnAgregarGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarGrupo.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarGrupo.Location = new System.Drawing.Point(290, 479);
+            this.btnAgregarGrupo.Location = new System.Drawing.Point(867, 457);
             this.btnAgregarGrupo.Name = "btnAgregarGrupo";
             this.btnAgregarGrupo.Size = new System.Drawing.Size(32, 32);
             this.btnAgregarGrupo.TabIndex = 22;
@@ -89,12 +90,12 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoLogOut;
+            this.btnLogOut.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoLogOut1;
             this.btnLogOut.FlatAppearance.BorderSize = 0;
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnLogOut.Location = new System.Drawing.Point(2, 1);
+            this.btnLogOut.Location = new System.Drawing.Point(2, 0);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(47, 49);
             this.btnLogOut.TabIndex = 23;
@@ -105,9 +106,9 @@
             // 
             this.contenedorGrupos.AutoScroll = true;
             this.contenedorGrupos.Controls.Add(this.flowLayoutPanel1);
-            this.contenedorGrupos.Location = new System.Drawing.Point(12, 83);
+            this.contenedorGrupos.Location = new System.Drawing.Point(101, 83);
             this.contenedorGrupos.Name = "contenedorGrupos";
-            this.contenedorGrupos.Size = new System.Drawing.Size(322, 387);
+            this.contenedorGrupos.Size = new System.Drawing.Size(798, 365);
             this.contenedorGrupos.TabIndex = 25;
             // 
             // flowLayoutPanel1
@@ -116,6 +117,7 @@
             this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(279, 121);
             this.flowLayoutPanel1.TabIndex = 1;
@@ -144,12 +146,24 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "escuela\r\nN alumnos";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Salir";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // FormListaGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(349, 541);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(958, 502);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAgregarGrupo);
             this.Controls.Add(this.contenedorGrupos);
             this.Controls.Add(this.btnLogOut);
@@ -180,5 +194,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -97,19 +97,19 @@
             // 
             this.lblSinResultados.AutoSize = true;
             this.lblSinResultados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblSinResultados.ForeColor = System.Drawing.Color.Tomato;
+            this.lblSinResultados.ForeColor = System.Drawing.Color.White;
             this.lblSinResultados.Location = new System.Drawing.Point(12, 54);
             this.lblSinResultados.Name = "lblSinResultados";
             this.lblSinResultados.Size = new System.Drawing.Size(283, 40);
             this.lblSinResultados.TabIndex = 2;
-            this.lblSinResultados.Text = "La busqueda no arrojo resultados.\r\nIntenta con algo mas simple.";
+            this.lblSinResultados.Text = "La búsqueda no arrojó resultados.\r\nIntenta con algo mas simple.";
             this.lblSinResultados.Visible = false;
             // 
             // FormResultadoBusqueda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
             this.ClientSize = new System.Drawing.Size(307, 438);
             this.Controls.Add(this.lblSinResultados);
             this.Controls.Add(this.txbBusqueda);
@@ -117,7 +117,7 @@
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormResultadoBusqueda";
-            this.Text = "Resultado de Busqueda";
+            this.Text = "Resultado de Búsqueda";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -53,8 +53,8 @@
             // 
             this.lblGrupo.AutoSize = true;
             this.lblGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.lblGrupo.Location = new System.Drawing.Point(73, 9);
+            this.lblGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.lblGrupo.Location = new System.Drawing.Point(71, 9);
             this.lblGrupo.Name = "lblGrupo";
             this.lblGrupo.Size = new System.Drawing.Size(187, 61);
             this.lblGrupo.TabIndex = 2;
@@ -132,6 +132,7 @@
             this.grbAsistencia.Controls.Add(this.flowLPAsistencias);
             this.grbAsistencia.Controls.Add(this.btnAgregarAlumno);
             this.grbAsistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbAsistencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
             this.grbAsistencia.Location = new System.Drawing.Point(225, 80);
             this.grbAsistencia.Name = "grbAsistencia";
             this.grbAsistencia.Size = new System.Drawing.Size(721, 406);
@@ -196,18 +197,19 @@
             this.groupBox1.Controls.Add(this.contenedorMaterias);
             this.groupBox1.Controls.Add(this.btnAgregarMateria);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
             this.groupBox1.Location = new System.Drawing.Point(12, 80);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(207, 406);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "materias";
+            this.groupBox1.Text = "Materias";
             // 
             // FormListaMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(954, 498);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grbAsistencia);

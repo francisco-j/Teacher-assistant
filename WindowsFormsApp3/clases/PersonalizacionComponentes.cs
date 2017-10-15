@@ -14,10 +14,9 @@ namespace WindowsFormsApp3
 {
     static class PersonalizacionComponentes
     {
-        private static Color[] botonGrupoColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
-        private static Color[] botonMateriaColores = new Color[10] { Color.Aqua, Color.Beige, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Snow, Color.Silver, Color.Salmon, Color.RoyalBlue };
+        private static Color[] coloresBotones = new Color[10] { Color.FromArgb( 114, 112, 202 ), Color.FromArgb(234, 136, 48), Color.FromArgb( 234, 66, 48 ), Color.FromArgb( 30, 145, 133 ), Color.FromArgb( 91, 211, 72 ), Color.FromArgb( 194, 40, 116 ), Color.FromArgb( 255, 235, 87 ), Color.FromArgb( 56, 175, 203 ), Color.FromArgb( 32, 126, 144 ), Color.FromArgb( 223, 46, 70 ) };
         private static Font miFuenteGrupo = new Font("Microsoft Sans Serif", 30, FontStyle.Bold);
-        private static Font miFuenteMateria = new Font("Microsoft Sans Serif",12 , FontStyle.Bold);
+        private static Font miFuenteMateria = new Font("Microsoft Sans Serif",12 , FontStyle.Bold );
         private static Font miFuenteInfo = new Font("Microsoft Sans Serif", 16);
         private static Font miFuentelblAlumno = new Font("Microsoft Sans Serif", 16);
 
@@ -25,7 +24,7 @@ namespace WindowsFormsApp3
 //********************************** constructor **************************************
 
         //privado para que no lo instancien
-        private PersonalizacionComponentes() { }
+        //private PersonalizacionComponentes() { }
 
 
 // **************************************  metodos ********************************************
@@ -48,7 +47,7 @@ namespace WindowsFormsApp3
             boton.Size = new Size(150, 115);
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
-            boton.BackColor = botonGrupoColores[color];
+            boton.BackColor = coloresBotones[ color];
 
             //label (estilo, tamano e info)
             info.Font = miFuenteInfo;
@@ -58,10 +57,11 @@ namespace WindowsFormsApp3
 
             //contenedor (tamano)
             contenedor.AutoSize = true;
+            contenedor.Margin = new Padding( 3, 3, 100, 3 );
 
             //contenedor(llenar)
             contenedor.Controls.Add(boton);
-            contenedor.Controls.Add(info);
+            contenedor.Controls.Add( info );
 
             //menu contextual del boton(click derecho)
             MenuItem[] mi = {
@@ -110,14 +110,14 @@ namespace WindowsFormsApp3
             FlowLayoutPanel panelAlumnos = new FlowLayoutPanel();
             FlowLayoutPanel panelTareas = new FlowLayoutPanel();
             
-            DateTime[] tareas = Program.getTareassClase(idGrupo);
+            //DateTime[] tareas = Program.getTareasClase(idGrupo);
 
             foreach (Alumno alumno in alumnos)
             {
                 Label nombre = hacerLabelAlumno(alumno);
                 panelAlumnos.Controls.Add(nombre);
 
-                FlowLayoutPanel panelTareas = PersonalizacionComponentes.hacerPanelAsistencias(alumno.getId(), diasClase);
+                //FlowLayoutPanel panelTareas = PersonalizacionComponentes.hacerPanelAsistencias(alumno.getId(), diasClase);
                 panelTareas.Controls.Add(panelTareas);
             }
 
@@ -144,9 +144,10 @@ namespace WindowsFormsApp3
             Button boton = new Button();
 
             boton.Font = miFuenteMateria;
+            boton.ForeColor = Color.White;
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
-            boton.BackColor = botonMateriaColores[color];
+            boton.BackColor = coloresBotones[ color];
 
             boton.Text = materia.toString();
             boton.Size = new Size(172, 48);

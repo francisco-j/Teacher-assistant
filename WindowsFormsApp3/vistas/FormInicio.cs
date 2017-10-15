@@ -77,6 +77,11 @@ namespace WindowsFormsApp3
         {
             Application.Exit();
         }
+
+        private void FormInicio_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

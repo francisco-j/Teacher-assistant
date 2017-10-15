@@ -47,7 +47,7 @@
             // 
             this.lblGrupo.AutoSize = true;
             this.lblGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
+            this.lblGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
             this.lblGrupo.Location = new System.Drawing.Point(55, 9);
             this.lblGrupo.Name = "lblGrupo";
             this.lblGrupo.Size = new System.Drawing.Size(127, 63);
@@ -58,7 +58,7 @@
             // 
             this.lblDatosGrupo.AutoSize = true;
             this.lblDatosGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatosGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(240)))), ((int)(((byte)(215)))));
+            this.lblDatosGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
             this.lblDatosGrupo.Location = new System.Drawing.Point(188, 9);
             this.lblDatosGrupo.Name = "lblDatosGrupo";
             this.lblDatosGrupo.Size = new System.Drawing.Size(94, 25);
@@ -70,9 +70,10 @@
             this.grpBxModulo.Controls.Add(this.fLPanel);
             this.grpBxModulo.Controls.Add(this.btnAgregar);
             this.grpBxModulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.grpBxModulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
             this.grpBxModulo.Location = new System.Drawing.Point(109, 88);
             this.grpBxModulo.Name = "grpBxModulo";
-            this.grpBxModulo.Size = new System.Drawing.Size(674, 430);
+            this.grpBxModulo.Size = new System.Drawing.Size(788, 402);
             this.grpBxModulo.TabIndex = 16;
             this.grpBxModulo.TabStop = false;
             this.grpBxModulo.Text = "Modulo";
@@ -91,7 +92,7 @@
             this.btnAgregar.FlatAppearance.BorderSize = 0;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(636, 392);
+            this.btnAgregar.Location = new System.Drawing.Point(750, 364);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(32, 32);
             this.btnAgregar.TabIndex = 15;
@@ -101,7 +102,7 @@
             // 
             this.lblMateria.AutoSize = true;
             this.lblMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.lblMateria.ForeColor = System.Drawing.Color.Sienna;
+            this.lblMateria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(87)))));
             this.lblMateria.Location = new System.Drawing.Point(382, 9);
             this.lblMateria.Name = "lblMateria";
             this.lblMateria.Size = new System.Drawing.Size(152, 46);
@@ -115,10 +116,10 @@
             this.btnCalificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalificaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalificaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnCalificaciones.Image = global::WindowsFormsApp3.Properties.Resources.icoCalificaciones;
-            this.btnCalificaciones.Location = new System.Drawing.Point(12, 312);
+            this.btnCalificaciones.Image = global::WindowsFormsApp3.Properties.Resources.examenespeque;
+            this.btnCalificaciones.Location = new System.Drawing.Point(12, 362);
             this.btnCalificaciones.Name = "btnCalificaciones";
-            this.btnCalificaciones.Size = new System.Drawing.Size(70, 70);
+            this.btnCalificaciones.Size = new System.Drawing.Size(70, 88);
             this.btnCalificaciones.TabIndex = 15;
             this.btnCalificaciones.Text = " ";
             this.btnCalificaciones.UseVisualStyleBackColor = false;
@@ -131,10 +132,10 @@
             this.btnExamenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExamenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExamenes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnExamenes.Image = global::WindowsFormsApp3.Properties.Resources.icoExamenes;
-            this.btnExamenes.Location = new System.Drawing.Point(12, 242);
+            this.btnExamenes.Image = global::WindowsFormsApp3.Properties.Resources.Examenes_o_calificacionespeque;
+            this.btnExamenes.Location = new System.Drawing.Point(12, 277);
             this.btnExamenes.Name = "btnExamenes";
-            this.btnExamenes.Size = new System.Drawing.Size(70, 70);
+            this.btnExamenes.Size = new System.Drawing.Size(70, 79);
             this.btnExamenes.TabIndex = 15;
             this.btnExamenes.Text = " ";
             this.btnExamenes.UseVisualStyleBackColor = false;
@@ -147,10 +148,10 @@
             this.btnProyectos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProyectos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProyectos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnProyectos.Image = global::WindowsFormsApp3.Properties.Resources.icoProyectos;
-            this.btnProyectos.Location = new System.Drawing.Point(12, 174);
+            this.btnProyectos.Image = global::WindowsFormsApp3.Properties.Resources.Notaspeque;
+            this.btnProyectos.Location = new System.Drawing.Point(12, 181);
             this.btnProyectos.Name = "btnProyectos";
-            this.btnProyectos.Size = new System.Drawing.Size(70, 70);
+            this.btnProyectos.Size = new System.Drawing.Size(70, 80);
             this.btnProyectos.TabIndex = 15;
             this.btnProyectos.Text = " ";
             this.btnProyectos.UseVisualStyleBackColor = false;
@@ -162,11 +163,11 @@
             this.btnTareas.FlatAppearance.BorderSize = 0;
             this.btnTareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnTareas.Image = global::WindowsFormsApp3.Properties.Resources.icoTareas;
-            this.btnTareas.Location = new System.Drawing.Point(12, 105);
+            this.btnTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
+            this.btnTareas.Image = global::WindowsFormsApp3.Properties.Resources.Notas_2_peque;
+            this.btnTareas.Location = new System.Drawing.Point(12, 88);
             this.btnTareas.Name = "btnTareas";
-            this.btnTareas.Size = new System.Drawing.Size(70, 70);
+            this.btnTareas.Size = new System.Drawing.Size(70, 87);
             this.btnTareas.TabIndex = 15;
             this.btnTareas.UseVisualStyleBackColor = false;
             this.btnTareas.Click += new System.EventHandler(this.btnTareas_Click);
@@ -189,8 +190,8 @@
             this.AccessibleName = "FormGrupo";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(795, 530);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(958, 502);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.grpBxModulo);
             this.Controls.Add(this.btnCalificaciones);

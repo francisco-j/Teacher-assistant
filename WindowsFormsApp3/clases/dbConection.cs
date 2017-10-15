@@ -18,7 +18,7 @@ namespace WindowsFormsApp3.clases
 
 //************************** constructor ************************************
 
-        private dbConection() { }
+        //private dbConection() { }
 
 
 //************************  control ********************************************
