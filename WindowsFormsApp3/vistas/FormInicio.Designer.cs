@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txbUsuario = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picVulcanoLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -45,11 +46,12 @@
             // 
             // txbContrasena
             // 
+            this.txbContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbContrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(109)))), ((int)(((byte)(94)))));
             this.txbContrasena.Location = new System.Drawing.Point(113, 304);
             this.txbContrasena.Name = "txbContrasena";
             this.txbContrasena.PasswordChar = '•';
-            this.txbContrasena.Size = new System.Drawing.Size(200, 20);
+            this.txbContrasena.Size = new System.Drawing.Size(200, 21);
             this.txbContrasena.TabIndex = 1;
             this.txbContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbContrasena_KeyPress);
             // 
@@ -60,7 +62,7 @@
             this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnIniciar.Location = new System.Drawing.Point(149, 330);
+            this.btnIniciar.Location = new System.Drawing.Point(149, 336);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(115, 29);
             this.btnIniciar.TabIndex = 2;
@@ -91,16 +93,17 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.AutoSize = true;
-            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
+            this.btnRegistrar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrar.Location = new System.Drawing.Point(320, 12);
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.btnRegistrar.Location = new System.Drawing.Point(220, 379);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(0);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(97, 29);
+            this.btnRegistrar.Size = new System.Drawing.Size(93, 30);
             this.btnRegistrar.TabIndex = 3;
-            this.btnRegistrar.Text = "Registrarse";
+            this.btnRegistrar.Text = "Regístrate";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
@@ -144,12 +147,24 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.label3.Location = new System.Drawing.Point(110, 387);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(116, 15);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "¿No tienes cuenta?,";
+            // 
             // FormInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(417, 585);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txbUsuario);
             this.Controls.Add(this.label2);
@@ -185,6 +200,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbUsuario;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
     }
 }
 
