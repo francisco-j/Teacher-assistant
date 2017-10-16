@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGrupoMateria));
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblDatosGrupo = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@
             this.btnProyectos = new System.Windows.Forms.Button();
             this.btnTareas = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.grpBxModulo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -207,6 +209,7 @@
             this.Tag = "FormGrupo";
             this.Text = "Grupo materia";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGrupoMateria_FormClosed);
+            this.Load += new System.EventHandler(this.FormGrupoMateria_Load);
             this.grpBxModulo.ResumeLayout(false);
             this.grpBxModulo.PerformLayout();
             this.ResumeLayout(false);
@@ -227,5 +230,6 @@
         private System.Windows.Forms.Label lblMateria;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.FlowLayoutPanel fLPanel;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

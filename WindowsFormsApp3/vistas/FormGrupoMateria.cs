@@ -87,5 +87,11 @@ namespace WindowsFormsApp3
             this.Text = grupo + " " + materia;
         }
 
+        
+
+        private void FormGrupoMateria_Load(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(btnTareas, "Tareas");
+        }
     }
 }
