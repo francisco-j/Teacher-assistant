@@ -121,7 +121,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(279, 121);
             this.flowLayoutPanel1.TabIndex = 1;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // button1
             // 
@@ -155,7 +154,6 @@
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 26;
             this.label2.Text = "Salir";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // FormListaGrupos
             // 

@@ -40,8 +40,7 @@ namespace WindowsFormsApp3
 
         private void btnAgregarGrupo_Click(object sender, System.EventArgs e)
         {
-            FormAgregarGrupo nuevoGrupo = new FormAgregarGrupo(idMaestro);
-            nuevoGrupo.ShowDialog(this);
+            new FormAgregarGrupo(idMaestro).ShowDialog(this);
 
             cargarBotones();
         }
@@ -84,21 +83,6 @@ namespace WindowsFormsApp3
         private void FormListaGrupos_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
