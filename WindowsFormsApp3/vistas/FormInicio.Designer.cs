@@ -98,10 +98,10 @@
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.btnRegistrar.Location = new System.Drawing.Point(229, 379);
+            this.btnRegistrar.Location = new System.Drawing.Point(220, 379);
             this.btnRegistrar.Margin = new System.Windows.Forms.Padding(0);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(84, 30);
+            this.btnRegistrar.Size = new System.Drawing.Size(93, 30);
             this.btnRegistrar.TabIndex = 3;
             this.btnRegistrar.Text = "Regístrate";
             this.btnRegistrar.UseVisualStyleBackColor = false;
