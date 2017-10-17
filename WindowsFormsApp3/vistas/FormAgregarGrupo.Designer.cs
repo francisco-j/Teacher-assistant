@@ -38,7 +38,7 @@
             this.cbGrupo = new System.Windows.Forms.ComboBox();
             this.dtPickerInicio = new System.Windows.Forms.DateTimePicker();
             this.dtPickerFin = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblInicio = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numGrado)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +63,7 @@
             // 
             // txbEscuela
             // 
-            this.txbEscuela.Location = new System.Drawing.Point(93, 63);
+            this.txbEscuela.Location = new System.Drawing.Point(90, 60);
             this.txbEscuela.Name = "txbEscuela";
             this.txbEscuela.Size = new System.Drawing.Size(100, 20);
             this.txbEscuela.TabIndex = 2;
@@ -145,14 +145,14 @@
             this.dtPickerFin.TabIndex = 4;
             this.dtPickerFin.Value = new System.DateTime(2017, 10, 6, 23, 27, 5, 0);
             // 
-            // label1
+            // lblInicio
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 107);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Inicio del curso:";
+            this.lblInicio.AutoSize = true;
+            this.lblInicio.Location = new System.Drawing.Point(9, 107);
+            this.lblInicio.Name = "lblInicio";
+            this.lblInicio.Size = new System.Drawing.Size(81, 13);
+            this.lblInicio.TabIndex = 1;
+            this.lblInicio.Text = "Inicio del curso:";
             // 
             // label2
             // 
@@ -168,7 +168,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(239, 266);
+            this.ClientSize = new System.Drawing.Size(234, 261);
             this.Controls.Add(this.dtPickerFin);
             this.Controls.Add(this.dtPickerInicio);
             this.Controls.Add(this.cbGrupo);
@@ -177,7 +177,7 @@
             this.Controls.Add(this.lblGrado);
             this.Controls.Add(this.lblGrupo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblInicio);
             this.Controls.Add(this.lblEscuela);
             this.Controls.Add(this.btnGuardar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -202,7 +202,7 @@
         private System.Windows.Forms.ComboBox cbGrupo;
         private System.Windows.Forms.DateTimePicker dtPickerInicio;
         private System.Windows.Forms.DateTimePicker dtPickerFin;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblInicio;
         private System.Windows.Forms.Label label2;
     }
 }

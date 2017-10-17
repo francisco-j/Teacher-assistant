@@ -30,8 +30,6 @@ namespace WindowsFormsApp3
 // **************************************  metodos ********************************************
 
         /// <summary> debuelbe el contenedor con la informacion del grupo indicado </summary>
-        /// <param name="boton"> contenedor a decorar </param>
-        /// <param name="grupo"> grupo del que se tomara la informacion </param>
         public static FlowLayoutPanel hacerConternedorGrupo(Grupo grupo, int color)
         {
             //componentes (declarar todo)
@@ -77,7 +75,6 @@ namespace WindowsFormsApp3
 
             //eventos
             boton.Click += new EventHandler(grupo_Click);
-            //click derecho;
             
             return contenedor;
         }

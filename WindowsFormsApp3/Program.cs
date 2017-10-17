@@ -38,7 +38,7 @@ namespace WindowsFormsApp3
             }
             else
             {
-                throw new ApplicationException("Usuario y contraseña no coinsiden \npor favor intenta de nuevo");
+                throw new ApplicationException("Usuario y contraseña no coinciden \npor favor intenta de nuevo");
             }
         }
 
