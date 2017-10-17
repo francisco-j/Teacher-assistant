@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FormBorrarAlumno
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "FormBorrarAlumno";
             this.Text = "FormBorrarAlumno";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

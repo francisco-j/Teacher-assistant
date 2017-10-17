@@ -145,6 +145,9 @@
     <EmbeddedResource Include="vistas\FormAlumno.resx">
       <DependentUpon>FormAlumno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="vistas\FormBorrarAlumno.resx">
+      <DependentUpon>FormBorrarAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormBorrarGrupo.resx">
       <DependentUpon>FormBorrarGrupo.cs</DependentUpon>
     </EmbeddedResource>

@@ -57,9 +57,9 @@
             // txbBusqueda
             // 
             this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBusqueda.Location = new System.Drawing.Point(607, 36);
+            this.txbBusqueda.Location = new System.Drawing.Point(649, 32);
             this.txbBusqueda.Name = "txbBusqueda";
-            this.txbBusqueda.Size = new System.Drawing.Size(245, 30);
+            this.txbBusqueda.Size = new System.Drawing.Size(200, 30);
             this.txbBusqueda.TabIndex = 20;
             this.txbBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbBusqueda_KeyPress);
             // 
@@ -68,7 +68,7 @@
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = global::WindowsFormsApp3.Properties.Resources.icoBuscar;
-            this.btnBuscar.Location = new System.Drawing.Point(858, 36);
+            this.btnBuscar.Location = new System.Drawing.Point(855, 35);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(44, 30);
             this.btnBuscar.TabIndex = 21;
@@ -106,7 +106,7 @@
             // 
             this.contenedorGrupos.AutoScroll = true;
             this.contenedorGrupos.Controls.Add(this.flowLayoutPanel1);
-            this.contenedorGrupos.Location = new System.Drawing.Point(101, 83);
+            this.contenedorGrupos.Location = new System.Drawing.Point(100, 80);
             this.contenedorGrupos.Name = "contenedorGrupos";
             this.contenedorGrupos.Size = new System.Drawing.Size(798, 365);
             this.contenedorGrupos.TabIndex = 25;

@@ -38,7 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txbUsuario = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblPregunta = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picVulcanoLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -96,12 +96,12 @@
             this.btnRegistrar.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.btnRegistrar.Location = new System.Drawing.Point(220, 379);
+            this.btnRegistrar.Location = new System.Drawing.Point(218, 379);
             this.btnRegistrar.Margin = new System.Windows.Forms.Padding(0);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(93, 30);
+            this.btnRegistrar.Size = new System.Drawing.Size(84, 30);
             this.btnRegistrar.TabIndex = 3;
             this.btnRegistrar.Text = "Regístrate";
             this.btnRegistrar.UseVisualStyleBackColor = false;
@@ -112,7 +112,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.label1.Location = new System.Drawing.Point(39, 277);
+            this.label1.Location = new System.Drawing.Point(47, 277);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 20);
             this.label1.TabIndex = 6;
@@ -123,7 +123,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.label2.Location = new System.Drawing.Point(11, 308);
+            this.label2.Location = new System.Drawing.Point(14, 308);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 20);
             this.label2.TabIndex = 7;
@@ -147,16 +147,16 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // label3
+            // lblPregunta
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.label3.Location = new System.Drawing.Point(110, 387);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 15);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "¿No tienes cuenta?,";
+            this.lblPregunta.AutoSize = true;
+            this.lblPregunta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPregunta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.lblPregunta.Location = new System.Drawing.Point(110, 387);
+            this.lblPregunta.Name = "lblPregunta";
+            this.lblPregunta.Size = new System.Drawing.Size(113, 15);
+            this.lblPregunta.TabIndex = 9;
+            this.lblPregunta.Text = "¿No tienes cuenta?";
             // 
             // FormInicio
             // 
@@ -164,16 +164,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(417, 585);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblPregunta);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txbUsuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.picVulcanoLogo);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.picTaLogo);
             this.Controls.Add(this.txbContrasena);
+            this.Controls.Add(this.btnRegistrar);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormInicio";
@@ -200,7 +200,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbUsuario;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblPregunta;
     }
 }
 

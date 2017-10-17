@@ -10,10 +10,9 @@ namespace WindowsFormsApp3
         private int idMaestro;
         private Grupo[] grupos;
 
-        //*********************************  constructor ********************************
+//*********************************  constructor ********************************
 
-        ///<sumary> ventana que muestra los grupos asociados con un Maestro </sumary>
-        /// <param name="idMaestro"> id del maestro cuyos grupos se mostraran </param>>
+        ///<sumary> ventana que muestra los grupos asociados con el maestro indicado </sumary>
         public FormListaGrupos(int idMaestro)
         {
             InitializeComponent();
@@ -25,6 +24,7 @@ namespace WindowsFormsApp3
             this.Show();
 
         }
+
 //**************************** btn_click ********************************************
 
         private void btnBuscar_Click(object sender, System.EventArgs e)
