@@ -102,7 +102,7 @@
             this.lblSinResultados.Name = "lblSinResultados";
             this.lblSinResultados.Size = new System.Drawing.Size(283, 40);
             this.lblSinResultados.TabIndex = 2;
-            this.lblSinResultados.Text = "La búsqueda no arrojó resultados.\r\nIntenta con algo mas simple.";
+            this.lblSinResultados.Text = "La búsqueda no arrojó resultados.\r\nIntenta con algo más simple.";
             this.lblSinResultados.Visible = false;
             // 
             // FormResultadoBusqueda

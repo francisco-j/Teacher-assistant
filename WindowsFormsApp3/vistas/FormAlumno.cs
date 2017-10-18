@@ -16,33 +16,34 @@ namespace WindowsFormsApp3.vistas
 
         int idAlumno;
 
-        public FormAlumno(int idAlumno)
-        {
-            InitializeComponent();
-            this.idAlumno = idAlumno;
-
-            //Program.getAlumno(idAlumno);
-        }
-
         public FormAlumno(Alumno alumno)
         {
             InitializeComponent();
 
-            lblId.Text = alumno.getId().ToString();
-            lblNombre.Text = alumno.getNombres();
-            lblAP.Text = alumno.getPaterno();
-            lblAM.Text = alumno.getMaterno();
+            this.idAlumno = alumno.getId();
+            int idGrupo = alumno.getGupo();
+
+            lblNombre.Text = alumno.nombreCompletoPA();
             lblGrupo.Text = alumno.getGupo().ToString();
+
+            dbConection.getPorcenAsistencias(idAlumno);
+
+            dbConection.getCantTareasEntregadas(idAlumno);
+            dbConection.getCantTareasTotal(idGrupo);
+            dbConection.getCantProyectosEntregados(idAlumno);
+            dbConection.getCantProyectosTotal(idGrupo);
+
+            dbConection.getValorAsistencias(idGrupo);
+            dbConection.getValorTareas(idGrupo);
+            dbConection.getValorProyectos(idGrupo);
 
             this.Show();
         }
+        
 
-        private void FormAlumno_Load(object sender, EventArgs e)
+        private void btnOk_Click(object sender, EventArgs e)
         {
+            this.Dispose();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-                    }
     }
 }
