@@ -45,6 +45,7 @@
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(100, 20);
             this.txbNombre.TabIndex = 0;
+            this.txbNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbNombre_KeyPress);
             // 
             // txbPaterno
             // 
@@ -53,6 +54,7 @@
             this.txbPaterno.Name = "txbPaterno";
             this.txbPaterno.Size = new System.Drawing.Size(100, 20);
             this.txbPaterno.TabIndex = 1;
+            this.txbPaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbPaterno_KeyPress);
             // 
             // txbMaterno
             // 
@@ -61,6 +63,7 @@
             this.txbMaterno.Name = "txbMaterno";
             this.txbMaterno.Size = new System.Drawing.Size(100, 20);
             this.txbMaterno.TabIndex = 2;
+            this.txbMaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbMaterno_KeyPress);
             // 
             // lblNombre
             // 

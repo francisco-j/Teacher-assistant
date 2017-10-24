@@ -117,7 +117,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(32, 32);
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // contenedorMaterias
             // 

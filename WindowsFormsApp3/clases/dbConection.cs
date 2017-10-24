@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace WindowsFormsApp3.clases
 {
-    static class dbConection
+    abstract class dbConection
     {
 
         private static OleDbConnection conection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=teacher assistant.mdb");

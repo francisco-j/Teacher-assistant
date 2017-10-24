@@ -26,6 +26,7 @@ namespace WindowsFormsApp3.vistas
             lblNombre.Text = alumno.nombreCompletoPA();
             lblGrupo.Text = alumno.getGupo().ToString();
 
+            /*
             dbConection.getPorcenAsistencias(idAlumno);
 
             dbConection.getCantTareasEntregadas(idAlumno);
@@ -36,6 +37,7 @@ namespace WindowsFormsApp3.vistas
             dbConection.getValorAsistencias(idGrupo);
             dbConection.getValorTareas(idGrupo);
             dbConection.getValorProyectos(idGrupo);
+            */
 
             this.Show();
         }

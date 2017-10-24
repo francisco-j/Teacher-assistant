@@ -12,10 +12,9 @@ namespace WindowsFormsApp3
         private Materia[] materias;
         private Alumno[ ] alumnosGrupo;
 
-        // ****************************** constructor ***************************************
+// ****************************** constructor ***************************************
 
-        /// <summary> ventana que muestra la lista de materias </summary>
-        /// <param name="idGrupo"> id del grupo cuyas materias se mostraran </param>>
+        /// <summary> ventana que muestra la lista de materias del grupo indicado </summary>
         public FormListaMaterias(int idGrupo)
         {
             InitializeComponent();
@@ -42,7 +41,7 @@ namespace WindowsFormsApp3
             this.Dispose();
         }
 
-        private void btnAgregarMateria_Click(object sender, System.EventArgs e)
+        private void btnAgregarMateria_Click(object sender, EventArgs e)
         {
             FormAgregarMateria nuevaMateria = new FormAgregarMateria(idGrupo);
             nuevaMateria.ShowDialog(this);
@@ -62,10 +61,12 @@ namespace WindowsFormsApp3
             cargarAlumnos();
         }
 
-        private void btnBuscar_Click_1(object sender, EventArgs e)
+        /// <summary> Muestra un ventana busqueda indicada </summary>
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
             new FormResultadoBusqueda(txbBusqueda.Text);
         }
+
 
 //*********************************** metodos *****************************
 
@@ -125,5 +126,7 @@ namespace WindowsFormsApp3
             if (e.KeyChar == 13)
                 btnBuscar.PerformClick();
         }
+
+        
     }
 }

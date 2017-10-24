@@ -7,6 +7,9 @@
 *.userosscache
 *.sln.docstates
 
+# Javier-specific files
+*.sqlite
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

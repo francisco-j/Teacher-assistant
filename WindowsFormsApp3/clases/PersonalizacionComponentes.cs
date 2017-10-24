@@ -12,19 +12,13 @@ using System.Collections.Generic;
 /// todos los metodos son static por que la clase no se instancia </summary>
 namespace WindowsFormsApp3
 {
-    static class PersonalizacionComponentes
+    abstract class PersonalizacionComponentes
     {
         private static Color[] coloresBotones = new Color[10] { Color.FromArgb( 114, 112, 202 ), Color.FromArgb(234, 136, 48), Color.FromArgb( 234, 66, 48 ), Color.FromArgb( 30, 145, 133 ), Color.FromArgb( 91, 211, 72 ), Color.FromArgb( 194, 40, 116 ), Color.FromArgb( 255, 235, 87 ), Color.FromArgb( 56, 175, 203 ), Color.FromArgb( 32, 126, 144 ), Color.FromArgb( 223, 46, 70 ) };
         private static Font miFuenteGrupo = new Font("Microsoft Sans Serif", 30, FontStyle.Bold);
         private static Font miFuenteMateria = new Font("Microsoft Sans Serif",12 , FontStyle.Bold );
         private static Font miFuenteInfo = new Font("Microsoft Sans Serif", 16);
         private static Font miFuentelblAlumno = new Font("Microsoft Sans Serif", 16);
-
-
-//********************************** constructor **************************************
-
-        //privado para que no lo instancien
-        //private PersonalizacionComponentes() { }
 
 
 // **************************************  metodos ********************************************
@@ -79,7 +73,7 @@ namespace WindowsFormsApp3
             return contenedor;
         }
 
-        /// <summary> crea un panel con los checkBox para asistencias necesarios </summary>
+        /// <summary> crea un panel con los dateCheckBox de l alumno indicado </summary>
         internal static FlowLayoutPanel hacerPanelAsistencias(int idAlumno, DateTime[] diasClase)
         {
             FlowLayoutPanel panel = new FlowLayoutPanel();
@@ -169,7 +163,7 @@ namespace WindowsFormsApp3
 
 // **************************  eventos para asignar *********************************
         
-                        // ** grupos ** //
+        // grupos
 
         /// <summary> evento para los botonesGrupo  </summary>
         private static void grupo_Click(object sender, System.EventArgs e)
@@ -211,7 +205,7 @@ namespace WindowsFormsApp3
             //Program.listaGrupos.ShowDialog(new FormExportarGrupo(idGrupo));
         }
 
-                        // ** materias ** //
+        // materias
         
         /// <summary> evento para los botonesMateria </summary>
         private static void materia_Click(object sender, System.EventArgs e)

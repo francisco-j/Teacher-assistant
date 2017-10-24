@@ -62,5 +62,23 @@ namespace WindowsFormsApp3
 
             }
         }
+
+        private void txbUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                txbContrasena.Focus();
+        }
+
+        private void txbContrasena_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                txbConfirmacion.Focus();
+        }
+
+        private void txbConfirmacion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnRegistrar.PerformClick();
+        }
     }
 }

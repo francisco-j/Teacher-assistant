@@ -61,5 +61,23 @@ namespace WindowsFormsApp3.vistas
                 this.Dispose();
             }
         }
+
+        private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                txbPaterno.Focus();
+        }
+
+        private void txbPaterno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                txbMaterno.Focus();
+        }
+
+        private void txbMaterno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnGuardar.PerformClick();
+        }
     }
 }

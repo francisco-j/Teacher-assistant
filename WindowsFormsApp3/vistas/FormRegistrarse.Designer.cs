@@ -44,6 +44,7 @@
             this.txbUsuario.Name = "txbUsuario";
             this.txbUsuario.Size = new System.Drawing.Size(130, 20);
             this.txbUsuario.TabIndex = 0;
+            this.txbUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbUsuario_KeyPress);
             // 
             // txbContrasena
             // 
@@ -52,6 +53,7 @@
             this.txbContrasena.PasswordChar = '•';
             this.txbContrasena.Size = new System.Drawing.Size(130, 20);
             this.txbContrasena.TabIndex = 1;
+            this.txbContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbContrasena_KeyPress);
             // 
             // txbConfirmacion
             // 
@@ -60,6 +62,7 @@
             this.txbConfirmacion.PasswordChar = '•';
             this.txbConfirmacion.Size = new System.Drawing.Size(130, 20);
             this.txbConfirmacion.TabIndex = 2;
+            this.txbConfirmacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbConfirmacion_KeyPress);
             // 
             // lblUsuario
             // 
