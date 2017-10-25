@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WindowsFormsApp3.clases_objeto;
 using WindowsFormsApp3.vistas;
 
 namespace WindowsFormsApp3

@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace WindowsFormsApp3.clases
+namespace WindowsFormsApp3.clases_objeto
 {
     public class Alumno
     {

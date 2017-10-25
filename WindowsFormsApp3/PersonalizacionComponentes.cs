@@ -3,9 +3,10 @@ using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Threading.Tasks;
-using WindowsFormsApp3.clases;
 using WindowsFormsApp3.vistas;
 using System.Collections.Generic;
+using WindowsFormsApp3.clases_objeto;
+using WindowsFormsApp3.componentes_visuales;
 
 /// <summary> clase encargada de guardar los métodos que usaremos para personalizar componentes como:
 /// los botones, labels y demás componenetes que estaremos generando en tiempo de ejecución

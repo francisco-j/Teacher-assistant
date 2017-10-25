@@ -6,19 +6,15 @@ using System.Data.OleDb;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using WindowsFormsApp3.clases_objeto;
 
-namespace WindowsFormsApp3.clases
+namespace WindowsFormsApp3
 {
     abstract class dbConection
     {
-
         private static OleDbConnection conection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=teacher assistant.mdb");
         private static OleDbCommand comand = new OleDbCommand();
         private static OleDbDataReader reader;
-
-//************************** constructor ************************************
-
-        //private dbConection() { }
 
 
 //************************  control ********************************************

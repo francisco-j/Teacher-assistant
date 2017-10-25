@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using WindowsFormsApp3.clases;
+using WindowsFormsApp3.clases_objeto;
 
 namespace WindowsFormsApp3
 {

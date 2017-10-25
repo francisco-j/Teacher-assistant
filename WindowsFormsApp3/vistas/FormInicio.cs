@@ -2,8 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Threading.Tasks;
-using WindowsFormsApp3.clases;
 using System.Collections.Generic;
+using WindowsFormsApp3.componentes_visuales;
 
 namespace WindowsFormsApp3
 {
@@ -76,11 +76,6 @@ namespace WindowsFormsApp3
         private void FormInicio_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void FormInicio_Load(object sender, EventArgs e)
-        {
-
         }
     }
 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp3.clases;
+using WindowsFormsApp3.clases_objeto;
 
 namespace WindowsFormsApp3.vistas
 {

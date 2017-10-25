@@ -45,11 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clases\Alumno.cs" />
-    <Compile Include="clases\dateCkBx.cs">
+    <Compile Include="clases objeto\Alumno.cs" />
+    <Compile Include="componentes visuales\dateCkBx.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="clases\Materia.cs" />
+    <Compile Include="clases objeto\Materia.cs" />
+    <Compile Include="componentes visuales\dateLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="componentes visuales\OrientedTextLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="vistas\FormAgregarAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,8 +68,8 @@
     <Compile Include="vistas\FormAgregarGrupo.Designer.cs">
       <DependentUpon>FormAgregarGrupo.cs</DependentUpon>
     </Compile>
-    <Compile Include="clases\dbConection.cs" />
-    <Compile Include="clases\Grupo.cs" />
+    <Compile Include="dbConection.cs" />
+    <Compile Include="clases objeto\Grupo.cs" />
     <Compile Include="vistas\FormAgregarMateria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,7 +130,7 @@
     <Compile Include="vistas\FormRegistrarse.Designer.cs">
       <DependentUpon>FormRegistrarse.cs</DependentUpon>
     </Compile>
-    <Compile Include="clases\PersonalizacionComponentes.cs" />
+    <Compile Include="PersonalizacionComponentes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="vistas\FormResultadoBusqueda.cs">
@@ -133,6 +139,9 @@
     <Compile Include="vistas\FormResultadoBusqueda.Designer.cs">
       <DependentUpon>FormResultadoBusqueda.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="componentes visuales\OrientedTextLabel.resx">
+      <DependentUpon>OrientedTextLabel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormAgregarAlumno.resx">
       <DependentUpon>FormAgregarAlumno.cs</DependentUpon>
     </EmbeddedResource>

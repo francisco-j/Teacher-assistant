@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp3
+namespace WindowsFormsApp3.clases_objeto
 {
     public class Grupo
     {

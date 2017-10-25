@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
-using WindowsFormsApp3.clases;
+using WindowsFormsApp3.clases_objeto;
 using System.Collections.Generic;
 
 namespace WindowsFormsApp3.vistas
