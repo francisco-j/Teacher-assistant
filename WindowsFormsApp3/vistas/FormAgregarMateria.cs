@@ -59,7 +59,7 @@ namespace WindowsFormsApp3.vistas
                 //inicial con mayuscula y el reso minusculas
                 nombre = nombre.First().ToString().ToUpper() + nombre.Substring(1);
 
-                Program.modificarMateria(idMateria, nombre);
+                dbConection.modificarMateria(idMateria, nombre);
                 this.Dispose();
             }
         }
@@ -81,7 +81,7 @@ namespace WindowsFormsApp3.vistas
                 //inicial con mayuscula y el reso normal
                 nombre = nombre.First().ToString().ToUpper() + nombre.Substring(1);
 
-                Program.agregarMateria(nombre, idGrupo);
+                dbConection.agregarMateria(nombre, idGrupo);
 
                 this.Dispose();
             }

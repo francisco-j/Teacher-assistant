@@ -13,7 +13,7 @@ namespace WindowsFormsApp3.vistas
         {
             InitializeComponent();
 
-            grupo = Program.getGrupo(idGrupo);
+            grupo = dbConection.getGrupo(idGrupo);
             this.Text += grupo.ToString();
         }
 
@@ -23,7 +23,7 @@ namespace WindowsFormsApp3.vistas
                 cbGrupo.Text == grupo.getGrupo() && 
                 txbEscuela.Text == grupo.getEscuela() )
             {
-                Program.borrarGrupo(grupo.getId());
+                dbConection.borrarGrupo(grupo.getId());
                 this.Dispose();
             }
             else

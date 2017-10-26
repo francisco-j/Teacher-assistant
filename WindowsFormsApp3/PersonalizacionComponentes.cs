@@ -46,7 +46,7 @@ namespace WindowsFormsApp3
             info.Font = miFuenteInfo;
             info.AutoSize = true;
             info.Text += grupo.getEscuela() + "\n";
-            info.Text += Program.numeroAlumnosEn(grupo.getId()) + " alumnos";
+            info.Text += dbConection.numeroAlumnosEn(grupo.getId()) + " alumnos";
 
             //contenedor (tamano)
             contenedor.AutoSize = true;
@@ -81,7 +81,7 @@ namespace WindowsFormsApp3
             panel.Name = "asistencia"+idAlumno;
             panel.AutoSize = true;
 
-            DateTime[] faltas = Program.getFaltas(idAlumno);
+            DateTime[] faltas = dbConection.getFaltas(idAlumno);
 
             foreach ( DateTime dia in diasClase)
             {
@@ -180,7 +180,7 @@ namespace WindowsFormsApp3
         private static void editarG_Click(object sender, System.EventArgs e)
         {
             int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Editar", ""));
-            FormAgregarGrupo modificarGrupo = new FormAgregarGrupo(Program.getGrupo(idGrupo));
+            FormAgregarGrupo modificarGrupo = new FormAgregarGrupo(dbConection.getGrupo(idGrupo));
             modificarGrupo.ShowDialog();
 
             Program.listaGrupos.cargarBotones();
@@ -223,7 +223,7 @@ namespace WindowsFormsApp3
         {
             int idMateria = int.Parse((sender as MenuItem).Name.Replace("Editar", ""));
 
-            FormAgregarMateria modoficarMateria =new FormAgregarMateria(Program.getMateria(idMateria));
+            FormAgregarMateria modoficarMateria =new FormAgregarMateria(dbConection.getMateria(idMateria));
             modoficarMateria.ShowDialog();
 
             Program.listaMaterias.cargarBotones();
@@ -234,7 +234,7 @@ namespace WindowsFormsApp3
         {
             int idMateria = int.Parse((sender as MenuItem).Name.Replace("Borar", ""));
 
-            FormBorrarMateria borrarM = new FormBorrarMateria(Program.getMateria(idMateria));
+            FormBorrarMateria borrarM = new FormBorrarMateria(dbConection.getMateria(idMateria));
             borrarM.ShowDialog();
 
             Program.listaMaterias.cargarBotones();

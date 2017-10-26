@@ -33,7 +33,7 @@ namespace WindowsFormsApp3.vistas
             lstBxGrados.Items.Clear();
             lblSinResultados.Visible = false;
 
-            alumnos =  Program.busqueda(busqueda);
+            alumnos =  dbConection.buscar(busqueda);
 
             if (alumnos.Length == 0)
             {
@@ -45,7 +45,7 @@ namespace WindowsFormsApp3.vistas
                 {
                     lstBxNombres.Items.Add(a.nombreCompletoPN());
 
-                    Grupo g = Program.getGrupo(a.getGupo());
+                    Grupo g = dbConection.getGrupo(a.getGupo());
                     lstBxGrados.Items.Add(g.ToString());
                 }
                 lstBxGrados.Height = lstBxGrados.PreferredHeight;

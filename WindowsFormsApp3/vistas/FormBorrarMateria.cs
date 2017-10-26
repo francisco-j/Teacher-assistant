@@ -26,7 +26,7 @@ namespace WindowsFormsApp3.vistas
         {
             if (txbNombreMateria.Text == materia.getNombre())
             {
-                Program.borrarMateria(materia.getId());
+                dbConection.borrarMateria(materia.getId());
                 this.Dispose();
             }
             else

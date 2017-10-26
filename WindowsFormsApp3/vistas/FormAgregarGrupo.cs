@@ -55,7 +55,7 @@ namespace WindowsFormsApp3
             DateTime finCurso = dtPickerFin.Value;
 
             //try catch
-            Program.agregarGrupo(grado, grupo, escuela, maestro, inicioCurso, finCurso);
+            dbConection.agregarGrupo(grado, grupo, escuela, maestro, inicioCurso, finCurso);
             this.Dispose();
 
         }
@@ -70,7 +70,7 @@ namespace WindowsFormsApp3
             DateTime finCurso = dtPickerFin.Value;
 
             //try catch
-            Program.modificarGrupo(idGrupo, grado, grupo, escuela, inicioCurso, finCurso);
+            dbConection.modificarGrupo(idGrupo, grado, grupo, escuela, inicioCurso, finCurso);
             this.Dispose();
         }
 

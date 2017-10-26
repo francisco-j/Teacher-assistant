@@ -56,7 +56,7 @@ namespace WindowsFormsApp3.vistas
                 Alumno alumno = new Alumno(idGrupo, nombre, paterno, materno);
 
                 //Le dice a la BD que agregue ése alumno
-                Program.agregarAlumno(alumno);
+                dbConection.agregarAlumno(alumno);
 
                 this.Dispose();
             }

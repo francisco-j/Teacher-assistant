@@ -50,7 +50,7 @@ namespace WindowsFormsApp3
             {
                 try
                 {
-                    Program.registrarUsuario(usuario, contraseña);
+                    dbConection.registrarUsuario(usuario, contraseña);
                     MessageBox.Show("El maestro " + usuario + " se ha guardado exitosamente");
                     this.Dispose();
 

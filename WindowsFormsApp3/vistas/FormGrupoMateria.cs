@@ -22,7 +22,7 @@ namespace WindowsFormsApp3
             this.idMateria = idMateria;
 
             this.idGrupo = idGrupo;
-            alumnos = Program.alumnosGrupo(idGrupo);
+            alumnos = dbConection.alumnosGrupo(idGrupo);
 
             personalizarVentana(idMateria, idGrupo);
 
@@ -78,7 +78,7 @@ namespace WindowsFormsApp3
         {
             string grupo, materia, numeroAlumnos, escuela;
 
-            Program.getIfo(idMateria, idGrupo, out grupo, out materia, out numeroAlumnos, out escuela);
+            dbConection.getInfo(idMateria, idGrupo, out grupo, out materia, out numeroAlumnos, out escuela);
 
             lblGrupo.Text = grupo;
             lblMateria.Text = materia;

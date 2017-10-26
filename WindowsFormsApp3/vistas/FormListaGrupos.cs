@@ -51,7 +51,7 @@ namespace WindowsFormsApp3
         ///<sumary> limpia el contenedor y carga todos los grupos como botones nuevos </sumary>
         public void cargarBotones()
         {
-            grupos = Program.gruposDeMaestro(idMaestro);
+            grupos = dbConection.GruposAsociadosCon(idMaestro);
 
             contenedorGrupos.Controls.Clear();
             int color = 0;

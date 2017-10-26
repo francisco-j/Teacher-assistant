@@ -20,7 +20,7 @@ namespace WindowsFormsApp3
             InitializeComponent();
 
             this.idGrupo = idGrupo;
-            this.Text = Program.getGrupo( idGrupo ).ToString();
+            this.Text = dbConection.getGrupo( idGrupo ).ToString();
             lblGrupo.Text += this.Text;
 
             //Cargamos los botones de las materias
@@ -81,8 +81,8 @@ namespace WindowsFormsApp3
             panelAlumnos.Controls.Clear();
             panelAsistencias.Controls.Clear();
 
-            alumnosGrupo = Program.alumnosGrupo( idGrupo );
-            DateTime[] diasClase = Program.getDiasClase(idGrupo);
+            alumnosGrupo = dbConection.alumnosGrupo( idGrupo );
+            DateTime[] diasClase = dbConection.getDiasClase(idGrupo);
 
             foreach (Alumno alumno in alumnosGrupo)
             {
@@ -99,7 +99,7 @@ namespace WindowsFormsApp3
         ///<sumary> limpia el contenedor y carga todas las materias como botones nuevos </sumary>
         public void cargarBotones()
         {
-            materias = Program.materiasDeGrupo(idGrupo);
+            materias = dbConection.materiasAsociadasCon(idGrupo);
 
             contenedorMaterias.Controls.Clear();
             int color = 0;

@@ -25,7 +25,10 @@ namespace WindowsFormsApp3.componentes_visuales
         {
             int idAlumno = int.Parse(this.Parent.Name.Replace("asistencia", ""));
 
-            Program.tomarAsistencia(idAlumno, this.dia, this.Checked);
+            if (this.Checked)
+                dbConection.quitarFalta(idAlumno, dia);
+            else
+                dbConection.ponerFalta(idAlumno, dia);
         }
 
     }
