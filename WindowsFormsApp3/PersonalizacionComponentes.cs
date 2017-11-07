@@ -22,7 +22,7 @@ namespace WindowsFormsApp3
         private static Font miFuentelblAlumno = new Font("Microsoft Sans Serif", 16);
 
 
-// **************************************  metodos ********************************************
+#region metodos
 
         /// <summary> debuelbe el contenedor con la informacion del grupo indicado </summary>
         public static FlowLayoutPanel hacerConternedorGrupo(Grupo grupo, int color)
@@ -99,34 +99,35 @@ namespace WindowsFormsApp3
         {
             panel.Controls.Clear();
             
-            FlowLayoutPanel panelAlumnos = new FlowLayoutPanel();
-            FlowLayoutPanel panelTareas = new FlowLayoutPanel();
-            
             //DateTime[] tareas = Program.getTareasClase(idGrupo);
 
             foreach (Alumno alumno in alumnos)
             {
-                Label nombre = hacerLabelAlumno(alumno);
-                panelAlumnos.Controls.Add(nombre);
-
+                FlowLayoutPanel panelTareas = new FlowLayoutPanel();
+            
                 //FlowLayoutPanel panelTareas = PersonalizacionComponentes.hacerPanelAsistencias(alumno.getId(), diasClase);
                 panelTareas.Controls.Add(panelTareas);
             }
 
-            panelAlumnos.Size = panelAlumnos.PreferredSize;
-
         }
 
-        /// <summary> debuelbe el label con el nombre del alumno indicado </summary>
-        internal static Label hacerLabelAlumno(Alumno alumno)
+        /// <summary> crea un panel con los dateCheckBox de l alumno indicado </summary>
+        internal static void llenarPanelAlunos(FlowLayoutPanel panel, Alumno[] alumnos)
         {
-            Label nombre = new Label();
+            panel.Controls.Clear();
 
-            nombre.AutoSize = true;
-            nombre.Font = miFuentelblAlumno;
-            nombre.Text = alumno.nombreCompletoPA();
+            foreach (Alumno alumno in alumnos)
+            {
+                Label nombre = new Label();
 
-            return nombre;
+                nombre.AutoSize = true;
+                nombre.Font = miFuentelblAlumno;
+                nombre.Text = alumno.nombreCompletoPA();
+
+                panel.Controls.Add(nombre);
+            }
+
+            panel.Size = panel.PreferredSize;
         }
 
         /// <summary> decora el botón con la información de la materia indicada </summary>
@@ -162,9 +163,9 @@ namespace WindowsFormsApp3
             return boton;
         }
 
-// **************************  eventos para asignar *********************************
-        
-        // grupos
+#endregion
+
+#region eventos para asignar a grupo
 
         /// <summary> evento para los botonesGrupo  </summary>
         private static void grupo_Click(object sender, System.EventArgs e)
@@ -206,8 +207,10 @@ namespace WindowsFormsApp3
             //Program.listaGrupos.ShowDialog(new FormExportarGrupo(idGrupo));
         }
 
-        // materias
-        
+#endregion
+
+#region eventos para asignar a materia
+
         /// <summary> evento para los botonesMateria </summary>
         private static void materia_Click(object sender, System.EventArgs e)
         {
@@ -239,6 +242,8 @@ namespace WindowsFormsApp3
 
             Program.listaMaterias.cargarBotones();
         }
+
+#endregion
 
     }
 }

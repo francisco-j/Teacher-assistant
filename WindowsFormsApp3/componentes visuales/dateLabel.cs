@@ -17,7 +17,8 @@ namespace WindowsFormsApp3.componentes_visuales
     class dateLabel: Label
     {
 
-//**************** Propiedades *************************************
+        #region Propiedades
+
         private DateTime fecha;
         private double rotationAngle;
         private string text;
@@ -55,15 +56,30 @@ namespace WindowsFormsApp3.componentes_visuales
             }
         }
 
-//******************************** constructor **********************************
+        #endregion
+        
+        #region Constructor
+
         public dateLabel(){
 			//Setting the initial condition.
-			rotationAngle = 0d;
+			rotationAngle = -45d;
 			this.Size = new Size(105,12);
         }
 
-    //****************************** metodo **************************************
-    protected override void OnPaint(PaintEventArgs e)
+        public dateLabel(DateTime fecha)
+        {
+            this.Font = new Font("Microsoft Sans Serif", 10);
+            this.fecha = fecha;
+            this.text = fecha.ToString("dd'/'MM'/'yy");
+            rotationAngle = -60d;
+            this.Size = new Size(38, 50);
+        }
+
+        #endregion
+
+        #region metodo
+
+        protected override void OnPaint(PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
 
@@ -86,6 +102,8 @@ namespace WindowsFormsApp3.componentes_visuales
             graphics.DrawString(text, this.Font, textBrush, 0, 0);
             graphics.ResetTransform();
         }
+        
+        #endregion
 
     }
 }

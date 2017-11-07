@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 using WindowsFormsApp3.vistas;
 using WindowsFormsApp3.clases_objeto;
+using WindowsFormsApp3.componentes_visuales;
 
 namespace WindowsFormsApp3
 {
@@ -10,10 +11,9 @@ namespace WindowsFormsApp3
     {
         private int idGrupo;
         private Materia[] materias;
-        private Alumno[ ] alumnosGrupo;
+        private Alumno[] alumnosGrupo;
 
-// ****************************** constructor ***************************************
-
+        #region constructor
         /// <summary> ventana que muestra la lista de materias del grupo indicado </summary>
         public FormListaMaterias(int idGrupo)
         {
@@ -29,11 +29,15 @@ namespace WindowsFormsApp3
             //Cargamos la lista de alumnos
             cargarAlumnos();
 
+            //Cargamos la lista de asistencias
+            cargarAsistencias();
+
             this.Show();
         }
 
-
-// ******************** boton evt *****************************************
+        #endregion
+        
+        #region eventos
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
@@ -49,72 +53,6 @@ namespace WindowsFormsApp3
             cargarBotones();
         }
 
-
-        /// <summary> Muestra un ventana para agregar un alumno a la BD </summary>
-        private void btnAgregarAlumno_Click(object sender, EventArgs e)
-        {
-            FormAgregarAlumno alumnoNuevo = new FormAgregarAlumno(idGrupo);
-
-            alumnoNuevo.ShowDialog();
-
-            //Refresca la lista de alumnos
-            cargarAlumnos();
-        }
-
-        /// <summary> Muestra un ventana busqueda indicada </summary>
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            new FormResultadoBusqueda(txbBusqueda.Text);
-        }
-
-
-//*********************************** metodos *****************************
-
-        public int getIdGrupo()
-        {
-            return idGrupo;
-        }
-
-        /// <summary> Obtiene de BD todos los alumnos y los muestra en la lista de asistencia </summary>
-        private void cargarAlumnos()
-        {
-            panelAlumnos.Controls.Clear();
-            panelAsistencias.Controls.Clear();
-
-            alumnosGrupo = dbConection.alumnosGrupo( idGrupo );
-            DateTime[] diasClase = dbConection.getDiasClase(idGrupo);
-
-            foreach (Alumno alumno in alumnosGrupo)
-            {
-                Label nombre = PersonalizacionComponentes.hacerLabelAlumno(alumno);
-                panelAlumnos.Controls.Add( nombre );
-
-                FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(alumno.getId(), diasClase);
-                panelAsistencias.Controls.Add(asistencias);
-            }
-
-            panelAlumnos.Size = panelAlumnos.PreferredSize;
-        }
-
-        ///<sumary> limpia el contenedor y carga todas las materias como botones nuevos </sumary>
-        public void cargarBotones()
-        {
-            materias = dbConection.materiasAsociadasCon(idGrupo);
-
-            contenedorMaterias.Controls.Clear();
-            int color = 0;
-
-            foreach (Materia materia in materias)
-            {
-                Button boton = PersonalizacionComponentes.hacerBotonMateria(materia, color);
-                contenedorMaterias.Controls.Add(boton);
-                
-                color++;
-            }
-        }
-
-// ************************  closing  ***************************************************
-
         private void FormListaG_FormClosed(object sender, FormClosedEventArgs e)
         {
             // cierra la aplicacion completa
@@ -127,6 +65,78 @@ namespace WindowsFormsApp3
                 btnBuscar.PerformClick();
         }
 
-        
+        /// <summary> Muestra un ventana para agregar un alumno a la BD </summary>
+        private void btnAgregarAlumno_Click(object sender, EventArgs e)
+        {
+            FormAgregarAlumno alumnoNuevo = new FormAgregarAlumno(idGrupo);
+
+            alumnoNuevo.ShowDialog();
+
+            //Refresca la lista de alumnos
+            cargarAlumnos();
+            cargarAsistencias();
+        }
+
+        /// <summary> Muestra un ventana busqueda indicada </summary>
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            new FormResultadoBusqueda(txbBusqueda.Text);
+        }
+
+        #endregion
+
+        #region metodos
+
+        public int getIdGrupo()
+        {
+            return idGrupo;
+        }
+
+        ///<sumary> limpia el contenedor y carga todas las materias como botones nuevos </sumary>
+        public void cargarBotones()
+        {
+            materias = dbConection.materiasAsociadasCon(idGrupo);
+
+            flPanelMaterias.Controls.Clear();
+            int color = 0;
+
+            foreach (Materia materia in materias)
+            {
+                Button boton = PersonalizacionComponentes.hacerBotonMateria(materia, color);
+                flPanelMaterias.Controls.Add(boton);
+                
+                color++;
+            }
+        }
+
+        /// <summary> Obtiene de BD todos los alumnos y los muestra en la lista de asistencia </summary>
+        private void cargarAlumnos()
+        {
+            alumnosGrupo = dbConection.alumnosGrupo( idGrupo );
+
+            PersonalizacionComponentes.llenarPanelAlunos(flPanelAlumnos, alumnosGrupo);
+        }
+
+        /// <summary>  </summary>
+        private void cargarAsistencias()
+        {
+            flPanelAsistencias.Controls.Clear();
+            flPanelFechas.Controls.Clear();
+            DateTime[] diasClase = dbConection.getDiasClase(idGrupo);
+            
+            foreach (DateTime dia in diasClase)
+            {
+                flPanelFechas.Controls.Add(new dateLabel(dia));
+            }
+
+            foreach (Alumno alumno in alumnosGrupo)
+            {
+                FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(alumno.getId(), diasClase);
+                flPanelAsistencias.Controls.Add(asistencias);
+            }
+        }
+
+
+        #endregion
     }
 }

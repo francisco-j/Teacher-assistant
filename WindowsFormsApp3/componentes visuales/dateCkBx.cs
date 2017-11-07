@@ -16,7 +16,7 @@ namespace WindowsFormsApp3.componentes_visuales
         {
             this.dia = dia;
             this.Checked = asistencia;
-            this.Size= new System.Drawing.Size(15, 14);
+            this.Size= new System.Drawing.Size(38, 14);
 
             this.CheckedChanged += ChkBox_CheckedChanged;
         }

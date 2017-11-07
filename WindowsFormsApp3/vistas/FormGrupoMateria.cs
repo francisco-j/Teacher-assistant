@@ -12,7 +12,7 @@ namespace WindowsFormsApp3
         Alumno[] alumnos;
 
 
-//*************************** constructor ******************************************
+#region constructor
 
         /// <summary> muestra informacion y funciones del grupo indicado </summary>
         public FormGrupoMateria(int idMateria, int idGrupo)
@@ -27,16 +27,16 @@ namespace WindowsFormsApp3
             personalizarVentana(idMateria, idGrupo);
 
             btnTareas.PerformClick();
-
         }
+        #endregion
 
-
-// ******************************** btn Eventos ***************************************************
+#region eventos
 
         /// <summary> muestra la ventana tareas </summary>
         private void btnTareas_Click(object sender, EventArgs e)
         {
             grpBxModulo.Text = "tareas";
+
             PersonalizacionComponentes.decorarPanelTareas(ref fLPanel, alumnos, idGrupo, idMateria);
         }
 
@@ -64,15 +64,14 @@ namespace WindowsFormsApp3
             this.Dispose();
         }
 
-
-//**************************************** otros eventos *******************************************
-
         private void FormGrupoMateria_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
-// **************************************** privados **************************************************
+        #endregion
+
+#region metodos
 
         private void personalizarVentana(int idMateria,int idGrupo)
         {
@@ -85,7 +84,11 @@ namespace WindowsFormsApp3
             lblDatosGrupo.Text = numeroAlumnos + lblDatosGrupo.Text + escuela;
 
             this.Text = grupo + " " + materia;
+
+            PersonalizacionComponentes.llenarPanelAlunos(flPanelAlumnos, alumnos);
         }
+
+        #endregion
 
     }
 }

@@ -53,9 +53,6 @@
     <Compile Include="componentes visuales\dateLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="componentes visuales\OrientedTextLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="vistas\FormAgregarAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,9 +136,6 @@
     <Compile Include="vistas\FormResultadoBusqueda.Designer.cs">
       <DependentUpon>FormResultadoBusqueda.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="componentes visuales\OrientedTextLabel.resx">
-      <DependentUpon>OrientedTextLabel.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormAgregarAlumno.resx">
       <DependentUpon>FormAgregarAlumno.cs</DependentUpon>
     </EmbeddedResource>
