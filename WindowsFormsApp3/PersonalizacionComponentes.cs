@@ -79,7 +79,7 @@ namespace WindowsFormsApp3
         {
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.Name = "asistencia"+idAlumno;
-            panel.AutoSize = true;
+            panel.BorderStyle = BorderStyle.FixedSingle;
 
             DateTime[] faltas = dbConection.getFaltas(idAlumno);
 
@@ -91,6 +91,7 @@ namespace WindowsFormsApp3
                     panel.Controls.Add(new dateCkBx(dia,true));
             }
 
+            panel.Size = panel.PreferredSize;
             return panel;
         }
 
