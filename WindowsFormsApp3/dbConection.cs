@@ -16,8 +16,8 @@ namespace WindowsFormsApp3
         private static OleDbCommand comand = new OleDbCommand();
         private static OleDbDataReader reader;
 
-
-//************************  control ********************************************
+        
+#region control
 
         /// <summary> verifica que la conexion se pueda relizar, muestra respuesta en consola </summary>
         public static bool canConnect()
@@ -76,8 +76,9 @@ namespace WindowsFormsApp3
 
         }
 
+        #endregion
 
-//************************  lectura  listas ******************************************
+#region lectura de arrays
 
         /// <summary> retorna los grupos asociados al maestro indicado </summary>
         internal static Grupo[] GruposAsociadosCon(int idUsuario)
@@ -261,8 +262,9 @@ namespace WindowsFormsApp3
             return lFaltas.ToArray();
         }
 
+#endregion
 
-// ************************** lectura info ***********************************
+#region lectura
 
         /// <summary> nombre de la materia indicada </summary>
         internal static Materia getMateria(int idMateria)
@@ -390,8 +392,10 @@ namespace WindowsFormsApp3
             }
         }
 
-        
-//************************  escritura ******************************************
+
+        #endregion
+
+#region escritura
 
         /// <summary> registra el usuario indicado en la base de datos </summary>
         internal static void registrarUsuario(string usuario, string contra)
@@ -503,7 +507,9 @@ namespace WindowsFormsApp3
             }
         }
 
-//******************************** actualizar ***********************************************
+        #endregion
+
+#region actualizar
 
         internal static void modificarGrupo(int idGrupo, int grado, char grupo, String escuela, DateTime inicioCurso, DateTime finCurso)
         {
@@ -542,8 +548,9 @@ namespace WindowsFormsApp3
             }
         }
 
+        #endregion
 
-// ********************************  borrar *********************************
+#region borrar
 
         /// <summary> borra el grupo de la tabla grupos </summary>
         internal static void borrarGrupo(int idGrupo)
@@ -576,6 +583,8 @@ namespace WindowsFormsApp3
                 conection.Close();
             }
         }
+
+#endregion
 
     }
 }
