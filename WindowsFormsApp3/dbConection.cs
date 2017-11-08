@@ -474,12 +474,13 @@ namespace WindowsFormsApp3
         /// <summary> registra la falta del alumno indicado el dia indicado en la DB  </summary>
         internal static void ponerFalta(int idAlumno, DateTime dia)
         {
-            comand.CommandText = "INSERT INTO inAsistencias (alumno, dia) VALUES(" + idAlumno + ",#" + dia.ToShortDateString()  + "#)";
-            comand.Connection = conection;
             try
             {
                 conection.Open();
-                Console.WriteLine(comand.ExecuteNonQuery() + " falta agregada");
+                comand.Connection = conection;
+                comand.CommandText = "INSERT INTO inAsistencias (alumno, dia) VALUES(" + idAlumno + ",#" + dia.ToString("MM'/'dd'/'yy") + "#)";
+
+                Console.WriteLine(comand.ExecuteNonQuery() + " ; falta del alumno: " + idAlumno + " del día: " + dia.ToShortDateString());
             }
             finally
             {
@@ -490,12 +491,13 @@ namespace WindowsFormsApp3
         /// <summary> borra la falta del alumno indicado el dia indicado en la DB </summary>
         internal static void quitarFalta(int idAlumno, DateTime dia)
         {
-            comand.CommandText = "DELETE * FROM inAsistencias WHERE alumno = " + idAlumno + "AND dia = #" + dia.ToShortDateString() + "#";
-            comand.Connection = conection;
             try
             {
                 conection.Open();
-                Console.WriteLine(comand.ExecuteNonQuery() + " falta borrada");
+                comand.Connection = conection;
+                comand.CommandText = "DELETE * FROM inAsistencias WHERE alumno = " + idAlumno + "AND dia = #" + dia.ToString("MM'/'dd'/'yy") + "#";
+
+                Console.WriteLine(comand.ExecuteNonQuery() + " ; falta borrada del alumno: " + idAlumno + " del dia: " + dia.ToShortDateString() );
             }
             finally
             {
