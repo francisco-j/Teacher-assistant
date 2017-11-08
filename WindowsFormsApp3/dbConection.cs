@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Linq;
-using System.Text;
 using System.Data.OleDb;
-using System.Windows.Forms;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using WindowsFormsApp3.clases_objeto;
 
