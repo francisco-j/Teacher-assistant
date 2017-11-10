@@ -180,9 +180,8 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.Connection = conection;
-                //compara con nombre y apellidos
-                comand.CommandText = "SELECT * FROM Alumnos WHERE nombres like '%" + name + "%' or apellidoPaterno like '%" + name + "%' or apellidoMaterno like '%" + name + "%'";
-                //comand.CommandText = "SELECT * FROM Alumnos WHERE CONCAT (nombres, ' ', apellidoPaterno, ' ', apellidoMaterno) like '%" + name + "%'";
+
+                comand.CommandText = "SELECT * FROM Alumnos WHERE nombres & ' ' & apellidoPaterno & ' ' & apellidoMaterno like '%" + name + "%'";
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())
