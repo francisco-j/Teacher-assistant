@@ -9,8 +9,7 @@ namespace WindowsFormsApp3.vistas
         //almacenamos los alumnos para cuando queramos ver al info de cada uno
         Alumno[] alumnos;
 
-
-//********************** constructor ******************************************
+#region constructor
 
         /// <summary> ventana que muestra la busqueda indicada </summary>
         public FormResultadoBusqueda(string busqueda)
@@ -23,8 +22,9 @@ namespace WindowsFormsApp3.vistas
             this.Show();
         }
 
+#endregion
 
-//********************************  metodos  ******************************************
+#region metodos
 
         /// <summary> busca en la DB y agrega a la lista </summary>
         private void mostrar(string busqueda)
@@ -53,8 +53,9 @@ namespace WindowsFormsApp3.vistas
             }
         }
 
+#endregion
 
-//*************************************** btn_click  ****************************
+#region btn_click
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -66,5 +67,8 @@ namespace WindowsFormsApp3.vistas
             int index = lstBxNombres.SelectedIndex;
             new FormAlumno(alumnos[index]);
         }
+
+#endregion
+
     }
 }
