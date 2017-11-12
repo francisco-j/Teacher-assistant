@@ -13,13 +13,14 @@ namespace WindowsFormsApp3.componentes_visuales
     {
         private DiaClase dia;
         public bool asistencia;
+        
 
         public DateButton(DiaClase dia, bool asistencia, Image fondo)
         {
             this.dia = dia;
             this.asistencia = asistencia;
 
-            this.Size = new System.Drawing.Size(38, 14);
+            this.Size = new Size(38, 14);
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderColor = Color.FromArgb(0, 0, 0);
             this.FlatAppearance.BorderSize = 1;
@@ -47,5 +48,6 @@ namespace WindowsFormsApp3.componentes_visuales
                 this.BackgroundImage = Properties.Resources.icoXMark24;
             }
         }
+
     }
 }

@@ -229,7 +229,7 @@ namespace WindowsFormsApp3
             FormAgregarMateria modoficarMateria =new FormAgregarMateria(dbConection.getMateria(idMateria));
             modoficarMateria.ShowDialog();
 
-            Program.listaMaterias.cargarBotones();
+            Program.listaMaterias.cargarMaterias();
         }
 
         /// <summary> para menu contextual de grupo </summary>
@@ -240,7 +240,7 @@ namespace WindowsFormsApp3
             FormBorrarMateria borrarM = new FormBorrarMateria(dbConection.getMateria(idMateria));
             borrarM.ShowDialog();
 
-            Program.listaMaterias.cargarBotones();
+            Program.listaMaterias.cargarMaterias();
         }
 
 #endregion

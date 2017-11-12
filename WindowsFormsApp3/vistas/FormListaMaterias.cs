@@ -13,7 +13,8 @@ namespace WindowsFormsApp3
         private Materia[] materias;
         private Alumno[] alumnosGrupo;
 
-        #region constructor
+#region constructor
+
         /// <summary> ventana que muestra la lista de materias del grupo indicado </summary>
         public FormListaMaterias(int idGrupo)
         {
@@ -23,13 +24,8 @@ namespace WindowsFormsApp3
             this.Text = dbConection.getGrupo( idGrupo ).ToString();
             lblGrupo.Text += this.Text;
 
-            //Cargamos los botones de las materias
-            cargarBotones();
-
-            //Cargamos la lista de alumnos
+            cargarMaterias();
             cargarAlumnos();
-
-            //Cargamos la lista de asistencias
             cargarAsistencias();
 
             this.Show();
@@ -50,7 +46,7 @@ namespace WindowsFormsApp3
             FormAgregarMateria nuevaMateria = new FormAgregarMateria(idGrupo);
             nuevaMateria.ShowDialog(this);
 
-            cargarBotones();
+            cargarMaterias();
         }
 
         private void FormListaG_FormClosed(object sender, FormClosedEventArgs e)
@@ -93,7 +89,7 @@ namespace WindowsFormsApp3
         }
 
         ///<sumary> limpia el contenedor y carga todas las materias como botones nuevos </sumary>
-        public void cargarBotones()
+        public void cargarMaterias()
         {
             materias = dbConection.materiasAsociadasCon(idGrupo);
 
@@ -145,9 +141,9 @@ namespace WindowsFormsApp3
             MonthCalendar fecha = new MonthCalendar();
             this.Controls.Add(fecha);
 
-            fecha.Location = new System.Drawing.Point(567, 57);
+            fecha.Location = new Point(567, 57);
             fecha.Name = "mtcCalendario";
-            fecha.Size = new System.Drawing.Size(200, 20);
+            fecha.Size = new Size(200, 20);
             fecha.TabIndex = 2;
             fecha.BringToFront();
             fecha.TodayDate = DateTime.Today;

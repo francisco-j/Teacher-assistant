@@ -1,123 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="WindowsFormsApp3.clases.Alumno">
-    <Position X="3.25" Y="4.75" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>EgAMAAAAAAQAAMCAAAAAABAAAAAAAAAAAAAAAAAACgA=</HashCode>
-      <FileName>clases\Alumno.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="WindowsFormsApp3.clases.dateCkBx" Collapsed="true">
-    <Position X="4" Y="3.5" Width="1.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>clases\dateCkBx.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="WindowsFormsApp3.clases.dbConection">
-    <Position X="10.25" Y="1.5" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAQAAAQgCAEAIABAQAECEQIJBAAAAggQQAAAQAAg=</HashCode>
-      <FileName>clases\dbConection.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="WindowsFormsApp3.clases.Materia">
-    <Position X="1.5" Y="4.75" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAACAAAAghAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
-      <FileName>clases\Materia.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="WindowsFormsApp3.Grupo">
-    <Position X="5" Y="4.75" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>AgAAAAACAAAAAMAEBgAEgEAAAAAAAAAAAAAIAAAgAgA=</HashCode>
-      <FileName>clases\Grupo.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="WindowsFormsApp3.PersonalizacionComponentes">
     <Position X="12.5" Y="1.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>QAAJAIACAAAAAAAAAIIAAgAIEEAACAAEAAkCQAgAAAA=</HashCode>
-      <FileName>clases\PersonalizacionComponentes.cs</FileName>
+      <HashCode>QAIJAIACAAAAAAAAAIAAAgAIEGAACAAEAAgCAAkAAAA=</HashCode>
+      <FileName>PersonalizacionComponentes.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WindowsFormsApp3.Program">
     <Position X="8" Y="1.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAgRwCAMAAAhBoAECEAIABAEAAgAQQBAAAIAA=</HashCode>
+      <HashCode>AAAAAAAAABQAAMAAAgAoAAAAAAAAAEAAgAAQBAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WindowsFormsApp3.FormAgregarGrupo" Collapsed="true">
     <Position X="2.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAACCAABAAACCAAAECAAAFABAAAADAAAAAKAA=</HashCode>
+      <HashCode>AAAAAAAAACCAAAAAACCAAAECAAABABAAAACAAAAAKAA=</HashCode>
       <FileName>vistas\FormAgregarGrupo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WindowsFormsApp3.FormGrupoMateria" Collapsed="true">
     <Position X="5.75" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>BAAAAiIAgDAACAAAAICAAIgCAABBACBSAgAAQAAAIAI=</HashCode>
+      <HashCode>BAIkAiIAgDAACBAAAACAQIgCAABBADBSAgAAQAAAIAI=</HashCode>
       <FileName>vistas\FormGrupoMateria.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WindowsFormsApp3.FormInicio" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAACCAAABAAAACAAQACAAAAA0AAAABAAABgIAg=</HashCode>
+      <HashCode>ABAAAACACCAAgBAAAACAAAACAAAAA0AAAQBAAABgIAA=</HashCode>
       <FileName>vistas\FormInicio.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WindowsFormsApp3.FormListaGrupos" Collapsed="true">
     <Position X="2.25" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>IAAAIAAAgCCCQFgAAQCCQAACAIQJAIAAAAABAIAAAAA=</HashCode>
+      <HashCode>IAAAIAAAgCCCQFgAAACCQAACAIQJAIAAAAABAIAAAAA=</HashCode>
       <FileName>vistas\FormListaGrupos.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WindowsFormsApp3.FormListaMaterias" Collapsed="true">
     <Position X="4" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>IAAAAIgAgDAOQAiAAACiAAADAIQhAAgAACAQUAEgIAA=</HashCode>
+      <HashCode>IAJgAYhAgDACSBiAACCiCgECAIQhANAAAgAAEAAgYAA=</HashCode>
       <FileName>vistas\FormListaMaterias.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WindowsFormsApp3.FormRegistrarse" Collapsed="true">
     <Position X="0.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAACAAAAAAgCCAAgACAQAAAEAAAABAAAAgAAA=</HashCode>
+      <HashCode>ABAAAAAAADAAAAAAgCCAAgACAQAAAkAAAABAAABgAAA=</HashCode>
       <FileName>vistas\FormRegistrarse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WindowsFormsApp3.vistas.FormAgregarAlumno" Collapsed="true">
     <Position X="5.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAiCQCAAAAACAAAECACAAAAAAAAAAAAAAIBA=</HashCode>
+      <HashCode>AAAIAAAAAiCQCAAAQACAAAECACAAAAAAAAABAAAAIBA=</HashCode>
       <FileName>vistas\FormAgregarAlumno.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WindowsFormsApp3.vistas.FormAgregarMateria" Collapsed="true">
     <Position X="4" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACCACAAAAACAAAECAAAAAAgAAAAAAAAAIAA=</HashCode>
+      <HashCode>AAAAAAEAACCACAAAAACAAAECAAAAAAgAAAAAAAAAIAA=</HashCode>
       <FileName>vistas\FormAgregarMateria.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WindowsFormsApp3.vistas.FormAlumno" Collapsed="true">
     <Position X="7.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAIACCAAAAAAACCAAACAAABAAAAAAAAACAAAAA=</HashCode>
+      <HashCode>CAAAAMAIACCAAAAAACCEAAACAAAhBAAAAAAAAAAQAAA=</HashCode>
       <FileName>vistas\FormAlumno.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -131,7 +87,7 @@
   <Class Name="WindowsFormsApp3.vistas.FormBorrarGrupo" Collapsed="true">
     <Position X="2.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAADAAAFAAACCAAAACAAABABAABACEAAAAIAA=</HashCode>
+      <HashCode>AAAAQAAAADAAAEAAACCAAAACAAABABAABACEAAAAIAA=</HashCode>
       <FileName>vistas\FormBorrarGrupo.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -143,10 +99,66 @@
     </TypeIdentifier>
   </Class>
   <Class Name="WindowsFormsApp3.vistas.FormResultadoBusqueda" Collapsed="true">
-    <Position X="3" Y="2.75" Width="2" />
+    <Position X="9.25" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAABAAAECACQAAEAACAAAgCAAAAAIAABAAAAQAAAEA=</HashCode>
       <FileName>vistas\FormResultadoBusqueda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp3.dbConection">
+    <Position X="10.25" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAEAAQAAAQgCAEAIABAQAECEQIJBAAAAggQQAAAQAAg=</HashCode>
+      <FileName>dbConection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp3.componentes_visuales.dateCkBx" Collapsed="true">
+    <Position X="4" Y="2.75" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>componentes visuales\dateCkBx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp3.clases_objeto.Alumno">
+    <Position X="4.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgAMAAAAAAQAAMCAAAAAABAAAAAAAAAAAAAAAAAACgA=</HashCode>
+      <FileName>clases objeto\Alumno.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp3.clases_objeto.DiaClase">
+    <Position X="1.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>clases objeto\DiaClase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp3.clases_objeto.Grupo">
+    <Position X="5.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAEAEBAAEgEAAAAAAAAAAAAAAAAAgAgA=</HashCode>
+      <FileName>clases objeto\Grupo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp3.clases_objeto.Materia">
+    <Position X="2.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAACAAAAghAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>clases objeto\Materia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp3.componentes_visuales.DateButton" Collapsed="true">
+    <Position X="4" Y="4.25" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAQAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>componentes visuales\DateButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp3.componentes_visuales.dateLabel" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AACACAAAAQAAAAEAAAAAAAAAAAAAAAAIAAAACAAAAAg=</HashCode>
+      <FileName>componentes visuales\dateLabel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
