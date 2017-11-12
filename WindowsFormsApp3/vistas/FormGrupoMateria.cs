@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp3.clases_objeto;
+using WindowsFormsApp3.componentes_visuales;
 
 namespace WindowsFormsApp3
 {
@@ -33,9 +34,23 @@ namespace WindowsFormsApp3
         /// <summary> muestra la ventana tareas </summary>
         private void btnTareas_Click(object sender, EventArgs e)
         {
-            grpBxModulo.Text = "tareas";
+            grpBxModulo.Text = "Tareas";
 
-            //PersonalizacionComponentes.decorarPanelTareas(ref fLPanel, alumnos, idGrupo, idMateria);
+            flPanelTitulos.Controls.Clear();
+            flPanelEntregas.Controls.Clear();
+            Tarea[] listTareas = dbConection.getTareas(idMateria);
+
+            foreach (Tarea tarea in listTareas)
+            {
+                flPanelTitulos.Controls.Add(new tiltLabel(tarea.nombre));
+            }
+
+            foreach (Alumno alumno in alumnos)
+            {
+                FlowLayoutPanel tareas = PersonalizacionComponentes.hacerPanelTareas(alumno.getId(), listTareas);
+
+                flPanelEntregas.Controls.Add(tareas);
+            }
         }
 
         private void btnProyectos_Click(object sender, EventArgs e)

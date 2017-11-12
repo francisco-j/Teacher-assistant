@@ -20,8 +20,7 @@ namespace WindowsFormsApp3
         private static Font miFuenteMateria = new Font("Microsoft Sans Serif",12 , FontStyle.Bold );
         private static Font miFuenteInfo = new Font("Microsoft Sans Serif", 16);
         private static Font miFuentelblAlumno = new Font("Microsoft Sans Serif", 16);
-        private static Image[] imagesAsistencia = { Properties.Resources.icoCheckMark24, Properties.Resources.icoXMark24 };
-
+        
 #region metodos
 
             /// <summary> debuelbe el contenedor con la informacion del grupo indicado </summary>
@@ -86,9 +85,27 @@ namespace WindowsFormsApp3
             foreach ( DiaClase dia in diasClase)
             {
                 if (faltas.Contains(dia.dia))
-                    panel.Controls.Add(new DateButton(dia, false, imagesAsistencia[ 1 ]));
+                    panel.Controls.Add(new DateButton(dia, false));
                 else
-                    panel.Controls.Add(new DateButton(dia,true, imagesAsistencia[0]));
+                    panel.Controls.Add(new DateButton(dia,true));
+            }
+            panel.Size = panel.PreferredSize;
+            return panel;
+        }
+
+        /// <summary> crea un panel con los dateCheckBox de l alumno indicado </summary>
+        internal static FlowLayoutPanel hacerPanelTareas(int idAlumno, Tarea[] listTareas)
+        {
+            FlowLayoutPanel panel = new FlowLayoutPanel();
+
+            int[] entregas = dbConection.getEntregas(idAlumno);
+
+            foreach (Tarea tarea in listTareas)
+            {
+                if (entregas.Contains(tarea.id))
+                    panel.Controls.Add(new tareaCkBx(tarea.id, idAlumno, false));
+                else
+                    panel.Controls.Add(new tareaCkBx(tarea.id, idAlumno, true));
             }
             panel.Size = panel.PreferredSize;
             return panel;

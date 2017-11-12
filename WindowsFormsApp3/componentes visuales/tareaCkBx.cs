@@ -25,10 +25,13 @@ namespace WindowsFormsApp3.componentes_visuales
 
         private void ChkBox_CheckedChanged(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
+            /*
             if (this.Checked)
                 dbConection.tareaEntregada(idAlumno, idTarea);
             else
                 dbConection.tareaFaltante(idAlumno, idTarea);
+            */
         }
 
     }

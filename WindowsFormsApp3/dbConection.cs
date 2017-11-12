@@ -202,7 +202,7 @@ namespace WindowsFormsApp3
             return lAlumnos.ToArray();
         }
 
-        /// <summary> array con los dias de clase del grupo </summary>
+        /// <summary> array con los dias de clase del grupo indicado </summary>
         internal static DiaClase[] getDiasClase(int idGrupo)
         {
             List<DiaClase> diasClase = new List<DiaClase>();
@@ -253,9 +253,59 @@ namespace WindowsFormsApp3
             return lFaltas.ToArray();
         }
 
-#endregion
+        /// <summary> array con las tareas de la materia indicada </summary>
+        internal static Tarea[] getTareas(int idMateria)
+        {
+            List<Tarea> tareas = new List<Tarea>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Tareas WHERE materia =" + idMateria;
+                reader = comand.ExecuteReader();
 
-#region lectura
+                while (reader.Read())
+                {
+                    tareas.Add(new Tarea(reader["nombre"].ToString(), (int)reader["idTarea"]));
+                }
+
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return tareas.ToArray();
+        }
+
+
+        internal static int[] getEntregas(int idAlumno)
+        {
+            List<int> entregas = new List<int>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Entregas WHERE alumno =" + idAlumno;
+                reader = comand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    entregas.Add((int)reader["alumno"]);
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return entregas.ToArray();
+        }
+        
+
+        #endregion
+
+        #region lectura
 
         /// <summary> nombre de la materia indicada </summary>
         internal static Materia getMateria(int idMateria)

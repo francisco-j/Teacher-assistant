@@ -113,7 +113,7 @@ namespace WindowsFormsApp3
             PersonalizacionComponentes.llenarPanelAlunos(flPanelAlumnos, alumnosGrupo);
         }
 
-        /// <summary>  </summary>
+        /// <summary> llena la lista de asistencias </summary>
         private void cargarAsistencias()
         {
             flPanelAsistencias.Controls.Clear();
