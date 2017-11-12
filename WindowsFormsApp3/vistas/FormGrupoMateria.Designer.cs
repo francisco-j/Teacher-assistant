@@ -28,18 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGrupoMateria));
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblDatosGrupo = new System.Windows.Forms.Label();
             this.grpBxModulo = new System.Windows.Forms.GroupBox();
-            this.fLPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.lblMateria = new System.Windows.Forms.Label();
-            this.btnCalificaciones = new System.Windows.Forms.Button();
-            this.btnExamenes = new System.Windows.Forms.Button();
-            this.btnProyectos = new System.Windows.Forms.Button();
-            this.btnTareas = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
             this.tlPanel = new System.Windows.Forms.TableLayoutPanel();
             this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,6 +40,14 @@
             this.dateLabel2 = new WindowsFormsApp3.componentes_visuales.dateLabel();
             this.flPanelEntregas = new System.Windows.Forms.FlowLayoutPanel();
             this.ckBox1 = new System.Windows.Forms.CheckBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.lblMateria = new System.Windows.Forms.Label();
+            this.btnCalificaciones = new System.Windows.Forms.Button();
+            this.btnExamenes = new System.Windows.Forms.Button();
+            this.btnProyectos = new System.Windows.Forms.Button();
+            this.btnTareas = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.grpBxModulo.SuspendLayout();
             this.tlPanel.SuspendLayout();
             this.flPanelAlumnos.SuspendLayout();
@@ -79,7 +80,6 @@
             // grpBxModulo
             // 
             this.grpBxModulo.Controls.Add(this.tlPanel);
-            this.grpBxModulo.Controls.Add(this.fLPanel);
             this.grpBxModulo.Controls.Add(this.btnAgregar);
             this.grpBxModulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.grpBxModulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
@@ -90,13 +90,85 @@
             this.grpBxModulo.TabStop = false;
             this.grpBxModulo.Text = "Modulo";
             // 
-            // fLPanel
+            // tlPanel
             // 
-            this.fLPanel.AutoSize = true;
-            this.fLPanel.Location = new System.Drawing.Point(713, 154);
-            this.fLPanel.Name = "fLPanel";
-            this.fLPanel.Size = new System.Drawing.Size(103, 75);
-            this.fLPanel.TabIndex = 16;
+            this.tlPanel.AutoSize = true;
+            this.tlPanel.ColumnCount = 2;
+            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlPanel.Controls.Add(this.flPanelAlumnos, 0, 1);
+            this.tlPanel.Controls.Add(this.flPanelTitulos, 1, 0);
+            this.tlPanel.Controls.Add(this.flPanelEntregas, 1, 1);
+            this.tlPanel.Location = new System.Drawing.Point(6, 28);
+            this.tlPanel.Name = "tlPanel";
+            this.tlPanel.RowCount = 2;
+            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.91045F));
+            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.08955F));
+            this.tlPanel.Size = new System.Drawing.Size(681, 313);
+            this.tlPanel.TabIndex = 21;
+            // 
+            // flPanelAlumnos
+            // 
+            this.flPanelAlumnos.AutoSize = true;
+            this.flPanelAlumnos.Controls.Add(this.label2);
+            this.flPanelAlumnos.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flPanelAlumnos.Location = new System.Drawing.Point(3, 59);
+            this.flPanelAlumnos.Name = "flPanelAlumnos";
+            this.flPanelAlumnos.Size = new System.Drawing.Size(327, 26);
+            this.flPanelAlumnos.TabIndex = 0;
+            this.flPanelAlumnos.WrapContents = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(321, 26);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Francisco Javier Fuentes Torres";
+            // 
+            // flPanelTitulos
+            // 
+            this.flPanelTitulos.AutoSize = true;
+            this.flPanelTitulos.Controls.Add(this.dateLabel2);
+            this.flPanelTitulos.Location = new System.Drawing.Point(336, 3);
+            this.flPanelTitulos.Name = "flPanelTitulos";
+            this.flPanelTitulos.Size = new System.Drawing.Size(38, 45);
+            this.flPanelTitulos.TabIndex = 0;
+            this.flPanelTitulos.WrapContents = false;
+            // 
+            // dateLabel2
+            // 
+            this.dateLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.dateLabel2.Fecha = new System.DateTime(((long)(0)));
+            this.dateLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.dateLabel2.Location = new System.Drawing.Point(0, 0);
+            this.dateLabel2.Margin = new System.Windows.Forms.Padding(0);
+            this.dateLabel2.Name = "dateLabel2";
+            this.dateLabel2.RotationAngle = -52D;
+            this.dateLabel2.Size = new System.Drawing.Size(38, 45);
+            this.dateLabel2.TabIndex = 2;
+            this.dateLabel2.Text = "30/12/17";
+            // 
+            // flPanelEntregas
+            // 
+            this.flPanelEntregas.AutoSize = true;
+            this.flPanelEntregas.Controls.Add(this.ckBox1);
+            this.flPanelEntregas.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flPanelEntregas.Location = new System.Drawing.Point(336, 59);
+            this.flPanelEntregas.Name = "flPanelEntregas";
+            this.flPanelEntregas.Size = new System.Drawing.Size(21, 20);
+            this.flPanelEntregas.TabIndex = 1;
+            // 
+            // ckBox1
+            // 
+            this.ckBox1.AutoSize = true;
+            this.ckBox1.Location = new System.Drawing.Point(3, 3);
+            this.ckBox1.Name = "ckBox1";
+            this.ckBox1.Size = new System.Drawing.Size(15, 14);
+            this.ckBox1.TabIndex = 0;
+            this.ckBox1.UseVisualStyleBackColor = true;
             // 
             // btnAgregar
             // 
@@ -187,6 +259,7 @@
             // btnBack
             // 
             this.btnBack.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoBack;
+            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.No;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -197,85 +270,14 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // tlPanel
+            // imageList1
             // 
-            this.tlPanel.AutoSize = true;
-            this.tlPanel.ColumnCount = 2;
-            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlPanel.Controls.Add(this.flPanelAlumnos, 0, 1);
-            this.tlPanel.Controls.Add(this.flPanelTitulos, 1, 0);
-            this.tlPanel.Controls.Add(this.flPanelEntregas, 1, 1);
-            this.tlPanel.Location = new System.Drawing.Point(6, 28);
-            this.tlPanel.Name = "tlPanel";
-            this.tlPanel.RowCount = 2;
-            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.91045F));
-            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.08955F));
-            this.tlPanel.Size = new System.Drawing.Size(681, 313);
-            this.tlPanel.TabIndex = 21;
-            // 
-            // flPanelAlumnos
-            // 
-            this.flPanelAlumnos.AutoSize = true;
-            this.flPanelAlumnos.Controls.Add(this.label2);
-            this.flPanelAlumnos.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flPanelAlumnos.Location = new System.Drawing.Point(3, 59);
-            this.flPanelAlumnos.Name = "flPanelAlumnos";
-            this.flPanelAlumnos.Size = new System.Drawing.Size(327, 26);
-            this.flPanelAlumnos.TabIndex = 0;
-            this.flPanelAlumnos.WrapContents = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(321, 26);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Francisco Javier Fuentes Torres";
-            // 
-            // flPanelTitulos
-            // 
-            this.flPanelTitulos.AutoSize = true;
-            this.flPanelTitulos.Controls.Add(this.dateLabel2);
-            this.flPanelTitulos.Location = new System.Drawing.Point(336, 3);
-            this.flPanelTitulos.Name = "flPanelTitulos";
-            this.flPanelTitulos.Size = new System.Drawing.Size(38, 45);
-            this.flPanelTitulos.TabIndex = 0;
-            this.flPanelTitulos.WrapContents = false;
-            // 
-            // dateLabel2
-            // 
-            this.dateLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.dateLabel2.Fecha = new System.DateTime(((long)(0)));
-            this.dateLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dateLabel2.Location = new System.Drawing.Point(0, 0);
-            this.dateLabel2.Margin = new System.Windows.Forms.Padding(0);
-            this.dateLabel2.Name = "dateLabel2";
-            this.dateLabel2.RotationAngle = -52D;
-            this.dateLabel2.Size = new System.Drawing.Size(38, 45);
-            this.dateLabel2.TabIndex = 2;
-            this.dateLabel2.Text = "30/12/17";
-            // 
-            // flPanelEntregas
-            // 
-            this.flPanelEntregas.AutoSize = true;
-            this.flPanelEntregas.Controls.Add(this.ckBox1);
-            this.flPanelEntregas.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flPanelEntregas.Location = new System.Drawing.Point(336, 59);
-            this.flPanelEntregas.Name = "flPanelEntregas";
-            this.flPanelEntregas.Size = new System.Drawing.Size(21, 20);
-            this.flPanelEntregas.TabIndex = 1;
-            // 
-            // ckBox1
-            // 
-            this.ckBox1.AutoSize = true;
-            this.ckBox1.Location = new System.Drawing.Point(3, 3);
-            this.ckBox1.Name = "ckBox1";
-            this.ckBox1.Size = new System.Drawing.Size(15, 14);
-            this.ckBox1.TabIndex = 0;
-            this.ckBox1.UseVisualStyleBackColor = true;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Notas 2 peque.png");
+            this.imageList1.Images.SetKeyName(1, "Notaspeque.png");
+            this.imageList1.Images.SetKeyName(2, "Examenes o calificacionespeque.png");
+            this.imageList1.Images.SetKeyName(3, "examenespeque.png");
             // 
             // FormGrupoMateria
             // 
@@ -325,7 +327,6 @@
         private System.Windows.Forms.GroupBox grpBxModulo;
         private System.Windows.Forms.Label lblMateria;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.FlowLayoutPanel fLPanel;
         private System.Windows.Forms.TableLayoutPanel tlPanel;
         private System.Windows.Forms.FlowLayoutPanel flPanelAlumnos;
         private System.Windows.Forms.Label label2;
@@ -333,5 +334,6 @@
         private componentes_visuales.dateLabel dateLabel2;
         private System.Windows.Forms.FlowLayoutPanel flPanelEntregas;
         private System.Windows.Forms.CheckBox ckBox1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

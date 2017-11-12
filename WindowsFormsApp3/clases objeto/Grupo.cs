@@ -12,20 +12,16 @@ namespace WindowsFormsApp3.clases_objeto
         private int grado;
         private Char grupo;
         private string escuela;
-        DateTime inicioCurso;
-        DateTime finCurso;
 
 
 // ******************* constructor **************************
 
-        public Grupo(int id, int grado, char grupo, string escuela, DateTime inicioCurso, DateTime finCurso)
+        public Grupo(int id, int grado, char grupo, string escuela)
         {
             this.id = id;
             this.grado = grado;
             this.grupo = grupo;
             this.escuela = escuela;
-            this.finCurso = finCurso;
-            this.inicioCurso = inicioCurso;
         }
 
 
@@ -54,17 +50,6 @@ namespace WindowsFormsApp3.clases_objeto
         {
             return grupo.ToString();
         }
-
-        internal DateTime getInicioCurso()
-        {
-            return inicioCurso;
-        }
-
-        internal DateTime getFinCurso()
-        {
-            return finCurso;
-        }
-        
 
 // ******************* otros metodos ***************************************
 

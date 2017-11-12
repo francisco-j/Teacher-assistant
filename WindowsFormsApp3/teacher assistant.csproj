@@ -46,6 +46,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clases objeto\Alumno.cs" />
+    <Compile Include="clases objeto\DiaClase.cs" />
+    <Compile Include="componentes visuales\DateButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="componentes visuales\dateCkBx.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -232,6 +236,9 @@
     <None Include="Resources\Examene o calificaciones.png" />
     <None Include="Resources\iconmonstr-log-out-4-481.png" />
     <None Include="Resources\icoLogOut1.png" />
+    <None Include="Resources\icoActualizar.png" />
+    <None Include="Resources\icoCheckMark24.png" />
+    <None Include="Resources\icoXMark24.png" />
     <Content Include="teacher assistant.mdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

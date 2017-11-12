@@ -36,16 +36,12 @@
             this.lblGrado = new System.Windows.Forms.Label();
             this.numGrado = new System.Windows.Forms.NumericUpDown();
             this.cbGrupo = new System.Windows.Forms.ComboBox();
-            this.dtPickerInicio = new System.Windows.Forms.DateTimePicker();
-            this.dtPickerFin = new System.Windows.Forms.DateTimePicker();
-            this.lblInicio = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numGrado)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(77, 208);
+            this.btnGuardar.Location = new System.Drawing.Point(81, 107);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 5;
@@ -130,61 +126,23 @@
             this.cbGrupo.TabIndex = 1;
             this.cbGrupo.Text = "A";
             // 
-            // dtPickerInicio
-            // 
-            this.dtPickerInicio.Location = new System.Drawing.Point(12, 123);
-            this.dtPickerInicio.Name = "dtPickerInicio";
-            this.dtPickerInicio.Size = new System.Drawing.Size(200, 20);
-            this.dtPickerInicio.TabIndex = 3;
-            // 
-            // dtPickerFin
-            // 
-            this.dtPickerFin.Location = new System.Drawing.Point(12, 161);
-            this.dtPickerFin.Name = "dtPickerFin";
-            this.dtPickerFin.Size = new System.Drawing.Size(200, 20);
-            this.dtPickerFin.TabIndex = 4;
-            this.dtPickerFin.Value = new System.DateTime(2017, 10, 6, 23, 27, 5, 0);
-            // 
-            // lblInicio
-            // 
-            this.lblInicio.AutoSize = true;
-            this.lblInicio.Location = new System.Drawing.Point(9, 107);
-            this.lblInicio.Name = "lblInicio";
-            this.lblInicio.Size = new System.Drawing.Size(81, 13);
-            this.lblInicio.TabIndex = 1;
-            this.lblInicio.Text = "Inicio del curso:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 146);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Fin del curso:";
-            // 
             // FormAgregarGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(234, 261);
-            this.Controls.Add(this.dtPickerFin);
-            this.Controls.Add(this.dtPickerInicio);
+            this.ClientSize = new System.Drawing.Size(234, 155);
             this.Controls.Add(this.cbGrupo);
             this.Controls.Add(this.numGrado);
             this.Controls.Add(this.txbEscuela);
             this.Controls.Add(this.lblGrado);
             this.Controls.Add(this.lblGrupo);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblInicio);
             this.Controls.Add(this.lblEscuela);
             this.Controls.Add(this.btnGuardar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAgregarGrupo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Agregar nuevo grupo";
-            this.Load += new System.EventHandler(this.FormAgregarGrupo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numGrado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -200,9 +158,5 @@
         private System.Windows.Forms.Label lblGrado;
         private System.Windows.Forms.NumericUpDown numGrado;
         private System.Windows.Forms.ComboBox cbGrupo;
-        private System.Windows.Forms.DateTimePicker dtPickerInicio;
-        private System.Windows.Forms.DateTimePicker dtPickerFin;
-        private System.Windows.Forms.Label lblInicio;
-        private System.Windows.Forms.Label label2;
     }
 }

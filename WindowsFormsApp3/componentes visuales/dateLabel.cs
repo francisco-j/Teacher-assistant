@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
+using WindowsFormsApp3.clases_objeto;
 
 namespace WindowsFormsApp3.componentes_visuales
 {
@@ -66,11 +67,11 @@ namespace WindowsFormsApp3.componentes_visuales
 			this.Size = new Size(105,12);
         }
 
-        public dateLabel(DateTime fecha)
+        public dateLabel(DiaClase fecha)
         {
             this.Font = new Font("Microsoft Sans Serif", 10);
-            this.fecha = fecha;
-            this.text = fecha.ToString("dd'/'MM'/'yy");
+            this.fecha = fecha.dia;
+            this.text = fecha.dia.ToString("dd'/'MM'/'yy");
             rotationAngle = -60d;
             this.Size = new Size(38, 50);
         }

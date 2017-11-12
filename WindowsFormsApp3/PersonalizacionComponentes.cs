@@ -20,11 +20,11 @@ namespace WindowsFormsApp3
         private static Font miFuenteMateria = new Font("Microsoft Sans Serif",12 , FontStyle.Bold );
         private static Font miFuenteInfo = new Font("Microsoft Sans Serif", 16);
         private static Font miFuentelblAlumno = new Font("Microsoft Sans Serif", 16);
-
+        private static Image[] imagesAsistencia = { Properties.Resources.icoCheckMark24, Properties.Resources.icoXMark24 };
 
 #region metodos
 
-        /// <summary> debuelbe el contenedor con la informacion del grupo indicado </summary>
+            /// <summary> debuelbe el contenedor con la informacion del grupo indicado </summary>
         public static FlowLayoutPanel hacerConternedorGrupo(Grupo grupo, int color)
         {
             //componentes (declarar todo)
@@ -75,22 +75,21 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> crea un panel con los dateCheckBox de l alumno indicado </summary>
-        internal static FlowLayoutPanel hacerPanelAsistencias(int idAlumno, DateTime[] diasClase)
+        internal static FlowLayoutPanel hacerPanelAsistencias(int idAlumno, DiaClase[] diasClase)
         {
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.Name = "asistencia"+idAlumno;
-            panel.BorderStyle = BorderStyle.FixedSingle;
+            //panel.BorderStyle = BorderStyle.FixedSingle;
 
             DateTime[] faltas = dbConection.getFaltas(idAlumno);
 
-            foreach ( DateTime dia in diasClase)
+            foreach ( DiaClase dia in diasClase)
             {
-                if (faltas.Contains(dia))
-                    panel.Controls.Add(new dateCkBx(dia,false));
+                if (faltas.Contains(dia.dia))
+                    panel.Controls.Add(new DateButton(dia, false, imagesAsistencia[ 1 ]));
                 else
-                    panel.Controls.Add(new dateCkBx(dia,true));
+                    panel.Controls.Add(new DateButton(dia,true, imagesAsistencia[0]));
             }
-
             panel.Size = panel.PreferredSize;
             return panel;
         }

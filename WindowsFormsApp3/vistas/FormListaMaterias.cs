@@ -122,9 +122,9 @@ namespace WindowsFormsApp3
         {
             flPanelAsistencias.Controls.Clear();
             flPanelFechas.Controls.Clear();
-            DateTime[] diasClase = dbConection.getDiasClase(idGrupo);
+            DiaClase[] diasClase = dbConection.getDiasClase(idGrupo);
             
-            foreach (DateTime dia in diasClase)
+            foreach (DiaClase dia in diasClase)
             {
                 flPanelFechas.Controls.Add(new dateLabel(dia));
             }
@@ -132,11 +132,38 @@ namespace WindowsFormsApp3
             foreach (Alumno alumno in alumnosGrupo)
             {
                 FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(alumno.getId(), diasClase);
+
                 flPanelAsistencias.Controls.Add(asistencias);
             }
         }
 
 
         #endregion
+
+        private void btnAddDia_Click(object sender, EventArgs e)
+        {
+            MonthCalendar fecha = new MonthCalendar();
+            this.Controls.Add(fecha);
+
+            fecha.Location = new System.Drawing.Point(567, 57);
+            fecha.Name = "mtcCalendario";
+            fecha.Size = new System.Drawing.Size(200, 20);
+            fecha.TabIndex = 2;
+            fecha.BringToFront();
+            fecha.TodayDate = DateTime.Today;
+
+            fecha.DateSelected += monthCalendarSelected;
+        }
+
+        private void monthCalendarSelected(object sender, DateRangeEventArgs e)
+        {
+            MonthCalendar fecha = (MonthCalendar)sender;
+
+            DateTime dia = fecha.SelectionStart;
+
+            dbConection.agregarDiaClase(new DiaClase(dia, idGrupo));
+            
+            fecha.Dispose();
+        }
     }
 }

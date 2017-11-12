@@ -11,14 +11,12 @@ namespace WindowsFormsApp3
         int idGrupo;
         Alumno[] alumnos;
 
-
 #region constructor
 
         /// <summary> muestra informacion y funciones del grupo indicado </summary>
         public FormGrupoMateria(int idMateria, int idGrupo)
         {
             InitializeComponent();
-
             this.idMateria = idMateria;
 
             this.idGrupo = idGrupo;
@@ -37,7 +35,7 @@ namespace WindowsFormsApp3
         {
             grpBxModulo.Text = "tareas";
 
-            PersonalizacionComponentes.decorarPanelTareas(ref fLPanel, alumnos, idGrupo, idMateria);
+            //PersonalizacionComponentes.decorarPanelTareas(ref fLPanel, alumnos, idGrupo, idMateria);
         }
 
         private void btnProyectos_Click(object sender, EventArgs e)

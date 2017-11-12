@@ -19,7 +19,7 @@ namespace WindowsFormsApp3.Properties {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -83,6 +83,16 @@ namespace WindowsFormsApp3.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icoActualizar {
+            get {
+                object obj = ResourceManager.GetObject("icoActualizar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icoAgregar {
             get {
                 object obj = ResourceManager.GetObject("icoAgregar", resourceCulture);
@@ -116,6 +126,16 @@ namespace WindowsFormsApp3.Properties {
         internal static System.Drawing.Bitmap icoCalificaciones {
             get {
                 object obj = ResourceManager.GetObject("icoCalificaciones", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icoCheckMark24 {
+            get {
+                object obj = ResourceManager.GetObject("icoCheckMark24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -227,6 +247,16 @@ namespace WindowsFormsApp3.Properties {
             get {
                 object obj = ResourceManager.GetObject("icoTeacherAssistant", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icoXMark24 {
+            get {
+                object obj = ResourceManager.GetObject("icoXMark24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

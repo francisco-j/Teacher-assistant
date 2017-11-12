@@ -41,13 +41,14 @@
             this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.flPanelFechas = new System.Windows.Forms.FlowLayoutPanel();
-            this.dateLabel1 = new WindowsFormsApp3.componentes_visuales.dateLabel();
-            this.dateLabel3 = new WindowsFormsApp3.componentes_visuales.dateLabel();
-            this.dateLabel2 = new WindowsFormsApp3.componentes_visuales.dateLabel();
             this.flPanelAsistencias = new System.Windows.Forms.FlowLayoutPanel();
             this.ckBox1 = new System.Windows.Forms.CheckBox();
             this.btnAgregarAlumno = new System.Windows.Forms.Button();
             this.grBoxMaterias = new System.Windows.Forms.GroupBox();
+            this.btnAddDia = new System.Windows.Forms.Button();
+            this.dateLabel1 = new WindowsFormsApp3.componentes_visuales.dateLabel();
+            this.dateLabel3 = new WindowsFormsApp3.componentes_visuales.dateLabel();
+            this.dateLabel2 = new WindowsFormsApp3.componentes_visuales.dateLabel();
             this.grBoxAsistencia.SuspendLayout();
             this.tlPanel.SuspendLayout();
             this.flPanelAlumnos.SuspendLayout();
@@ -59,6 +60,7 @@
             // lblGrupo
             // 
             this.lblGrupo.AutoSize = true;
+            this.lblGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
             this.lblGrupo.Location = new System.Drawing.Point(71, 9);
@@ -103,7 +105,9 @@
             // 
             // btnLogOut
             // 
+            this.btnLogOut.BackColor = System.Drawing.Color.Transparent;
             this.btnLogOut.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoBack;
+            this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnLogOut.FlatAppearance.BorderSize = 0;
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -111,7 +115,7 @@
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(32, 32);
             this.btnLogOut.TabIndex = 14;
-            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnBuscar
@@ -197,45 +201,6 @@
             this.flPanelFechas.TabIndex = 0;
             this.flPanelFechas.WrapContents = false;
             // 
-            // dateLabel1
-            // 
-            this.dateLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.dateLabel1.Fecha = new System.DateTime(((long)(0)));
-            this.dateLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dateLabel1.Location = new System.Drawing.Point(0, 0);
-            this.dateLabel1.Margin = new System.Windows.Forms.Padding(0);
-            this.dateLabel1.Name = "dateLabel1";
-            this.dateLabel1.RotationAngle = -52D;
-            this.dateLabel1.Size = new System.Drawing.Size(38, 45);
-            this.dateLabel1.TabIndex = 2;
-            this.dateLabel1.Text = "30/12/17";
-            // 
-            // dateLabel3
-            // 
-            this.dateLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.dateLabel3.Fecha = new System.DateTime(((long)(0)));
-            this.dateLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dateLabel3.Location = new System.Drawing.Point(38, 0);
-            this.dateLabel3.Margin = new System.Windows.Forms.Padding(0);
-            this.dateLabel3.Name = "dateLabel3";
-            this.dateLabel3.RotationAngle = -52D;
-            this.dateLabel3.Size = new System.Drawing.Size(38, 45);
-            this.dateLabel3.TabIndex = 2;
-            this.dateLabel3.Text = "30/12/17";
-            // 
-            // dateLabel2
-            // 
-            this.dateLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.dateLabel2.Fecha = new System.DateTime(((long)(0)));
-            this.dateLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dateLabel2.Location = new System.Drawing.Point(76, 0);
-            this.dateLabel2.Margin = new System.Windows.Forms.Padding(0);
-            this.dateLabel2.Name = "dateLabel2";
-            this.dateLabel2.RotationAngle = -52D;
-            this.dateLabel2.Size = new System.Drawing.Size(38, 45);
-            this.dateLabel2.TabIndex = 2;
-            this.dateLabel2.Text = "30/12/17";
-            // 
             // flPanelAsistencias
             // 
             this.flPanelAsistencias.AutoSize = true;
@@ -281,12 +246,65 @@
             this.grBoxMaterias.TabStop = false;
             this.grBoxMaterias.Text = "Materias";
             // 
+            // btnAddDia
+            // 
+            this.btnAddDia.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAgregar;
+            this.btnAddDia.FlatAppearance.BorderSize = 0;
+            this.btnAddDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddDia.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddDia.Location = new System.Drawing.Point(567, 57);
+            this.btnAddDia.Name = "btnAddDia";
+            this.btnAddDia.Size = new System.Drawing.Size(32, 32);
+            this.btnAddDia.TabIndex = 21;
+            this.btnAddDia.UseVisualStyleBackColor = true;
+            this.btnAddDia.Click += new System.EventHandler(this.btnAddDia_Click);
+            // 
+            // dateLabel1
+            // 
+            this.dateLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.dateLabel1.Fecha = new System.DateTime(((long)(0)));
+            this.dateLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.dateLabel1.Location = new System.Drawing.Point(0, 0);
+            this.dateLabel1.Margin = new System.Windows.Forms.Padding(0);
+            this.dateLabel1.Name = "dateLabel1";
+            this.dateLabel1.RotationAngle = -52D;
+            this.dateLabel1.Size = new System.Drawing.Size(38, 45);
+            this.dateLabel1.TabIndex = 2;
+            this.dateLabel1.Text = "30/12/17";
+            // 
+            // dateLabel3
+            // 
+            this.dateLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.dateLabel3.Fecha = new System.DateTime(((long)(0)));
+            this.dateLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.dateLabel3.Location = new System.Drawing.Point(38, 0);
+            this.dateLabel3.Margin = new System.Windows.Forms.Padding(0);
+            this.dateLabel3.Name = "dateLabel3";
+            this.dateLabel3.RotationAngle = -52D;
+            this.dateLabel3.Size = new System.Drawing.Size(38, 45);
+            this.dateLabel3.TabIndex = 2;
+            this.dateLabel3.Text = "30/12/17";
+            // 
+            // dateLabel2
+            // 
+            this.dateLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.dateLabel2.Fecha = new System.DateTime(((long)(0)));
+            this.dateLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.dateLabel2.Location = new System.Drawing.Point(76, 0);
+            this.dateLabel2.Margin = new System.Windows.Forms.Padding(0);
+            this.dateLabel2.Name = "dateLabel2";
+            this.dateLabel2.RotationAngle = -52D;
+            this.dateLabel2.Size = new System.Drawing.Size(38, 45);
+            this.dateLabel2.TabIndex = 2;
+            this.dateLabel2.Text = "30/12/17";
+            // 
             // FormListaMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(954, 498);
+            this.Controls.Add(this.btnAddDia);
             this.Controls.Add(this.grBoxMaterias);
             this.Controls.Add(this.grBoxAsistencia);
             this.Controls.Add(this.btnAjustes);
@@ -334,5 +352,6 @@
         private System.Windows.Forms.FlowLayoutPanel flPanelFechas;
         private componentes_visuales.dateLabel dateLabel1;
         private componentes_visuales.dateLabel dateLabel3;
+        private System.Windows.Forms.Button btnAddDia;
     }
 }

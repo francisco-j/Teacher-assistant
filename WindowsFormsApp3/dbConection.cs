@@ -95,10 +95,8 @@ namespace WindowsFormsApp3
                     int grado = (int)reader["grado"];
                     char grupo = reader["grupo"].ToString().First();
                     string escuela = reader["escuela"].ToString();
-                    DateTime inicio = (DateTime)reader["inicio"];
-                    DateTime fin = (DateTime)reader["fin"];
 
-                    Grupo g = new Grupo(id, grado, grupo, escuela, inicio, fin);
+                    Grupo g = new Grupo(id, grado, grupo, escuela);
 
                     lGrupos.Add(g);
                 }
@@ -205,25 +203,21 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> array con los dias de clase del grupo </summary>
-        internal static DateTime[] getDiasClase(int idGrupo)
+        internal static DiaClase[] getDiasClase(int idGrupo)
         {
-            List<DateTime> lDias = new List<DateTime>();
+            List<DiaClase> diasClase = new List<DiaClase>();
             try
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Grupos WHERE id =" + idGrupo;
+                comand.CommandText = "SELECT * FROM DiasClase WHERE idGrupo =" + idGrupo;
                 reader = comand.ExecuteReader();
 
-                reader.Read();
-                DateTime inicio = (DateTime)reader["inicio"];
-                DateTime fin = (DateTime)reader["fin"];
-
-                for (var dia = inicio; dia <= fin; dia = dia.AddDays(1))
+                while( reader.Read() )
                 {
-                    if (dia.DayOfWeek != DayOfWeek.Saturday && dia.DayOfWeek != DayOfWeek.Sunday)
-                        lDias.Add(dia);
+                    diasClase.Add(new DiaClase( (DateTime)reader["fecha"], (int)reader["idGrupo"] ) );
                 }
+                Console.WriteLine("DEntor del método");
 
             }
             finally
@@ -231,7 +225,7 @@ namespace WindowsFormsApp3
                 reader.Close();
                 conection.Close();
             }
-            return lDias.ToArray();
+            return diasClase.ToArray();
         }
 
         /// <summary> array con los dias que falto el alumno </summary>
@@ -305,10 +299,8 @@ namespace WindowsFormsApp3
                 int grado = (int)reader["grado"];
                 char grupo = reader["grupo"].ToString().First();
                 string escuela = reader["escuela"].ToString();
-                DateTime inicio = (DateTime)reader["inicio"];
-                DateTime fin = (DateTime)reader["fin"];
 
-                return new Grupo(id, grado, grupo, escuela, inicio, fin);
+                return new Grupo(id, grado, grupo, escuela);
             }
             finally
             {
@@ -425,15 +417,31 @@ namespace WindowsFormsApp3
             }
         }
 
-        /// <summary> registra el grupo indicado en la base de datos </summary>
-        internal static void agregarGrupo(int grado, char grupo, String escuela, int maesto, DateTime inicioCurso, DateTime finCurso)
+        internal static void agregarDiaClase( DiaClase dia )
         {
-            comand.CommandText = "INSERT INTO Grupos (grado, grupo, escuela, maestro, inicio, fin) VALUES(" + grado + ", '" + grupo + "', '" + escuela + "'," + maesto + ",#" + inicioCurso.ToShortDateString() + "#,#" + inicioCurso.ToShortDateString() + "#)";
+            comand.CommandText = "INSERT INTO DiasClase (fecha, idGrupo) VALUES(#" + dia.dia.ToString("MM'/'dd'/'yy") + "#, " + dia.idGrupo + " )";
             comand.Connection = conection;
             try
             {
                 conection.Open();
-                Console.WriteLine(comand.ExecuteNonQuery() + " liena gregada");
+                comand.ExecuteNonQuery();
+                Console.WriteLine("Dia agregado");
+            }
+            finally
+            {
+                conection.Close();
+            }
+        }
+
+        /// <summary> registra el grupo indicado en la base de datos </summary>
+        internal static void agregarGrupo(int grado, char grupo, String escuela, int maesto)
+        {
+            comand.CommandText = "INSERT INTO Grupos (grado, grupo, escuela, maestro) VALUES(" + grado + ", '" + grupo + "', '" + escuela + "'," + maesto + ")";
+            comand.Connection = conection;
+            try
+            {
+                conection.Open();
+                Console.WriteLine(comand.ExecuteNonQuery() + " grupo agregado");
             }
             finally
             {
@@ -510,15 +518,13 @@ namespace WindowsFormsApp3
 
 #region actualizar
 
-        internal static void modificarGrupo(int idGrupo, int grado, char grupo, String escuela, DateTime inicioCurso, DateTime finCurso)
+        internal static void modificarGrupo(int idGrupo, int grado, char grupo, String escuela)
         {
             comand.CommandText =
                 "UPDATE Grupos SET "
                     + "grado = "+    grado+", "
                     + "grupo = '"+   grupo + "', "
-                    + "escuela = '"+ escuela + "',"
-                    + "inicio = #"+  inicioCurso.ToShortDateString() + "#,"
-                    + "fin = #" +    finCurso.ToShortDateString() + "#"
+                    + "escuela = '"+ escuela + "'"
                 + "WHERE id = " +    idGrupo ;
             comand.Connection = conection;
             try
