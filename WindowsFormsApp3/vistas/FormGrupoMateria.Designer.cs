@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGrupoMateria));
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblDatosGrupo = new System.Windows.Forms.Label();
@@ -47,7 +46,6 @@
             this.btnProyectos = new System.Windows.Forms.Button();
             this.btnTareas = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.grpBxModulo.SuspendLayout();
             this.tlPanel.SuspendLayout();
             this.flPanelAlumnos.SuspendLayout();
@@ -270,15 +268,6 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Notas 2 peque.png");
-            this.imageList1.Images.SetKeyName(1, "Notaspeque.png");
-            this.imageList1.Images.SetKeyName(2, "Examenes o calificacionespeque.png");
-            this.imageList1.Images.SetKeyName(3, "examenespeque.png");
-            // 
             // FormGrupoMateria
             // 
             this.AccessibleName = "FormGrupo";
@@ -334,6 +323,5 @@
         private componentes_visuales.dateLabel dateLabel2;
         private System.Windows.Forms.FlowLayoutPanel flPanelEntregas;
         private System.Windows.Forms.CheckBox ckBox1;
-        private System.Windows.Forms.ImageList imageList1;
     }
 }

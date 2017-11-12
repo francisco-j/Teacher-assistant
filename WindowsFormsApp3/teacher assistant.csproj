@@ -50,11 +50,11 @@
     <Compile Include="componentes visuales\DateButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="componentes visuales\dateCkBx.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="clases objeto\Materia.cs" />
     <Compile Include="componentes visuales\dateLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="componentes visuales\tareaCkBx.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="vistas\FormAgregarAlumno.cs">
