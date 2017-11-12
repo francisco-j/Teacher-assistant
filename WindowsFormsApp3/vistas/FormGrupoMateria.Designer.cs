@@ -36,7 +36,6 @@
             this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.flPanelTitulos = new System.Windows.Forms.FlowLayoutPanel();
-            this.dateLabel2 = new WindowsFormsApp3.componentes_visuales.dateLabel();
             this.flPanelEntregas = new System.Windows.Forms.FlowLayoutPanel();
             this.ckBox1 = new System.Windows.Forms.CheckBox();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -129,25 +128,11 @@
             // flPanelTitulos
             // 
             this.flPanelTitulos.AutoSize = true;
-            this.flPanelTitulos.Controls.Add(this.dateLabel2);
             this.flPanelTitulos.Location = new System.Drawing.Point(336, 3);
             this.flPanelTitulos.Name = "flPanelTitulos";
             this.flPanelTitulos.Size = new System.Drawing.Size(38, 45);
             this.flPanelTitulos.TabIndex = 0;
             this.flPanelTitulos.WrapContents = false;
-            // 
-            // dateLabel2
-            // 
-            this.dateLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.dateLabel2.Fecha = new System.DateTime(((long)(0)));
-            this.dateLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dateLabel2.Location = new System.Drawing.Point(0, 0);
-            this.dateLabel2.Margin = new System.Windows.Forms.Padding(0);
-            this.dateLabel2.Name = "dateLabel2";
-            this.dateLabel2.RotationAngle = -52D;
-            this.dateLabel2.Size = new System.Drawing.Size(38, 45);
-            this.dateLabel2.TabIndex = 2;
-            this.dateLabel2.Text = "30/12/17";
             // 
             // flPanelEntregas
             // 
@@ -320,7 +305,6 @@
         private System.Windows.Forms.FlowLayoutPanel flPanelAlumnos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flPanelTitulos;
-        private componentes_visuales.dateLabel dateLabel2;
         private System.Windows.Forms.FlowLayoutPanel flPanelEntregas;
         private System.Windows.Forms.CheckBox ckBox1;
     }

@@ -122,7 +122,7 @@ namespace WindowsFormsApp3
             
             foreach (DiaClase dia in diasClase)
             {
-                flPanelFechas.Controls.Add(new dateLabel(dia));
+                flPanelFechas.Controls.Add(new tiltLabel(dia));
             }
 
             foreach (Alumno alumno in alumnosGrupo)
