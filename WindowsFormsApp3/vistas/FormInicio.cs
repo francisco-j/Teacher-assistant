@@ -53,12 +53,6 @@ namespace WindowsFormsApp3
             }
         }
 
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            new FormRegistrarse().ShowDialog();
-            txbUsuario.Focus();
-        }
-
 
 // *****************************  eventos_enter ********************************************
         private void txbUsuario_KeyPress(object sender, KeyPressEventArgs e)
@@ -76,6 +70,12 @@ namespace WindowsFormsApp3
         private void FormInicio_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnRegistrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new FormRegistrarse().ShowDialog();
+            txbUsuario.Focus();
         }
     }
 

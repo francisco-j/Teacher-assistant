@@ -43,6 +43,33 @@ namespace WindowsFormsApp3
 
         }
 
+        /// <summary>
+        /// Validación si la fecha que se trata de agregar no existe ya para este grupo
+        /// </summary>
+        /// <param name="dia"></param>
+        /// <param name="idGrupo"></param>
+        /// <returns></returns>
+        internal static bool dayExists(DateTime dia, int idGrupo)
+        {
+            bool existe = false;
+            try
+            {
+                conection.Open();
+                comand = new OleDbCommand("SELECT * FROM DiasClase WHERE fecha=#" + dia.ToString("MM'/'dd'/'yy") + "# AND idGrupo=" + idGrupo, conection);
+                reader = comand.ExecuteReader();
+                reader.Read();
+
+                if (reader.HasRows)
+                    existe = true;
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return existe;
+        }
+
         /// <summary> verifica que la contrasena y usuario coinsidan </summary>
         internal static bool isCorrecto(ref int idUsuario, string usuario, string contrasena)
         {
@@ -171,34 +198,44 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> devuelbe todos los alumnos que concidan con el string indicado. Toma en cuenta nombre, apellidoM y apellidoM. Pero si el string abarca mas de uno no encontrara al alumno deseado </summary>
-        internal static Alumno[] buscar(string name)
+        internal static Alumno[] buscar(string name, int idMaestro)
         {
             List<Alumno> lAlumnos = new List<Alumno>();
-            try
+
+            conection.Open();
+            comand.CommandText = "SELECT * FROM Grupos WHERE maestro=" + idMaestro;
+            reader = comand.ExecuteReader();
+
+            while( reader.Read() )
             {
-                conection.Open();
-                comand.Connection = conection;
-
-                comand.CommandText = "SELECT * FROM Alumnos WHERE nombres & ' ' & apellidoPaterno & ' ' & apellidoMaterno like '%" + name + "%'";
-                reader = comand.ExecuteReader();
-
-                while (reader.Read())
+                try
                 {
-                    int id = (int)reader["id"];
-                    string nombre = reader["nombres"].ToString();
-                    string apellidoP = reader["apellidoPaterno"].ToString();
-                    string apellidoM = reader["apellidoMaterno"].ToString();
-                    int grupo = (int)reader["grupo"];
-                    Alumno a = new Alumno(id, nombre, apellidoP, apellidoM, grupo);
+                    OleDbConnection newConnection = new OleDbConnection(conection.ConnectionString);
+                    newConnection.Open();
+                    OleDbCommand newCommand = new OleDbCommand("SELECT * FROM Alumnos WHERE nombres & ' ' & apellidoPaterno & ' ' & apellidoMaterno like '%" + name + "%' AND grupo=" + (int)reader["id"], newConnection);
+                    OleDbDataReader newReader = newCommand.ExecuteReader();
 
-                    lAlumnos.Add(a);
+                    while (newReader.Read())
+                    {
+                        int id = (int)newReader["id"];
+                        string nombre = newReader["nombres"].ToString();
+                        string apellidoP = newReader["apellidoPaterno"].ToString();
+                        string apellidoM = newReader["apellidoMaterno"].ToString();
+                        int grupo = (int)newReader["grupo"];
+                        Alumno a = new Alumno(id, nombre, apellidoP, apellidoM, grupo);
+
+                        lAlumnos.Add(a);
+                    }
+                    newReader.Close();
+                    newConnection.Close();
+                }
+                catch
+                {
+                    Console.WriteLine("Error de búsqueda de alumnos");
                 }
             }
-            finally
-            {
-                reader.Close();
-                conection.Close();
-            }
+            reader.Close();
+            conection.Close();
             return lAlumnos.ToArray();
         }
 
@@ -210,7 +247,7 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM DiasClase WHERE idGrupo =" + idGrupo;
+                comand.CommandText = "SELECT * FROM DiasClase WHERE idGrupo =" + idGrupo + " ORDER BY fecha ASC";
                 reader = comand.ExecuteReader();
 
                 while( reader.Read() )
@@ -256,6 +293,29 @@ namespace WindowsFormsApp3
 #endregion
 
 #region lectura
+        
+        internal static int getIdMaestro( int idGrupo )
+        {
+            int idMaestro;
+            try
+            {
+                conection.Open();
+                comand.CommandText = "SELECT * FROM Grupos WHERE id=" + idGrupo;
+                comand.Connection = conection;
+                reader = comand.ExecuteReader();
+
+                reader.Read();
+
+                idMaestro = (int)reader["maestro"];
+
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+                return idMaestro;
+        }
 
         /// <summary> nombre de la materia indicada </summary>
         internal static Materia getMateria(int idMateria)
@@ -318,20 +378,30 @@ namespace WindowsFormsApp3
                 conection.Open();
                 comand.Connection = conection;
 
-                comand.CommandText = "SELECT * FROM Alumnos WHERE grupo=" + idGrupo;
-                reader = comand.ExecuteReader();
+                comand.CommandText = "SELECT COUNT(*) FROM Alumnos WHERE grupo=" + idGrupo;
 
-                int numAlum = 0;
-                while (reader.Read())
-                    numAlum++;
-
-                return numAlum;
+                return (int)comand.ExecuteScalar();
             }
             finally
             {
                 reader.Close();
                 conection.Close();
             }
+        }
+
+        internal static Alumno getAlumno( string nombre, string paterno, string materno, int idGrupo )
+        {
+            conection.Open();
+            comand = new OleDbCommand("SELECT * FROM Alumnos WHERE nombres='" + nombre + "' AND apellidoPaterno='" + paterno + "' AND apellidoMaterno='" + materno + "' AND grupo=" + idGrupo, conection);
+            Console.WriteLine(comand.CommandText);
+            reader = comand.ExecuteReader();
+            reader.Read();
+
+            Alumno alumno = new Alumno( (int)reader["id"], nombre, paterno, materno, idGrupo );
+            reader.Close();
+            conection.Close();
+
+            return alumno;
         }
 
         /// <summary> llena la informacion sobre el grupo y materia indicados </summary>

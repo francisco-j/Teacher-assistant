@@ -128,7 +128,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRegistrarse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Registrarse";
+            this.Text = "Registro";
             this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();

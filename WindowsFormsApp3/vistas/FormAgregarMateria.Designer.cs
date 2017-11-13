@@ -36,6 +36,7 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGuardar.Location = new System.Drawing.Point(83, 93);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);

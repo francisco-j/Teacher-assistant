@@ -20,13 +20,14 @@ namespace WindowsFormsApp3.componentes_visuales
             this.dia = dia;
             this.asistencia = asistencia;
 
-            this.Size = new Size(38, 14);
+            this.Size = new Size(44, 26);
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderColor = Color.FromArgb(0, 0, 0);
             this.FlatAppearance.BorderSize = 1;
             this.BackColor = Color.WhiteSmoke;
             this.BackgroundImage = fondo;
             this.BackgroundImageLayout = ImageLayout.Zoom;
+            this.Margin = new Padding(0);
 
             this.Click += clickDateButton;
         }

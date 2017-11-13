@@ -33,12 +33,12 @@
             this.btnIniciar = new System.Windows.Forms.Button();
             this.picVulcanoLogo = new System.Windows.Forms.PictureBox();
             this.picTaLogo = new System.Windows.Forms.PictureBox();
-            this.btnRegistrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txbUsuario = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPregunta = new System.Windows.Forms.Label();
+            this.btnRegistrar = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.picVulcanoLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -91,22 +91,6 @@
             this.picTaLogo.TabIndex = 1;
             this.picTaLogo.TabStop = false;
             // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.btnRegistrar.Location = new System.Drawing.Point(218, 379);
-            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(84, 30);
-            this.btnRegistrar.TabIndex = 3;
-            this.btnRegistrar.Text = "Regístrate";
-            this.btnRegistrar.UseVisualStyleBackColor = false;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -158,12 +142,26 @@
             this.lblPregunta.TabIndex = 9;
             this.lblPregunta.Text = "¿No tienes cuenta?";
             // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.AutoSize = true;
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.btnRegistrar.Location = new System.Drawing.Point(225, 387);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(73, 15);
+            this.btnRegistrar.TabIndex = 10;
+            this.btnRegistrar.TabStop = true;
+            this.btnRegistrar.Text = "Regístrate";
+            this.btnRegistrar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnRegistrar_LinkClicked);
+            // 
             // FormInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(417, 585);
+            this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.lblPregunta);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txbUsuario);
@@ -173,7 +171,6 @@
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.picTaLogo);
             this.Controls.Add(this.txbContrasena);
-            this.Controls.Add(this.btnRegistrar);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormInicio";
@@ -194,12 +191,12 @@
         private System.Windows.Forms.PictureBox picTaLogo;
         private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.PictureBox picVulcanoLogo;
-        private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbUsuario;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblPregunta;
+        private System.Windows.Forms.LinkLabel btnRegistrar;
     }
 }
 

@@ -7,7 +7,7 @@ namespace WindowsFormsApp3
 {
     public partial class FormListaGrupos : Form
     {
-        // id del maestro que esta viendo la ventana
+        // id del maestro que inició sesión
         private int idMaestro;
         private Grupo[] grupos;
 
@@ -30,7 +30,7 @@ namespace WindowsFormsApp3
 
         private void btnBuscar_Click(object sender, System.EventArgs e)
         {
-            new FormResultadoBusqueda(txbBusqueda.Text);
+            new FormResultadoBusqueda(txbBusqueda.Text, idMaestro);
         }
 
         private void btnLogOut_Click(object sender, System.EventArgs e)
@@ -41,9 +41,8 @@ namespace WindowsFormsApp3
 
         private void btnAgregarGrupo_Click(object sender, System.EventArgs e)
         {
-            new FormAgregarGrupo(idMaestro).ShowDialog(this);
-
-            cargarBotones();
+            if( new FormAgregarGrupo(idMaestro).ShowDialog(this) == DialogResult.OK)
+                cargarBotones();
         }
 
 // ***************************** metodos  *******************************************************

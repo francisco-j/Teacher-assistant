@@ -97,6 +97,7 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnGuardar.Location = new System.Drawing.Point(80, 141);
             this.btnGuardar.Name = "btnGuardar";

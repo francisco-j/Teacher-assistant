@@ -8,16 +8,19 @@ namespace WindowsFormsApp3.vistas
     {
         //almacenamos los alumnos para cuando queramos ver al info de cada uno
         Alumno[] alumnos;
+        int idMaestro;
 
 #region constructor
 
         /// <summary> ventana que muestra la busqueda indicada </summary>
-        public FormResultadoBusqueda(string busqueda)
+        public FormResultadoBusqueda(string busqueda, int idMaestro)
         {
             InitializeComponent();
 
+            this.idMaestro = idMaestro;
+
             txbBusqueda.Text = busqueda;
-            mostrar(busqueda);
+            mostrar(busqueda, idMaestro);
 
             this.Show();
         }
@@ -27,13 +30,13 @@ namespace WindowsFormsApp3.vistas
 #region metodos
 
         /// <summary> busca en la DB y agrega a la lista </summary>
-        private void mostrar(string busqueda)
+        private void mostrar(string busqueda, int idMaestro)
         {
             lstBxNombres.Items.Clear();
             lstBxGrados.Items.Clear();
             lblSinResultados.Visible = false;
 
-            alumnos =  dbConection.buscar(busqueda);
+            alumnos =  dbConection.buscar(busqueda, idMaestro);
 
             if (alumnos.Length == 0)
             {
@@ -59,7 +62,7 @@ namespace WindowsFormsApp3.vistas
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            mostrar(txbBusqueda.Text);
+            mostrar(txbBusqueda.Text, idMaestro);
         }
 
         private void lstBxNombres_MouseDoubleClick(object sender, MouseEventArgs e)

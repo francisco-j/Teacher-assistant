@@ -57,6 +57,7 @@ namespace WindowsFormsApp3.vistas
 
                 //Le dice a la BD que agregue ése alumno
                 dbConection.agregarAlumno(alumno);
+                ((FormListaMaterias)this.Owner).recibirNombreAlumno(alumno);
 
                 this.Dispose();
             }

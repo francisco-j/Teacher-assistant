@@ -59,9 +59,9 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> muestra las materias del grupo especificado </summary>
-        internal static void showListaMaterias(int idGrupo)
+        internal static void showListaMaterias(int idGrupo, int idMaestro)
         {
-            listaMaterias = new FormListaMaterias(idGrupo);
+            listaMaterias = new FormListaMaterias(idGrupo, idMaestro);
         }
 
         internal static void returnToListaMaterias()

@@ -79,7 +79,7 @@ namespace WindowsFormsApp3
         {
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.Name = "asistencia"+idAlumno;
-            //panel.BorderStyle = BorderStyle.FixedSingle;
+            panel.Margin = new Padding(0);
 
             DateTime[] faltas = dbConection.getFaltas(idAlumno);
 
@@ -88,7 +88,7 @@ namespace WindowsFormsApp3
                 if (faltas.Contains(dia.dia))
                     panel.Controls.Add(new DateButton(dia, false, imagesAsistencia[ 1 ]));
                 else
-                    panel.Controls.Add(new DateButton(dia,true, imagesAsistencia[0]));
+                    panel.Controls.Add(new DateButton(dia, true, imagesAsistencia[0]));
             }
             panel.Size = panel.PreferredSize;
             return panel;
@@ -173,7 +173,8 @@ namespace WindowsFormsApp3
             string grupo = (sender as Button).Name.Replace("btnGrupo", "");
             int idGrupo = int.Parse(grupo);
 
-            Program.showListaMaterias(idGrupo);
+            int idMaestro = dbConection.getIdMaestro(idGrupo);
+            Program.showListaMaterias(idGrupo, idMaestro);
             Program.listaGrupos.Hide();
         }
 
@@ -182,9 +183,8 @@ namespace WindowsFormsApp3
         {
             int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Editar", ""));
             FormAgregarGrupo modificarGrupo = new FormAgregarGrupo(dbConection.getGrupo(idGrupo));
-            modificarGrupo.ShowDialog();
-
-            Program.listaGrupos.cargarBotones();
+            if( modificarGrupo.ShowDialog() == DialogResult.OK)
+                Program.listaGrupos.cargarBotones();
 
         }
 
@@ -227,9 +227,8 @@ namespace WindowsFormsApp3
             int idMateria = int.Parse((sender as MenuItem).Name.Replace("Editar", ""));
 
             FormAgregarMateria modoficarMateria =new FormAgregarMateria(dbConection.getMateria(idMateria));
-            modoficarMateria.ShowDialog();
-
-            Program.listaMaterias.cargarMaterias();
+            if( modoficarMateria.ShowDialog() == DialogResult.OK)
+                Program.listaMaterias.cargarMaterias();
         }
 
         /// <summary> para menu contextual de grupo </summary>
