@@ -193,7 +193,7 @@ namespace WindowsFormsApp3
             PersonalizacionComponentes.llenarPanelAlunos(flPanelAlumnos, alumnosGrupo);
         }
 
-        /// <summary>  </summary>
+        /// <summary> llena la lista de asistencias </summary>
         private void cargarAsistencias()
         {
             flPanelAsistencias.Controls.Clear();
@@ -202,7 +202,7 @@ namespace WindowsFormsApp3
             
             foreach (DiaClase dia in diasClase)
             {
-                flPanelFechas.Controls.Add(new dateLabel(dia));
+                flPanelFechas.Controls.Add(new tiltLabel(dia));
             }
             flPanelFechas.Size = flPanelAsistencias.PreferredSize;
 
