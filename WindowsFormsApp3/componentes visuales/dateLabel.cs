@@ -74,6 +74,8 @@ namespace WindowsFormsApp3.componentes_visuales
             this.text = fecha.dia.ToString("dd'/'MM'/'yy");
             rotationAngle = -60d;
             this.Size = new Size(38, 50);
+
+            this.Name = fecha.dia.ToString("dd'/'MM'/'yy");
         }
 
         #endregion

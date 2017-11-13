@@ -205,13 +205,25 @@ namespace WindowsFormsApp3
                 flPanelFechas.Controls.Add(new dateLabel(dia));
             }
             flPanelFechas.Size = flPanelAsistencias.PreferredSize;
-
+            
             foreach (Alumno alumno in alumnosGrupo)
             {
                 FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(alumno.getId(), diasClase);
                 asistencias.Name = alumno.getId().ToString();
                 flPanelAsistencias.Controls.Add(asistencias);
             }
+        }
+
+        public void asistenciaSelected( string idAlumno, string fecha )
+        {
+            (flPanelAlumnos.Controls.Find(idAlumno, false)[0] as Label).BackColor = Color.Silver;
+            (flPanelFechas.Controls.Find(fecha, false)[0] as Label).BackColor = Color.Silver;
+        }
+
+        public void asistenciaLeaveSelected(string idAlumno, string fecha)
+        {
+            (flPanelAlumnos.Controls.Find(idAlumno, false)[0] as Label).BackColor = Color.WhiteSmoke;
+            (flPanelFechas.Controls.Find(fecha, false)[0] as Label).BackColor = Color.WhiteSmoke;
         }
 
         private void actualizarAssitencia( DateTime dia )

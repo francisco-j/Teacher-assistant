@@ -124,6 +124,7 @@ namespace WindowsFormsApp3
                 nombre.Font = miFuentelblAlumno;
                 nombre.Text = alumno.nombreCompletoPA();
 
+                nombre.Name = alumno.getId().ToString();
                 panel.Controls.Add(nombre);
             }
 
