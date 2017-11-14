@@ -51,11 +51,11 @@ namespace WindowsFormsApp3
                 FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelTareas(alumno.getId(), listTareas);
 
                 flPanelEntregas.Controls.Add(tareas);
-            }
+            }*/
         }
 
         private void btnProyectos_Click(object sender, EventArgs e)
-        {
+        {/*
             grpBxModulo.Text = "Proyectos";
 
             flPanelTitulos.Controls.Clear();
@@ -72,7 +72,7 @@ namespace WindowsFormsApp3
                 FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelProyectos(alumno.getId(), listProyectos);
 
                 flPanelEntregas.Controls.Add(entregas);
-            }
+            }*/
         }
 
         private void btnExamenes_Click(object sender, EventArgs e)

@@ -196,7 +196,7 @@
             this.btnCalificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalificaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalificaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnCalificaciones.Image = global::WindowsFormsApp3.Properties.Resources.icoCalif;
+            this.btnCalificaciones.Image = global::WindowsFormsApp3.Properties.Resources.icoAgregar;
             this.btnCalificaciones.Location = new System.Drawing.Point(12, 362);
             this.btnCalificaciones.Name = "btnCalificaciones";
             this.btnCalificaciones.Size = new System.Drawing.Size(70, 88);

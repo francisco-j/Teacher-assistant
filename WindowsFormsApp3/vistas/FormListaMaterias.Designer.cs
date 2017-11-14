@@ -80,7 +80,7 @@
             // 
             // btnAjustes
             // 
-            this.btnAjustes.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoMenu;
+            this.btnAjustes.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoMas;
             this.btnAjustes.FlatAppearance.BorderSize = 0;
             this.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAjustes.Font = new System.Drawing.Font("Marlett", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -156,7 +156,7 @@
             // 
             // btnAddDia
             // 
-            this.btnAddDia.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoCalendar32;
+            this.btnAddDia.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAgregar;
             this.btnAddDia.FlatAppearance.BorderSize = 0;
             this.btnAddDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddDia.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -248,7 +248,7 @@
             // 
             // btnAgregarAlumno
             // 
-            this.btnAgregarAlumno.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAddAlumno32;
+            this.btnAgregarAlumno.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAgregar;
             this.btnAgregarAlumno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAgregarAlumno.FlatAppearance.BorderSize = 0;
             this.btnAgregarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
