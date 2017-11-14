@@ -27,7 +27,8 @@ namespace WindowsFormsApp3
 
             btnTareas.PerformClick();
         }
-        #endregion
+        
+#endregion
 
 #region eventos
 
@@ -55,19 +56,34 @@ namespace WindowsFormsApp3
 
         private void btnProyectos_Click(object sender, EventArgs e)
         {
-            grpBxModulo.Text = "proyectos";
-            //PersonalizacionComponentes.decorarPanelProyectos(ref fLPanel);
+            grpBxModulo.Text = "Proyectos";
+
+            flPanelTitulos.Controls.Clear();
+            flPanelEntregas.Controls.Clear();
+            Proyecto[] listProyectos = dbConection.getProyectos(idMateria);
+
+            foreach (Proyecto proyecto in listProyectos)
+            {
+                flPanelTitulos.Controls.Add(new tiltLabel(proyecto.nombre));
+            }
+
+            foreach (Alumno alumno in alumnos)
+            {
+                FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelProyectos(alumno.getId(), listProyectos);
+
+                flPanelEntregas.Controls.Add(entregas);
+            }
         }
 
         private void btnExamenes_Click(object sender, EventArgs e)
         {
-            grpBxModulo.Text = "examenes";
+            grpBxModulo.Text = "Examenes";
             //PersonalizacionComponentes.decorarPanelExamenes(ref fLPanel);
         }
 
         private void btnCalificaciones_Click(object sender, EventArgs e)
         {
-            grpBxModulo.Text = "calificaciones";
+            grpBxModulo.Text = "Calificaciones";
             //PersonalizacionComponentes.decorarPanelCalificaciones(ref fLPanel);
         }
 
@@ -82,7 +98,16 @@ namespace WindowsFormsApp3
             Application.Exit();
         }
 
-        #endregion
+        private void numericUpDn_ValueChanged(object sender, EventArgs e)
+        {
+            float total = (float) (upDnAsistencias.Value + upDnTareas.Value + upDnExamenes.Value + upDnProyectos.Value);
+
+            lblTotal.Text = total.ToString();
+
+            lblTotal.ForeColor = total!=10 ? Color.Salmon: Color.FromArgb(56, 164, 140);
+        }
+
+#endregion
 
 #region metodos
 
@@ -101,7 +126,6 @@ namespace WindowsFormsApp3
             PersonalizacionComponentes.llenarPanelAlunos(flPanelAlumnos, alumnos);
         }
 
-#endregion
-
+        #endregion
     }
 }

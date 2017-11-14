@@ -45,11 +45,24 @@
             this.btnProyectos = new System.Windows.Forms.Button();
             this.btnTareas = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.upDnProyectos = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.upDnAsistencias = new System.Windows.Forms.NumericUpDown();
+            this.upDnTareas = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.upDnExamenes = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.grpBxModulo.SuspendLayout();
             this.tlPanel.SuspendLayout();
             this.flPanelAlumnos.SuspendLayout();
-            this.flPanelTitulos.SuspendLayout();
             this.flPanelEntregas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.upDnProyectos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upDnAsistencias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upDnTareas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upDnExamenes)).BeginInit();
             this.SuspendLayout();
             // 
             // lblGrupo
@@ -130,7 +143,7 @@
             this.flPanelTitulos.AutoSize = true;
             this.flPanelTitulos.Location = new System.Drawing.Point(336, 3);
             this.flPanelTitulos.Name = "flPanelTitulos";
-            this.flPanelTitulos.Size = new System.Drawing.Size(38, 45);
+            this.flPanelTitulos.Size = new System.Drawing.Size(0, 0);
             this.flPanelTitulos.TabIndex = 0;
             this.flPanelTitulos.WrapContents = false;
             // 
@@ -183,7 +196,7 @@
             this.btnCalificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalificaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalificaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnCalificaciones.Image = global::WindowsFormsApp3.Properties.Resources.examenespeque;
+            this.btnCalificaciones.Image = global::WindowsFormsApp3.Properties.Resources.icoCalif;
             this.btnCalificaciones.Location = new System.Drawing.Point(12, 362);
             this.btnCalificaciones.Name = "btnCalificaciones";
             this.btnCalificaciones.Size = new System.Drawing.Size(70, 88);
@@ -199,7 +212,7 @@
             this.btnExamenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExamenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExamenes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnExamenes.Image = global::WindowsFormsApp3.Properties.Resources.Examenes_o_calificacionespeque;
+            this.btnExamenes.Image = global::WindowsFormsApp3.Properties.Resources.icoExam;
             this.btnExamenes.Location = new System.Drawing.Point(12, 277);
             this.btnExamenes.Name = "btnExamenes";
             this.btnExamenes.Size = new System.Drawing.Size(70, 79);
@@ -215,7 +228,7 @@
             this.btnProyectos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProyectos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProyectos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnProyectos.Image = global::WindowsFormsApp3.Properties.Resources.Notaspeque;
+            this.btnProyectos.Image = ((System.Drawing.Image)(resources.GetObject("btnProyectos.Image")));
             this.btnProyectos.Location = new System.Drawing.Point(12, 181);
             this.btnProyectos.Name = "btnProyectos";
             this.btnProyectos.Size = new System.Drawing.Size(70, 80);
@@ -231,7 +244,7 @@
             this.btnTareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
-            this.btnTareas.Image = global::WindowsFormsApp3.Properties.Resources.Notas_2_peque;
+            this.btnTareas.Image = ((System.Drawing.Image)(resources.GetObject("btnTareas.Image")));
             this.btnTareas.Location = new System.Drawing.Point(12, 88);
             this.btnTareas.Name = "btnTareas";
             this.btnTareas.Size = new System.Drawing.Size(70, 87);
@@ -253,6 +266,168 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // upDnProyectos
+            // 
+            this.upDnProyectos.DecimalPlaces = 1;
+            this.upDnProyectos.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.upDnProyectos.Location = new System.Drawing.Point(806, 29);
+            this.upDnProyectos.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.upDnProyectos.Name = "upDnProyectos";
+            this.upDnProyectos.Size = new System.Drawing.Size(34, 20);
+            this.upDnProyectos.TabIndex = 25;
+            this.upDnProyectos.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            65536});
+            this.upDnProyectos.ValueChanged += new System.EventHandler(this.numericUpDn_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
+            this.label1.Location = new System.Drawing.Point(860, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Tareas";
+            this.label1.UseWaitCursor = true;
+            // 
+            // upDnAsistencias
+            // 
+            this.upDnAsistencias.DecimalPlaces = 1;
+            this.upDnAsistencias.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.upDnAsistencias.Location = new System.Drawing.Point(906, 5);
+            this.upDnAsistencias.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.upDnAsistencias.Name = "upDnAsistencias";
+            this.upDnAsistencias.Size = new System.Drawing.Size(36, 20);
+            this.upDnAsistencias.TabIndex = 25;
+            this.upDnAsistencias.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            65536});
+            this.upDnAsistencias.ValueChanged += new System.EventHandler(this.numericUpDn_ValueChanged);
+            // 
+            // upDnTareas
+            // 
+            this.upDnTareas.DecimalPlaces = 1;
+            this.upDnTareas.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.upDnTareas.Location = new System.Drawing.Point(906, 31);
+            this.upDnTareas.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.upDnTareas.Name = "upDnTareas";
+            this.upDnTareas.Size = new System.Drawing.Size(36, 20);
+            this.upDnTareas.TabIndex = 25;
+            this.upDnTareas.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            65536});
+            this.upDnTareas.ValueChanged += new System.EventHandler(this.numericUpDn_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
+            this.label3.Location = new System.Drawing.Point(744, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Exámenes";
+            this.label3.UseWaitCursor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
+            this.label4.Location = new System.Drawing.Point(846, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Asistecias";
+            this.label4.UseWaitCursor = true;
+            // 
+            // upDnExamenes
+            // 
+            this.upDnExamenes.DecimalPlaces = 1;
+            this.upDnExamenes.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.upDnExamenes.Location = new System.Drawing.Point(806, 5);
+            this.upDnExamenes.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.upDnExamenes.Name = "upDnExamenes";
+            this.upDnExamenes.Size = new System.Drawing.Size(34, 20);
+            this.upDnExamenes.TabIndex = 25;
+            this.upDnExamenes.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            65536});
+            this.upDnExamenes.ValueChanged += new System.EventHandler(this.numericUpDn_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
+            this.label5.Location = new System.Drawing.Point(746, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Proyectos";
+            this.label5.UseWaitCursor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
+            this.label6.Location = new System.Drawing.Point(837, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Total";
+            this.label6.UseWaitCursor = true;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
+            this.lblTotal.Location = new System.Drawing.Point(874, 72);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(19, 13);
+            this.lblTotal.TabIndex = 26;
+            this.lblTotal.Text = "10";
+            this.lblTotal.UseWaitCursor = true;
+            // 
             // FormGrupoMateria
             // 
             this.AccessibleName = "FormGrupo";
@@ -260,6 +435,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(954, 501);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.upDnExamenes);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.upDnTareas);
+            this.Controls.Add(this.upDnAsistencias);
+            this.Controls.Add(this.upDnProyectos);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.grpBxModulo);
             this.Controls.Add(this.btnCalificaciones);
@@ -281,9 +466,12 @@
             this.tlPanel.PerformLayout();
             this.flPanelAlumnos.ResumeLayout(false);
             this.flPanelAlumnos.PerformLayout();
-            this.flPanelTitulos.ResumeLayout(false);
             this.flPanelEntregas.ResumeLayout(false);
             this.flPanelEntregas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.upDnProyectos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upDnAsistencias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upDnTareas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upDnExamenes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,5 +495,15 @@
         private System.Windows.Forms.FlowLayoutPanel flPanelTitulos;
         private System.Windows.Forms.FlowLayoutPanel flPanelEntregas;
         private System.Windows.Forms.CheckBox ckBox1;
+        private System.Windows.Forms.NumericUpDown upDnProyectos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown upDnAsistencias;
+        private System.Windows.Forms.NumericUpDown upDnTareas;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown upDnExamenes;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblTotal;
     }
 }
