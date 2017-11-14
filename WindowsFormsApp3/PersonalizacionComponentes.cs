@@ -8,9 +8,11 @@ using System.Collections.Generic;
 using WindowsFormsApp3.clases_objeto;
 using WindowsFormsApp3.componentes_visuales;
 
-/// <summary> clase encargada de guardar los métodos que usaremos para personalizar componentes como:
+/// <summary>
+/// clase encargada de guardar los métodos que usaremos para personalizar componentes como:
 /// los botones, labels y demás componenetes que estaremos generando en tiempo de ejecución
-/// todos los metodos son static por que la clase no se instancia </summary>
+/// todos los metodos son static por que la clase no se instancia
+/// </summary>
 namespace WindowsFormsApp3
 {
     abstract class PersonalizacionComponentes
@@ -85,7 +87,7 @@ namespace WindowsFormsApp3
 
             foreach ( DiaClase dia in diasClase)
             {
-                bool asistencia = faltas.Contains(dia.dia);
+                bool asistencia = !faltas.Contains(dia.dia);
                 panel.Controls.Add(new DateButton(dia, asistencia));
             }
             panel.Size = panel.PreferredSize;
