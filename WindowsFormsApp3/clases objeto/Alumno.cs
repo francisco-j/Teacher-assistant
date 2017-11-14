@@ -29,9 +29,9 @@ namespace WindowsFormsApp3.clases_objeto
         /// <summary> para cuando recien se crea un alumno y se va a agregar a la DB </summary>
         public Alumno(int grupo, string nombre, string apellidoP, string apellidoM)
         {
-            this.nombre = nombre;
-            this.apellidoP = apellidoP;
-            this.apellidoM = apellidoM;
+            this.nombre = nombre.First().ToString().ToUpper() + nombre.Substring(1);
+            this.apellidoP = apellidoP.First().ToString().ToUpper() + apellidoP.Substring(1);
+            this.apellidoM = nombre.First().ToString().ToUpper() + nombre.Substring(1);
             this.grupo = grupo;
         }
 
