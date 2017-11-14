@@ -47,9 +47,9 @@ namespace WindowsFormsApp3
 
             foreach (Alumno alumno in alumnos)
             {
-                FlowLayoutPanel tareas = PersonalizacionComponentes.hacerPanelTareas(alumno.getId(), listTareas);
+                FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelTareas(alumno.getId(), listTareas);
 
-                flPanelEntregas.Controls.Add(tareas);
+                flPanelEntregas.Controls.Add(entregas);
             }
         }
 

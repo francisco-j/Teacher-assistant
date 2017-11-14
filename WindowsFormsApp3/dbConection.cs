@@ -43,15 +43,9 @@ namespace WindowsFormsApp3
 
         }
 
-        /// <summary>
-        /// Validación si la fecha que se trata de agregar no existe ya para este grupo
-        /// </summary>
-        /// <param name="dia"></param>
-        /// <param name="idGrupo"></param>
-        /// <returns></returns>
+        /// <summary> Validación si la fecha que se trata de agregar no existe ya para este grupo </summary>
         internal static bool dayExists(DateTime dia, int idGrupo)
         {
-            bool existe = false;
             try
             {
                 conection.Open();
@@ -59,15 +53,13 @@ namespace WindowsFormsApp3
                 reader = comand.ExecuteReader();
                 reader.Read();
 
-                if (reader.HasRows)
-                    existe = true;
+                return (reader.HasRows);
             }
             finally
             {
                 reader.Close();
                 conection.Close();
             }
-            return existe;
         }
 
         /// <summary> verifica que la contrasena y usuario coinsidan </summary>
@@ -97,10 +89,11 @@ namespace WindowsFormsApp3
                 conection.Close();
                 reader.Close();
             }
-
         }
 
-        #endregion
+
+
+#endregion
 
 #region lectura de arrays
 
@@ -265,6 +258,30 @@ namespace WindowsFormsApp3
             return diasClase.ToArray();
         }
 
+        /// <summary> devuelbe las tereas de la materia indicada </summary>
+        internal static Tarea[] getTareas(int idMateria)
+        {
+            List<Tarea> Tareas = new List<Tarea>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Tareas WHERE materia =" + idMateria ;
+                reader = comand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Tareas.Add(new Tarea(reader["nombre"].ToString(), (int)reader["idTarea"]));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return Tareas.ToArray();
+        }
+
         /// <summary> array con los dias que falto el alumno </summary>
         internal static DateTime[] getFaltas(int idAlumno)
         {
@@ -290,10 +307,35 @@ namespace WindowsFormsApp3
             return lFaltas.ToArray();
         }
 
+        /// <summary> devielve el array de id's de las tareas entregadas por el alumno indicado </summary>
+        internal static int[] getEntregas(int idAlumno)
+        {
+            List<int> entregas = new List<int>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Entregas WHERE alumno =" + idAlumno;
+                reader = comand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int tarea = (int)reader["tarea"];
+                    entregas.Add(tarea);
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return entregas.ToArray();
+        }
+
 #endregion
 
 #region lectura
-        
+
         internal static int getIdMaestro( int idGrupo )
         {
             int idMaestro;
@@ -452,7 +494,7 @@ namespace WindowsFormsApp3
         }
 
 
-        #endregion
+#endregion
 
 #region escritura
 
