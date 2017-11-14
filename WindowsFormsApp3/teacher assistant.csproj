@@ -240,6 +240,9 @@
     <None Include="Resources\icoActualizar.png" />
     <None Include="Resources\icoCheckMark24.png" />
     <None Include="Resources\icoXMark24.png" />
+    <None Include="Resources\icoMateria32.png" />
+    <None Include="Resources\icoAddAlumno32.png" />
+    <None Include="Resources\icoCalendar32.png" />
     <Content Include="teacher assistant.mdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

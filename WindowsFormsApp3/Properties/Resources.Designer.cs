@@ -93,6 +93,16 @@ namespace WindowsFormsApp3.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icoAddAlumno32 {
+            get {
+                object obj = ResourceManager.GetObject("icoAddAlumno32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icoAgregar {
             get {
                 object obj = ResourceManager.GetObject("icoAgregar", resourceCulture);
@@ -116,6 +126,16 @@ namespace WindowsFormsApp3.Properties {
         internal static System.Drawing.Bitmap icoBuscar {
             get {
                 object obj = ResourceManager.GetObject("icoBuscar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icoCalendar32 {
+            get {
+                object obj = ResourceManager.GetObject("icoCalendar32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +226,16 @@ namespace WindowsFormsApp3.Properties {
         internal static System.Drawing.Bitmap icoMas {
             get {
                 object obj = ResourceManager.GetObject("icoMas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icoMateria32 {
+            get {
+                object obj = ResourceManager.GetObject("icoMateria32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

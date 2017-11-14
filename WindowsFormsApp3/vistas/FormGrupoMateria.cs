@@ -38,7 +38,7 @@ namespace WindowsFormsApp3
 
             flPanelTitulos.Controls.Clear();
             flPanelEntregas.Controls.Clear();
-            Tarea[] listTareas = dbConection.getTareas(idMateria);
+            /*Tarea[] listTareas = dbConection.getTareas(idMateria);
 
             foreach (Tarea tarea in listTareas)
             {
@@ -50,7 +50,7 @@ namespace WindowsFormsApp3
                 FlowLayoutPanel tareas = PersonalizacionComponentes.hacerPanelTareas(alumno.getId(), listTareas);
 
                 flPanelEntregas.Controls.Add(tareas);
-            }
+            }*/
         }
 
         private void btnProyectos_Click(object sender, EventArgs e)
