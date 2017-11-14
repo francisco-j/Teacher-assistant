@@ -8,9 +8,11 @@ using System.Collections.Generic;
 using WindowsFormsApp3.clases_objeto;
 using WindowsFormsApp3.componentes_visuales;
 
-/// <summary> clase encargada de guardar los métodos que usaremos para personalizar componentes como:
+/// <summary>
+/// clase encargada de guardar los métodos que usaremos para personalizar componentes como:
 /// los botones, labels y demás componenetes que estaremos generando en tiempo de ejecución
-/// todos los metodos son static por que la clase no se instancia </summary>
+/// todos los metodos son static por que la clase no se instancia
+/// </summary>
 namespace WindowsFormsApp3
 {
     abstract class PersonalizacionComponentes
@@ -21,9 +23,10 @@ namespace WindowsFormsApp3
         private static Font miFuenteInfo = new Font("Microsoft Sans Serif", 16);
         private static Font miFuentelblAlumno = new Font("Microsoft Sans Serif", 16);
 
+        
 #region metodos
 
-            /// <summary> debuelbe el contenedor con la informacion del grupo indicado </summary>
+        /// <summary> debuelbe el contenedor con la informacion del grupo indicado </summary>
         public static FlowLayoutPanel hacerConternedorGrupo(Grupo grupo, int color)
         {
             //componentes (declarar todo)
@@ -86,30 +89,30 @@ namespace WindowsFormsApp3
 
             foreach ( DiaClase dia in diasClase)
             {
-                if (faltas.Contains(dia.dia))
-                    panel.Controls.Add(new DateButton(dia, false));
-                else
-                    panel.Controls.Add(new DateButton(dia, true));
+                bool asistencia = !faltas.Contains(dia.dia);
+                panel.Controls.Add(new DateButton(dia, asistencia));
             }
             panel.Size = panel.PreferredSize;
             return panel;
         }
 
         /// <summary> va a ser para grupoMateria, pero le falta mucha mejora </summary>
-        internal static void decorarPanelTareas(ref FlowLayoutPanel panel, Alumno[] alumnos, int idGrupo, int idMateria)
+        internal static FlowLayoutPanel hacerPanelTareas(int idAlumno, Tarea[] listTareas)
         {
-            panel.Controls.Clear();
-            
-            //DateTime[] tareas = Program.getTareasClase(idGrupo);
+            FlowLayoutPanel panel = new FlowLayoutPanel();
+            panel.Margin = new Padding(0);
 
-            foreach (Alumno alumno in alumnos)
+            int[] entregas = dbConection.getEntregas(idAlumno);
+
+            foreach (Tarea tarea in listTareas)
             {
-                FlowLayoutPanel panelTareas = new FlowLayoutPanel();
-            
-                //FlowLayoutPanel panelTareas = PersonalizacionComponentes.hacerPanelAsistencias(alumno.getId(), diasClase);
-                panelTareas.Controls.Add(panelTareas);
-            }
+                bool entregada = entregas.Contains(tarea.id);
+                panel.Controls.Add(new tareaCkBx(tarea.id, idAlumno, true));
 
+            }
+            panel.Size = panel.PreferredSize;
+
+            return panel;
         }
 
         /// <summary> crea un panel con los DateButtons de l alumno indicado </summary>
