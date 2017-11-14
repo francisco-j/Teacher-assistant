@@ -202,7 +202,7 @@ namespace WindowsFormsApp3
             
             foreach (DiaClase dia in diasClase)
             {
-                flPanelFechas.Controls.Add(new tiltLabel(dia));
+                flPanelFechas.Controls.Add(new WindowsFormsApp3.componentes_visuales. tiltLabel(dia));
             }
             flPanelFechas.Size = flPanelAsistencias.PreferredSize;
             
@@ -232,12 +232,12 @@ namespace WindowsFormsApp3
             //Se sacan todos los paneles de asistencias de los alumnos
             System.Collections.IEnumerator alumnosPanels = flPanelAsistencias.Controls.GetEnumerator();
             //Se agrega al panel de fechas el nuevo día agregado
-            flPanelFechas.Controls.Add(new dateLabel(diaNuevo));
+            flPanelFechas.Controls.Add(new tiltLabel(diaNuevo));
 
             //A cada uno de los paneles le agrega el nuevo día y le cambia el tamaño para que sea visible
             while( alumnosPanels.MoveNext() )
             {
-                ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new DateButton(diaNuevo, true, Properties.Resources.icoCheckMark24));
+                ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new DateButton(diaNuevo, true));
                 ((FlowLayoutPanel)alumnosPanels.Current).Size = ((FlowLayoutPanel)alumnosPanels.Current).PreferredSize;
             }
         }

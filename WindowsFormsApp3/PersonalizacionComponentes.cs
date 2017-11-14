@@ -20,7 +20,6 @@ namespace WindowsFormsApp3
         private static Font miFuenteMateria = new Font("Microsoft Sans Serif",12 , FontStyle.Bold );
         private static Font miFuenteInfo = new Font("Microsoft Sans Serif", 16);
         private static Font miFuentelblAlumno = new Font("Microsoft Sans Serif", 16);
-        private static Image[] imagesAsistencia = { Properties.Resources.icoCheckMark24, Properties.Resources.icoXMark24 };
 
 #region metodos
 
@@ -86,9 +85,9 @@ namespace WindowsFormsApp3
             foreach ( DiaClase dia in diasClase)
             {
                 if (faltas.Contains(dia.dia))
-                    panel.Controls.Add(new DateButton(dia, false, imagesAsistencia[ 1 ]));
+                    panel.Controls.Add(new DateButton(dia, false));
                 else
-                    panel.Controls.Add(new DateButton(dia, true, imagesAsistencia[0]));
+                    panel.Controls.Add(new DateButton(dia, true));
             }
             panel.Size = panel.PreferredSize;
             return panel;
