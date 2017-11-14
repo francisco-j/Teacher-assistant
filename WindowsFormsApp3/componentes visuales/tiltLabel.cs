@@ -15,7 +15,7 @@ using WindowsFormsApp3.clases_objeto;
 
 namespace WindowsFormsApp3.componentes_visuales
 {
-    class dateLabel: Label
+    class tiltLabel : Label
     {
 
         #region Propiedades
@@ -58,16 +58,17 @@ namespace WindowsFormsApp3.componentes_visuales
         }
 
         #endregion
-        
+
         #region Constructor
 
-        public dateLabel(){
-			//Setting the initial condition.
-			rotationAngle = -45d;
-			this.Size = new Size(105,12);
+        public tiltLabel()
+        {
+            //Setting the initial condition.
+            rotationAngle = -45d;
+            this.Size = new Size(105, 12);
         }
 
-        public dateLabel(DiaClase fecha)
+        public tiltLabel(DiaClase fecha)
         {
             this.Font = new Font("Microsoft Sans Serif", 10);
             this.fecha = fecha.dia;
@@ -76,6 +77,14 @@ namespace WindowsFormsApp3.componentes_visuales
             this.Size = new Size(38, 50);
 
             this.Name = fecha.dia.ToString("dd'/'MM'/'yy");
+        }
+
+        public tiltLabel(String text)
+        {
+            this.Font = new Font("Microsoft Sans Serif", 10);
+            this.text = text;
+            rotationAngle = -60d;
+            this.Size = new Size(38, 50);
         }
 
         #endregion
@@ -96,7 +105,7 @@ namespace WindowsFormsApp3.componentes_visuales
             float width = graphics.MeasureString(text, this.Font).Width;
             float height = graphics.MeasureString(text, this.Font).Height;
 
-            //For rotation, who about rotation?
+            //For rotation
             double angle = (rotationAngle / 180) * Math.PI;
             graphics.TranslateTransform(
                 (ClientRectangle.Width + (float)(height * Math.Sin(angle)) - (float)(width * Math.Cos(angle))) / 2,
@@ -105,7 +114,7 @@ namespace WindowsFormsApp3.componentes_visuales
             graphics.DrawString(text, this.Font, textBrush, 0, 0);
             graphics.ResetTransform();
         }
-        
+
         #endregion
 
     }

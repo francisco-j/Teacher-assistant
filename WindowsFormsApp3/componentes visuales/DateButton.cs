@@ -13,19 +13,20 @@ namespace WindowsFormsApp3.componentes_visuales
     {
         private DiaClase dia;
         public bool asistencia;
+        private static Image[] imagesAsistencia = { Properties.Resources.icoCheckMark24, Properties.Resources.icoXMark24 };
         
 
-        public DateButton(DiaClase dia, bool asistencia, Image fondo)
+        public DateButton(DiaClase dia, bool asistencia)
         {
             this.dia = dia;
             this.asistencia = asistencia;
+            this.BackgroundImage = asistencia ? imagesAsistencia[0]: imagesAsistencia[1];
 
             this.Size = new Size(44, 26);
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderColor = Color.FromArgb(0, 0, 0);
             this.FlatAppearance.BorderSize = 1;
             this.BackColor = Color.WhiteSmoke;
-            this.BackgroundImage = fondo;
             this.BackgroundImageLayout = ImageLayout.Zoom;
             this.Margin = new Padding(0);
 
@@ -54,13 +55,13 @@ namespace WindowsFormsApp3.componentes_visuales
             {
                 dbConection.quitarFalta(idAlumno, dia.dia);
                 asistencia = true;
-                this.BackgroundImage = Properties.Resources.icoCheckMark24;
+                this.BackgroundImage = imagesAsistencia[0];
             }
             else
             {
                 dbConection.ponerFalta(idAlumno, dia.dia);
                 asistencia = false;
-                this.BackgroundImage = Properties.Resources.icoXMark24;
+                this.BackgroundImage = imagesAsistencia[1];
             }
         }
 
