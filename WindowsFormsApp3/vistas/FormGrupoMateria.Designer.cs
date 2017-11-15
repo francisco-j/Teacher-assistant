@@ -196,7 +196,7 @@
             this.btnCalificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalificaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalificaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnCalificaciones.Image = global::WindowsFormsApp3.Properties.Resources.icoAgregar;
+            this.btnCalificaciones.Image = global::WindowsFormsApp3.Properties.Resources.icoMenCalif;
             this.btnCalificaciones.Location = new System.Drawing.Point(12, 362);
             this.btnCalificaciones.Name = "btnCalificaciones";
             this.btnCalificaciones.Size = new System.Drawing.Size(70, 88);
@@ -212,7 +212,7 @@
             this.btnExamenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExamenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExamenes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.btnExamenes.Image = global::WindowsFormsApp3.Properties.Resources.icoExam;
+            this.btnExamenes.Image = global::WindowsFormsApp3.Properties.Resources.icoMenExam;
             this.btnExamenes.Location = new System.Drawing.Point(12, 277);
             this.btnExamenes.Name = "btnExamenes";
             this.btnExamenes.Size = new System.Drawing.Size(70, 79);

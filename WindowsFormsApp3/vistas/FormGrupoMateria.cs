@@ -50,7 +50,7 @@ namespace WindowsFormsApp3
             {
                 FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelTareas(alumno.getId(), listTareas);
 
-                flPanelEntregas.Controls.Add(tareas);
+                flPanelEntregas.Controls.Add(entregas);
             }
         }
 
@@ -70,9 +70,11 @@ namespace WindowsFormsApp3
 
             foreach (Alumno alumno in alumnos)
             {
+                /*
                 FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelProyectos(alumno.getId(), listProyectos);
 
                 flPanelEntregas.Controls.Add(entregas);
+                */
             }
         }
 
