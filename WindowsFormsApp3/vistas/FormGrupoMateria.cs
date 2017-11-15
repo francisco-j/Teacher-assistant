@@ -54,6 +54,7 @@ namespace WindowsFormsApp3
             }
         }
 
+        /// <summary> muestra la ventana proyectos </summary>
         private void btnProyectos_Click(object sender, EventArgs e)
         {
             grpBxModulo.Text = "Proyectos";
@@ -69,18 +70,20 @@ namespace WindowsFormsApp3
 
             foreach (Alumno alumno in alumnos)
             {
-                FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelProyectos(alumno.getId(), listProyectos);
+                //FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelProyectos(alumno.getId(), listProyectos);
 
-                flPanelEntregas.Controls.Add(entregas);
+                //flPanelEntregas.Controls.Add(entregas);
             }
         }
 
+        /// <summary> muestra la ventana examenes </summary>
         private void btnExamenes_Click(object sender, EventArgs e)
         {
             grpBxModulo.Text = "Examenes";
             //PersonalizacionComponentes.decorarPanelExamenes(ref fLPanel);
         }
 
+        /// <summary> muestra la ventana tareas </summary>
         private void btnCalificaciones_Click(object sender, EventArgs e)
         {
             grpBxModulo.Text = "Calificaciones";
