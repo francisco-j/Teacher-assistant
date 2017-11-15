@@ -22,6 +22,7 @@ namespace WindowsFormsApp3.componentes_visuales
             this.asistencia = asistencia;
             this.BackgroundImage = asistencia ? imagesAsistencia[0]: imagesAsistencia[1];
 
+            this.Name = dia.dia.ToString("dd'/'MM'/'yy");
             this.Size = new Size(44, 26);
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderColor = Color.FromArgb(0, 0, 0);

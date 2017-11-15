@@ -735,6 +735,22 @@ namespace WindowsFormsApp3
             
         }
 
+        internal static void borrarDiaClase( string dia, int idGrupo )
+        {
+            try
+            {
+                conection.Open();
+                comand = new OleDbCommand("DELETE * FROM DiasClase WHERE fecha=#" + dia + "# AND idGrupo=" + idGrupo, conection);
+                Console.WriteLine(comand.ExecuteNonQuery() + ": Día borrado " + dia );
+            }
+            finally
+            {
+                conection.Close();
+            }
+
+
+        }
+
         internal static void borrarAlumno(int idAlumno)
         {
             try

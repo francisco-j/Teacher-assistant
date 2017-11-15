@@ -33,6 +33,7 @@ namespace WindowsFormsApp3
             cargarAlumnos();
             cargarAsistencias();
 
+
             this.Show();
         }
 
@@ -221,6 +222,30 @@ namespace WindowsFormsApp3
             (flPanelFechas.Controls.Find(fecha, false)[0] as Label).BackColor = Color.WhiteSmoke;
         }
 
+        public void borrarFecha_Click( object sender, EventArgs e )
+        {
+            string fechaEliminar = (sender as MenuItem).Name;
+            if ( MessageBox.Show("¿Estás seguro que deseas eliminar la fecha " + fechaEliminar + " ?", "Borrar fecha", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes )
+            {
+                //Se elimina del panel de fechas el dateLabel
+                flPanelFechas.Controls.RemoveByKey(fechaEliminar);
+
+                System.Collections.IEnumerator diasAlumnos = flPanelAsistencias.Controls.GetEnumerator();
+
+                while( diasAlumnos.MoveNext() )
+                {
+                    ((FlowLayoutPanel)diasAlumnos.Current).Controls.RemoveByKey(fechaEliminar);
+                }
+
+                //Acomodar el string de la fecha en el formato adecuado para la base de datos
+                string[] diaMesAnio = fechaEliminar.Split('/');
+                fechaEliminar = diaMesAnio[1] + '/' + diaMesAnio[0] + '/' + diaMesAnio[2];
+
+                dbConection.borrarDiaClase(fechaEliminar, this.idGrupo);
+            }
+
+        }
+
         #endregion
 
         #region metodos
@@ -277,7 +302,6 @@ namespace WindowsFormsApp3
                 menu[1].Name = idAlumno;
 
                 ((Label)labelsAlumnos.Current).ContextMenu = new ContextMenu(menu);
-                Console.WriteLine("nombre label desde el llenado: " + ((Label)labelsAlumnos.Current).Name);
             }
         }
 
@@ -290,7 +314,15 @@ namespace WindowsFormsApp3
             
             foreach (DiaClase dia in diasClase)
             {
-                flPanelFechas.Controls.Add( new tiltLabel(dia));
+                tiltLabel labelFecha = new tiltLabel(dia);
+
+                MenuItem[] menu = {
+                    new MenuItem("Borrar", borrarFecha_Click)
+                };
+                menu[0].Name = dia.dia.ToString("dd'/'MM'/'yy");
+
+                labelFecha.ContextMenu = new ContextMenu(menu);
+                flPanelFechas.Controls.Add( labelFecha );
             }
             flPanelFechas.Size = flPanelAsistencias.PreferredSize;
             
@@ -315,6 +347,14 @@ namespace WindowsFormsApp3
             //Se agrega al panel de fechas el nuevo día agregado
             tiltLabel labelFecha = new tiltLabel(diaNuevo);
             labelFecha.Name = diaNuevo.dia.ToString("dd'/'MM'/'yy");
+
+            MenuItem[] menu = {
+                    new MenuItem("Borrar", borrarFecha_Click)
+                };
+            menu[0].Name = dia.ToString("dd'/'MM'/'yy");
+
+            labelFecha.ContextMenu = new ContextMenu(menu);
+
             flPanelFechas.Controls.Add(labelFecha);
 
             //A cada uno de los paneles le agrega el nuevo día y le cambia el tamaño para que sea visible
