@@ -95,7 +95,7 @@ namespace WindowsFormsApp3
 
 #endregion
 
-#region lectura de arrays
+        #region lectura de arrays
 
         /// <summary> retorna los grupos asociados al maestro indicado </summary>
         internal static Grupo[] GruposAsociadosCon(int idUsuario)
@@ -455,6 +455,14 @@ namespace WindowsFormsApp3
             }
         }
 
+        /// <summary>
+        /// Pide toda la información del alumno para devolver otro alumno pero con su Id
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="paterno"></param>
+        /// <param name="materno"></param>
+        /// <param name="idGrupo"></param>
+        /// <returns></returns>
         internal static Alumno getAlumno( string nombre, string paterno, string materno, int idGrupo )
         {
             conection.Open();
@@ -468,6 +476,32 @@ namespace WindowsFormsApp3
             conection.Close();
 
             return alumno;
+        }
+
+        /// <summary>
+        /// Pide el id y devuelve un alumno con toda su información
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        internal static Alumno getAlumno( int id )
+        {
+            try
+            {
+                conection.Open();
+                comand = new OleDbCommand("SELECT * FROM Alumnos WHERE id=" + id, conection);
+                reader = comand.ExecuteReader();
+
+                reader.Read();
+
+                Alumno alumno = new Alumno((int)reader["id"], reader["nombres"].ToString(), reader["apellidoPaterno"].ToString(), reader["apellidoMaterno"].ToString(), (int)reader["grupo"]);
+                Console.WriteLine("Alumno obtenido desde DB: " + alumno.getId());
+                return alumno;
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
         }
 
         /// <summary> llena la informacion sobre el grupo y materia indicados </summary>
@@ -674,6 +708,21 @@ namespace WindowsFormsApp3
             }
         }
 
+        internal static void actualizarAlumno(int id, string nombres, string paterno, string materno)
+        {
+            try
+            {
+                conection.Open();
+                comand = new OleDbCommand("UPDATE Alumnos SET nombres='" + nombres + "', apellidoPaterno='" + paterno + "', apellidoMaterno='" + materno + "' WHERE id=" + id, conection);
+
+                Console.WriteLine(comand.ExecuteNonQuery() + " Alumno actualizado");
+            }
+            finally
+            {
+                conection.Close();
+            }
+        }
+
         internal static void modificarMateria(int idMateria, string nombre)
         {
             comand.CommandText = "UPDATE Materias SET nombre = '" + nombre + "' WHERE id = " + idMateria;
@@ -708,6 +757,37 @@ namespace WindowsFormsApp3
                 conection.Close();
             }
             
+        }
+
+        internal static void borrarDiaClase( string dia, int idGrupo )
+        {
+            try
+            {
+                conection.Open();
+                comand = new OleDbCommand("DELETE * FROM DiasClase WHERE fecha=#" + dia + "# AND idGrupo=" + idGrupo, conection);
+                Console.WriteLine(comand.ExecuteNonQuery() + ": Día borrado " + dia );
+            }
+            finally
+            {
+                conection.Close();
+            }
+
+
+        }
+
+        internal static void borrarAlumno(int idAlumno)
+        {
+            try
+            {
+                conection.Open();
+                comand = new OleDbCommand("DELETE * FROM Alumnos WHERE id=" + idAlumno, conection);
+                comand.ExecuteNonQuery();
+                Console.Write("Alumno Borrado");
+            }
+            finally
+            {
+                conection.Close();
+            }
         }
 
         internal static void borrarMateria(int idMateria)

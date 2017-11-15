@@ -55,6 +55,7 @@ namespace WindowsFormsApp3.vistas
             {
                 Alumno alumno = new Alumno(idGrupo, nombre, paterno, materno);
 
+                Console.WriteLine(alumno.nombreCompletoPA());
                 //Le dice a la BD que agregue ése alumno
                 dbConection.agregarAlumno(alumno);
                 ((FormListaMaterias)this.Owner).recibirNombreAlumno(alumno);

@@ -61,11 +61,11 @@ namespace WindowsFormsApp3
             //menu contextual del boton(click derecho)
             MenuItem[] mi = {
                     new MenuItem("Editar",editarG_Click),
-                    new MenuItem("Borar",borrarG_Click),
+                    new MenuItem("Borrar",borrarG_Click),
                     new MenuItem("Exportar",exportarG_Click)
                 };
             mi[0].Name = "Editar" + grupo.getId().ToString();
-            mi[1].Name = "Borar" + grupo.getId().ToString();
+            mi[1].Name = "Borrar" + grupo.getId().ToString();
             mi[2].Name = "Exportar" + grupo.getId().ToString();
 
             boton.ContextMenu = new ContextMenu(mi);
@@ -79,8 +79,10 @@ namespace WindowsFormsApp3
         /// <summary> crea un panel con los dateCheckBox de l alumno indicado </summary>
         internal static FlowLayoutPanel hacerPanelAsistencias(int idAlumno, DiaClase[] diasClase)
         {
+            //Las fechas se llenan antes de llamar este método
+
             FlowLayoutPanel panel = new FlowLayoutPanel();
-            panel.Name = "asistencia"+idAlumno;
+            panel.Name = idAlumno.ToString();
             panel.Margin = new Padding(0);
 
             DateTime[] faltas = dbConection.getFaltas(idAlumno);
@@ -113,7 +115,7 @@ namespace WindowsFormsApp3
             return panel;
         }
 
-        /// <summary> crea un panel con los dateCheckBox de l alumno indicado </summary>
+        /// <summary> crea un panel con los DateButtons de l alumno indicado </summary>
         internal static void llenarPanelAlunos(FlowLayoutPanel panel, Alumno[] alumnos)
         {
             panel.Controls.Clear();
@@ -125,12 +127,15 @@ namespace WindowsFormsApp3
                 nombre.AutoSize = true;
                 nombre.Font = miFuentelblAlumno;
                 nombre.Text = alumno.nombreCompletoPA();
-
                 nombre.Name = alumno.getId().ToString();
+
+                //El evento para el click derecho de las etiquetas se debe programar donde se manda llamar este método para poder
+                //vincular el panel con los cambios y no tener que refrescar la pantalla
+
                 panel.Controls.Add(nombre);
             }
 
-            panel.Size = panel.PreferredSize;
+            panel.AutoSize = true;
         }
 
         /// <summary> decora el botón con la información de la materia indicada </summary>
