@@ -42,13 +42,13 @@
             this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.flPanelFechas = new System.Windows.Forms.FlowLayoutPanel();
+            this.tiltLabel1 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.flPanelAsistencias = new System.Windows.Forms.FlowLayoutPanel();
             this.ckBox1 = new System.Windows.Forms.CheckBox();
             this.btnAgregarAlumno = new System.Windows.Forms.Button();
             this.scrollVertical = new System.Windows.Forms.VScrollBar();
             this.scrollHorizontal = new System.Windows.Forms.HScrollBar();
             this.grBoxMaterias = new System.Windows.Forms.GroupBox();
-            this.tiltLabel1 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.grBoxAsistencia.SuspendLayout();
             this.tlPanel.SuspendLayout();
             this.flPanelAlumnos.SuspendLayout();
@@ -80,7 +80,7 @@
             // 
             // btnAjustes
             // 
-            this.btnAjustes.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoMas;
+            this.btnAjustes.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoXMark;
             this.btnAjustes.FlatAppearance.BorderSize = 0;
             this.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAjustes.Font = new System.Drawing.Font("Marlett", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -92,7 +92,7 @@
             // 
             // btnAgregarMateria
             // 
-//            this.btnAgregarMateria.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAddMateria;
+            this.btnAgregarMateria.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAddMateria;
             this.btnAgregarMateria.FlatAppearance.BorderSize = 0;
             this.btnAgregarMateria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarMateria.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,7 +135,7 @@
             this.flPanelMaterias.AutoScroll = true;
             this.flPanelMaterias.Location = new System.Drawing.Point(6, 30);
             this.flPanelMaterias.Name = "flPanelMaterias";
-            this.flPanelMaterias.Size = new System.Drawing.Size(195, 332);
+            this.flPanelMaterias.Size = new System.Drawing.Size(195, 317);
             this.flPanelMaterias.TabIndex = 18;
             // 
             // grBoxAsistencia
@@ -156,14 +156,15 @@
             // 
             // btnAddDia
             // 
-            this.btnAddDia.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAgregar;
+            this.btnAddDia.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAddDia;
+            this.btnAddDia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAddDia.FlatAppearance.BorderSize = 0;
             this.btnAddDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddDia.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddDia.Location = new System.Drawing.Point(683, 368);
+            this.btnAddDia.Location = new System.Drawing.Point(677, 368);
             this.btnAddDia.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddDia.Name = "btnAddDia";
-            this.btnAddDia.Size = new System.Drawing.Size(32, 32);
+            this.btnAddDia.Size = new System.Drawing.Size(38, 36);
             this.btnAddDia.TabIndex = 21;
             this.btnAddDia.UseVisualStyleBackColor = true;
             this.btnAddDia.Click += new System.EventHandler(this.btnAddDia_Click);
@@ -215,6 +216,17 @@
             this.flPanelFechas.TabIndex = 0;
             this.flPanelFechas.WrapContents = false;
             // 
+            // tiltLabel1
+            // 
+            this.tiltLabel1.Fecha = new System.DateTime(((long)(0)));
+            this.tiltLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tiltLabel1.Location = new System.Drawing.Point(3, 0);
+            this.tiltLabel1.Name = "tiltLabel1";
+            this.tiltLabel1.RotationAngle = -60D;
+            this.tiltLabel1.Size = new System.Drawing.Size(44, 57);
+            this.tiltLabel1.TabIndex = 0;
+            this.tiltLabel1.Text = "00/00/00";
+            // 
             // flPanelAsistencias
             // 
             this.flPanelAsistencias.AutoSize = true;
@@ -236,7 +248,7 @@
             // 
             // btnAgregarAlumno
             // 
-            this.btnAgregarAlumno.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAgregar;
+            this.btnAgregarAlumno.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAddAlumno;
             this.btnAgregarAlumno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAgregarAlumno.FlatAppearance.BorderSize = 0;
             this.btnAgregarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -260,7 +272,7 @@
             // 
             this.scrollHorizontal.Location = new System.Drawing.Point(342, 368);
             this.scrollHorizontal.Name = "scrollHorizontal";
-            this.scrollHorizontal.Size = new System.Drawing.Size(341, 17);
+            this.scrollHorizontal.Size = new System.Drawing.Size(330, 16);
             this.scrollHorizontal.TabIndex = 2;
             this.scrollHorizontal.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollHorizontal_Scroll);
             // 
@@ -276,17 +288,6 @@
             this.grBoxMaterias.TabIndex = 20;
             this.grBoxMaterias.TabStop = false;
             this.grBoxMaterias.Text = "Materias";
-            // 
-            // tiltLabel1
-            // 
-            this.tiltLabel1.Fecha = new System.DateTime(((long)(0)));
-            this.tiltLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tiltLabel1.Location = new System.Drawing.Point(3, 0);
-            this.tiltLabel1.Name = "tiltLabel1";
-            this.tiltLabel1.RotationAngle = -60D;
-            this.tiltLabel1.Size = new System.Drawing.Size(44, 57);
-            this.tiltLabel1.TabIndex = 0;
-            this.tiltLabel1.Text = "00/00/00";
             // 
             // FormListaMaterias
             // 

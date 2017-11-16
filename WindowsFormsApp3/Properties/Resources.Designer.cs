@@ -73,9 +73,9 @@ namespace WindowsFormsApp3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icoAddMateria {
+        internal static System.Drawing.Bitmap icoAddDia {
             get {
-                object obj = ResourceManager.GetObject("icoAddMateria", resourceCulture);
+                object obj = ResourceManager.GetObject("icoAddDia", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,19 @@ namespace WindowsFormsApp3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icoAgregar {
+        internal static System.Drawing.Bitmap icoAddGeneric {
             get {
-                object obj = ResourceManager.GetObject("icoAgregar", resourceCulture);
+                object obj = ResourceManager.GetObject("icoAddGeneric", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icoAddMateria {
+            get {
+                object obj = ResourceManager.GetObject("icoAddMateria", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,16 +116,6 @@ namespace WindowsFormsApp3.Properties {
         internal static System.Drawing.Bitmap icoBuscar {
             get {
                 object obj = ResourceManager.GetObject("icoBuscar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icoCalendar {
-            get {
-                object obj = ResourceManager.GetObject("icoCalendar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,16 +166,6 @@ namespace WindowsFormsApp3.Properties {
         internal static System.Drawing.Bitmap icoLogOut {
             get {
                 object obj = ResourceManager.GetObject("icoLogOut", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icoMas {
-            get {
-                object obj = ResourceManager.GetObject("icoMas", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
