@@ -92,7 +92,7 @@
             // 
             // btnAgregarMateria
             // 
-            this.btnAgregarMateria.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoMateria32;
+            this.btnAgregarMateria.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAddMateria;
             this.btnAgregarMateria.FlatAppearance.BorderSize = 0;
             this.btnAgregarMateria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarMateria.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

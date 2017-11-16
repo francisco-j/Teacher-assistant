@@ -39,7 +39,7 @@ namespace WindowsFormsApp3
 
             flPanelTitulos.Controls.Clear();
             flPanelEntregas.Controls.Clear();
-            /*Tarea[] listTareas = dbConection.getTareas(idMateria);
+            Tarea[] listTareas = dbConection.getTareas(idMateria);
 
             foreach (Tarea tarea in listTareas)
             {
@@ -50,12 +50,13 @@ namespace WindowsFormsApp3
             {
                 FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelTareas(alumno.getId(), listTareas);
 
-                flPanelEntregas.Controls.Add(tareas);
-            }*/
+                flPanelEntregas.Controls.Add(entregas);
+            }
         }
 
+        /// <summary> muestra la ventana proyectos </summary>
         private void btnProyectos_Click(object sender, EventArgs e)
-        {/*
+        {
             grpBxModulo.Text = "Proyectos";
 
             flPanelTitulos.Controls.Clear();
@@ -69,18 +70,22 @@ namespace WindowsFormsApp3
 
             foreach (Alumno alumno in alumnos)
             {
+                /*
                 FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelProyectos(alumno.getId(), listProyectos);
 
                 flPanelEntregas.Controls.Add(entregas);
-            }*/
+                */
+            }
         }
 
+        /// <summary> muestra la ventana examenes </summary>
         private void btnExamenes_Click(object sender, EventArgs e)
         {
             grpBxModulo.Text = "Examenes";
             //PersonalizacionComponentes.decorarPanelExamenes(ref fLPanel);
         }
 
+        /// <summary> muestra la ventana tareas </summary>
         private void btnCalificaciones_Click(object sender, EventArgs e)
         {
             grpBxModulo.Text = "Calificaciones";

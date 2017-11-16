@@ -13,7 +13,7 @@ namespace WindowsFormsApp3.componentes_visuales
     {
         private DiaClase dia;
         public bool asistencia;
-        private static Image[] imagesAsistencia = { Properties.Resources.icoCheckMark24, Properties.Resources.icoXMark24 };
+        private static Image[] imagesAsistencia = { Properties.Resources.icoCheckMark, Properties.Resources.icoXMark };
         
 
         public DateButton(DiaClase dia, bool asistencia)

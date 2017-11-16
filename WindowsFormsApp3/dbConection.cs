@@ -271,7 +271,7 @@ namespace WindowsFormsApp3
 
                 while (reader.Read())
                 {
-                    Tareas.Add(new Tarea(reader["nombre"].ToString(), (int)reader["idTarea"]));
+                    Tareas.Add(new Tarea(reader["nombre"].ToString(), (int)reader["id"]));
                 }
             }
             finally
@@ -280,6 +280,30 @@ namespace WindowsFormsApp3
                 conection.Close();
             }
             return Tareas.ToArray();
+        }
+
+        /// <summary> devuelbe los proyectos de la materia indicada </summary>
+        internal static Proyecto[] getProyectos(int idMateria)
+        {
+            List<Proyecto> proyectos = new List<Proyecto>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Proyectos WHERE materia =" + idMateria;
+                reader = comand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    proyectos.Add(new Proyecto(reader["nombre"].ToString(), (int)reader["id"]));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return proyectos.ToArray();
         }
 
         /// <summary> array con los dias que falto el alumno </summary>
