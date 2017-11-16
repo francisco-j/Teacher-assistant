@@ -131,6 +131,7 @@ namespace WindowsFormsApp3
             PersonalizacionComponentes.llenarPanelAlunos(flPanelAlumnos, alumnos);
         }
 
-        #endregion
+#endregion
+
     }
 }
