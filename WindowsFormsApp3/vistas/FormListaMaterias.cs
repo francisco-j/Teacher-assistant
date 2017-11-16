@@ -33,7 +33,6 @@ namespace WindowsFormsApp3
             cargarAlumnos();
             cargarAsistencias();
 
-
             this.Show();
         }
 
@@ -324,7 +323,7 @@ namespace WindowsFormsApp3
                 labelFecha.ContextMenu = new ContextMenu(menu);
                 flPanelFechas.Controls.Add( labelFecha );
             }
-            flPanelFechas.Size = flPanelAsistencias.PreferredSize;
+            //flPanelFechas.Size = flPanelAsistencias.PreferredSize;
             
             foreach (Alumno alumno in alumnosGrupo)
             {
@@ -367,5 +366,18 @@ namespace WindowsFormsApp3
 
 
         #endregion
+
+        private void scrollHorizontal_Scroll(object sender, ScrollEventArgs e)
+        {
+            flPanelFechas.HorizontalScroll.Value = scrollHorizontal.Value;
+            flPanelAsistencias.HorizontalScroll.Value = scrollHorizontal.Value;
+            flPanelAsistencias.HorizontalScroll.Visible = false;
+        }
+
+        private void scrollVertical_Scroll(object sender, ScrollEventArgs e)
+        {
+            flPanelAlumnos.VerticalScroll.Value = scrollVertical.Value;
+            flPanelAsistencias.VerticalScroll.Value = scrollVertical.Value;
+        }
     }
 }

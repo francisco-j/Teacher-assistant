@@ -63,8 +63,8 @@ namespace WindowsFormsApp3
                     new MenuItem("Editar",editarG_Click),
                     new MenuItem("Borrar",borrarG_Click),
                 };
-            mi[0].Name = "Editar" + grupo.getId().ToString();
-            mi[1].Name = "Borrar" + grupo.getId().ToString();
+            mi[0].Name = grupo.getId().ToString();
+            mi[1].Name = grupo.getId().ToString();
 
             boton.ContextMenu = new ContextMenu(mi);
 
@@ -187,7 +187,7 @@ namespace WindowsFormsApp3
         /// <summary> para menu contextual de grupo </summary>
         private static void editarG_Click(object sender, System.EventArgs e)
         {
-            int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Editar", ""));
+            int idGrupo = int.Parse((sender as MenuItem).Name);
             FormAgregarGrupo modificarGrupo = new FormAgregarGrupo(dbConection.getGrupo(idGrupo));
             if( modificarGrupo.ShowDialog() == DialogResult.OK)
                 Program.listaGrupos.cargarBotones();
@@ -197,7 +197,7 @@ namespace WindowsFormsApp3
         /// <summary> para menu contextual de grupo </summary>
         private static void borrarG_Click(object sender, System.EventArgs e)
         {
-            int idGrupo = int.Parse((sender as MenuItem).Name.Replace("Borar", ""));
+            int idGrupo = int.Parse((sender as MenuItem).Name);
             FormBorrarGrupo borrarG = new FormBorrarGrupo(idGrupo);
             borrarG.ShowDialog(Program.listaGrupos);
 

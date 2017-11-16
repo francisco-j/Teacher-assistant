@@ -745,11 +745,14 @@ namespace WindowsFormsApp3
         /// <summary> borra el grupo de la tabla grupos </summary>
         internal static void borrarGrupo(int idGrupo)
         {
-            comand.CommandText = "DELETE FROM Grupos WHERE id = " + idGrupo;
-            comand.Connection = conection;
             try
             {
                 conection.Open();
+                comand.CommandText = "DELETE FROM Grupos WHERE id = " + idGrupo;
+                comand.Connection = conection;
+
+                comand.ExecuteNonQuery();
+                   
                 Console.WriteLine(comand.ExecuteNonQuery() + " borrada " + idGrupo);
             }
             finally
