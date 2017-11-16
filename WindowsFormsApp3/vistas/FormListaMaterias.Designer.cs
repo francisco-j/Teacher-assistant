@@ -42,13 +42,13 @@
             this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.flPanelFechas = new System.Windows.Forms.FlowLayoutPanel();
-            this.tiltLabel1 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.flPanelAsistencias = new System.Windows.Forms.FlowLayoutPanel();
             this.ckBox1 = new System.Windows.Forms.CheckBox();
             this.btnAgregarAlumno = new System.Windows.Forms.Button();
             this.scrollVertical = new System.Windows.Forms.VScrollBar();
             this.scrollHorizontal = new System.Windows.Forms.HScrollBar();
             this.grBoxMaterias = new System.Windows.Forms.GroupBox();
+            this.tiltLabel1 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.grBoxAsistencia.SuspendLayout();
             this.tlPanel.SuspendLayout();
             this.flPanelAlumnos.SuspendLayout();
@@ -170,7 +170,6 @@
             // 
             // tlPanel
             // 
-            this.tlPanel.AutoScroll = true;
             this.tlPanel.ColumnCount = 2;
             this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -216,17 +215,6 @@
             this.flPanelFechas.TabIndex = 0;
             this.flPanelFechas.WrapContents = false;
             // 
-            // tiltLabel1
-            // 
-            this.tiltLabel1.Fecha = new System.DateTime(((long)(0)));
-            this.tiltLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tiltLabel1.Location = new System.Drawing.Point(3, 0);
-            this.tiltLabel1.Name = "tiltLabel1";
-            this.tiltLabel1.RotationAngle = -60D;
-            this.tiltLabel1.Size = new System.Drawing.Size(44, 57);
-            this.tiltLabel1.TabIndex = 0;
-            this.tiltLabel1.Text = "00/00/00";
-            // 
             // flPanelAsistencias
             // 
             this.flPanelAsistencias.AutoSize = true;
@@ -266,6 +254,7 @@
             this.scrollVertical.Name = "scrollVertical";
             this.scrollVertical.Size = new System.Drawing.Size(17, 266);
             this.scrollVertical.TabIndex = 2;
+            this.scrollVertical.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollVertical_Scroll);
             // 
             // scrollHorizontal
             // 
@@ -273,6 +262,7 @@
             this.scrollHorizontal.Name = "scrollHorizontal";
             this.scrollHorizontal.Size = new System.Drawing.Size(341, 17);
             this.scrollHorizontal.TabIndex = 2;
+            this.scrollHorizontal.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollHorizontal_Scroll);
             // 
             // grBoxMaterias
             // 
@@ -286,6 +276,17 @@
             this.grBoxMaterias.TabIndex = 20;
             this.grBoxMaterias.TabStop = false;
             this.grBoxMaterias.Text = "Materias";
+            // 
+            // tiltLabel1
+            // 
+            this.tiltLabel1.Fecha = new System.DateTime(((long)(0)));
+            this.tiltLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tiltLabel1.Location = new System.Drawing.Point(3, 0);
+            this.tiltLabel1.Name = "tiltLabel1";
+            this.tiltLabel1.RotationAngle = -60D;
+            this.tiltLabel1.Size = new System.Drawing.Size(44, 57);
+            this.tiltLabel1.TabIndex = 0;
+            this.tiltLabel1.Text = "00/00/00";
             // 
             // FormListaMaterias
             // 
