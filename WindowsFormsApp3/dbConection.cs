@@ -724,17 +724,38 @@ namespace WindowsFormsApp3
         /// <summary> registra el grupo indicado en la base de datos </summary>
         internal static void agregarGrupo(int grado, char grupo, String escuela, int maesto)
         {
-            comand.CommandText = "INSERT INTO Grupos (grado, grupo, escuela, maestro) VALUES(" + grado + ", '" + grupo + "', '" + escuela + "'," + maesto + ")";
+            comand.CommandText = "INSERT INTO Grupos (grado, grupo, escuela, maestro) VALUES(@grado, @grupo , @escuela, @maesto)";
+            
+            comand.Parameters.AddWithValue("@grado",grado);
+            comand.Parameters.AddWithValue("@grupo",grupo);
+            comand.Parameters.AddWithValue("@escuela",escuela);
+            comand.Parameters.AddWithValue("@maestro",maesto);
+
             comand.Connection = conection;
             try
             {
                 conection.Open();
-                Console.WriteLine(comand.ExecuteNonQuery() + " grupo agregado");
+                comand.ExecuteNonQuery();
             }
             finally
             {
                 conection.Close();
             }
+
+            /*
+            comand.CommandText = "INSERT INTO dbo.MyTable(ID, Name) VALUES(123, 'Timmy'), (124, 'Jonny'), (125, 'Sally');
+
+            try
+            {
+                conection.Open();
+                comand.ExecuteNonQuery();
+            }
+            finally
+            {
+                conection.Close();
+            }
+            */
+
         }
 
         /// <summary> registra la materia indicada en la base de datos </summary>
@@ -751,6 +772,19 @@ namespace WindowsFormsApp3
             {
                 conection.Close();
             }
+
+            comand.CommandText = "INSERT INTO Rubros (nombre, grupo) VALUES('" + nombre + "'," + salon + ")";
+            comand.Connection = conection;
+            try
+            {
+                conection.Open();
+                Console.WriteLine(comand.ExecuteNonQuery() + " nueva materia " + nombre + salon);
+            }
+            finally
+            {
+                conection.Close();
+            }
+
         }
 
         /// <summary> Registra un nuevo alumno en la BD </summary>
