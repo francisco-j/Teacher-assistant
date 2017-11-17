@@ -45,8 +45,6 @@
             this.flPanelAsistencias = new System.Windows.Forms.FlowLayoutPanel();
             this.ckBox1 = new System.Windows.Forms.CheckBox();
             this.btnAgregarAlumno = new System.Windows.Forms.Button();
-            this.scrollVertical = new System.Windows.Forms.VScrollBar();
-            this.scrollHorizontal = new System.Windows.Forms.HScrollBar();
             this.grBoxMaterias = new System.Windows.Forms.GroupBox();
             this.lbl = new System.Windows.Forms.Label();
             this.lbl2 = new System.Windows.Forms.Label();
@@ -77,7 +75,7 @@
             // txbBusqueda
             // 
             this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBusqueda.Location = new System.Drawing.Point(791, 28);
+            this.txbBusqueda.Location = new System.Drawing.Point(818, 30);
             this.txbBusqueda.Name = "txbBusqueda";
             this.txbBusqueda.Size = new System.Drawing.Size(211, 30);
             this.txbBusqueda.TabIndex = 13;
@@ -128,7 +126,7 @@
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = global::WindowsFormsApp3.Properties.Resources.icoBuscar;
-            this.btnBuscar.Location = new System.Drawing.Point(1008, 30);
+            this.btnBuscar.Location = new System.Drawing.Point(1035, 30);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(32, 32);
             this.btnBuscar.TabIndex = 7;
@@ -148,13 +146,11 @@
             this.grBoxAsistencia.Controls.Add(this.btnAddDia);
             this.grBoxAsistencia.Controls.Add(this.tlPanel);
             this.grBoxAsistencia.Controls.Add(this.btnAgregarAlumno);
-            this.grBoxAsistencia.Controls.Add(this.scrollVertical);
-            this.grBoxAsistencia.Controls.Add(this.scrollHorizontal);
             this.grBoxAsistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grBoxAsistencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
             this.grBoxAsistencia.Location = new System.Drawing.Point(225, 80);
             this.grBoxAsistencia.Name = "grBoxAsistencia";
-            this.grBoxAsistencia.Size = new System.Drawing.Size(818, 463);
+            this.grBoxAsistencia.Size = new System.Drawing.Size(842, 486);
             this.grBoxAsistencia.TabIndex = 0;
             this.grBoxAsistencia.TabStop = false;
             this.grBoxAsistencia.Text = "Asistencia";
@@ -166,7 +162,7 @@
             this.btnAddDia.FlatAppearance.BorderSize = 0;
             this.btnAddDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddDia.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddDia.Location = new System.Drawing.Point(777, 419);
+            this.btnAddDia.Location = new System.Drawing.Point(783, 446);
             this.btnAddDia.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddDia.Name = "btnAddDia";
             this.btnAddDia.Size = new System.Drawing.Size(38, 36);
@@ -187,7 +183,7 @@
             this.tlPanel.RowCount = 2;
             this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlPanel.Size = new System.Drawing.Size(789, 381);
+            this.tlPanel.Size = new System.Drawing.Size(809, 397);
             this.tlPanel.TabIndex = 20;
             // 
             // flPanelAlumnos
@@ -198,7 +194,7 @@
             this.flPanelAlumnos.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flPanelAlumnos.Location = new System.Drawing.Point(3, 80);
             this.flPanelAlumnos.Name = "flPanelAlumnos";
-            this.flPanelAlumnos.Size = new System.Drawing.Size(327, 298);
+            this.flPanelAlumnos.Size = new System.Drawing.Size(327, 314);
             this.flPanelAlumnos.TabIndex = 0;
             // 
             // label2
@@ -229,10 +225,10 @@
             this.flPanelAsistencias.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flPanelAsistencias.Location = new System.Drawing.Point(336, 80);
             this.flPanelAsistencias.Name = "flPanelAsistencias";
-            this.flPanelAsistencias.Size = new System.Drawing.Size(453, 298);
+            this.flPanelAsistencias.Size = new System.Drawing.Size(470, 314);
             this.flPanelAsistencias.TabIndex = 1;
             this.flPanelAsistencias.WrapContents = false;
-            this.flPanelAsistencias.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flPanelAsistencias_Scroll);
+            //this.flPanelAsistencias.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flPanelAsistencias_Scroll);
             // 
             // ckBox1
             // 
@@ -250,30 +246,12 @@
             this.btnAgregarAlumno.FlatAppearance.BorderSize = 0;
             this.btnAgregarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarAlumno.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarAlumno.Location = new System.Drawing.Point(0, 417);
+            this.btnAgregarAlumno.Location = new System.Drawing.Point(0, 446);
             this.btnAgregarAlumno.Name = "btnAgregarAlumno";
             this.btnAgregarAlumno.Size = new System.Drawing.Size(48, 40);
             this.btnAgregarAlumno.TabIndex = 19;
             this.btnAgregarAlumno.UseVisualStyleBackColor = true;
             this.btnAgregarAlumno.Click += new System.EventHandler(this.btnAgregarAlumno_Click);
-            // 
-            // scrollVertical
-            // 
-            this.scrollVertical.LargeChange = 20;
-            this.scrollVertical.Location = new System.Drawing.Point(798, 104);
-            this.scrollVertical.Name = "scrollVertical";
-            this.scrollVertical.Size = new System.Drawing.Size(17, 307);
-            this.scrollVertical.TabIndex = 2;
-            this.scrollVertical.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollVertical_Scroll);
-            // 
-            // scrollHorizontal
-            // 
-            this.scrollHorizontal.LargeChange = 20;
-            this.scrollHorizontal.Location = new System.Drawing.Point(342, 414);
-            this.scrollHorizontal.Name = "scrollHorizontal";
-            this.scrollHorizontal.Size = new System.Drawing.Size(430, 16);
-            this.scrollHorizontal.TabIndex = 2;
-            this.scrollHorizontal.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollHorizontal_Scroll);
             // 
             // grBoxMaterias
             // 
@@ -339,7 +317,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1067, 555);
+            this.ClientSize = new System.Drawing.Size(1079, 578);
             this.Controls.Add(this.lbl5);
             this.Controls.Add(this.lbl3);
             this.Controls.Add(this.lbl4);
@@ -389,8 +367,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flPanelFechas;
         private System.Windows.Forms.Button btnAddDia;
-        private System.Windows.Forms.VScrollBar scrollVertical;
-        private System.Windows.Forms.HScrollBar scrollHorizontal;
         private componentes_visuales.tiltLabel tiltLabel1;
         private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Label lbl2;
