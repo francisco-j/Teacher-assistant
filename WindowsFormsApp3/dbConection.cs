@@ -212,6 +212,8 @@ namespace WindowsFormsApp3
                     gruposDeMaestro.Add((int)reader["id"]);
                 }
 
+                reader.Close();
+
                 //para cada grupo busca los alumnos que coincidan
                 foreach (int grupoM in gruposDeMaestro)
                 {
@@ -232,7 +234,9 @@ namespace WindowsFormsApp3
 
                         lAlumnos.Add(a);
                     }
+                    reader.Close();
                 }
+
             }
             finally
             {
@@ -312,7 +316,6 @@ namespace WindowsFormsApp3
                 while (reader.Read())
                 {
                     Proyecto proy = new Proyecto(reader["nombre"].ToString(), (int)reader["id"]);
-                    Console.WriteLine("proyecto leido: " + proy);
                     proyectos.Add(proy);
                 }
             }
@@ -414,17 +417,20 @@ namespace WindowsFormsApp3
                 comand.Connection = conection;
 
                 foreach(Examen examen in listExamenes)
-                comand.CommandText =
-                    "SELECT * FROM Entregas " +
-                    "WHERE alumno =" + idAlumno +
-                    "AND entregable = " + examen.id;
-                reader = comand.ExecuteReader();
+                {
+                    comand.CommandText =
+                        "SELECT * FROM Entregas " +
+                        "WHERE alumno =" + idAlumno +
+                        "AND entregable = " + examen.id;
+                    reader = comand.ExecuteReader();
 
-                if (reader.Read())
-                    calificaciones.Add((int)reader["calif"]);
-                else
-                    calificaciones.Add(0);
+                    if (reader.Read())
+                        calificaciones.Add((int)reader["calif"]);
+                    else
+                        calificaciones.Add(0);
 
+                    reader.Close();
+                }
             }
             finally
             {
@@ -444,17 +450,21 @@ namespace WindowsFormsApp3
                 comand.Connection = conection;
 
                 foreach (Proyecto proy in listProyectoss)
+                {
                     comand.CommandText =
                         "SELECT * FROM Entregas " +
                         "WHERE alumno =" + idAlumno +
                         "AND entregable = " + proy.id;
-                reader = comand.ExecuteReader();
 
-                if (reader.Read())
-                    calificaciones.Add((int)reader["calif"]);
-                else
-                    calificaciones.Add(0);
+                    reader = comand.ExecuteReader();
 
+                    if (reader.Read())
+                        calificaciones.Add((int)reader["calif"]);
+                    else
+                        calificaciones.Add(0);
+
+                    reader.Close();
+                }
             }
             finally
             {
@@ -464,9 +474,9 @@ namespace WindowsFormsApp3
             return calificaciones.ToArray();
         }
 
-        #endregion
+#endregion
 
-        #region lectura
+#region lectura
 
         internal static int getIdMaestro( int idGrupo )
         {

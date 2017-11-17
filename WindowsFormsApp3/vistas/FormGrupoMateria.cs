@@ -121,7 +121,7 @@ namespace WindowsFormsApp3
             Application.Exit();
         }
 
-        private void numericUpDn_ValueChanged(object sender, EventArgs e)
+        private void rubroUpDn_ValueChanged(object sender, EventArgs e)
         {
             float total = (float) (upDnAsistencias.Value + upDnTareas.Value + upDnExamenes.Value + upDnProyectos.Value);
 

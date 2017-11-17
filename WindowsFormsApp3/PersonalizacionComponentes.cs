@@ -20,8 +20,10 @@ namespace WindowsFormsApp3
         private static Font miFuenteMateria = new Font("Microsoft Sans Serif",12 , FontStyle.Bold );
         private static Font miFuenteInfo = new Font("Microsoft Sans Serif", 16);
         private static Font miFuentelblAlumno = new Font("Microsoft Sans Serif", 16);
+        private static Font miFuenteUpDnCalif = new Font("Microsoft Sans Serif", 9);
+        
 
-#region llenado de paneneles de entregas/calif/asist
+        #region llenado de paneneles de entregas/calif/asist
 
 
         /// <summary> panel con dateCheckBox por cada di, del alumno indicado </summary>
@@ -74,6 +76,8 @@ namespace WindowsFormsApp3
             foreach (int calif in calificaciones)
             {
                 NumericUpDown nud = new NumericUpDown();
+                nud.Size = new Size(34, 20);
+                nud.Font = miFuenteUpDnCalif;
                 nud.Value = calif;
                 panel.Controls.Add(nud);
             }
@@ -93,6 +97,8 @@ namespace WindowsFormsApp3
             foreach (int calif in calificaciones)
             {
                 NumericUpDown nud = new NumericUpDown();
+                nud.Size = new Size(34, 20);
+                nud.Font = miFuenteUpDnCalif;
                 nud.Value = calif;
                 panel.Controls.Add(nud);
             }
