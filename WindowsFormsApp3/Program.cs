@@ -51,7 +51,7 @@ namespace WindowsFormsApp3
         }
 
 
-//***************************** ventanas *******************************************
+//******** ventanas *******************************************
 
         internal static void returnToListaGrupos()
         {
