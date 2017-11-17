@@ -46,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clases objeto\Alumno.cs" />
+    <Compile Include="clases objeto\Calificacion.cs" />
     <Compile Include="clases objeto\DiaClase.cs" />
+    <Compile Include="clases objeto\Examen.cs" />
     <Compile Include="clases objeto\Proyecto.cs" />
     <Compile Include="clases objeto\Tarea.cs" />
     <Compile Include="componentes visuales\DateButton.cs">

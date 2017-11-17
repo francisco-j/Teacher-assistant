@@ -13,6 +13,7 @@ namespace WindowsFormsApp3
         private static OleDbCommand comand = new OleDbCommand();
         private static OleDbDataReader reader;
 
+        private static int tipoAsist = 1, tipoTarea = 2, tipoExam = 3, tipoProy = 4;
         
 #region control
 
@@ -199,7 +200,10 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.CommandText = "SELECT * FROM Grupos WHERE maestro=" + idMaestro;
+
+                comand.CommandText = 
+                    "SELECT * FROM Grupos " +
+                    "WHERE maestro=" + idMaestro;
                 reader = comand.ExecuteReader();
 
                 //busca todos los grupos del maestro
@@ -254,8 +258,6 @@ namespace WindowsFormsApp3
                 {
                     diasClase.Add(new DiaClase( (DateTime)reader["fecha"], (int)reader["idGrupo"] ) );
                 }
-                Console.WriteLine("DEntor del método");
-
             }
             finally
             {
@@ -273,7 +275,10 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Tareas WHERE materia =" + idMateria ;
+                comand.CommandText = 
+                    "SELECT * FROM Entregables " +
+                    "WHERE materia =" + idMateria + 
+                    "AND tipo = " + tipoTarea;
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())
@@ -286,6 +291,7 @@ namespace WindowsFormsApp3
                 reader.Close();
                 conection.Close();
             }
+
             return Tareas.ToArray();
         }
 
@@ -297,7 +303,10 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Proyectos WHERE materia =" + idMateria;
+                comand.CommandText =
+                    "SELECT * FROM Entregables " +
+                    "WHERE materia =" + idMateria +
+                    "AND tipo >= " + tipoProy;
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())
@@ -311,6 +320,33 @@ namespace WindowsFormsApp3
                 conection.Close();
             }
             return proyectos.ToArray();
+        }
+
+        /// <summary> devuelbe los proyectos de la materia indicada </summary>
+        internal static Examen[] getExamenes(int idMateria)
+        {
+            List<Examen> examenes = new List<Examen>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText =
+                    "SELECT * FROM Entregables " +
+                    "WHERE materia =" + idMateria +
+                    "AND tipo = " + tipoExam;
+                reader = comand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    examenes.Add(new Examen(reader["nombre"].ToString(), (int)reader["id"]));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return examenes.ToArray();
         }
 
         /// <summary> array con los dias que falto el alumno </summary>
@@ -339,20 +375,23 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> devielve el array de id's de las tareas entregadas por el alumno indicado </summary>
-        internal static int[] getEntregas(int idAlumno)
+        internal static int[] getEntregasTareas(int idAlumno)
         {
             List<int> entregas = new List<int>();
             try
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Entregas WHERE alumno =" + idAlumno;
+                comand.CommandText = 
+                    "SELECT * FROM Entregas " +
+                    "WHERE alumno =" + idAlumno + 
+                    "AND tipo = " + tipoTarea;
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    int tarea = (int)reader["tarea"];
-                    entregas.Add(tarea);
+                    int entregable = (int)reader["entregable"];
+                    entregas.Add(entregable);
                 }
             }
             finally
@@ -361,6 +400,68 @@ namespace WindowsFormsApp3
                 conection.Close();
             }
             return entregas.ToArray();
+        }
+
+        /// <summary> devielve el array de calificaciones de los examenes presentados por el alumno indicado </summary>
+        internal static Calificacion[] getEntregasExam(int idAlumno)
+        {
+            List<Calificacion> calificaciones = new List<Calificacion>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText =
+                    "SELECT * FROM Entregas " +
+                    "WHERE alumno =" + idAlumno +
+                    "AND tipo = " + tipoExam;
+                reader = comand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int idExamen = (int)reader["entregable"];
+                    int puntage = (int)reader["calif"];
+
+                    Calificacion Calif = new Calificacion(idExamen, puntage);
+                    calificaciones.Add(Calif);
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return calificaciones.ToArray();
+        }
+
+        /// <summary> devielve el array de id's de las tareas entregadas por el alumno indicado </summary>
+        internal static Calificacion[] getEntregasProy(int idAlumno)
+        {
+            List<Calificacion> calificaciones = new List<Calificacion>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText =
+                    "SELECT * FROM Entregas " +
+                    "WHERE alumno =" + idAlumno +
+                    "AND tipo >= " + tipoProy;
+                reader = comand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int idExamen = (int)reader["entregable"];
+                    int puntage = (int)reader["calif"];
+
+                    Calificacion Calif = new Calificacion(idExamen, puntage);
+                    calificaciones.Add(Calif);
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return calificaciones.ToArray();
         }
 
 #endregion
@@ -749,7 +850,7 @@ namespace WindowsFormsApp3
 
 #region borrar
 
-        /// <summary> borra el grupo de la tabla grupos </summary>
+        /// <summary> borra el grupo indicado de la tabla grupos </summary>
         internal static void borrarGrupo(int idGrupo)
         {
             try

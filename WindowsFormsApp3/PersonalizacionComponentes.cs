@@ -100,7 +100,7 @@ namespace WindowsFormsApp3
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.Margin = new Padding(0);
 
-            int[] entregas = dbConection.getEntregas(idAlumno);
+            int[] entregas = dbConection.getEntregasTareas(idAlumno);
 
             foreach (Tarea tarea in listTareas)
             {
