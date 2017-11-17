@@ -371,7 +371,7 @@ namespace WindowsFormsApp3
 
         #endregion
 
-        private void scrollHorizontal_Scroll(object sender, ScrollEventArgs e)
+       /* private void scrollHorizontal_Scroll(object sender, ScrollEventArgs e)
         {
             flPanelFechas.HorizontalScroll.Value = scrollHorizontal.Value;
             flPanelAsistencias.HorizontalScroll.Value = scrollHorizontal.Value;
@@ -390,6 +390,6 @@ namespace WindowsFormsApp3
 
             scrollVertical.Value = flPanelAsistencias.VerticalScroll.Value;
             scrollHorizontal.Value = flPanelAsistencias.HorizontalScroll.Value;
-        }
+        }*/
     }
 }

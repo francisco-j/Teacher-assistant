@@ -328,7 +328,7 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> devuelbe los proyectos de la materia indicada </summary>
-        internal static Examen[] getExamenes(int idMateria)
+        internal static  Examen[] getExamenes(int idMateria)
         {
             List<Examen> examenes = new List<Examen>();
             try
