@@ -42,13 +42,18 @@
             this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.flPanelFechas = new System.Windows.Forms.FlowLayoutPanel();
-            this.tiltLabel1 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.flPanelAsistencias = new System.Windows.Forms.FlowLayoutPanel();
             this.ckBox1 = new System.Windows.Forms.CheckBox();
             this.btnAgregarAlumno = new System.Windows.Forms.Button();
             this.scrollVertical = new System.Windows.Forms.VScrollBar();
             this.scrollHorizontal = new System.Windows.Forms.HScrollBar();
             this.grBoxMaterias = new System.Windows.Forms.GroupBox();
+            this.lbl = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.lbl3 = new System.Windows.Forms.Label();
+            this.lbl4 = new System.Windows.Forms.Label();
+            this.lbl5 = new System.Windows.Forms.Label();
+            this.tiltLabel1 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.grBoxAsistencia.SuspendLayout();
             this.tlPanel.SuspendLayout();
             this.flPanelAlumnos.SuspendLayout();
@@ -72,7 +77,7 @@
             // txbBusqueda
             // 
             this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBusqueda.Location = new System.Drawing.Point(697, 24);
+            this.txbBusqueda.Location = new System.Drawing.Point(791, 28);
             this.txbBusqueda.Name = "txbBusqueda";
             this.txbBusqueda.Size = new System.Drawing.Size(211, 30);
             this.txbBusqueda.TabIndex = 13;
@@ -123,7 +128,7 @@
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = global::WindowsFormsApp3.Properties.Resources.icoBuscar;
-            this.btnBuscar.Location = new System.Drawing.Point(914, 26);
+            this.btnBuscar.Location = new System.Drawing.Point(1008, 30);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(32, 32);
             this.btnBuscar.TabIndex = 7;
@@ -149,7 +154,7 @@
             this.grBoxAsistencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
             this.grBoxAsistencia.Location = new System.Drawing.Point(225, 80);
             this.grBoxAsistencia.Name = "grBoxAsistencia";
-            this.grBoxAsistencia.Size = new System.Drawing.Size(721, 406);
+            this.grBoxAsistencia.Size = new System.Drawing.Size(818, 463);
             this.grBoxAsistencia.TabIndex = 0;
             this.grBoxAsistencia.TabStop = false;
             this.grBoxAsistencia.Text = "Asistencia";
@@ -161,7 +166,7 @@
             this.btnAddDia.FlatAppearance.BorderSize = 0;
             this.btnAddDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddDia.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddDia.Location = new System.Drawing.Point(677, 368);
+            this.btnAddDia.Location = new System.Drawing.Point(777, 419);
             this.btnAddDia.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddDia.Name = "btnAddDia";
             this.btnAddDia.Size = new System.Drawing.Size(38, 36);
@@ -182,19 +187,19 @@
             this.tlPanel.RowCount = 2;
             this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlPanel.Size = new System.Drawing.Size(695, 332);
+            this.tlPanel.Size = new System.Drawing.Size(789, 381);
             this.tlPanel.TabIndex = 20;
             // 
             // flPanelAlumnos
             // 
-            this.flPanelAlumnos.AutoSize = true;
+            this.flPanelAlumnos.AutoScroll = true;
             this.flPanelAlumnos.Controls.Add(this.label2);
+            this.flPanelAlumnos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flPanelAlumnos.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flPanelAlumnos.Location = new System.Drawing.Point(3, 66);
+            this.flPanelAlumnos.Location = new System.Drawing.Point(3, 80);
             this.flPanelAlumnos.Name = "flPanelAlumnos";
-            this.flPanelAlumnos.Size = new System.Drawing.Size(327, 26);
+            this.flPanelAlumnos.Size = new System.Drawing.Size(327, 298);
             this.flPanelAlumnos.TabIndex = 0;
-            this.flPanelAlumnos.WrapContents = false;
             // 
             // label2
             // 
@@ -208,34 +213,26 @@
             // 
             // flPanelFechas
             // 
-            this.flPanelFechas.AutoSize = true;
+            this.flPanelFechas.AutoScroll = true;
             this.flPanelFechas.Controls.Add(this.tiltLabel1);
             this.flPanelFechas.Location = new System.Drawing.Point(336, 3);
             this.flPanelFechas.Name = "flPanelFechas";
-            this.flPanelFechas.Size = new System.Drawing.Size(50, 57);
+            this.flPanelFechas.Size = new System.Drawing.Size(440, 71);
             this.flPanelFechas.TabIndex = 0;
             this.flPanelFechas.WrapContents = false;
             // 
-            // tiltLabel1
-            // 
-            this.tiltLabel1.Fecha = new System.DateTime(((long)(0)));
-            this.tiltLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tiltLabel1.Location = new System.Drawing.Point(3, 0);
-            this.tiltLabel1.Name = "tiltLabel1";
-            this.tiltLabel1.RotationAngle = -60D;
-            this.tiltLabel1.Size = new System.Drawing.Size(44, 57);
-            this.tiltLabel1.TabIndex = 0;
-            this.tiltLabel1.Text = "00/00/00";
-            // 
             // flPanelAsistencias
             // 
-            this.flPanelAsistencias.AutoSize = true;
+            this.flPanelAsistencias.AutoScroll = true;
             this.flPanelAsistencias.Controls.Add(this.ckBox1);
+            this.flPanelAsistencias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flPanelAsistencias.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flPanelAsistencias.Location = new System.Drawing.Point(336, 66);
+            this.flPanelAsistencias.Location = new System.Drawing.Point(336, 80);
             this.flPanelAsistencias.Name = "flPanelAsistencias";
-            this.flPanelAsistencias.Size = new System.Drawing.Size(21, 20);
+            this.flPanelAsistencias.Size = new System.Drawing.Size(453, 298);
             this.flPanelAsistencias.TabIndex = 1;
+            this.flPanelAsistencias.WrapContents = false;
+            this.flPanelAsistencias.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flPanelAsistencias_Scroll);
             // 
             // ckBox1
             // 
@@ -253,7 +250,7 @@
             this.btnAgregarAlumno.FlatAppearance.BorderSize = 0;
             this.btnAgregarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarAlumno.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarAlumno.Location = new System.Drawing.Point(6, 364);
+            this.btnAgregarAlumno.Location = new System.Drawing.Point(0, 417);
             this.btnAgregarAlumno.Name = "btnAgregarAlumno";
             this.btnAgregarAlumno.Size = new System.Drawing.Size(48, 40);
             this.btnAgregarAlumno.TabIndex = 19;
@@ -262,17 +259,19 @@
             // 
             // scrollVertical
             // 
-            this.scrollVertical.Location = new System.Drawing.Point(704, 96);
+            this.scrollVertical.LargeChange = 20;
+            this.scrollVertical.Location = new System.Drawing.Point(798, 104);
             this.scrollVertical.Name = "scrollVertical";
-            this.scrollVertical.Size = new System.Drawing.Size(17, 266);
+            this.scrollVertical.Size = new System.Drawing.Size(17, 307);
             this.scrollVertical.TabIndex = 2;
             this.scrollVertical.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollVertical_Scroll);
             // 
             // scrollHorizontal
             // 
-            this.scrollHorizontal.Location = new System.Drawing.Point(342, 368);
+            this.scrollHorizontal.LargeChange = 20;
+            this.scrollHorizontal.Location = new System.Drawing.Point(342, 414);
             this.scrollHorizontal.Name = "scrollHorizontal";
-            this.scrollHorizontal.Size = new System.Drawing.Size(330, 16);
+            this.scrollHorizontal.Size = new System.Drawing.Size(430, 16);
             this.scrollHorizontal.TabIndex = 2;
             this.scrollHorizontal.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollHorizontal_Scroll);
             // 
@@ -284,18 +283,69 @@
             this.grBoxMaterias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
             this.grBoxMaterias.Location = new System.Drawing.Point(12, 80);
             this.grBoxMaterias.Name = "grBoxMaterias";
-            this.grBoxMaterias.Size = new System.Drawing.Size(207, 406);
+            this.grBoxMaterias.Size = new System.Drawing.Size(207, 463);
             this.grBoxMaterias.TabIndex = 20;
             this.grBoxMaterias.TabStop = false;
             this.grBoxMaterias.Text = "Materias";
+            // 
+            // lbl
+            // 
+            this.lbl.Location = new System.Drawing.Point(555, 165);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(465, 19);
+            this.lbl.TabIndex = 1;
+            // 
+            // lbl2
+            // 
+            this.lbl2.Location = new System.Drawing.Point(231, 472);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(339, 16);
+            this.lbl2.TabIndex = 21;
+            // 
+            // lbl3
+            // 
+            this.lbl3.Location = new System.Drawing.Point(532, 187);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(22, 307);
+            this.lbl3.TabIndex = 22;
+            // 
+            // lbl4
+            // 
+            this.lbl4.Location = new System.Drawing.Point(1000, 110);
+            this.lbl4.Name = "lbl4";
+            this.lbl4.Size = new System.Drawing.Size(22, 384);
+            this.lbl4.TabIndex = 23;
+            // 
+            // lbl5
+            // 
+            this.lbl5.Location = new System.Drawing.Point(553, 472);
+            this.lbl5.Name = "lbl5";
+            this.lbl5.Size = new System.Drawing.Size(449, 16);
+            this.lbl5.TabIndex = 24;
+            // 
+            // tiltLabel1
+            // 
+            this.tiltLabel1.Fecha = new System.DateTime(((long)(0)));
+            this.tiltLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tiltLabel1.Location = new System.Drawing.Point(3, 0);
+            this.tiltLabel1.Name = "tiltLabel1";
+            this.tiltLabel1.RotationAngle = -60D;
+            this.tiltLabel1.Size = new System.Drawing.Size(44, 57);
+            this.tiltLabel1.TabIndex = 0;
+            this.tiltLabel1.Text = "00/00/00";
             // 
             // FormListaMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(954, 498);
+            this.ClientSize = new System.Drawing.Size(1067, 555);
+            this.Controls.Add(this.lbl5);
+            this.Controls.Add(this.lbl3);
+            this.Controls.Add(this.lbl4);
             this.Controls.Add(this.grBoxMaterias);
+            this.Controls.Add(this.lbl2);
+            this.Controls.Add(this.lbl);
             this.Controls.Add(this.grBoxAsistencia);
             this.Controls.Add(this.btnAjustes);
             this.Controls.Add(this.btnLogOut);
@@ -310,7 +360,6 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormListaG_FormClosed);
             this.grBoxAsistencia.ResumeLayout(false);
             this.tlPanel.ResumeLayout(false);
-            this.tlPanel.PerformLayout();
             this.flPanelAlumnos.ResumeLayout(false);
             this.flPanelAlumnos.PerformLayout();
             this.flPanelFechas.ResumeLayout(false);
@@ -343,5 +392,10 @@
         private System.Windows.Forms.VScrollBar scrollVertical;
         private System.Windows.Forms.HScrollBar scrollHorizontal;
         private componentes_visuales.tiltLabel tiltLabel1;
+        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label lbl3;
+        private System.Windows.Forms.Label lbl4;
+        private System.Windows.Forms.Label lbl5;
     }
 }

@@ -59,7 +59,7 @@
             this.btnCambio.TabIndex = 5;
             this.btnCambio.Text = "Eliminar";
             this.btnCambio.UseVisualStyleBackColor = true;
-            this.btnCambio.Click += new System.EventHandler(this.borrar_Click);
+            this.btnCambio.Click += new System.EventHandler(this.btnCambio_Click);
             // 
             // lblInfo
             // 

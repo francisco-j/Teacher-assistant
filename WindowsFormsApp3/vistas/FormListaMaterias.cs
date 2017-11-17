@@ -28,16 +28,20 @@ namespace WindowsFormsApp3
             this.idGrupo = idGrupo;
             this.Text = dbConection.getGrupo( idGrupo ).ToString();
             lblGrupo.Text += this.Text;
+            
 
             cargarMaterias();
             cargarAlumnos();
             cargarAsistencias();
 
+
+            //lbl.Location = new Point(555, 165);
+            
             this.Show();
         }
 
         #endregion
-        
+
         #region eventos
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -371,13 +375,21 @@ namespace WindowsFormsApp3
         {
             flPanelFechas.HorizontalScroll.Value = scrollHorizontal.Value;
             flPanelAsistencias.HorizontalScroll.Value = scrollHorizontal.Value;
-            flPanelAsistencias.HorizontalScroll.Visible = false;
         }
 
         private void scrollVertical_Scroll(object sender, ScrollEventArgs e)
         {
             flPanelAlumnos.VerticalScroll.Value = scrollVertical.Value;
             flPanelAsistencias.VerticalScroll.Value = scrollVertical.Value;
+        }
+
+        private void flPanelAsistencias_Scroll(object sender, ScrollEventArgs e)
+        {
+            scrollVertical.LargeChange = flPanelAsistencias.VerticalScroll.LargeChange;
+            scrollHorizontal.LargeChange = flPanelAsistencias.HorizontalScroll.LargeChange;
+
+            scrollVertical.Value = flPanelAsistencias.VerticalScroll.Value;
+            scrollHorizontal.Value = flPanelAsistencias.HorizontalScroll.Value;
         }
     }
 }
