@@ -209,19 +209,10 @@
     <None Include="Resources\buscar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\logo solo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo texto.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Notas %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Tareas %282%29.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Menu.png" />
@@ -234,12 +225,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icoTeacherAssistant.ico" />
-    <None Include="Resources\Examenes.png" />
-    <None Include="Resources\Examene o calificaciones.png" />
-    <None Include="Resources\iconmonstr-log-out-4-481.png" />
     <None Include="Resources\icoLogOut1.png" />
-    <None Include="Resources\icoActualizar.png" />
-    <None Include="Resources\icoCheckMark24.png" />
     <None Include="Resources\icoXMark24.png" />
     <None Include="Resources\icoMateria32.png" />
     <None Include="Resources\icoAddAlumno32.png" />
