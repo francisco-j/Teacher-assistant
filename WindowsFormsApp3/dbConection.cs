@@ -95,7 +95,7 @@ namespace WindowsFormsApp3
 
 #endregion
 
-        #region lectura de arrays
+#region lectura de arrays
 
         /// <summary> retorna los grupos asociados al maestro indicado </summary>
         internal static Grupo[] GruposAsociadosCon(int idUsuario)
@@ -193,42 +193,49 @@ namespace WindowsFormsApp3
         /// <summary> devuelbe todos los alumnos que concidan con el string indicado. Toma en cuenta nombre, apellidoM y apellidoM. Pero si el string abarca mas de uno no encontrara al alumno deseado </summary>
         internal static Alumno[] buscar(string name, int idMaestro)
         {
+            List<int> gruposDeMaestro = new List<int>();
             List<Alumno> lAlumnos = new List<Alumno>();
 
-            conection.Open();
-            comand.CommandText = "SELECT * FROM Grupos WHERE maestro=" + idMaestro;
-            reader = comand.ExecuteReader();
-
-            while( reader.Read() )
+            try
             {
-                try
-                {
-                    OleDbConnection newConnection = new OleDbConnection(conection.ConnectionString);
-                    newConnection.Open();
-                    OleDbCommand newCommand = new OleDbCommand("SELECT * FROM Alumnos WHERE nombres & ' ' & apellidoPaterno & ' ' & apellidoMaterno like '%" + name + "%' AND grupo=" + (int)reader["id"], newConnection);
-                    OleDbDataReader newReader = newCommand.ExecuteReader();
+                conection.Open();
+                comand.CommandText = "SELECT * FROM Grupos WHERE maestro=" + idMaestro;
+                reader = comand.ExecuteReader();
 
-                    while (newReader.Read())
+                //busca todos los grupos del maestro
+                while (reader.Read())
+                {
+                    gruposDeMaestro.Add((int)reader["id"]);
+                }
+
+                //para cada grupo busca los alumnos que coincidan
+                foreach (int grupoM in gruposDeMaestro)
+                {
+                    comand.CommandText =
+                        "SELECT * FROM Alumnos " +
+                        "WHERE nombres & ' ' & apellidoPaterno & ' ' & apellidoMaterno like '%" + name + "%'" +
+                        "AND grupo=" + grupoM;
+                    reader = comand.ExecuteReader();
+
+                    while (reader.Read())
                     {
-                        int id = (int)newReader["id"];
-                        string nombre = newReader["nombres"].ToString();
-                        string apellidoP = newReader["apellidoPaterno"].ToString();
-                        string apellidoM = newReader["apellidoMaterno"].ToString();
-                        int grupo = (int)newReader["grupo"];
+                        int id = (int)reader["id"];
+                        string nombre = reader["nombres"].ToString();
+                        string apellidoP = reader["apellidoPaterno"].ToString();
+                        string apellidoM = reader["apellidoMaterno"].ToString();
+                        int grupo = (int)reader["grupo"];
                         Alumno a = new Alumno(id, nombre, apellidoP, apellidoM, grupo);
 
                         lAlumnos.Add(a);
                     }
-                    newReader.Close();
-                    newConnection.Close();
-                }
-                catch
-                {
-                    Console.WriteLine("Error de búsqueda de alumnos");
                 }
             }
-            reader.Close();
-            conection.Close();
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+
             return lAlumnos.ToArray();
         }
 
