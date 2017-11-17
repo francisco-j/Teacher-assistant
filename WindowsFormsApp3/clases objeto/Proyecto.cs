@@ -12,5 +12,10 @@ namespace WindowsFormsApp3.clases_objeto
             this.nombre = nombre;
             this.id = id;
         }
+
+        public override string ToString()
+        {
+            return "nombre("+nombre+"), " + "id("+id+")";
+        }
     }
 }

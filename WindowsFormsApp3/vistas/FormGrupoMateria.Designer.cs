@@ -460,6 +460,7 @@
             this.Tag = "FormGrupo";
             this.Text = "Grupo materia";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGrupoMateria_FormClosed);
+            this.Load += new System.EventHandler(this.FormGrupoMateria_Load);
             this.grpBxModulo.ResumeLayout(false);
             this.grpBxModulo.PerformLayout();
             this.tlPanel.ResumeLayout(false);

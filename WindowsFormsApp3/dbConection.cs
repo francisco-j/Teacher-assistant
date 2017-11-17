@@ -311,7 +311,9 @@ namespace WindowsFormsApp3
 
                 while (reader.Read())
                 {
-                    proyectos.Add(new Proyecto(reader["nombre"].ToString(), (int)reader["id"]));
+                    Proyecto proy = new Proyecto(reader["nombre"].ToString(), (int)reader["id"]);
+                    Console.WriteLine("proyecto leido: " + proy);
+                    proyectos.Add(proy);
                 }
             }
             finally
@@ -374,7 +376,7 @@ namespace WindowsFormsApp3
             return lFaltas.ToArray();
         }
 
-        /// <summary> devielve el array de id's de las tareas entregadas por el alumno indicado </summary>
+        /// <summary> array de id's de las tareas entregadas por el alumno indicado </summary>
         internal static int[] getEntregasTareas(int idAlumno)
         {
             List<int> entregas = new List<int>();
@@ -402,28 +404,27 @@ namespace WindowsFormsApp3
             return entregas.ToArray();
         }
 
-        /// <summary> devielve el array de calificaciones de los examenes presentados por el alumno indicado </summary>
-        internal static Calificacion[] getEntregasExam(int idAlumno)
+        /// <summary> array de calificaciones de los examenes presentados por el alumno indicado </summary>
+        internal static int[] getCalifExam(int idAlumno, Examen[] listExamenes)
         {
-            List<Calificacion> calificaciones = new List<Calificacion>();
+            List<int> calificaciones = new List<int>();
             try
             {
                 conection.Open();
                 comand.Connection = conection;
+
+                foreach(Examen examen in listExamenes)
                 comand.CommandText =
                     "SELECT * FROM Entregas " +
                     "WHERE alumno =" + idAlumno +
-                    "AND tipo = " + tipoExam;
+                    "AND entregable = " + examen.id;
                 reader = comand.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    int idExamen = (int)reader["entregable"];
-                    int puntage = (int)reader["calif"];
+                if (reader.Read())
+                    calificaciones.Add((int)reader["calif"]);
+                else
+                    calificaciones.Add(0);
 
-                    Calificacion Calif = new Calificacion(idExamen, puntage);
-                    calificaciones.Add(Calif);
-                }
             }
             finally
             {
@@ -433,28 +434,27 @@ namespace WindowsFormsApp3
             return calificaciones.ToArray();
         }
 
-        /// <summary> devielve el array de id's de las tareas entregadas por el alumno indicado </summary>
-        internal static Calificacion[] getEntregasProy(int idAlumno)
+        /// <summary> array de calificaciones de los proyectos presentados por el alumno indicado </summary>
+        internal static int[] getCalifProy(int idAlumno, Proyecto[] listProyectoss)
         {
-            List<Calificacion> calificaciones = new List<Calificacion>();
+            List<int> calificaciones = new List<int>();
             try
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText =
-                    "SELECT * FROM Entregas " +
-                    "WHERE alumno =" + idAlumno +
-                    "AND tipo >= " + tipoProy;
+
+                foreach (Proyecto proy in listProyectoss)
+                    comand.CommandText =
+                        "SELECT * FROM Entregas " +
+                        "WHERE alumno =" + idAlumno +
+                        "AND entregable = " + proy.id;
                 reader = comand.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    int idExamen = (int)reader["entregable"];
-                    int puntage = (int)reader["calif"];
+                if (reader.Read())
+                    calificaciones.Add((int)reader["calif"]);
+                else
+                    calificaciones.Add(0);
 
-                    Calificacion Calif = new Calificacion(idExamen, puntage);
-                    calificaciones.Add(Calif);
-                }
             }
             finally
             {
@@ -464,9 +464,9 @@ namespace WindowsFormsApp3
             return calificaciones.ToArray();
         }
 
-#endregion
+        #endregion
 
-#region lectura
+        #region lectura
 
         internal static int getIdMaestro( int idGrupo )
         {
