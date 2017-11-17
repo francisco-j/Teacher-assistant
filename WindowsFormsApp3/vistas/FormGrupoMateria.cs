@@ -24,13 +24,17 @@ namespace WindowsFormsApp3
             alumnos = dbConection.alumnosGrupo(idGrupo);
 
             personalizarVentana(idMateria, idGrupo);
-
-            btnTareas.PerformClick();
         }
         
 #endregion
 
 #region eventos
+
+        /// <summary> al cargar muestra tareas </summary>
+        private void FormGrupoMateria_Load(object sender, EventArgs e)
+        {
+            btnTareas.PerformClick();
+        }
 
         /// <summary> muestra la ventana tareas </summary>
         private void btnTareas_Click(object sender, EventArgs e)
@@ -70,11 +74,9 @@ namespace WindowsFormsApp3
 
             foreach (Alumno alumno in alumnos)
             {
-                /*
                 FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelProyectos(alumno.getId(), listProyectos);
 
                 flPanelEntregas.Controls.Add(entregas);
-                */
             }
         }
 
@@ -82,7 +84,23 @@ namespace WindowsFormsApp3
         private void btnExamenes_Click(object sender, EventArgs e)
         {
             grpBxModulo.Text = "Examenes";
-            //PersonalizacionComponentes.decorarPanelExamenes(ref fLPanel);
+
+            flPanelTitulos.Controls.Clear();
+            flPanelEntregas.Controls.Clear();
+            Examen[] listExamenes = dbConection.getExamenes(idMateria);
+
+            foreach (Examen exam in listExamenes)
+            {
+                flPanelTitulos.Controls.Add(new tiltLabel(exam.nombre));
+            }
+
+            foreach (Alumno alumno in alumnos)
+            {
+                FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelExamenes(alumno.getId(), listExamenes);
+
+                flPanelEntregas.Controls.Add(entregas);
+            }
+            
         }
 
         /// <summary> muestra la ventana tareas </summary>
@@ -103,7 +121,7 @@ namespace WindowsFormsApp3
             Application.Exit();
         }
 
-        private void numericUpDn_ValueChanged(object sender, EventArgs e)
+        private void rubroUpDn_ValueChanged(object sender, EventArgs e)
         {
             float total = (float) (upDnAsistencias.Value + upDnTareas.Value + upDnExamenes.Value + upDnProyectos.Value);
 
@@ -131,7 +149,7 @@ namespace WindowsFormsApp3
             PersonalizacionComponentes.llenarPanelAlunos(flPanelAlumnos, alumnos);
         }
 
-#endregion
+        #endregion
 
     }
 }

@@ -2,9 +2,7 @@
 using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Threading.Tasks;
 using WindowsFormsApp3.vistas;
-using System.Collections.Generic;
 using WindowsFormsApp3.clases_objeto;
 using WindowsFormsApp3.componentes_visuales;
 
@@ -22,9 +20,98 @@ namespace WindowsFormsApp3
         private static Font miFuenteMateria = new Font("Microsoft Sans Serif",12 , FontStyle.Bold );
         private static Font miFuenteInfo = new Font("Microsoft Sans Serif", 16);
         private static Font miFuentelblAlumno = new Font("Microsoft Sans Serif", 16);
-
+        private static Font miFuenteUpDnCalif = new Font("Microsoft Sans Serif", 9);
         
-#region metodos
+
+        #region llenado de paneneles de entregas/calif/asist
+
+
+        /// <summary> panel con dateCheckBox por cada di, del alumno indicado </summary>
+        internal static FlowLayoutPanel hacerPanelAsistencias(int idAlumno, DiaClase[] diasClase)
+        {
+            //Las fechas se llenan antes de llamar este método
+
+            FlowLayoutPanel panel = new FlowLayoutPanel();
+            panel.Name = idAlumno.ToString();
+            panel.Margin = new Padding(0);
+
+            DateTime[] faltas = dbConection.getFaltas(idAlumno);
+
+            foreach ( DiaClase dia in diasClase)
+            {
+                bool asistencia = !faltas.Contains(dia.dia);
+                panel.Controls.Add(new DateButton(dia, asistencia));
+            }
+            panel.Size = panel.PreferredSize;
+            return panel;
+        }
+
+        /// <summary> panel con checkbox por cada tarea del alulmno indicado </summary>
+        internal static FlowLayoutPanel hacerPanelTareas(int idAlumno, Tarea[] listTareas)
+        {
+            FlowLayoutPanel panel = new FlowLayoutPanel();
+            panel.Margin = new Padding(0);
+
+            int[] entregas = dbConection.getEntregasTareas(idAlumno);
+
+            foreach (Tarea tarea in listTareas)
+            {
+                bool entregada = entregas.Contains(tarea.id);
+                panel.Controls.Add(new tareaCkBx(tarea.id, idAlumno, true));
+
+            }
+            panel.Size = panel.PreferredSize;
+
+            return panel;
+        }
+
+        /// <summary> panel con numUpDn por cada examen del alumno idicado </summary>
+        internal static FlowLayoutPanel hacerPanelExamenes(int idAlumno, Examen[] listExamenes)
+        {
+            FlowLayoutPanel panel = new FlowLayoutPanel();
+            panel.Margin = new Padding(0);
+
+            int[] calificaciones = dbConection.getCalifExam(idAlumno, listExamenes);
+
+            foreach (int calif in calificaciones)
+            {
+                NumericUpDown nud = new NumericUpDown();
+                nud.Size = new Size(34, 20);
+                nud.Font = miFuenteUpDnCalif;
+                nud.Value = calif;
+                panel.Controls.Add(nud);
+            }
+            panel.Size = panel.PreferredSize;
+            
+            return panel;
+        }
+
+        /// <summary> panel con numUpDn por cada proyecto del alumno idicado </summary>
+        internal static FlowLayoutPanel hacerPanelProyectos(int idAlumno, Proyecto[] listProyectos)
+        {
+            FlowLayoutPanel panel = new FlowLayoutPanel();
+            panel.Margin = new Padding(0);
+
+            int[] calificaciones = dbConection.getCalifProy(idAlumno, listProyectos);
+
+            foreach (int calif in calificaciones)
+            {
+                NumericUpDown nud = new NumericUpDown();
+                nud.Size = new Size(34, 20);
+                nud.Font = miFuenteUpDnCalif;
+                nud.Value = calif;
+                panel.Controls.Add(nud);
+            }
+            panel.Size = panel.PreferredSize;
+
+            return panel;
+        }
+
+
+        #endregion
+
+
+        #region metodos
 
         /// <summary> debuelbe el contenedor con la informacion del grupo indicado </summary>
         public static FlowLayoutPanel hacerConternedorGrupo(Grupo grupo, int color)
@@ -72,45 +159,6 @@ namespace WindowsFormsApp3
             boton.Click += new EventHandler(grupo_Click);
             
             return contenedor;
-        }
-
-        /// <summary> crea un panel con los dateCheckBox de l alumno indicado </summary>
-        internal static FlowLayoutPanel hacerPanelAsistencias(int idAlumno, DiaClase[] diasClase)
-        {
-            //Las fechas se llenan antes de llamar este método
-
-            FlowLayoutPanel panel = new FlowLayoutPanel();
-            panel.Name = idAlumno.ToString();
-            panel.Margin = new Padding(0);
-
-            DateTime[] faltas = dbConection.getFaltas(idAlumno);
-
-            foreach ( DiaClase dia in diasClase)
-            {
-                bool asistencia = !faltas.Contains(dia.dia);
-                panel.Controls.Add(new DateButton(dia, asistencia));
-            }
-            panel.Size = panel.PreferredSize;
-            return panel;
-        }
-
-        /// <summary> va a ser para grupoMateria, pero le falta mucha mejora </summary>
-        internal static FlowLayoutPanel hacerPanelTareas(int idAlumno, Tarea[] listTareas)
-        {
-            FlowLayoutPanel panel = new FlowLayoutPanel();
-            panel.Margin = new Padding(0);
-
-            int[] entregas = dbConection.getEntregas(idAlumno);
-
-            foreach (Tarea tarea in listTareas)
-            {
-                bool entregada = entregas.Contains(tarea.id);
-                panel.Controls.Add(new tareaCkBx(tarea.id, idAlumno, true));
-
-            }
-            panel.Size = panel.PreferredSize;
-
-            return panel;
         }
 
         /// <summary> crea un panel con los DateButtons de l alumno indicado </summary>

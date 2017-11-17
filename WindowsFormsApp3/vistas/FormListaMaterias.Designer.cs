@@ -85,7 +85,7 @@
             // 
             // btnAjustes
             // 
-            this.btnAjustes.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoXMark;
+            this.btnAjustes.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.Menu;
             this.btnAjustes.FlatAppearance.BorderSize = 0;
             this.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAjustes.Font = new System.Drawing.Font("Marlett", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

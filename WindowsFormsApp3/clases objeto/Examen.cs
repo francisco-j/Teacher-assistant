@@ -2,20 +2,15 @@
 
 namespace WindowsFormsApp3.clases_objeto
 {
-    class Proyecto
+    class Examen
     {
         public String nombre { get; set; }
         public int id { get; set; }
 
-        public Proyecto(String nombre, int id)
+        public Examen(String nombre, int id)
         {
             this.nombre = nombre;
             this.id = id;
-        }
-
-        public override string ToString()
-        {
-            return "nombre("+nombre+"), " + "id("+id+")";
         }
     }
 }

@@ -13,6 +13,7 @@ namespace WindowsFormsApp3
         private static OleDbCommand comand = new OleDbCommand();
         private static OleDbDataReader reader;
 
+        private static int tipoAsist = 1, tipoTarea = 2, tipoExam = 3, tipoProy = 4;
         
 #region control
 
@@ -95,7 +96,7 @@ namespace WindowsFormsApp3
 
 #endregion
 
-        #region lectura de arrays
+#region lectura de arrays
 
         /// <summary> retorna los grupos asociados al maestro indicado </summary>
         internal static Grupo[] GruposAsociadosCon(int idUsuario)
@@ -193,42 +194,56 @@ namespace WindowsFormsApp3
         /// <summary> devuelbe todos los alumnos que concidan con el string indicado. Toma en cuenta nombre, apellidoM y apellidoM. Pero si el string abarca mas de uno no encontrara al alumno deseado </summary>
         internal static Alumno[] buscar(string name, int idMaestro)
         {
+            List<int> gruposDeMaestro = new List<int>();
             List<Alumno> lAlumnos = new List<Alumno>();
 
-            conection.Open();
-            comand.CommandText = "SELECT * FROM Grupos WHERE maestro=" + idMaestro;
-            reader = comand.ExecuteReader();
-
-            while( reader.Read() )
+            try
             {
-                try
-                {
-                    OleDbConnection newConnection = new OleDbConnection(conection.ConnectionString);
-                    newConnection.Open();
-                    OleDbCommand newCommand = new OleDbCommand("SELECT * FROM Alumnos WHERE nombres & ' ' & apellidoPaterno & ' ' & apellidoMaterno like '%" + name + "%' AND grupo=" + (int)reader["id"], newConnection);
-                    OleDbDataReader newReader = newCommand.ExecuteReader();
+                conection.Open();
 
-                    while (newReader.Read())
+                comand.CommandText = 
+                    "SELECT * FROM Grupos " +
+                    "WHERE maestro=" + idMaestro;
+                reader = comand.ExecuteReader();
+
+                //busca todos los grupos del maestro
+                while (reader.Read())
+                {
+                    gruposDeMaestro.Add((int)reader["id"]);
+                }
+
+                reader.Close();
+
+                //para cada grupo busca los alumnos que coincidan
+                foreach (int grupoM in gruposDeMaestro)
+                {
+                    comand.CommandText =
+                        "SELECT * FROM Alumnos " +
+                        "WHERE nombres & ' ' & apellidoPaterno & ' ' & apellidoMaterno like '%" + name + "%'" +
+                        "AND grupo=" + grupoM;
+                    reader = comand.ExecuteReader();
+
+                    while (reader.Read())
                     {
-                        int id = (int)newReader["id"];
-                        string nombre = newReader["nombres"].ToString();
-                        string apellidoP = newReader["apellidoPaterno"].ToString();
-                        string apellidoM = newReader["apellidoMaterno"].ToString();
-                        int grupo = (int)newReader["grupo"];
+                        int id = (int)reader["id"];
+                        string nombre = reader["nombres"].ToString();
+                        string apellidoP = reader["apellidoPaterno"].ToString();
+                        string apellidoM = reader["apellidoMaterno"].ToString();
+                        int grupo = (int)reader["grupo"];
                         Alumno a = new Alumno(id, nombre, apellidoP, apellidoM, grupo);
 
                         lAlumnos.Add(a);
                     }
-                    newReader.Close();
-                    newConnection.Close();
+                    reader.Close();
                 }
-                catch
-                {
-                    Console.WriteLine("Error de búsqueda de alumnos");
-                }
+
             }
-            reader.Close();
-            conection.Close();
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+
             return lAlumnos.ToArray();
         }
 
@@ -247,8 +262,6 @@ namespace WindowsFormsApp3
                 {
                     diasClase.Add(new DiaClase( (DateTime)reader["fecha"], (int)reader["idGrupo"] ) );
                 }
-                Console.WriteLine("DEntor del método");
-
             }
             finally
             {
@@ -266,7 +279,10 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Tareas WHERE materia =" + idMateria ;
+                comand.CommandText = 
+                    "SELECT * FROM Entregables " +
+                    "WHERE materia =" + idMateria + 
+                    "AND tipo = " + tipoTarea;
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())
@@ -279,6 +295,7 @@ namespace WindowsFormsApp3
                 reader.Close();
                 conection.Close();
             }
+
             return Tareas.ToArray();
         }
 
@@ -290,12 +307,16 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Proyectos WHERE materia =" + idMateria;
+                comand.CommandText =
+                    "SELECT * FROM Entregables " +
+                    "WHERE materia =" + idMateria +
+                    "AND tipo >= " + tipoProy;
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    proyectos.Add(new Proyecto(reader["nombre"].ToString(), (int)reader["id"]));
+                    Proyecto proy = new Proyecto(reader["nombre"].ToString(), (int)reader["id"]);
+                    proyectos.Add(proy);
                 }
             }
             finally
@@ -304,6 +325,33 @@ namespace WindowsFormsApp3
                 conection.Close();
             }
             return proyectos.ToArray();
+        }
+
+        /// <summary> devuelbe los proyectos de la materia indicada </summary>
+        internal static Examen[] getExamenes(int idMateria)
+        {
+            List<Examen> examenes = new List<Examen>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText =
+                    "SELECT * FROM Entregables " +
+                    "WHERE materia =" + idMateria +
+                    "AND tipo = " + tipoExam;
+                reader = comand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    examenes.Add(new Examen(reader["nombre"].ToString(), (int)reader["id"]));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return examenes.ToArray();
         }
 
         /// <summary> array con los dias que falto el alumno </summary>
@@ -331,21 +379,24 @@ namespace WindowsFormsApp3
             return lFaltas.ToArray();
         }
 
-        /// <summary> devielve el array de id's de las tareas entregadas por el alumno indicado </summary>
-        internal static int[] getEntregas(int idAlumno)
+        /// <summary> array de id's de las tareas entregadas por el alumno indicado </summary>
+        internal static int[] getEntregasTareas(int idAlumno)
         {
             List<int> entregas = new List<int>();
             try
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Entregas WHERE alumno =" + idAlumno;
+                comand.CommandText = 
+                    "SELECT * FROM Entregas " +
+                    "WHERE alumno =" + idAlumno + 
+                    "AND tipo = " + tipoTarea;
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    int tarea = (int)reader["tarea"];
-                    entregas.Add(tarea);
+                    int entregable = (int)reader["entregable"];
+                    entregas.Add(entregable);
                 }
             }
             finally
@@ -354,6 +405,73 @@ namespace WindowsFormsApp3
                 conection.Close();
             }
             return entregas.ToArray();
+        }
+
+        /// <summary> array de calificaciones de los examenes presentados por el alumno indicado </summary>
+        internal static int[] getCalifExam(int idAlumno, Examen[] listExamenes)
+        {
+            List<int> calificaciones = new List<int>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+
+                foreach(Examen examen in listExamenes)
+                {
+                    comand.CommandText =
+                        "SELECT * FROM Entregas " +
+                        "WHERE alumno =" + idAlumno +
+                        "AND entregable = " + examen.id;
+                    reader = comand.ExecuteReader();
+
+                    if (reader.Read())
+                        calificaciones.Add((int)reader["calif"]);
+                    else
+                        calificaciones.Add(0);
+
+                    reader.Close();
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return calificaciones.ToArray();
+        }
+
+        /// <summary> array de calificaciones de los proyectos presentados por el alumno indicado </summary>
+        internal static int[] getCalifProy(int idAlumno, Proyecto[] listProyectoss)
+        {
+            List<int> calificaciones = new List<int>();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+
+                foreach (Proyecto proy in listProyectoss)
+                {
+                    comand.CommandText =
+                        "SELECT * FROM Entregas " +
+                        "WHERE alumno =" + idAlumno +
+                        "AND entregable = " + proy.id;
+
+                    reader = comand.ExecuteReader();
+
+                    if (reader.Read())
+                        calificaciones.Add((int)reader["calif"]);
+                    else
+                        calificaciones.Add(0);
+
+                    reader.Close();
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return calificaciones.ToArray();
         }
 
 #endregion
@@ -742,7 +860,7 @@ namespace WindowsFormsApp3
 
 #region borrar
 
-        /// <summary> borra el grupo de la tabla grupos </summary>
+        /// <summary> borra el grupo indicado de la tabla grupos </summary>
         internal static void borrarGrupo(int idGrupo)
         {
             try

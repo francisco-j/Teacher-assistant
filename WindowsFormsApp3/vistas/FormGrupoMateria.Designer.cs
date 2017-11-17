@@ -288,7 +288,7 @@
             0,
             0,
             65536});
-            this.upDnProyectos.ValueChanged += new System.EventHandler(this.numericUpDn_ValueChanged);
+            this.upDnProyectos.ValueChanged += new System.EventHandler(this.rubroUpDn_ValueChanged);
             // 
             // label1
             // 
@@ -323,7 +323,7 @@
             0,
             0,
             65536});
-            this.upDnAsistencias.ValueChanged += new System.EventHandler(this.numericUpDn_ValueChanged);
+            this.upDnAsistencias.ValueChanged += new System.EventHandler(this.rubroUpDn_ValueChanged);
             // 
             // upDnTareas
             // 
@@ -347,7 +347,7 @@
             0,
             0,
             65536});
-            this.upDnTareas.ValueChanged += new System.EventHandler(this.numericUpDn_ValueChanged);
+            this.upDnTareas.ValueChanged += new System.EventHandler(this.rubroUpDn_ValueChanged);
             // 
             // label3
             // 
@@ -393,7 +393,7 @@
             0,
             0,
             65536});
-            this.upDnExamenes.ValueChanged += new System.EventHandler(this.numericUpDn_ValueChanged);
+            this.upDnExamenes.ValueChanged += new System.EventHandler(this.rubroUpDn_ValueChanged);
             // 
             // label5
             // 
@@ -460,6 +460,7 @@
             this.Tag = "FormGrupo";
             this.Text = "Grupo materia";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGrupoMateria_FormClosed);
+            this.Load += new System.EventHandler(this.FormGrupoMateria_Load);
             this.grpBxModulo.ResumeLayout(false);
             this.grpBxModulo.PerformLayout();
             this.tlPanel.ResumeLayout(false);
