@@ -17,13 +17,14 @@ namespace WindowsFormsApp3.vistas
             this.alumno = alumno;
             this.borrar = borrar;
             //Si on se va a borrar entonces se llamó al método para editar al alumno
-            if ( !borrar)
+            if (!borrar)
             {
                 this.Text = "Editar alumno";
                 lblInfo2.Text = "que deseas editar";
                 btnCambio.Text = "Guardar cambios";
 
-                btnCambio.DialogResult = DialogResult.OK;
+                btnCambio.Click += editar_Click;
+                //btnCambio.DialogResult = DialogResult.OK;
             }
 
             txtNombre.Focus();
@@ -101,6 +102,7 @@ namespace WindowsFormsApp3.vistas
             else
             {
                 dbConection.borrarAlumno(alumno.getId());
+                this.DialogResult = DialogResult.OK;
                 Console.WriteLine("Borrar");
                 this.Dispose();
             }

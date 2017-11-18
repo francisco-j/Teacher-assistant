@@ -51,7 +51,6 @@
             // btnCambio
             // 
             this.btnCambio.AutoSize = true;
-            this.btnCambio.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCambio.Location = new System.Drawing.Point(109, 219);
             this.btnCambio.Name = "btnCambio";

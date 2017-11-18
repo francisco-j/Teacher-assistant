@@ -46,11 +46,9 @@
             this.ckBox1 = new System.Windows.Forms.CheckBox();
             this.btnAgregarAlumno = new System.Windows.Forms.Button();
             this.grBoxMaterias = new System.Windows.Forms.GroupBox();
-            this.lbl = new System.Windows.Forms.Label();
             this.lbl2 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.lbl3 = new System.Windows.Forms.Label();
-            this.lbl4 = new System.Windows.Forms.Label();
-            this.lbl5 = new System.Windows.Forms.Label();
             this.tiltLabel1 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.grBoxAsistencia.SuspendLayout();
             this.tlPanel.SuspendLayout();
@@ -99,7 +97,7 @@
             this.btnAgregarMateria.FlatAppearance.BorderSize = 0;
             this.btnAgregarMateria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarMateria.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarMateria.Location = new System.Drawing.Point(6, 368);
+            this.btnAgregarMateria.Location = new System.Drawing.Point(6, 446);
             this.btnAgregarMateria.Name = "btnAgregarMateria";
             this.btnAgregarMateria.Size = new System.Drawing.Size(32, 32);
             this.btnAgregarMateria.TabIndex = 16;
@@ -138,7 +136,7 @@
             this.flPanelMaterias.AutoScroll = true;
             this.flPanelMaterias.Location = new System.Drawing.Point(6, 30);
             this.flPanelMaterias.Name = "flPanelMaterias";
-            this.flPanelMaterias.Size = new System.Drawing.Size(195, 317);
+            this.flPanelMaterias.Size = new System.Drawing.Size(195, 410);
             this.flPanelMaterias.TabIndex = 18;
             // 
             // grBoxAsistencia
@@ -183,19 +181,20 @@
             this.tlPanel.RowCount = 2;
             this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlPanel.Size = new System.Drawing.Size(809, 397);
+            this.tlPanel.Size = new System.Drawing.Size(809, 419);
             this.tlPanel.TabIndex = 20;
             // 
             // flPanelAlumnos
             // 
             this.flPanelAlumnos.AutoScroll = true;
             this.flPanelAlumnos.Controls.Add(this.label2);
-            this.flPanelAlumnos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flPanelAlumnos.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flPanelAlumnos.Location = new System.Drawing.Point(3, 80);
             this.flPanelAlumnos.Name = "flPanelAlumnos";
-            this.flPanelAlumnos.Size = new System.Drawing.Size(327, 314);
+            this.flPanelAlumnos.Size = new System.Drawing.Size(327, 335);
             this.flPanelAlumnos.TabIndex = 0;
+            this.flPanelAlumnos.WrapContents = false;
+            this.flPanelAlumnos.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flPanelAlumnos_Scroll);
             // 
             // label2
             // 
@@ -213,22 +212,22 @@
             this.flPanelFechas.Controls.Add(this.tiltLabel1);
             this.flPanelFechas.Location = new System.Drawing.Point(336, 3);
             this.flPanelFechas.Name = "flPanelFechas";
-            this.flPanelFechas.Size = new System.Drawing.Size(440, 71);
+            this.flPanelFechas.Size = new System.Drawing.Size(455, 71);
             this.flPanelFechas.TabIndex = 0;
             this.flPanelFechas.WrapContents = false;
+            this.flPanelFechas.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flPanelFechas_Scroll);
             // 
             // flPanelAsistencias
             // 
             this.flPanelAsistencias.AutoScroll = true;
             this.flPanelAsistencias.Controls.Add(this.ckBox1);
-            this.flPanelAsistencias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flPanelAsistencias.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flPanelAsistencias.Location = new System.Drawing.Point(336, 80);
             this.flPanelAsistencias.Name = "flPanelAsistencias";
-            this.flPanelAsistencias.Size = new System.Drawing.Size(470, 314);
+            this.flPanelAsistencias.Size = new System.Drawing.Size(470, 336);
             this.flPanelAsistencias.TabIndex = 1;
             this.flPanelAsistencias.WrapContents = false;
-            //this.flPanelAsistencias.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flPanelAsistencias_Scroll);
+            this.flPanelAsistencias.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flPanelAsistencias_Scroll);
             // 
             // ckBox1
             // 
@@ -261,45 +260,31 @@
             this.grBoxMaterias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
             this.grBoxMaterias.Location = new System.Drawing.Point(12, 80);
             this.grBoxMaterias.Name = "grBoxMaterias";
-            this.grBoxMaterias.Size = new System.Drawing.Size(207, 463);
+            this.grBoxMaterias.Size = new System.Drawing.Size(207, 486);
             this.grBoxMaterias.TabIndex = 20;
             this.grBoxMaterias.TabStop = false;
             this.grBoxMaterias.Text = "Materias";
             // 
-            // lbl
-            // 
-            this.lbl.Location = new System.Drawing.Point(555, 165);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(465, 19);
-            this.lbl.TabIndex = 1;
-            // 
             // lbl2
             // 
-            this.lbl2.Location = new System.Drawing.Point(231, 472);
+            this.lbl2.Location = new System.Drawing.Point(542, 195);
             this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(339, 16);
+            this.lbl2.Size = new System.Drawing.Size(22, 317);
             this.lbl2.TabIndex = 21;
+            // 
+            // lbl1
+            // 
+            this.lbl1.Location = new System.Drawing.Point(557, 167);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(470, 19);
+            this.lbl1.TabIndex = 1;
             // 
             // lbl3
             // 
-            this.lbl3.Location = new System.Drawing.Point(532, 187);
+            this.lbl3.Location = new System.Drawing.Point(231, 509);
             this.lbl3.Name = "lbl3";
-            this.lbl3.Size = new System.Drawing.Size(22, 307);
-            this.lbl3.TabIndex = 22;
-            // 
-            // lbl4
-            // 
-            this.lbl4.Location = new System.Drawing.Point(1000, 110);
-            this.lbl4.Name = "lbl4";
-            this.lbl4.Size = new System.Drawing.Size(22, 384);
-            this.lbl4.TabIndex = 23;
-            // 
-            // lbl5
-            // 
-            this.lbl5.Location = new System.Drawing.Point(553, 472);
-            this.lbl5.Name = "lbl5";
-            this.lbl5.Size = new System.Drawing.Size(449, 16);
-            this.lbl5.TabIndex = 24;
+            this.lbl3.Size = new System.Drawing.Size(330, 16);
+            this.lbl3.TabIndex = 23;
             // 
             // tiltLabel1
             // 
@@ -318,12 +303,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1079, 578);
-            this.Controls.Add(this.lbl5);
             this.Controls.Add(this.lbl3);
-            this.Controls.Add(this.lbl4);
-            this.Controls.Add(this.grBoxMaterias);
+            this.Controls.Add(this.lbl1);
             this.Controls.Add(this.lbl2);
-            this.Controls.Add(this.lbl);
+            this.Controls.Add(this.grBoxMaterias);
             this.Controls.Add(this.grBoxAsistencia);
             this.Controls.Add(this.btnAjustes);
             this.Controls.Add(this.btnLogOut);
@@ -368,10 +351,8 @@
         private System.Windows.Forms.FlowLayoutPanel flPanelFechas;
         private System.Windows.Forms.Button btnAddDia;
         private componentes_visuales.tiltLabel tiltLabel1;
-        private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Label lbl3;
-        private System.Windows.Forms.Label lbl4;
-        private System.Windows.Forms.Label lbl5;
     }
 }

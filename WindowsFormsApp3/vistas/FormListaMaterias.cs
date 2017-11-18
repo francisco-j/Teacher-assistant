@@ -33,8 +33,7 @@ namespace WindowsFormsApp3
             cargarMaterias();
             cargarAlumnos();
             cargarAsistencias();
-
-
+            
             //lbl.Location = new Point(555, 165);
             
             this.Show();
@@ -43,6 +42,25 @@ namespace WindowsFormsApp3
         #endregion
 
         #region eventos
+
+        #region ScrollEvents
+        private void flPanelAsistencias_Scroll(object sender, ScrollEventArgs e)
+        {
+            flPanelFechas.HorizontalScroll.Value = flPanelAsistencias.HorizontalScroll.Value;
+            flPanelAlumnos.VerticalScroll.Value = flPanelAsistencias.VerticalScroll.Value;
+        }
+
+        private void flPanelAlumnos_Scroll(object sender, ScrollEventArgs e)
+        {
+            flPanelAsistencias.VerticalScroll.Value = flPanelAlumnos.VerticalScroll.Value;
+        }
+
+        private void flPanelFechas_Scroll(object sender, ScrollEventArgs e)
+        {
+            flPanelAsistencias.HorizontalScroll.Value = flPanelFechas.HorizontalScroll.Value;
+        }
+
+        #endregion
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
@@ -96,14 +114,12 @@ namespace WindowsFormsApp3
                 nombre.ContextMenu = new ContextMenu( menu );
 
                 flPanelAlumnos.Controls.Add(nombre);
-                flPanelAlumnos.Size = flPanelAlumnos.PreferredSize;
 
                 //Asistencias
                 DiaClase[] diasClase = dbConection.getDiasClase(idGrupo);
                 FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(nuevoAlumno.getId(), diasClase);
                 asistencias.Name = nuevoAlumno.getId().ToString();
                 flPanelAsistencias.Controls.Add(asistencias);
-                flPanelAsistencias.Size = flPanelAsistencias.PreferredSize;
             }
         }
 
@@ -114,10 +130,7 @@ namespace WindowsFormsApp3
         }
 
         /// <summary>
-        /// Obtiene el día seleccionado del calendario cuando se quiere agregar un nuevo día
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// Obtiene el día seleccionado del calendario cuando se quiere agregar un nuevo día/// </summary>
         private void monthCalendarSelected(object sender, DateRangeEventArgs e)
         {
             MonthCalendar fecha = (MonthCalendar)sender;
@@ -170,14 +183,12 @@ namespace WindowsFormsApp3
         /// <summary>
         /// Muestra un formulario de confirmación para eliminar el alumno de la base de datos y de los componentes visuales
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void borrarAlumno_Click(object sender, EventArgs e)
         {
             Alumno alumno = dbConection.getAlumno(Convert.ToInt32((sender as MenuItem).Name));
             FormBorrarAlumno formBorrarAlum = new FormBorrarAlumno(alumno, true);
 
-            if (formBorrarAlum.ShowDialog(this) == DialogResult.OK)
+            if( formBorrarAlum.ShowDialog(this) == DialogResult.OK )
             {
                 flPanelAlumnos.Controls.RemoveByKey((sender as MenuItem).Name);
 
@@ -188,8 +199,6 @@ namespace WindowsFormsApp3
         /// <summary>
         /// Muestra un formulario para que se pueda cambiar el nombre y lo actualice en la base de datos y en la etiqueta de nombre
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void editarAlumno_Click(object sender, EventArgs e)
         {
             Alumno alumno = dbConection.getAlumno(Convert.ToInt32((sender as MenuItem).Name));
@@ -206,8 +215,6 @@ namespace WindowsFormsApp3
         /// <summary>
         /// Cuando el mouse entra a alguno de los DateButtons cambiará el fondo del nombre y la fecha que corresponden de la asistencia
         /// </summary>
-        /// <param name="idAlumno"></param>
-        /// <param name="fecha"></param>
         public void asistenciaSelected(string idAlumno, string fecha)
         {
             (flPanelAlumnos.Controls.Find(idAlumno, false)[0] as Label).BackColor = Color.Silver;
@@ -217,8 +224,6 @@ namespace WindowsFormsApp3
         /// <summary>
         /// Cuando el puntero salga de algún DateButton regresará a su color ordinario el nombre y la fecha de la asistencia correspondiente
         /// </summary>
-        /// <param name="idAlumno"></param>
-        /// <param name="fecha"></param>
         public void asistenciaLeaveSelected(string idAlumno, string fecha)
         {
             (flPanelAlumnos.Controls.Find(idAlumno, false)[0] as Label).BackColor = Color.WhiteSmoke;
@@ -238,6 +243,7 @@ namespace WindowsFormsApp3
                 while( diasAlumnos.MoveNext() )
                 {
                     ((FlowLayoutPanel)diasAlumnos.Current).Controls.RemoveByKey(fechaEliminar);
+                    ((FlowLayoutPanel)diasAlumnos.Current).Size = ((FlowLayoutPanel)diasAlumnos.Current).PreferredSize;
                 }
 
                 //Acomodar el string de la fecha en el formato adecuado para la base de datos
@@ -327,7 +333,6 @@ namespace WindowsFormsApp3
                 labelFecha.ContextMenu = new ContextMenu(menu);
                 flPanelFechas.Controls.Add( labelFecha );
             }
-            //flPanelFechas.Size = flPanelAsistencias.PreferredSize;
             
             foreach (Alumno alumno in alumnosGrupo)
             {
@@ -371,25 +376,5 @@ namespace WindowsFormsApp3
 
         #endregion
 
-       /* private void scrollHorizontal_Scroll(object sender, ScrollEventArgs e)
-        {
-            flPanelFechas.HorizontalScroll.Value = scrollHorizontal.Value;
-            flPanelAsistencias.HorizontalScroll.Value = scrollHorizontal.Value;
-        }
-
-        private void scrollVertical_Scroll(object sender, ScrollEventArgs e)
-        {
-            flPanelAlumnos.VerticalScroll.Value = scrollVertical.Value;
-            flPanelAsistencias.VerticalScroll.Value = scrollVertical.Value;
-        }
-
-        private void flPanelAsistencias_Scroll(object sender, ScrollEventArgs e)
-        {
-            scrollVertical.LargeChange = flPanelAsistencias.VerticalScroll.LargeChange;
-            scrollHorizontal.LargeChange = flPanelAsistencias.HorizontalScroll.LargeChange;
-
-            scrollVertical.Value = flPanelAsistencias.VerticalScroll.Value;
-            scrollHorizontal.Value = flPanelAsistencias.HorizontalScroll.Value;
-        }*/
     }
 }

@@ -42,6 +42,7 @@ namespace WindowsFormsApp3
                 bool asistencia = !faltas.Contains(dia.dia);
                 panel.Controls.Add(new DateButton(dia, asistencia));
             }
+            //Importante dejar esta línea
             panel.Size = panel.PreferredSize;
             return panel;
         }
@@ -180,8 +181,6 @@ namespace WindowsFormsApp3
 
                 panel.Controls.Add(nombre);
             }
-
-            panel.AutoSize = true;
         }
 
         /// <summary> decora el botón con la información de la materia indicada </summary>
