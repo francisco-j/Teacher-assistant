@@ -285,7 +285,6 @@
             0,
             0,
             65536});
-            this.upDnProyectos.ValueChanged += new System.EventHandler(this.rubroUpDn_ValueChanged);
             // 
             // label1
             // 
@@ -320,7 +319,6 @@
             0,
             0,
             65536});
-            this.upDnTareas.ValueChanged += new System.EventHandler(this.rubroUpDn_ValueChanged);
             // 
             // label3
             // 
@@ -355,7 +353,6 @@
             0,
             0,
             65536});
-            this.upDnExamenes.ValueChanged += new System.EventHandler(this.rubroUpDn_ValueChanged);
             // 
             // label5
             // 
