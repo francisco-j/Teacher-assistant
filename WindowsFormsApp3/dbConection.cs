@@ -13,7 +13,7 @@ namespace WindowsFormsApp3
         private static OleDbCommand comand = new OleDbCommand();
         private static OleDbDataReader reader;
 
-        private static int tipoAsist = 1, tipoTarea = 2, tipoExam = 3, tipoProy = 4;
+        private static int tipoTarea = 1, tipoExam = 2, tipoProy = 3;
         
 #region control
 
@@ -157,6 +157,37 @@ namespace WindowsFormsApp3
                 conection.Close();
             }
             return lMaterias.ToArray();
+        }
+
+        /// <summary> porcentage de la calificaicon que cada tubro tiene en la materia indicada </summary>
+        internal static void getPorcentages(int idMateria, out int tareas, out int examenes, out int proyectos)
+        {
+            try
+            {
+                conection.Open();
+
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoTarea;
+                reader = comand.ExecuteReader();
+                tareas = reader.Read() ? (int)reader["porcentage"] : 3;
+                reader.Close();
+
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoExam;
+                reader = comand.ExecuteReader();
+                examenes = reader.Read() ? (int)reader["porcentage"] : 4;
+                reader.Close();
+
+                comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoProy;
+                reader = comand.ExecuteReader();
+                proyectos = reader.Read() ? (int)reader["porcentage"] : 3;
+                reader.Close();
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
         }
 
         /// <summary> Se obtienen todos los alumnos del grupo enviado como parámetro </summary>

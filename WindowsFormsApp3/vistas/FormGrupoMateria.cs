@@ -30,7 +30,7 @@ namespace WindowsFormsApp3
 
 #region eventos
 
-        /// <summary> al cargar muestra tareas </summary>
+        /// <summary> cargar menu tareas </summary>
         private void FormGrupoMateria_Load(object sender, EventArgs e)
         {
             btnTareas.PerformClick();
@@ -110,6 +110,7 @@ namespace WindowsFormsApp3
             //PersonalizacionComponentes.decorarPanelCalificaciones(ref fLPanel);
         }
 
+        /// <summary> te regresa a lista grupos </summary>
         private void btnBack_Click(object sender, EventArgs e)
         {
             Program.returnToListaMaterias();
@@ -123,7 +124,7 @@ namespace WindowsFormsApp3
 
         private void rubroUpDn_ValueChanged(object sender, EventArgs e)
         {
-            float total = (float) (upDnAsistencias.Value + upDnTareas.Value + upDnExamenes.Value + upDnProyectos.Value);
+            float total = (float) (upDnTareas.Value + upDnExamenes.Value + upDnProyectos.Value);
 
             lblTotal.Text = total.ToString();
 
@@ -145,6 +146,13 @@ namespace WindowsFormsApp3
             lblDatosGrupo.Text = numeroAlumnos + lblDatosGrupo.Text + escuela;
 
             this.Text = grupo + " " + materia;
+
+            int tareas, examenes, proyectos;
+            dbConection.getPorcentages(idMateria, out tareas, out examenes, out proyectos);
+
+            upDnTareas.Value = tareas;
+            upDnExamenes.Value = examenes;
+            upDnProyectos.Value = proyectos;
 
             PersonalizacionComponentes.llenarPanelAlunos(flPanelAlumnos, alumnos);
         }
