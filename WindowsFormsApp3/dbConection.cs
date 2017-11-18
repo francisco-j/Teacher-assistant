@@ -573,20 +573,14 @@ namespace WindowsFormsApp3
             }
         }
 
-        /// <summary>
-        /// Pide toda la información del alumno para devolver otro alumno pero con su Id
-        /// </summary>
-        /// <param name="nombre"></param>
-        /// <param name="paterno"></param>
-        /// <param name="materno"></param>
-        /// <param name="idGrupo"></param>
-        /// <returns></returns>
+        /// <summary> Pide toda la información del alumno para devolver otro alumno pero con su Id </summary>
         internal static Alumno getAlumno( string nombre, string paterno, string materno, int idGrupo )
         {
             conection.Open();
-            comand = new OleDbCommand("SELECT * FROM Alumnos WHERE nombres='" + nombre + "' AND apellidoPaterno='" + paterno + "' AND apellidoMaterno='" + materno + "' AND grupo=" + idGrupo, conection);
+            comand.CommandText = "SELECT * FROM Alumnos WHERE nombres='" + nombre + "' AND apellidoPaterno='" + paterno + "' AND apellidoMaterno='" + materno + "' AND grupo=" + idGrupo;
             Console.WriteLine(comand.CommandText);
             reader = comand.ExecuteReader();
+
             reader.Read();
 
             Alumno alumno = new Alumno( (int)reader["id"], nombre, paterno, materno, idGrupo );
@@ -596,11 +590,7 @@ namespace WindowsFormsApp3
             return alumno;
         }
 
-        /// <summary>
-        /// Pide el id y devuelve un alumno con toda su información
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <summary> Pide el id y devuelve un alumno con toda su información </summary>
         internal static Alumno getAlumno( int id )
         {
             try
@@ -705,6 +695,7 @@ namespace WindowsFormsApp3
             }
         }
 
+        /// <summary> agrega un dia al grupo indicado </summary>
         internal static void agregarDiaClase( DiaClase dia )
         {
             comand.CommandText = "INSERT INTO DiasClase (fecha, idGrupo) VALUES(#" + dia.dia.ToString("MM'/'dd'/'yy") + "#, " + dia.idGrupo + " )";
@@ -741,20 +732,7 @@ namespace WindowsFormsApp3
             {
                 conection.Close();
             }
-
-            /*
-            comand.CommandText = "INSERT INTO dbo.MyTable(ID, Name) VALUES(123, 'Timmy'), (124, 'Jonny'), (125, 'Sally');
-
-            try
-            {
-                conection.Open();
-                comand.ExecuteNonQuery();
-            }
-            finally
-            {
-                conection.Close();
-            }
-            */
+            
 
         }
 
@@ -762,18 +740,6 @@ namespace WindowsFormsApp3
         internal static void agregarMateria(String nombre, int salon)
         {
             comand.CommandText = "INSERT INTO Materias (nombre, grupo) VALUES('" + nombre + "'," + salon + ")";
-            comand.Connection = conection;
-            try
-            {
-                conection.Open();
-                Console.WriteLine(comand.ExecuteNonQuery() + " nueva materia " + nombre + salon);
-            }
-            finally
-            {
-                conection.Close();
-            }
-
-            comand.CommandText = "INSERT INTO Rubros (nombre, grupo) VALUES('" + nombre + "'," + salon + ")";
             comand.Connection = conection;
             try
             {
