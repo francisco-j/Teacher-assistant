@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using WindowsFormsApp3.vistas;
 using WindowsFormsApp3.clases_objeto;
 using WindowsFormsApp3.componentes_visuales;
+using System.Collections.Generic;
 
 namespace WindowsFormsApp3
 {
@@ -44,17 +45,21 @@ namespace WindowsFormsApp3
         #region eventos
 
         #region ScrollEvents
+
+        /// <summary>/// Cuando se mueva el panel de asistencia desplaza también el de fechas en caso de ser horizontal y el de nombres en caso de ser verical/// </summary>
         private void flPanelAsistencias_Scroll(object sender, ScrollEventArgs e)
         {
             flPanelFechas.HorizontalScroll.Value = flPanelAsistencias.HorizontalScroll.Value;
             flPanelAlumnos.VerticalScroll.Value = flPanelAsistencias.VerticalScroll.Value;
         }
 
+        /// <summary>///Cuando se realiza scroll en el panel de nombres se desplaza también verticalmente el panel de easistencias/// </summary>
         private void flPanelAlumnos_Scroll(object sender, ScrollEventArgs e)
         {
             flPanelAsistencias.VerticalScroll.Value = flPanelAlumnos.VerticalScroll.Value;
         }
 
+        /// <summary>///Cuando se desplaza el panel de fecha también se cambia el valor de desplazamiento horizontal del panel de asistencias /// </summary>
         private void flPanelFechas_Scroll(object sender, ScrollEventArgs e)
         {
             flPanelAsistencias.HorizontalScroll.Value = flPanelFechas.HorizontalScroll.Value;
@@ -100,8 +105,16 @@ namespace WindowsFormsApp3
                 Label nombre = new Label();
                 nombre.AutoSize = true;
                 nombre.Font = new Font("Microsoft Sans Serif", 16);
-                nombre.Text = nuevoAlumno.nombreCompletoPA();
                 nombre.Name = nuevoAlumno.getId() + "";
+
+                string nameAlumno = nuevoAlumno.nombreCompletoPA();
+                if (nameAlumno.Length > 25)
+                {
+                    ToolTip message = new ToolTip();
+                    message.SetToolTip(nombre, nuevoAlumno.nombreCompletoPA());
+                    nameAlumno = nameAlumno.Substring(0, 23) + "...";
+                }
+                nombre.Text = nameAlumno;
 
                 //Se le agrega el menú contextual al nuevo label que mstrará el nombre del alumno
                 MenuItem[] menu = {
@@ -115,9 +128,19 @@ namespace WindowsFormsApp3
 
                 flPanelAlumnos.Controls.Add(nombre);
 
+                //Para evitar que desacomode los días nuevos para este nuevo alumno
+                System.Collections.IEnumerator fechas = flPanelFechas.Controls.GetEnumerator();
+                List<DiaClase> daysNewAlum = new List<DiaClase>();
+
+                while( fechas.MoveNext() )
+                {
+                    string[] actualDay = ((tiltLabel)fechas.Current).Text.Split('/');
+                    daysNewAlum.Add(new DiaClase( new DateTime( Convert.ToInt32(actualDay[2]), Convert.ToInt32(actualDay[1]), Convert.ToInt32(actualDay[0])), nuevoAlumno.getId()));
+                }
+
                 //Asistencias
-                DiaClase[] diasClase = dbConection.getDiasClase(idGrupo);
-                FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(nuevoAlumno.getId(), diasClase);
+                //DiaClase[] diasClase = dbConection.getDiasClase(idGrupo);
+                FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(nuevoAlumno.getId(), daysNewAlum.ToArray());
                 asistencias.Name = nuevoAlumno.getId().ToString();
                 flPanelAsistencias.Controls.Add(asistencias);
             }
@@ -207,8 +230,14 @@ namespace WindowsFormsApp3
             if (formEditarAlum.ShowDialog(this) == DialogResult.OK)
             {
                 Alumno alumnoEditado = dbConection.getAlumno(Convert.ToInt32((sender as MenuItem).Name));
-
-                ((Label)(flPanelAlumnos.Controls.Find(alumnoEditado.getId().ToString(), false)[0])).Text = alumnoEditado.nombreCompletoPA();
+                string nameAlumno = alumnoEditado.nombreCompletoPA();
+                if (nameAlumno.Length > 25)
+                {
+                    ToolTip message = new ToolTip();
+                    message.SetToolTip(((Label)(flPanelAlumnos.Controls.Find(alumnoEditado.getId().ToString(), false)[0])), alumno.nombreCompletoPA());
+                    nameAlumno = nameAlumno.Substring(0, 23) + "...";
+                }
+                ((Label)(flPanelAlumnos.Controls.Find(alumnoEditado.getId().ToString(), false)[0])).Text = nameAlumno;
             }
         }
 
@@ -264,10 +293,7 @@ namespace WindowsFormsApp3
             return idGrupo;
         }
 
-        /// <summary>
-        /// Usado para recibir de FormAgregarAlumno la información del alumno agregado
-        /// </summary>
-        /// <param name="nuevo"></param>
+        /// <summary>/// Usado para recibir de FormAgregarAlumno la información del alumno agregado</summary>
         public void recibirNombreAlumno(Alumno nuevo)
         {
             nuevoAlumno = nuevo;
@@ -342,10 +368,7 @@ namespace WindowsFormsApp3
             }
         }
 
-        /// <summary>
-        /// Cuando se agrega un nuevo día para el grupo actual agrega una columna de DateButtons por cada alumno 
-        /// </summary>
-        /// <param name="dia"></param>
+        /// <summary> Cuando se agrega un nuevo día para el grupo actual agrega una columna de DateButtons por cada alumno </summary>
         private void actualizarAssitencia(DateTime dia)
         {
             DiaClase diaNuevo = new DiaClase(dia, idGrupo);

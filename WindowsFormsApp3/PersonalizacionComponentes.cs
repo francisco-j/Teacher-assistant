@@ -173,7 +173,17 @@ namespace WindowsFormsApp3
 
                 nombre.AutoSize = true;
                 nombre.Font = miFuentelblAlumno;
-                nombre.Text = alumno.nombreCompletoPA();
+
+                //Si el nombre es mayor a 25 caracteres lo recorta y le pone el tooltip
+                string nameAlumno = alumno.nombreCompletoPA();
+                if (nameAlumno.Length > 25)
+                {
+                    ToolTip message = new ToolTip();
+                    message.SetToolTip(nombre, alumno.nombreCompletoPA());
+                    nameAlumno = nameAlumno.Substring(0, 23) + "...";
+                }
+
+                nombre.Text = nameAlumno;
                 nombre.Name = alumno.getId().ToString();
 
                 //El evento para el click derecho de las etiquetas se debe programar donde se manda llamar este método para poder

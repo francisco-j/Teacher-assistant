@@ -54,9 +54,9 @@ namespace WindowsFormsApp3.vistas
             {
                 //Para que cambie la mayúsculas de los nombres 
                 alumno = new Alumno(alumno.getId(), txtNombre.Text, txtPaterno.Text, txtMaterno.Text, alumno.getGupo());
+                this.DialogResult = DialogResult.OK;
 
                 dbConection.actualizarAlumno(alumno.getId(), alumno.getNombres(), alumno.getPaterno(), alumno.getMaterno() );
-                Console.WriteLine("Editar");
                 this.Dispose();
             }
         }

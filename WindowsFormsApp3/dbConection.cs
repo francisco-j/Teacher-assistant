@@ -778,7 +778,7 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                Console.WriteLine(comand.ExecuteNonQuery() + " nueva materia " + nombre + salon);
+                Console.WriteLine(comand.ExecuteNonQuery() + " nueva materia: "+ salon);
             }
             finally
             {

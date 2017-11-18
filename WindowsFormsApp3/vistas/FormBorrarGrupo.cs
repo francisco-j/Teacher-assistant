@@ -33,10 +33,5 @@ namespace WindowsFormsApp3.vistas
                 txbEscuela.BackColor = Color.LightSalmon;
             }
         }
-
-        private void FormBorrarGrupo_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

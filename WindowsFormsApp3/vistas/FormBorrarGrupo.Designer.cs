@@ -143,7 +143,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormBorrarGrupo";
             this.Text = "Borrar ";
-            this.Load += new System.EventHandler(this.FormBorrarGrupo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numGrado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

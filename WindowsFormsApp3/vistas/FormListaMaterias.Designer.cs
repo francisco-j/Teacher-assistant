@@ -191,7 +191,7 @@
             this.flPanelAlumnos.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flPanelAlumnos.Location = new System.Drawing.Point(3, 80);
             this.flPanelAlumnos.Name = "flPanelAlumnos";
-            this.flPanelAlumnos.Size = new System.Drawing.Size(327, 335);
+            this.flPanelAlumnos.Size = new System.Drawing.Size(327, 319);
             this.flPanelAlumnos.TabIndex = 0;
             this.flPanelAlumnos.WrapContents = false;
             this.flPanelAlumnos.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flPanelAlumnos_Scroll);
@@ -281,9 +281,9 @@
             // 
             // lbl3
             // 
-            this.lbl3.Location = new System.Drawing.Point(231, 509);
+            this.lbl3.Location = new System.Drawing.Point(234, 505);
             this.lbl3.Name = "lbl3";
-            this.lbl3.Size = new System.Drawing.Size(330, 16);
+            this.lbl3.Size = new System.Drawing.Size(330, 15);
             this.lbl3.TabIndex = 23;
             // 
             // tiltLabel1
@@ -303,8 +303,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1079, 578);
-            this.Controls.Add(this.lbl3);
             this.Controls.Add(this.lbl1);
+            this.Controls.Add(this.lbl3);
             this.Controls.Add(this.lbl2);
             this.Controls.Add(this.grBoxMaterias);
             this.Controls.Add(this.grBoxAsistencia);
