@@ -13,7 +13,7 @@ namespace WindowsFormsApp3
         private static OleDbCommand comand = new OleDbCommand();
         private static OleDbDataReader reader;
 
-        private static int tipoAsist = 1, tipoTarea = 2, tipoExam = 3, tipoProy = 4;
+        public static int tipoTarea = 1, tipoExam = 2, tipoProy = 3;
         
 #region control
 
@@ -478,6 +478,7 @@ namespace WindowsFormsApp3
 
 #region lectura
 
+        /// <summary> id del maestro a cargo del grupo indicado </summary>
         internal static int getIdMaestro( int idGrupo )
         {
             int idMaestro;
@@ -573,20 +574,14 @@ namespace WindowsFormsApp3
             }
         }
 
-        /// <summary>
-        /// Pide toda la información del alumno para devolver otro alumno pero con su Id
-        /// </summary>
-        /// <param name="nombre"></param>
-        /// <param name="paterno"></param>
-        /// <param name="materno"></param>
-        /// <param name="idGrupo"></param>
-        /// <returns></returns>
+        /// <summary> Pide toda la información del alumno para devolver otro alumno pero con su Id </summary>
         internal static Alumno getAlumno( string nombre, string paterno, string materno, int idGrupo )
         {
             conection.Open();
-            comand = new OleDbCommand("SELECT * FROM Alumnos WHERE nombres='" + nombre + "' AND apellidoPaterno='" + paterno + "' AND apellidoMaterno='" + materno + "' AND grupo=" + idGrupo, conection);
+            comand.CommandText = "SELECT * FROM Alumnos WHERE nombres='" + nombre + "' AND apellidoPaterno='" + paterno + "' AND apellidoMaterno='" + materno + "' AND grupo=" + idGrupo;
             Console.WriteLine(comand.CommandText);
             reader = comand.ExecuteReader();
+
             reader.Read();
 
             Alumno alumno = new Alumno( (int)reader["id"], nombre, paterno, materno, idGrupo );
@@ -596,11 +591,7 @@ namespace WindowsFormsApp3
             return alumno;
         }
 
-        /// <summary>
-        /// Pide el id y devuelve un alumno con toda su información
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <summary> Pide el id y devuelve un alumno con toda su información </summary>
         internal static Alumno getAlumno( int id )
         {
             try
@@ -669,6 +660,37 @@ namespace WindowsFormsApp3
             }
         }
 
+        /// <summary> porcentage de la calificaicon que cada tubro tiene en la materia indicada </summary>
+        internal static void getPorcentages(int idMateria, out int tareas, out int examenes, out int proyectos)
+        {
+            try
+            {
+                conection.Open();
+
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoTarea;
+                reader = comand.ExecuteReader();
+                tareas = reader.Read() ? (int)reader["porcentage"]/10 : 3;
+                reader.Close();
+
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoExam;
+                reader = comand.ExecuteReader();
+                examenes = reader.Read() ? (int)reader["porcentage"]/10 : 4;
+                reader.Close();
+
+                comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoProy;
+                reader = comand.ExecuteReader();
+                proyectos = reader.Read() ? (int)reader["porcentage"]/10 : 3;
+                reader.Close();
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+        }
+
 
 #endregion
 
@@ -705,6 +727,7 @@ namespace WindowsFormsApp3
             }
         }
 
+        /// <summary> agrega un dia al grupo indicado </summary>
         internal static void agregarDiaClase( DiaClase dia )
         {
             comand.CommandText = "INSERT INTO DiasClase (fecha, idGrupo) VALUES(#" + dia.dia.ToString("MM'/'dd'/'yy") + "#, " + dia.idGrupo + " )";
@@ -741,20 +764,7 @@ namespace WindowsFormsApp3
             {
                 conection.Close();
             }
-
-            /*
-            comand.CommandText = "INSERT INTO dbo.MyTable(ID, Name) VALUES(123, 'Timmy'), (124, 'Jonny'), (125, 'Sally');
-
-            try
-            {
-                conection.Open();
-                comand.ExecuteNonQuery();
-            }
-            finally
-            {
-                conection.Close();
-            }
-            */
+            
 
         }
 
@@ -767,18 +777,6 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 Console.WriteLine(comand.ExecuteNonQuery() + " nueva materia " + nombre + salon);
-            }
-            finally
-            {
-                conection.Close();
-            }
-
-            comand.CommandText = "INSERT INTO Rubros (nombre, grupo) VALUES('" + nombre + "'," + salon + ")";
-            comand.Connection = conection;
-            try
-            {
-                conection.Open();
-                Console.WriteLine(comand.ExecuteNonQuery() + " nueva materia: "+ salon);
             }
             finally
             {
@@ -890,7 +888,50 @@ namespace WindowsFormsApp3
             }
         }
 
-        #endregion
+        internal static void actualizarRubro(int idMateria, int tipo, int newPorcentage)
+        {
+            try
+            {
+                conection.Open();
+
+                comand.Connection = conection;
+                comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipo;
+                reader = comand.ExecuteReader();
+
+                bool yaExiste = reader.Read();
+
+                reader.Close();
+
+                if (yaExiste)
+                {
+                    comand.CommandText = 
+                        "UPDATE Rubros " +
+                        "SET porcentage = " + newPorcentage + 
+                        " WHERE materia=" + idMateria + "AND tipo =" + tipo;
+                    comand.Connection = conection;
+
+                    comand.ExecuteNonQuery();
+                }
+                else
+                {
+                    comand.CommandText = 
+                        "INSERT INTO Rubros " +
+                        "(porcentage, materia, tipo) " +
+                        "VALUES(" + newPorcentage +", "+ idMateria + "," + tipo + ")";
+
+                    comand.Connection = conection;
+
+                    comand.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+        }
+
+#endregion
 
 #region borrar
 
