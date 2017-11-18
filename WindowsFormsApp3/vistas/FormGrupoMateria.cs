@@ -30,12 +30,7 @@ namespace WindowsFormsApp3
 
 #region eventos
 
-        /// <summary> cargar menu tareas </summary>
-        private void FormGrupoMateria_Load(object sender, EventArgs e)
-        {
-            btnTareas.PerformClick();
-        }
-
+    #region Módulos Click
         /// <summary> muestra la ventana tareas </summary>
         private void btnTareas_Click(object sender, EventArgs e)
         {
@@ -110,6 +105,14 @@ namespace WindowsFormsApp3
             //PersonalizacionComponentes.decorarPanelCalificaciones(ref fLPanel);
         }
 
+        #endregion
+
+        /// <summary> cargar menu tareas </summary>
+        private void FormGrupoMateria_Load(object sender, EventArgs e)
+        {
+            btnTareas.PerformClick();
+        }
+
         /// <summary> te regresa a lista grupos </summary>
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -135,10 +138,27 @@ namespace WindowsFormsApp3
 
             lblTotal.ForeColor = total!=10 ? Color.Salmon: Color.FromArgb(56, 164, 140);
         }
-        
-#endregion
 
-#region metodos
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (grpBxModulo.Text == "Tareas")
+            {
+                Console.WriteLine("Agregar tarea");
+            }
+            else if (grpBxModulo.Text == "Exámenes")
+            {
+                Console.WriteLine("Agregar examen");
+            }
+            else
+            {
+                Console.WriteLine("Agregar otro rubro");
+            }
+            //Cuando se encuentre en calificaciones debemos de desaparecer este botón
+        }
+
+        #endregion
+
+        #region metodos
 
         private void personalizarVentana(int idMateria,int idGrupo)
         {

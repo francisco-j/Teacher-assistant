@@ -35,8 +35,6 @@ namespace WindowsFormsApp3
             cargarAlumnos();
             cargarAsistencias();
             
-            //lbl.Location = new Point(555, 165);
-            
             this.Show();
         }
 
@@ -115,6 +113,7 @@ namespace WindowsFormsApp3
                     nameAlumno = nameAlumno.Substring(0, 23) + "...";
                 }
                 nombre.Text = nameAlumno;
+                nombre.DoubleClick += PersonalizacionComponentes.labelAlumno_Click;
 
                 //Se le agrega el menú contextual al nuevo label que mstrará el nombre del alumno
                 MenuItem[] menu = {
@@ -142,7 +141,15 @@ namespace WindowsFormsApp3
                 //DiaClase[] diasClase = dbConection.getDiasClase(idGrupo);
                 FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(nuevoAlumno.getId(), daysNewAlum.ToArray());
                 asistencias.Name = nuevoAlumno.getId().ToString();
+
+                //Quitar el label de controlsi es que está
+                quitarLabelControl();
+
                 flPanelAsistencias.Controls.Add(asistencias);
+
+                Console.WriteLine(flPanelFechas.Controls.Count + " dias ");
+                if (flPanelFechas.Controls.Count <= 10)
+                    agregarLabelControl();
             }
         }
 
@@ -152,8 +159,7 @@ namespace WindowsFormsApp3
             new FormResultadoBusqueda(txbBusqueda.Text, idMaestro);
         }
 
-        /// <summary>
-        /// Obtiene el día seleccionado del calendario cuando se quiere agregar un nuevo día/// </summary>
+        /// <summary>Obtiene el día seleccionado del calendario cuando se quiere agregar un nuevo día</summary>
         private void monthCalendarSelected(object sender, DateRangeEventArgs e)
         {
             MonthCalendar fecha = (MonthCalendar)sender;
@@ -171,21 +177,13 @@ namespace WindowsFormsApp3
             fecha.Hide();
         }
 
-        /// <summary>
-        /// Cuando pierde el foco ocultará el calendario de agregar día
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <summary>Cuando pierde el foco ocultará el calendario de agregar día</summary>
         private void monthCalendar_Leave(object sender, EventArgs e)
         {
             (sender as MonthCalendar).Hide();
         }
 
-        /// <summary>
-        /// Muestra un calendario para que el usuario pueda seleccionar una fecha y lo agregue a los días de asistencia
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <summary>Muestra un calendario para que el usuario pueda seleccionar una fecha y lo agregue a los días de asistencia</summary>
         private void btnAddDia_Click(object sender, EventArgs e)
         {
             MonthCalendar fecha = new MonthCalendar();
@@ -203,9 +201,7 @@ namespace WindowsFormsApp3
             fecha.Leave += monthCalendar_Leave;
         }
 
-        /// <summary>
-        /// Muestra un formulario de confirmación para eliminar el alumno de la base de datos y de los componentes visuales
-        /// </summary>
+        /// <summary>Muestra un formulario de confirmación para eliminar el alumno de la base de datos y de los componentes visuales</summary>
         private void borrarAlumno_Click(object sender, EventArgs e)
         {
             Alumno alumno = dbConection.getAlumno(Convert.ToInt32((sender as MenuItem).Name));
@@ -219,9 +215,7 @@ namespace WindowsFormsApp3
             }
         }
 
-        /// <summary>
-        /// Muestra un formulario para que se pueda cambiar el nombre y lo actualice en la base de datos y en la etiqueta de nombre
-        /// </summary>
+        /// <summary>Muestra un formulario para que se pueda cambiar el nombre y lo actualice en la base de datos y en la etiqueta de nombre</summary>
         private void editarAlumno_Click(object sender, EventArgs e)
         {
             Alumno alumno = dbConection.getAlumno(Convert.ToInt32((sender as MenuItem).Name));
@@ -241,39 +235,44 @@ namespace WindowsFormsApp3
             }
         }
 
-        /// <summary>
-        /// Cuando el mouse entra a alguno de los DateButtons cambiará el fondo del nombre y la fecha que corresponden de la asistencia
-        /// </summary>
+        /// <summary>Cuando el mouse entra a alguno de los DateButtons cambiará el fondo del nombre y la fecha que corresponden de la asistencia</summary>
         public void asistenciaSelected(string idAlumno, string fecha)
         {
             (flPanelAlumnos.Controls.Find(idAlumno, false)[0] as Label).BackColor = Color.Silver;
             (flPanelFechas.Controls.Find(fecha, false)[0] as Label).BackColor = Color.Silver;
         }
 
-        /// <summary>
-        /// Cuando el puntero salga de algún DateButton regresará a su color ordinario el nombre y la fecha de la asistencia correspondiente
-        /// </summary>
+        /// <summary>Cuando el puntero salga de algún DateButton regresará a su color ordinario el nombre y la fecha de la asistencia correspondiente</summary>
         public void asistenciaLeaveSelected(string idAlumno, string fecha)
         {
             (flPanelAlumnos.Controls.Find(idAlumno, false)[0] as Label).BackColor = Color.WhiteSmoke;
             (flPanelFechas.Controls.Find(fecha, false)[0] as Label).BackColor = Color.WhiteSmoke;
         }
 
+        /// <summary>Elimina la fecha seleccionada de la base de datos y de todos los controles de asistencias de cada estudiante</summary>
         public void borrarFecha_Click( object sender, EventArgs e )
         {
             string fechaEliminar = (sender as MenuItem).Name;
-            if ( MessageBox.Show("¿Estás seguro que deseas eliminar la fecha " + fechaEliminar + " ?", "Borrar fecha", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes )
+            if (MessageBox.Show("¿Estás seguro que deseas eliminar la fecha " + fechaEliminar + " ?", "Borrar fecha", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 //Se elimina del panel de fechas el dateLabel
                 flPanelFechas.Controls.RemoveByKey(fechaEliminar);
 
+                //Si está el label de control se debe quitar primero y luego volver a agregarse
+                bool contieneLabel = flPanelFechas.Controls.Count - 1 <= 10;
+
+                quitarLabelControl();
+
                 System.Collections.IEnumerator diasAlumnos = flPanelAsistencias.Controls.GetEnumerator();
 
-                while( diasAlumnos.MoveNext() )
+                while (diasAlumnos.MoveNext())
                 {
                     ((FlowLayoutPanel)diasAlumnos.Current).Controls.RemoveByKey(fechaEliminar);
                     ((FlowLayoutPanel)diasAlumnos.Current).Size = ((FlowLayoutPanel)diasAlumnos.Current).PreferredSize;
                 }
+
+                if (contieneLabel)
+                    agregarLabelControl();
 
                 //Acomodar el string de la fecha en el formato adecuado para la base de datos
                 string[] diaMesAnio = fechaEliminar.Split('/');
@@ -366,6 +365,12 @@ namespace WindowsFormsApp3
                 asistencias.Name = alumno.getId().ToString();
                 flPanelAsistencias.Controls.Add(asistencias);
             }
+            /*Cuando el número de días no es diez no aparece la barra ed scroll horizontal por lo que hay que hacer la validación y 
+             en este caso agregar un label con el tamaño de un scroll y que no desalinea los nombres con los días de asistencia */
+            if (diasClase.Length <= 10)
+            {
+                agregarLabelControl();
+            }
         }
 
         /// <summary> Cuando se agrega un nuevo día para el grupo actual agrega una columna de DateButtons por cada alumno </summary>
@@ -388,14 +393,36 @@ namespace WindowsFormsApp3
 
             flPanelFechas.Controls.Add(labelFecha);
 
+            quitarLabelControl();
             //A cada uno de los paneles le agrega el nuevo día y le cambia el tamaño para que sea visible
             while (alumnosPanels.MoveNext())
             {
                 ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new DateButton(diaNuevo, true));
                 ((FlowLayoutPanel)alumnosPanels.Current).Size = ((FlowLayoutPanel)alumnosPanels.Current).PreferredSize;
             }
+
+            if (flPanelFechas.Controls.Count <= 10)
+                agregarLabelControl();
         }
 
+        private bool quitarLabelControl()
+        {
+            if (flPanelAsistencias.Controls.ContainsKey("labelScrollSustituto"))
+            {
+                flPanelAsistencias.Controls.RemoveByKey("labelScrollSustituto");
+                return true;
+            }
+            return false;
+        }
+        
+        private void agregarLabelControl()
+        {
+            Label lbl = new Label();
+            lbl.Name = "labelScrollSustituto";
+            lbl.Size = new Size(330, 15);
+            lbl.BackColor = Color.WhiteSmoke;
+            flPanelAsistencias.Controls.Add(lbl);
+        }
 
         #endregion
 

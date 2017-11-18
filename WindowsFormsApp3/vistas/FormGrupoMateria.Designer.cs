@@ -32,6 +32,7 @@
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblDatosGrupo = new System.Windows.Forms.Label();
             this.grpBxModulo = new System.Windows.Forms.GroupBox();
+            this.btnAgregarAlumno = new System.Windows.Forms.Button();
             this.tlPanel = new System.Windows.Forms.TableLayoutPanel();
             this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,6 +54,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.lbl3 = new System.Windows.Forms.Label();
+            this.lblTareas = new System.Windows.Forms.Label();
+            this.lblExamenes = new System.Windows.Forms.Label();
+            this.lblProyectos = new System.Windows.Forms.Label();
+            this.lblCalificaciones = new System.Windows.Forms.Label();
             this.grpBxModulo.SuspendLayout();
             this.tlPanel.SuspendLayout();
             this.flPanelAlumnos.SuspendLayout();
@@ -86,42 +94,55 @@
             // 
             // grpBxModulo
             // 
+            this.grpBxModulo.Controls.Add(this.btnAgregarAlumno);
             this.grpBxModulo.Controls.Add(this.tlPanel);
             this.grpBxModulo.Controls.Add(this.btnAgregar);
             this.grpBxModulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.grpBxModulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
-            this.grpBxModulo.Location = new System.Drawing.Point(109, 88);
+            this.grpBxModulo.Location = new System.Drawing.Point(225, 80);
             this.grpBxModulo.Name = "grpBxModulo";
-            this.grpBxModulo.Size = new System.Drawing.Size(788, 402);
+            this.grpBxModulo.Size = new System.Drawing.Size(842, 486);
             this.grpBxModulo.TabIndex = 16;
             this.grpBxModulo.TabStop = false;
-            this.grpBxModulo.Text = "Modulo";
+            this.grpBxModulo.Text = "Módulo";
+            // 
+            // btnAgregarAlumno
+            // 
+            this.btnAgregarAlumno.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAddAlumno;
+            this.btnAgregarAlumno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAgregarAlumno.FlatAppearance.BorderSize = 0;
+            this.btnAgregarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarAlumno.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarAlumno.Location = new System.Drawing.Point(6, 450);
+            this.btnAgregarAlumno.Name = "btnAgregarAlumno";
+            this.btnAgregarAlumno.Size = new System.Drawing.Size(48, 40);
+            this.btnAgregarAlumno.TabIndex = 22;
+            this.btnAgregarAlumno.UseVisualStyleBackColor = true;
             // 
             // tlPanel
             // 
-            this.tlPanel.AutoSize = true;
             this.tlPanel.ColumnCount = 2;
             this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlPanel.Controls.Add(this.flPanelAlumnos, 0, 1);
             this.tlPanel.Controls.Add(this.flPanelTitulos, 1, 0);
             this.tlPanel.Controls.Add(this.flPanelEntregas, 1, 1);
-            this.tlPanel.Location = new System.Drawing.Point(6, 28);
+            this.tlPanel.Location = new System.Drawing.Point(6, 30);
             this.tlPanel.Name = "tlPanel";
             this.tlPanel.RowCount = 2;
             this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.91045F));
             this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.08955F));
-            this.tlPanel.Size = new System.Drawing.Size(681, 313);
+            this.tlPanel.Size = new System.Drawing.Size(809, 419);
             this.tlPanel.TabIndex = 21;
             // 
             // flPanelAlumnos
             // 
-            this.flPanelAlumnos.AutoSize = true;
+            this.flPanelAlumnos.AutoScroll = true;
             this.flPanelAlumnos.Controls.Add(this.label2);
             this.flPanelAlumnos.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flPanelAlumnos.Location = new System.Drawing.Point(3, 59);
+            this.flPanelAlumnos.Location = new System.Drawing.Point(3, 78);
             this.flPanelAlumnos.Name = "flPanelAlumnos";
-            this.flPanelAlumnos.Size = new System.Drawing.Size(327, 26);
+            this.flPanelAlumnos.Size = new System.Drawing.Size(327, 319);
             this.flPanelAlumnos.TabIndex = 0;
             this.flPanelAlumnos.WrapContents = false;
             // 
@@ -137,21 +158,20 @@
             // 
             // flPanelTitulos
             // 
-            this.flPanelTitulos.AutoSize = true;
             this.flPanelTitulos.Location = new System.Drawing.Point(336, 3);
             this.flPanelTitulos.Name = "flPanelTitulos";
-            this.flPanelTitulos.Size = new System.Drawing.Size(0, 0);
+            this.flPanelTitulos.Size = new System.Drawing.Size(455, 69);
             this.flPanelTitulos.TabIndex = 0;
             this.flPanelTitulos.WrapContents = false;
             // 
             // flPanelEntregas
             // 
-            this.flPanelEntregas.AutoSize = true;
+            this.flPanelEntregas.AutoScroll = true;
             this.flPanelEntregas.Controls.Add(this.ckBox1);
             this.flPanelEntregas.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flPanelEntregas.Location = new System.Drawing.Point(336, 59);
+            this.flPanelEntregas.Location = new System.Drawing.Point(336, 78);
             this.flPanelEntregas.Name = "flPanelEntregas";
-            this.flPanelEntregas.Size = new System.Drawing.Size(21, 20);
+            this.flPanelEntregas.Size = new System.Drawing.Size(470, 336);
             this.flPanelEntregas.TabIndex = 1;
             // 
             // ckBox1
@@ -169,18 +189,19 @@
             this.btnAgregar.FlatAppearance.BorderSize = 0;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(750, 364);
+            this.btnAgregar.Location = new System.Drawing.Point(783, 450);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(32, 32);
             this.btnAgregar.TabIndex = 15;
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblMateria
             // 
             this.lblMateria.AutoSize = true;
             this.lblMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
             this.lblMateria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(87)))));
-            this.lblMateria.Location = new System.Drawing.Point(382, 9);
+            this.lblMateria.Location = new System.Drawing.Point(510, 14);
             this.lblMateria.Name = "lblMateria";
             this.lblMateria.Size = new System.Drawing.Size(152, 46);
             this.lblMateria.TabIndex = 13;
@@ -194,7 +215,7 @@
             this.btnCalificaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalificaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
             this.btnCalificaciones.Image = global::WindowsFormsApp3.Properties.Resources.icoMenCalif;
-            this.btnCalificaciones.Location = new System.Drawing.Point(12, 362);
+            this.btnCalificaciones.Location = new System.Drawing.Point(12, 436);
             this.btnCalificaciones.Name = "btnCalificaciones";
             this.btnCalificaciones.Size = new System.Drawing.Size(70, 88);
             this.btnCalificaciones.TabIndex = 15;
@@ -210,7 +231,7 @@
             this.btnExamenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExamenes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
             this.btnExamenes.Image = global::WindowsFormsApp3.Properties.Resources.icoMenExam;
-            this.btnExamenes.Location = new System.Drawing.Point(12, 277);
+            this.btnExamenes.Location = new System.Drawing.Point(12, 330);
             this.btnExamenes.Name = "btnExamenes";
             this.btnExamenes.Size = new System.Drawing.Size(70, 79);
             this.btnExamenes.TabIndex = 15;
@@ -226,7 +247,7 @@
             this.btnProyectos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProyectos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
             this.btnProyectos.Image = ((System.Drawing.Image)(resources.GetObject("btnProyectos.Image")));
-            this.btnProyectos.Location = new System.Drawing.Point(12, 181);
+            this.btnProyectos.Location = new System.Drawing.Point(12, 221);
             this.btnProyectos.Name = "btnProyectos";
             this.btnProyectos.Size = new System.Drawing.Size(70, 80);
             this.btnProyectos.TabIndex = 15;
@@ -242,7 +263,7 @@
             this.btnTareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
             this.btnTareas.Image = ((System.Drawing.Image)(resources.GetObject("btnTareas.Image")));
-            this.btnTareas.Location = new System.Drawing.Point(12, 88);
+            this.btnTareas.Location = new System.Drawing.Point(12, 110);
             this.btnTareas.Name = "btnTareas";
             this.btnTareas.Size = new System.Drawing.Size(70, 87);
             this.btnTareas.TabIndex = 15;
@@ -271,7 +292,7 @@
             0,
             0,
             65536});
-            this.upDnProyectos.Location = new System.Drawing.Point(796, 7);
+            this.upDnProyectos.Location = new System.Drawing.Point(927, 9);
             this.upDnProyectos.Maximum = new decimal(new int[] {
             10,
             0,
@@ -290,7 +311,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
-            this.label1.Location = new System.Drawing.Point(851, 12);
+            this.label1.Location = new System.Drawing.Point(982, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 26;
@@ -305,7 +326,7 @@
             0,
             0,
             65536});
-            this.upDnTareas.Location = new System.Drawing.Point(899, 7);
+            this.upDnTareas.Location = new System.Drawing.Point(1030, 9);
             this.upDnTareas.Maximum = new decimal(new int[] {
             10,
             0,
@@ -324,7 +345,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
-            this.label3.Location = new System.Drawing.Point(837, 37);
+            this.label3.Location = new System.Drawing.Point(968, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 26;
@@ -339,7 +360,7 @@
             0,
             0,
             65536});
-            this.upDnExamenes.Location = new System.Drawing.Point(899, 35);
+            this.upDnExamenes.Location = new System.Drawing.Point(1030, 37);
             this.upDnExamenes.Maximum = new decimal(new int[] {
             10,
             0,
@@ -358,7 +379,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
-            this.label5.Location = new System.Drawing.Point(736, 9);
+            this.label5.Location = new System.Drawing.Point(867, 11);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 13);
             this.label5.TabIndex = 26;
@@ -369,7 +390,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
-            this.label6.Location = new System.Drawing.Point(802, 66);
+            this.label6.Location = new System.Drawing.Point(933, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 26;
@@ -380,12 +401,78 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
-            this.lblTotal.Location = new System.Drawing.Point(836, 67);
+            this.lblTotal.Location = new System.Drawing.Point(967, 69);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(19, 13);
             this.lblTotal.TabIndex = 26;
             this.lblTotal.Text = "10";
             this.lblTotal.UseWaitCursor = true;
+            // 
+            // lbl1
+            // 
+            this.lbl1.Location = new System.Drawing.Point(557, 167);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(470, 19);
+            this.lbl1.TabIndex = 27;
+            // 
+            // lbl2
+            // 
+            this.lbl2.Location = new System.Drawing.Point(542, 195);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(22, 317);
+            this.lbl2.TabIndex = 28;
+            // 
+            // lbl3
+            // 
+            this.lbl3.Location = new System.Drawing.Point(234, 505);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(330, 15);
+            this.lbl3.TabIndex = 29;
+            // 
+            // lblTareas
+            // 
+            this.lblTareas.AutoSize = true;
+            this.lblTareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(86)))), ((int)(((byte)(160)))));
+            this.lblTareas.Location = new System.Drawing.Point(91, 138);
+            this.lblTareas.Name = "lblTareas";
+            this.lblTareas.Size = new System.Drawing.Size(68, 24);
+            this.lblTareas.TabIndex = 30;
+            this.lblTareas.Text = "Tareas";
+            // 
+            // lblExamenes
+            // 
+            this.lblExamenes.AutoSize = true;
+            this.lblExamenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExamenes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(86)))), ((int)(((byte)(160)))));
+            this.lblExamenes.Location = new System.Drawing.Point(91, 246);
+            this.lblExamenes.Name = "lblExamenes";
+            this.lblExamenes.Size = new System.Drawing.Size(101, 24);
+            this.lblExamenes.TabIndex = 31;
+            this.lblExamenes.Text = "Exámenes";
+            // 
+            // lblProyectos
+            // 
+            this.lblProyectos.AutoSize = true;
+            this.lblProyectos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProyectos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(86)))), ((int)(((byte)(160)))));
+            this.lblProyectos.Location = new System.Drawing.Point(91, 339);
+            this.lblProyectos.Name = "lblProyectos";
+            this.lblProyectos.Size = new System.Drawing.Size(71, 48);
+            this.lblProyectos.TabIndex = 32;
+            this.lblProyectos.Text = "  Otros\r\nRubros";
+            // 
+            // lblCalificaciones
+            // 
+            this.lblCalificaciones.AutoSize = true;
+            this.lblCalificaciones.BackColor = System.Drawing.Color.Transparent;
+            this.lblCalificaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCalificaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(86)))), ((int)(((byte)(160)))));
+            this.lblCalificaciones.Location = new System.Drawing.Point(92, 466);
+            this.lblCalificaciones.Name = "lblCalificaciones";
+            this.lblCalificaciones.Size = new System.Drawing.Size(125, 24);
+            this.lblCalificaciones.TabIndex = 33;
+            this.lblCalificaciones.Text = "Calificaciones";
             // 
             // FormGrupoMateria
             // 
@@ -393,7 +480,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(954, 501);
+            this.ClientSize = new System.Drawing.Size(1083, 582);
+            this.Controls.Add(this.lblCalificaciones);
+            this.Controls.Add(this.lblProyectos);
+            this.Controls.Add(this.lblExamenes);
+            this.Controls.Add(this.lblTareas);
+            this.Controls.Add(this.lbl3);
+            this.Controls.Add(this.lbl2);
+            this.Controls.Add(this.lbl1);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -419,9 +513,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGrupoMateria_FormClosed);
             this.Load += new System.EventHandler(this.FormGrupoMateria_Load);
             this.grpBxModulo.ResumeLayout(false);
-            this.grpBxModulo.PerformLayout();
             this.tlPanel.ResumeLayout(false);
-            this.tlPanel.PerformLayout();
             this.flPanelAlumnos.ResumeLayout(false);
             this.flPanelAlumnos.PerformLayout();
             this.flPanelEntregas.ResumeLayout(false);
@@ -460,5 +552,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnAgregarAlumno;
+        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label lbl3;
+        private System.Windows.Forms.Label lblTareas;
+        private System.Windows.Forms.Label lblExamenes;
+        private System.Windows.Forms.Label lblProyectos;
+        private System.Windows.Forms.Label lblCalificaciones;
     }
 }

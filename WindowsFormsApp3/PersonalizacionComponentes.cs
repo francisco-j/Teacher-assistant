@@ -42,6 +42,7 @@ namespace WindowsFormsApp3
                 bool asistencia = !faltas.Contains(dia.dia);
                 panel.Controls.Add(new DateButton(dia, asistencia));
             }
+
             //Importante dejar esta línea
             panel.Size = panel.PreferredSize;
             return panel;
@@ -186,6 +187,7 @@ namespace WindowsFormsApp3
                 nombre.Text = nameAlumno;
                 nombre.Name = alumno.getId().ToString();
 
+                nombre.DoubleClick += labelAlumno_Click;
                 //El evento para el click derecho de las etiquetas se debe programar donde se manda llamar este método para poder
                 //vincular el panel con los cambios y no tener que refrescar la pantalla
 
@@ -298,7 +300,15 @@ namespace WindowsFormsApp3
             Program.listaMaterias.cargarMaterias();
         }
 
-#endregion
+        #endregion
 
+        /// <summary>Muestra un nuevo Form con la información del alumno presionado</summary>
+        public static void labelAlumno_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32((sender as Label).Name);
+            Alumno infoAlumno = dbConection.getAlumno(id);
+
+            new FormAlumno(infoAlumno);
+        }
     }
 }
