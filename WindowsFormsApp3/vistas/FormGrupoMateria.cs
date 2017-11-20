@@ -157,7 +157,7 @@ namespace WindowsFormsApp3
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             int tipo = int.Parse(grpBxModulo.AccessibleDescription);
-            FormAgregarEntregable newEntregable = new FormAgregarEntregable(tipo);
+            FormAgregarEntregable newEntregable = new FormAgregarEntregable(tipo, idMateria);
 
             if (newEntregable.ShowDialog(this) == DialogResult.OK)
             {

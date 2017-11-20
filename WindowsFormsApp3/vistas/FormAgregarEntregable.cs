@@ -5,11 +5,12 @@ namespace WindowsFormsApp3.vistas
 {
     public partial class FormAgregarEntregable : Form
     {
-        private int tipo;
+        private int tipo, materia;
 
-        public FormAgregarEntregable(int tipo)
+        public FormAgregarEntregable(int tipo, int materia)
         {
             this.tipo = tipo;
+            this.materia = materia;
 
             InitializeComponent();
             string txtTipo = dbConection.getNombreTipo(tipo);
@@ -20,7 +21,7 @@ namespace WindowsFormsApp3.vistas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            dbConection.agregarEntregable(tipo, txbNombreEntregable.Text);
+            dbConection.agregarEntregable(tipo, txbNombreEntregable.Text, materia);
             this.Dispose();
         }
     }

@@ -723,9 +723,23 @@ namespace WindowsFormsApp3
 #region escritura
 
         /// <summary> registra el entregable en la db </summary>
-        internal static void agregarEntregable(int tipo, string nombre)
+        internal static void agregarEntregable(int tipo, string nombre, int materia)
         {
-            throw new NotImplementedException();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText =
+                    "INSERT INTO Entregables " +
+                    "(tipo, nombre, materia) " +
+                    "VALUES(" + tipo + ", '" + nombre + "', " + materia + ")";
+                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+            }
+            finally
+            {
+                conection.Close();
+                reader.Close();
+            }
         }
 
         /// <summary> registra el usuario indicado en la base de datos </summary>
@@ -756,6 +770,7 @@ namespace WindowsFormsApp3
             finally
             {
                 conection.Close();
+                reader.Close();
             }
         }
 
@@ -777,15 +792,13 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> registra el grupo indicado en la base de datos </summary>
-        internal static void agregarGrupo(int grado, char grupo, String escuela, int maesto)
+        internal static void agregarGrupo(int grado, char grupo, String escuela, int maestro)
         {
-            comand.CommandText = "INSERT INTO Grupos (grado, grupo, escuela, maestro) VALUES(@grado, @grupo , @escuela, @maesto)";
-            
-            comand.Parameters.AddWithValue("@grado",grado);
-            comand.Parameters.AddWithValue("@grupo",grupo);
-            comand.Parameters.AddWithValue("@escuela",escuela);
-            comand.Parameters.AddWithValue("@maestro",maesto);
-
+            comand.CommandText = 
+                "INSERT INTO Grupos " +
+                "(grado, grupo, escuela, maestro) " +
+                "VALUES(" + grado + ", " + grupo + " , '" + escuela + "', " + maestro + ")";
+             
             comand.Connection = conection;
             try
             {
@@ -796,8 +809,6 @@ namespace WindowsFormsApp3
             {
                 conection.Close();
             }
-            
-
         }
 
         /// <summary> registra la materia indicada en la base de datos </summary>

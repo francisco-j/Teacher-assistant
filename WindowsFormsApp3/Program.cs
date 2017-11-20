@@ -21,7 +21,7 @@ namespace WindowsFormsApp3
         }
 
 
-//****************************** logg  **********************************************
+#region logg
 
         /// <summary> Incia sesión y abre "FormListaGrupos" </summary>
         internal static void Login(String usuario, String contrasena)
@@ -49,8 +49,9 @@ namespace WindowsFormsApp3
             login.Visible = true;
         }
 
+        #endregion
 
-//******** ventanas *******************************************
+#region ventanas
 
         internal static void returnToListaGrupos()
         {
@@ -75,5 +76,6 @@ namespace WindowsFormsApp3
             grupo.Show();
         }
 
+#endregion
     }
 }
