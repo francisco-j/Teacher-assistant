@@ -48,10 +48,9 @@ namespace WindowsFormsApp3
             int grado = (int)numGrado.Value;
             char grupo = cbGrupo.Text.First();
             string escuela = txbEscuela.Text.Trim();
-            int maestro = idMaestro;
 
             //try catch
-            dbConection.agregarGrupo(grado, grupo, escuela, maestro);
+            dbConection.agregarGrupo(grado, grupo, escuela, idMaestro);
             this.Dispose();
         }
         

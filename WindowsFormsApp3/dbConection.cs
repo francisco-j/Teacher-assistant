@@ -794,14 +794,14 @@ namespace WindowsFormsApp3
         /// <summary> registra el grupo indicado en la base de datos </summary>
         internal static void agregarGrupo(int grado, char grupo, String escuela, int maestro)
         {
-            comand.CommandText = 
-                "INSERT INTO Grupos " +
-                "(grado, grupo, escuela, maestro) " +
-                "VALUES(" + grado + ", " + grupo + " , '" + escuela + "', " + maestro + ")";
-             
-            comand.Connection = conection;
             try
             {
+                comand.Connection = conection;
+                comand.CommandText = 
+                    "INSERT INTO Grupos " +
+                    "(grado, grupo, escuela, maestro) " +
+                    "VALUES(" + grado + ", '" + grupo + "' , '" + escuela + "', " + maestro + ")";
+             
                 conection.Open();
                 Console.WriteLine("Grupo agregado: " + comand.ExecuteNonQuery() );
             }
