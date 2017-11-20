@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp3.clases_objeto;
 
@@ -14,7 +8,7 @@ namespace WindowsFormsApp3.vistas
     public partial class FormAgregarAlumno : Form
     {
 
-//********************************* constructor *****************************************
+#region constructor
         private int idGrupo;
         public FormAgregarAlumno( int idGrupo )
         {
@@ -23,8 +17,9 @@ namespace WindowsFormsApp3.vistas
             this.idGrupo = idGrupo;
         }
 
+#endregion
 
-//********************************************* btn_event *****************************************
+#region btn_event
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -81,5 +76,8 @@ namespace WindowsFormsApp3.vistas
             if (e.KeyChar == 13)
                 btnGuardar.PerformClick();
         }
+
+#endregion
+
     }
 }

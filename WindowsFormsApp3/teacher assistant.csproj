@@ -67,6 +67,12 @@
     <Compile Include="vistas\FormAgregarAlumno.Designer.cs">
       <DependentUpon>FormAgregarAlumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="vistas\FormAgregarEntregable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\FormAgregarEntregable.Designer.cs">
+      <DependentUpon>FormAgregarEntregable.cs</DependentUpon>
+    </Compile>
     <Compile Include="vistas\FormAgregarGrupo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </Compile>
     <EmbeddedResource Include="vistas\FormAgregarAlumno.resx">
       <DependentUpon>FormAgregarAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\FormAgregarEntregable.resx">
+      <DependentUpon>FormAgregarEntregable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormAgregarGrupo.resx">
       <DependentUpon>FormAgregarGrupo.cs</DependentUpon>

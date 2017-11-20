@@ -32,7 +32,6 @@
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblDatosGrupo = new System.Windows.Forms.Label();
             this.grpBxModulo = new System.Windows.Forms.GroupBox();
-            this.btnAgregarAlumno = new System.Windows.Forms.Button();
             this.tlPanel = new System.Windows.Forms.TableLayoutPanel();
             this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -94,7 +93,6 @@
             // 
             // grpBxModulo
             // 
-            this.grpBxModulo.Controls.Add(this.btnAgregarAlumno);
             this.grpBxModulo.Controls.Add(this.tlPanel);
             this.grpBxModulo.Controls.Add(this.btnAgregar);
             this.grpBxModulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
@@ -105,19 +103,6 @@
             this.grpBxModulo.TabIndex = 16;
             this.grpBxModulo.TabStop = false;
             this.grpBxModulo.Text = "Módulo";
-            // 
-            // btnAgregarAlumno
-            // 
-            this.btnAgregarAlumno.BackgroundImage = global::WindowsFormsApp3.Properties.Resources.icoAddAlumno;
-            this.btnAgregarAlumno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAgregarAlumno.FlatAppearance.BorderSize = 0;
-            this.btnAgregarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarAlumno.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarAlumno.Location = new System.Drawing.Point(6, 450);
-            this.btnAgregarAlumno.Name = "btnAgregarAlumno";
-            this.btnAgregarAlumno.Size = new System.Drawing.Size(48, 40);
-            this.btnAgregarAlumno.TabIndex = 22;
-            this.btnAgregarAlumno.UseVisualStyleBackColor = true;
             // 
             // tlPanel
             // 
@@ -552,7 +537,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Button btnAgregarAlumno;
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.Label lbl3;

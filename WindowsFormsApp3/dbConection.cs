@@ -10,7 +10,9 @@ namespace WindowsFormsApp3
     abstract class dbConection
     {
         private static OleDbConnection conection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=teacher assistant.mdb");
+
         private static OleDbCommand comand = new OleDbCommand();
+
         private static OleDbDataReader reader;
 
         public static int tipoTarea = 1, tipoExam = 2, tipoProy = 3;
@@ -474,9 +476,33 @@ namespace WindowsFormsApp3
             return calificaciones.ToArray();
         }
 
-#endregion
+        #endregion
 
 #region lectura
+
+        /// <summary> debuelbe el nombre del tipo de entregable </summary>
+        internal static string getNombreTipo(int tipo)
+        {
+            string nombreTipo;
+            try
+            {
+                conection.Open();
+                comand.CommandText = "SELECT * FROM TiposTareas WHERE tipo = " + tipo;
+                comand.Connection = conection;
+                reader = comand.ExecuteReader();
+
+                reader.Read();
+
+                nombreTipo = reader["nombre"].ToString();
+
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return nombreTipo;
+        }
 
         /// <summary> id del maestro a cargo del grupo indicado </summary>
         internal static int getIdMaestro( int idGrupo )
@@ -499,7 +525,7 @@ namespace WindowsFormsApp3
                 reader.Close();
                 conection.Close();
             }
-                return idMaestro;
+            return idMaestro;
         }
 
         /// <summary> nombre de la materia indicada </summary>
@@ -696,6 +722,12 @@ namespace WindowsFormsApp3
 
 #region escritura
 
+        /// <summary> registra el entregable en la db </summary>
+        internal static void agregarEntregable(int tipo, string nombre)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary> registra el usuario indicado en la base de datos </summary>
         internal static void registrarUsuario(string usuario, string contra)
         {
@@ -834,7 +866,7 @@ namespace WindowsFormsApp3
             }
         }
 
-        #endregion
+#endregion
 
 #region actualizar
 

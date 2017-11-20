@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp3.clases_objeto;
 using WindowsFormsApp3.componentes_visuales;
+using WindowsFormsApp3.vistas;
 
 namespace WindowsFormsApp3
 {
@@ -155,19 +156,14 @@ namespace WindowsFormsApp3
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (grpBxModulo.Text == "Tareas")
+            int tipo = int.Parse(grpBxModulo.AccessibleDescription);
+            FormAgregarEntregable newEntregable = new FormAgregarEntregable(tipo);
+
+            if (newEntregable.ShowDialog(this) == DialogResult.OK)
             {
-                Console.WriteLine("Agregar tarea");
+                // @brandon, tu sabes que hacer aqui
             }
-            else if (grpBxModulo.Text == "Exámenes")
-            {
-                Console.WriteLine("Agregar examen");
-            }
-            else
-            {
-                Console.WriteLine("Agregar otro rubro");
-            }
-            //Cuando se encuentre en calificaciones debemos de desaparecer este botón
+            
         }
 
         #endregion
@@ -205,6 +201,6 @@ namespace WindowsFormsApp3
         }
 
         #endregion
-
+        
     }
 }
