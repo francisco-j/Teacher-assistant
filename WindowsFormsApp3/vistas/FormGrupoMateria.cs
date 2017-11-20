@@ -28,13 +28,15 @@ namespace WindowsFormsApp3
         
 #endregion
 
-#region eventos
+#region eventos Módulos Click
 
-    #region Módulos Click
         /// <summary> muestra la ventana tareas </summary>
         private void btnTareas_Click(object sender, EventArgs e)
         {
+            btnAgregar.Visible = true;
+
             grpBxModulo.Text = "Tareas";
+            grpBxModulo.AccessibleDescription = dbConection.tipoTarea.ToString();
 
             flPanelTitulos.Controls.Clear();
             flPanelEntregas.Controls.Clear();
@@ -56,7 +58,10 @@ namespace WindowsFormsApp3
         /// <summary> muestra la ventana proyectos </summary>
         private void btnProyectos_Click(object sender, EventArgs e)
         {
+            btnAgregar.Visible = true;
+
             grpBxModulo.Text = "Proyectos";
+            grpBxModulo.AccessibleDescription = dbConection.tipoProy.ToString();
 
             flPanelTitulos.Controls.Clear();
             flPanelEntregas.Controls.Clear();
@@ -78,7 +83,10 @@ namespace WindowsFormsApp3
         /// <summary> muestra la ventana examenes </summary>
         private void btnExamenes_Click(object sender, EventArgs e)
         {
+            btnAgregar.Visible = true;
+
             grpBxModulo.Text = "Examenes";
+            grpBxModulo.AccessibleDescription = dbConection.tipoExam.ToString();
 
             flPanelTitulos.Controls.Clear();
             flPanelEntregas.Controls.Clear();
@@ -102,10 +110,16 @@ namespace WindowsFormsApp3
         private void btnCalificaciones_Click(object sender, EventArgs e)
         {
             grpBxModulo.Text = "Calificaciones";
+            btnAgregar.Visible = false;
+
+            flPanelTitulos.Controls.Clear();
+            flPanelEntregas.Controls.Clear();
             //PersonalizacionComponentes.decorarPanelCalificaciones(ref fLPanel);
         }
 
-        #endregion
+#endregion
+
+#region Otros eventos
 
         /// <summary> cargar menu tareas </summary>
         private void FormGrupoMateria_Load(object sender, EventArgs e)
@@ -130,7 +144,7 @@ namespace WindowsFormsApp3
             NumericUpDown nud = sender as NumericUpDown;
 
             int tipo = int.Parse(nud.AccessibleDescription);
-            dbConection.actualizarRubro(idMateria, tipo, (int)nud.Value);
+            dbConection.actualizarRubro(idMateria, tipo, (float)nud.Value);
 
             float total = (float) (upDnTareas.Value + upDnExamenes.Value + upDnProyectos.Value);
 
@@ -158,7 +172,7 @@ namespace WindowsFormsApp3
 
         #endregion
 
-        #region metodos
+#region metodos
 
         private void personalizarVentana(int idMateria,int idGrupo)
         {
@@ -176,17 +190,16 @@ namespace WindowsFormsApp3
             dbConection.getPorcentages(idMateria, out tareas, out examenes, out proyectos);
 
             upDnTareas.Value = tareas;
-            upDnTareas.AccessibleDescription = dbConection.tipoTarea.ToString();
-            upDnTareas.ValueChanged += rubroUpDn_ValueChanged;
-
             upDnExamenes.Value = examenes;
-            upDnExamenes.AccessibleDescription = dbConection.tipoExam.ToString();
-            upDnExamenes.ValueChanged += rubroUpDn_ValueChanged;
-
             upDnProyectos.Value = proyectos;
-            upDnProyectos.AccessibleDescription = dbConection.tipoProy.ToString();
-            upDnProyectos.ValueChanged += rubroUpDn_ValueChanged;
 
+            upDnTareas.AccessibleDescription = dbConection.tipoTarea.ToString();
+            upDnExamenes.AccessibleDescription = dbConection.tipoExam.ToString();
+            upDnProyectos.AccessibleDescription = dbConection.tipoProy.ToString();
+
+            upDnTareas.ValueChanged += rubroUpDn_ValueChanged;
+            upDnExamenes.ValueChanged += rubroUpDn_ValueChanged;
+            upDnProyectos.ValueChanged += rubroUpDn_ValueChanged;
 
             PersonalizacionComponentes.llenarPanelAlunos(flPanelAlumnos, alumnos);
         }

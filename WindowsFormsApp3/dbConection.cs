@@ -888,8 +888,9 @@ namespace WindowsFormsApp3
             }
         }
 
-        internal static void actualizarRubro(int idMateria, int tipo, int newPorcentage)
+        internal static void actualizarRubro(int idMateria, int tipo, float newValor)
         {
+            newValor *= 10;
             try
             {
                 conection.Open();
@@ -906,7 +907,7 @@ namespace WindowsFormsApp3
                 {
                     comand.CommandText = 
                         "UPDATE Rubros " +
-                        "SET porcentage = " + newPorcentage + 
+                        "SET porcentage = " + newValor + 
                         " WHERE materia=" + idMateria + "AND tipo =" + tipo;
                     comand.Connection = conection;
 
@@ -917,7 +918,7 @@ namespace WindowsFormsApp3
                     comand.CommandText = 
                         "INSERT INTO Rubros " +
                         "(porcentage, materia, tipo) " +
-                        "VALUES(" + newPorcentage +", "+ idMateria + "," + tipo + ")";
+                        "VALUES(" + newValor + ", "+ idMateria + "," + tipo + ")";
 
                     comand.Connection = conection;
 
