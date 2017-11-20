@@ -38,9 +38,15 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.lblArrow = new System.Windows.Forms.Label();
             this.contenedorGrupos.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGrupos
@@ -56,11 +62,16 @@
             // 
             // txbBusqueda
             // 
+            this.txbBusqueda.Cursor = System.Windows.Forms.Cursors.Default;
             this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbBusqueda.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.txbBusqueda.Location = new System.Drawing.Point(649, 32);
             this.txbBusqueda.Name = "txbBusqueda";
+            this.txbBusqueda.ReadOnly = true;
             this.txbBusqueda.Size = new System.Drawing.Size(200, 30);
             this.txbBusqueda.TabIndex = 20;
+            this.txbBusqueda.Text = "Nombre del alumno";
+            this.txbBusqueda.Click += new System.EventHandler(this.txbBusqueda_Click);
             this.txbBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbBusqueda_KeyPress);
             // 
             // btnBuscar
@@ -81,7 +92,7 @@
             this.btnAgregarGrupo.FlatAppearance.BorderSize = 0;
             this.btnAgregarGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarGrupo.Font = new System.Drawing.Font("Marlett", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarGrupo.Location = new System.Drawing.Point(867, 457);
+            this.btnAgregarGrupo.Location = new System.Drawing.Point(833, 458);
             this.btnAgregarGrupo.Name = "btnAgregarGrupo";
             this.btnAgregarGrupo.Size = new System.Drawing.Size(32, 32);
             this.btnAgregarGrupo.TabIndex = 22;
@@ -106,20 +117,20 @@
             // 
             this.contenedorGrupos.AutoScroll = true;
             this.contenedorGrupos.Controls.Add(this.flowLayoutPanel1);
-            this.contenedorGrupos.Location = new System.Drawing.Point(100, 80);
+            this.contenedorGrupos.Controls.Add(this.flowLayoutPanel2);
+            this.contenedorGrupos.Location = new System.Drawing.Point(92, 80);
             this.contenedorGrupos.Name = "contenedorGrupos";
-            this.contenedorGrupos.Size = new System.Drawing.Size(798, 365);
+            this.contenedorGrupos.Size = new System.Drawing.Size(806, 365);
             this.contenedorGrupos.TabIndex = 25;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(279, 121);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(393, 121);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // button1
@@ -137,13 +148,46 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(159, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 52);
+            this.label1.Size = new System.Drawing.Size(231, 52);
             this.label1.TabIndex = 1;
-            this.label1.Text = "escuela\r\nN alumnos";
+            this.label1.Text = "Josefa ortiz de doming\r25 alumnos";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoSize = true;
+            this.flowLayoutPanel2.Controls.Add(this.button2);
+            this.flowLayoutPanel2.Controls.Add(this.label3);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(406, 3);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(393, 121);
+            this.flowLayoutPanel2.TabIndex = 2;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Aqua;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(3, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 115);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "1ºA";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(159, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(231, 52);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Josefa ortiz de doming\r\n25 alumnos";
             // 
             // label2
             // 
@@ -155,12 +199,33 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Salir";
             // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.lblInfo.Location = new System.Drawing.Point(300, 200);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(472, 74);
+            this.lblInfo.TabIndex = 27;
+            this.lblInfo.Text = "No has agregado ningún grupo,\r\nintenta haciendo clic aquí";
+            // 
+            // lblArrow
+            // 
+            this.lblArrow.Image = global::WindowsFormsApp3.Properties.Resources.icoArrow9611;
+            this.lblArrow.Location = new System.Drawing.Point(800, 330);
+            this.lblArrow.Name = "lblArrow";
+            this.lblArrow.Size = new System.Drawing.Size(91, 102);
+            this.lblArrow.TabIndex = 28;
+            // 
             // FormListaGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(958, 502);
+            this.Controls.Add(this.lblArrow);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAgregarGrupo);
             this.Controls.Add(this.contenedorGrupos);
@@ -176,7 +241,8 @@
             this.contenedorGrupos.ResumeLayout(false);
             this.contenedorGrupos.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +259,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Label lblArrow;
     }
 }

@@ -53,7 +53,6 @@ namespace WindowsFormsApp3
             //try catch
             dbConection.agregarGrupo(grado, grupo, escuela, maestro);
             this.Dispose();
-
         }
         
         /// <summary> para modoficar un grupo existente </summary>

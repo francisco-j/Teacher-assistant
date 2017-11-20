@@ -135,13 +135,22 @@ namespace WindowsFormsApp3
 
             //label (estilo, tamano e info)
             info.Font = miFuenteInfo;
-            info.AutoSize = true;
-            info.Text += grupo.getEscuela() + "\n";
-            info.Text += dbConection.numeroAlumnosEn(grupo.getId()) + " alumnos";
+            info.Name = grupo.getId() + "";
+            info.Size = new Size(231, 52);
+
+            string nameGroup = grupo.getEscuela();
+            if (nameGroup.Length > 18)
+            {
+                ToolTip message = new ToolTip();
+                message.SetToolTip(info, nameGroup);
+
+                nameGroup = nameGroup.Substring(0, 16) + "...";
+            }
+            info.Text = nameGroup + "\n"+  dbConection.numeroAlumnosEn(grupo.getId()) + " alumnos";
 
             //contenedor (tamano)
-            contenedor.AutoSize = true;
-            contenedor.Margin = new Padding( 3, 3, 100, 3 );
+            contenedor.Size = new Size(393, 121);
+            contenedor.Margin = new Padding(0,0,0,30 );
 
             //contenedor(llenar)
             contenedor.Controls.Add(boton);
@@ -261,7 +270,7 @@ namespace WindowsFormsApp3
             borrarG.ShowDialog(Program.listaGrupos);
 
             Program.listaGrupos.cargarBotones();
-
+            Program.listaGrupos.mostrarLblInfo();
         }
 
 

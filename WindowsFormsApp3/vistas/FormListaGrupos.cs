@@ -20,17 +20,28 @@ namespace WindowsFormsApp3
 
             this.idMaestro = idMaestro;
 
-            cargarBotones();
+            if( cargarBotones() )
+            {
+                lblInfo.Hide();
+                lblArrow.Hide();
+            }
 
+            btnAgregarGrupo.Focus();
             this.Show();
-
         }
 
 //**************************** btn_click ********************************************
 
         private void btnBuscar_Click(object sender, System.EventArgs e)
         {
-            new FormResultadoBusqueda(txbBusqueda.Text, idMaestro);
+            if( txbBusqueda.Text == "Nombre del alumno" )
+            {
+                new FormResultadoBusqueda("", idMaestro);
+            }
+            else
+            {
+                new FormResultadoBusqueda(txbBusqueda.Text, idMaestro);
+            }
         }
 
         private void btnLogOut_Click(object sender, System.EventArgs e)
@@ -41,14 +52,18 @@ namespace WindowsFormsApp3
 
         private void btnAgregarGrupo_Click(object sender, System.EventArgs e)
         {
-            if( new FormAgregarGrupo(idMaestro).ShowDialog(this) == DialogResult.OK)
+            if (new FormAgregarGrupo(idMaestro).ShowDialog(this) == DialogResult.OK)
+            {
                 cargarBotones();
+
+                removeLblInfo();
+            }
         }
 
 // ***************************** metodos  *******************************************************
 
         ///<sumary> limpia el contenedor y carga todos los grupos como botones nuevos </sumary>
-        public void cargarBotones()
+        public bool cargarBotones()
         {
             grupos = dbConection.GruposAsociadosCon(idMaestro);
 
@@ -61,9 +76,11 @@ namespace WindowsFormsApp3
             {
                 contenedor = PersonalizacionComponentes.hacerConternedorGrupo(grp, color);
                 contenedorGrupos.Controls.Add(contenedor);
-
+                
                 color++;
             }
+
+            return grupos.Length > 0;
         }
 
 // ********************************** geter *********************************************
@@ -83,6 +100,32 @@ namespace WindowsFormsApp3
         private void FormListaGrupos_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        public void removeLblInfo()
+        {
+            if (this.Controls.ContainsKey("lblInfo"))
+            {
+                lblInfo.Hide();
+                lblArrow.Hide();
+            }
+        }
+
+        public void mostrarLblInfo()
+        {
+            if( grupos.Length == 0 )
+            {
+                lblInfo.Show();
+                lblArrow.Show();
+            }
+        }
+
+        private void txbBusqueda_Click(object sender, EventArgs e)
+        {
+            txbBusqueda.Text = "";
+            txbBusqueda.ForeColor = System.Drawing.Color.Black;
+            txbBusqueda.ReadOnly = false;
+            txbBusqueda.Focus();
         }
     }
 }

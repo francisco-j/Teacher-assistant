@@ -758,7 +758,7 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.ExecuteNonQuery();
+                Console.WriteLine("Grupo agregado: " + comand.ExecuteNonQuery() );
             }
             finally
             {

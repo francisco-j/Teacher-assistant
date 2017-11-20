@@ -233,6 +233,9 @@
     <None Include="Resources\icoAddAlumno32.png" />
     <None Include="Resources\icoCalendar32.png" />
     <None Include="Resources\icoCheckMark241.png" />
+    <None Include="Resources\icoArrow96.png" />
+    <None Include="Resources\icoArrow961.png" />
+    <None Include="Resources\icoArrow9611.png" />
     <Content Include="teacher assistant.mdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
