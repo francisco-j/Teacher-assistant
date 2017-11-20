@@ -447,20 +447,20 @@
             this.lblExamenes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(86)))), ((int)(((byte)(160)))));
             this.lblExamenes.Location = new System.Drawing.Point(91, 246);
             this.lblExamenes.Name = "lblExamenes";
-            this.lblExamenes.Size = new System.Drawing.Size(101, 24);
+            this.lblExamenes.Size = new System.Drawing.Size(93, 24);
             this.lblExamenes.TabIndex = 31;
-            this.lblExamenes.Text = "Exámenes";
+            this.lblExamenes.Text = "Proyectos";
             // 
             // lblProyectos
             // 
             this.lblProyectos.AutoSize = true;
             this.lblProyectos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProyectos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(86)))), ((int)(((byte)(160)))));
-            this.lblProyectos.Location = new System.Drawing.Point(91, 339);
+            this.lblProyectos.Location = new System.Drawing.Point(92, 355);
             this.lblProyectos.Name = "lblProyectos";
-            this.lblProyectos.Size = new System.Drawing.Size(71, 48);
+            this.lblProyectos.Size = new System.Drawing.Size(101, 24);
             this.lblProyectos.TabIndex = 32;
-            this.lblProyectos.Text = "  Otros\r\nRubros";
+            this.lblProyectos.Text = "Exámenes";
             // 
             // lblCalificaciones
             // 
