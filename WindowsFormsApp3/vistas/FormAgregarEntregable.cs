@@ -21,7 +21,10 @@ namespace WindowsFormsApp3.vistas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            dbConection.agregarEntregable(tipo, txbNombreEntregable.Text, materia);
+            string nameEntregable = txbNombreEntregable.Text;
+           // for ( char i = nameEntregable; i <= 10; i++ )
+                
+            dbConection.agregarEntregable(tipo, nameEntregable, materia);
             this.Dispose();
         }
     }

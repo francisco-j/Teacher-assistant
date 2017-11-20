@@ -25,8 +25,7 @@ namespace WindowsFormsApp3
                 lblInfo.Hide();
                 lblArrow.Hide();
             }
-
-            btnAgregarGrupo.Focus();
+            
             this.Show();
         }
 

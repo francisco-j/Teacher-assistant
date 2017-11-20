@@ -86,7 +86,7 @@ namespace WindowsFormsApp3
         {
             btnAgregar.Visible = true;
 
-            grpBxModulo.Text = "Examenes";
+            grpBxModulo.Text = "Exámenes";
             grpBxModulo.AccessibleDescription = dbConection.tipoExam.ToString();
 
             flPanelTitulos.Controls.Clear();

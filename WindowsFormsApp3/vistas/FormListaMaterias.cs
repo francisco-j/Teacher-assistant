@@ -156,7 +156,10 @@ namespace WindowsFormsApp3
         /// <summary> Muestra un ventana busqueda indicada </summary>
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            new FormResultadoBusqueda(txbBusqueda.Text, idMaestro);
+            if( txbBusqueda.Text == "Nombre del alumno" )
+                new FormResultadoBusqueda("", idMaestro);
+            else
+                new FormResultadoBusqueda("", idMaestro);
         }
 
         /// <summary>Obtiene el día seleccionado del calendario cuando se quiere agregar un nuevo día</summary>
@@ -426,5 +429,10 @@ namespace WindowsFormsApp3
 
         #endregion
 
+        private void txbBusqueda_Click(object sender, EventArgs e)
+        {
+            txbBusqueda.Text = "";
+            txbBusqueda.ReadOnly = false;
+        }
     }
 }

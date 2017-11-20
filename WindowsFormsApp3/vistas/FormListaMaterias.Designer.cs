@@ -42,6 +42,7 @@
             this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.flPanelFechas = new System.Windows.Forms.FlowLayoutPanel();
+            this.tiltLabel1 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.flPanelAsistencias = new System.Windows.Forms.FlowLayoutPanel();
             this.ckBox1 = new System.Windows.Forms.CheckBox();
             this.btnAgregarAlumno = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.lbl2 = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
             this.lbl3 = new System.Windows.Forms.Label();
-            this.tiltLabel1 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.grBoxAsistencia.SuspendLayout();
             this.tlPanel.SuspendLayout();
             this.flPanelAlumnos.SuspendLayout();
@@ -75,8 +75,11 @@
             this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbBusqueda.Location = new System.Drawing.Point(818, 30);
             this.txbBusqueda.Name = "txbBusqueda";
+            this.txbBusqueda.ReadOnly = true;
             this.txbBusqueda.Size = new System.Drawing.Size(211, 30);
             this.txbBusqueda.TabIndex = 13;
+            this.txbBusqueda.Text = "Nombre del alumno";
+            this.txbBusqueda.Click += new System.EventHandler(this.txbBusqueda_Click);
             this.txbBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbBusqueda_KeyPress);
             // 
             // btnAjustes
@@ -217,6 +220,17 @@
             this.flPanelFechas.WrapContents = false;
             this.flPanelFechas.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flPanelFechas_Scroll);
             // 
+            // tiltLabel1
+            // 
+            this.tiltLabel1.Fecha = new System.DateTime(((long)(0)));
+            this.tiltLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tiltLabel1.Location = new System.Drawing.Point(3, 0);
+            this.tiltLabel1.Name = "tiltLabel1";
+            this.tiltLabel1.RotationAngle = -60D;
+            this.tiltLabel1.Size = new System.Drawing.Size(44, 57);
+            this.tiltLabel1.TabIndex = 0;
+            this.tiltLabel1.Text = "00/00/00";
+            // 
             // flPanelAsistencias
             // 
             this.flPanelAsistencias.AutoScroll = true;
@@ -285,17 +299,6 @@
             this.lbl3.Name = "lbl3";
             this.lbl3.Size = new System.Drawing.Size(330, 15);
             this.lbl3.TabIndex = 23;
-            // 
-            // tiltLabel1
-            // 
-            this.tiltLabel1.Fecha = new System.DateTime(((long)(0)));
-            this.tiltLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tiltLabel1.Location = new System.Drawing.Point(3, 0);
-            this.tiltLabel1.Name = "tiltLabel1";
-            this.tiltLabel1.RotationAngle = -60D;
-            this.tiltLabel1.Size = new System.Drawing.Size(44, 57);
-            this.tiltLabel1.TabIndex = 0;
-            this.tiltLabel1.Text = "00/00/00";
             // 
             // FormListaMaterias
             // 
