@@ -110,28 +110,20 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> llena las calificaciones de los lumnos por rubro </summary>
-        internal static void decorarPanelCalificaciones(Alumno[] alumnos, int idMateria, ref FlowLayoutPanel flPanelTitulos, ref FlowLayoutPanel flPanelEntregas)
+        internal static void hacerPanelCalif(int idAlumno, int[] tiposTareas)
         {
-            foreach(Alumno alumno in alumnos)
+            FlowLayoutPanel panel = new FlowLayoutPanel();
+            panel.Margin = new Padding(0);
+
+            int[] calificaciones = dbConection.getCalifRubro( idAlumno, tiposTareas);
+
+            foreach (int calif in calificaciones)
             {
-                FlowLayoutPanel panel = new FlowLayoutPanel();
-                panel.Margin = new Padding(0);
-
-                int[] calificaciones = dbConection.getCalifProy(idAlumno, listProyectos);
-
-                foreach (int calif in calificaciones)
-                {
-                    NumericUpDown nud = new NumericUpDown();
-                    nud.Size = new Size(34, 20);
-                    nud.Font = miFuenteUpDnCalif;
-                    nud.Value = calif;
-                    panel.Controls.Add(nud);
-                }
-                panel.Size = panel.PreferredSize;
+                Label lab = new Label();
+                lab.Text = calif.ToString();
+                panel.Controls.Add(lab);
             }
-            
-            dbConection.;
-            //SELECT * FROM Products WHERE Price > (SELECT Avg(Price) FROM Products);
+            panel.Size = panel.PreferredSize;   
         }
 
 

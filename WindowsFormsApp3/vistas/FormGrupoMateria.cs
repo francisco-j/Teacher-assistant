@@ -117,7 +117,24 @@ namespace WindowsFormsApp3
 
             flPanelTitulos.Controls.Clear();
             flPanelEntregas.Controls.Clear();
+
             PersonalizacionComponentes.decorarPanelCalificaciones(alumnos, idMateria, ref flPanelTitulos, ref flPanelEntregas);
+
+            int[] tiposEntregables = dbConection.getTiposEntregablesDe(idGrupo);
+            String[] nombresEntregables = dbConection.getNombreTipo(tiposEntregables);
+
+            foreach (string nombre in nombresEntregables)
+            {
+                flPanelTitulos.Controls.Add(new tiltLabel(nombre));
+            }
+
+            foreach (Alumno alumno in alumnos)
+            {
+                FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelCalif(alumno.getId(), tiposEntregables);
+
+                flPanelEntregas.Controls.Add(entregas);
+            }
+
         }
 
 #endregion

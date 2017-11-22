@@ -96,7 +96,48 @@ namespace WindowsFormsApp3
 
         #endregion
 
-        #region lectura de arrays
+#region lectura de arrays
+
+        /// <summary> array de una calificacion por cada rubro </summary>
+        internal static int[] getCalifRubro(int idAlumno, int[] tiposTareas)
+        {
+            List<int> calif = new List<int>();
+
+            try
+            {
+                foreach( int rubro in tiposTareas)
+                {
+                    if (rubro == 1)
+                    {
+                        //lee cantidad de tareas en la amteria
+                        //lee cantidad de tareas de l alumno
+                        //calif.Add entregas/entregadas
+                    }
+                    else
+                    {
+                        conection.Open();
+                        comand.Connection = conection;
+                        comand.CommandText = 
+                            "SELECT Avg(calif) " +
+                            "FROM Entregas " +
+                            "WHERE alumno =" + idAlumno + AND tarea pertenece a la materia;
+                        reader = comand.ExecuteReader();
+
+                        reader.Read();
+
+                        Alumno alumno = new Alumno((int)reader["id"], reader["nombres"].ToString(), reader["apellidoPaterno"].ToString(), reader["apellidoMaterno"].ToString(), (int)reader["grupo"]);
+                        Console.WriteLine("Alumno obtenido desde DB: " + alumno.getId());
+                    }
+                    conection.Close();
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return calif.ToArray();
+        }
 
         /// <summary> retorna los grupos asociados al maestro indicado </summary>
         internal static Grupo[] GruposAsociadosCon(int idUsuario)
@@ -474,9 +515,37 @@ namespace WindowsFormsApp3
             return calificaciones.ToArray();
         }
 
-        #endregion
+#endregion
 
 #region lectura
+
+        /// <summary> debuelbe los nombres del los tipos de entregables </summary>
+        internal static string[] getNombreTipo(int[] tipos)
+        {
+            List<string> nombresTipos = new List<string>();
+
+            try
+            {
+                foreach (int tipo in tipos)
+                {
+                    conection.Open();
+                    comand.CommandText = "SELECT * FROM TiposTareas WHERE tipo = " + tipo;
+                    comand.Connection = conection;
+                    reader = comand.ExecuteReader();
+
+                    reader.Read();
+
+                    nombresTipos.Add(reader["nombre"].ToString());
+                    conection.Close();
+                }
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+            return nombresTipos.ToArray();
+        }
 
         /// <summary> debuelbe el nombre del tipo de entregable </summary>
         internal static string getNombreTipo(int tipo)
@@ -715,7 +784,6 @@ namespace WindowsFormsApp3
             }
         }
 
-
 #endregion
 
 #region escritura
@@ -889,7 +957,7 @@ namespace WindowsFormsApp3
 
         #endregion
 
-        #region actualizar
+#region actualizar
 
         internal static void modificarGrupo(int idGrupo, int grado, char grupo, String escuela)
         {
