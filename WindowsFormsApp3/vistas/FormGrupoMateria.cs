@@ -45,7 +45,9 @@ namespace WindowsFormsApp3
 
             foreach (Tarea tarea in listTareas)
             {
-                flPanelTitulos.Controls.Add(new tiltLabel(tarea.nombre));
+                tiltLabel nombreTarea = new tiltLabel(tarea.nombre);
+                nombreTarea.Name = tarea.id.ToString();
+                flPanelTitulos.Controls.Add(nombreTarea);
             }
 
             foreach (Alumno alumno in alumnos)
@@ -166,9 +168,22 @@ namespace WindowsFormsApp3
             
         }
 
+        public void asistenciaSelected(string idAlumno, string idTarea)
+        {
+            (flPanelAlumnos.Controls.Find(idAlumno, false)[0] as Label).BackColor = Color.Silver;
+            (flPanelTitulos.Controls.Find(idTarea, false)[0] as tiltLabel).BackColor = Color.Silver;
+        }
+
+        /// <summary>Cuando el puntero salga de algún TareaButton regresará a su color ordinario el nombre y la fecha de la asistencia correspondiente</summary>
+        public void asistenciaLeaveSelected(string idAlumno, string idTarea)
+        {
+            (flPanelAlumnos.Controls.Find(idAlumno, false)[0] as Label).BackColor = Color.WhiteSmoke;
+            (flPanelTitulos.Controls.Find(idTarea, false)[0] as Label).BackColor = Color.WhiteSmoke;
+        }
+
         #endregion
 
-#region metodos
+        #region metodos
 
         private void personalizarVentana(int idMateria,int idGrupo)
         {

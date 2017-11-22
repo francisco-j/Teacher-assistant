@@ -53,14 +53,14 @@ namespace WindowsFormsApp3
         {
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.Margin = new Padding(0);
+            panel.Name = idAlumno.ToString();
 
             int[] entregas = dbConection.getEntregasTareas(idAlumno);
 
             foreach (Tarea tarea in listTareas)
             {
                 bool entregada = entregas.Contains(tarea.id);
-                panel.Controls.Add(new tareaCkBx(tarea.id, idAlumno, true));
-
+                panel.Controls.Add(new TareaButton(tarea.id, true));
             }
             panel.Size = panel.PreferredSize;
 

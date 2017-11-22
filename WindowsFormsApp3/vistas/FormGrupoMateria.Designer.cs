@@ -143,6 +143,7 @@
             // 
             // flPanelTitulos
             // 
+            this.flPanelTitulos.AutoScroll = true;
             this.flPanelTitulos.Location = new System.Drawing.Point(336, 3);
             this.flPanelTitulos.Name = "flPanelTitulos";
             this.flPanelTitulos.Size = new System.Drawing.Size(455, 69);
@@ -158,6 +159,7 @@
             this.flPanelEntregas.Name = "flPanelEntregas";
             this.flPanelEntregas.Size = new System.Drawing.Size(470, 336);
             this.flPanelEntregas.TabIndex = 1;
+            this.flPanelEntregas.WrapContents = false;
             // 
             // ckBox1
             // 

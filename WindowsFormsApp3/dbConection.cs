@@ -94,11 +94,9 @@ namespace WindowsFormsApp3
             }
         }
 
+        #endregion
 
-
-#endregion
-
-#region lectura de arrays
+        #region lectura de arrays
 
         /// <summary> retorna los grupos asociados al maestro indicado </summary>
         internal static Grupo[] GruposAsociadosCon(int idUsuario)
@@ -877,9 +875,21 @@ namespace WindowsFormsApp3
             }
         }
 
-#endregion
+        /// <summary>Establece que el alumno con ese Id sí entregó la tarea</summary>
+        internal static void setTareaEntregada(int idAlumno, int idTarea)
+        {
+            throw new NotImplementedException();
+        }
 
-#region actualizar
+        /// <summary>Establece que el alumno con ese Id no entregó la tarea con ese ID</summary>
+        internal static void quitarTareaEntregada(int idAlumno, int idTarea)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region actualizar
 
         internal static void modificarGrupo(int idGrupo, int grado, char grupo, String escuela)
         {
