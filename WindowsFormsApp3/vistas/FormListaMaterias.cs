@@ -34,7 +34,16 @@ namespace WindowsFormsApp3
             cargarMaterias();
             cargarAlumnos();
             cargarAsistencias();
-            
+
+            string[] alumnosForPrediccion = new string[alumnosGrupo.Length];
+            for (short i = 0; i < alumnosGrupo.Length; i++ )
+            {
+                Alumno alum = alumnosGrupo.GetValue(i) as Alumno;
+                alumnosForPrediccion[ i ] = alum.getNombres() + " " + alum.getPaterno() + " " + alum.getMaterno();
+            }
+            txbBusqueda.AutoCompleteCustomSource.AddRange(alumnosForPrediccion);
+
+
             this.Show();
         }
 
@@ -281,7 +290,7 @@ namespace WindowsFormsApp3
                 string[] diaMesAnio = fechaEliminar.Split('/');
                 fechaEliminar = diaMesAnio[1] + '/' + diaMesAnio[0] + '/' + diaMesAnio[2];
 
-                dbConection.borrarDiaClase(fechaEliminar, this.idGrupo);
+                dbConection.borrarDiaClase(fechaEliminar, this.idGrupo, alumnosGrupo);
             }
 
         }

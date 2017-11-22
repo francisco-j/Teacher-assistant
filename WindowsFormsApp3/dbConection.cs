@@ -194,7 +194,7 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> devuelbe todos los alumnos que concidan con el string indicado. Toma en cuenta nombre, apellidoM y apellidoM. Pero si el string abarca mas de uno no encontrara al alumno deseado </summary>
-        internal static Alumno[] buscar(string name, int idMaestro)
+        internal static Alumno[] buscar(string name, int idMaestro )
         {
             List<int> gruposDeMaestro = new List<int>();
             List<Alumno> lAlumnos = new List<Alumno>();
@@ -999,13 +999,22 @@ namespace WindowsFormsApp3
             
         }
 
-        internal static void borrarDiaClase( string dia, int idGrupo )
+        internal static void borrarDiaClase( string dia, int idGrupo, Alumno[] alumnosGrupo )
         {
             try
             {
                 conection.Open();
                 comand = new OleDbCommand("DELETE * FROM DiasClase WHERE fecha=#" + dia + "# AND idGrupo=" + idGrupo, conection);
                 Console.WriteLine(comand.ExecuteNonQuery() + ": Día borrado " + dia );
+                conection.Close();
+
+                conection.Open();
+                //Elimina todas las inasistencias de ese día en la base de datos
+                foreach( Alumno alumActual in alumnosGrupo )
+                {
+                    comand = new OleDbCommand("DELETE * FROM inAsistencias WHERE alumno=" + alumActual.getId() + " AND dia=#" + dia + "#", conection);
+                    comand.ExecuteNonQuery();
+                }
             }
             finally
             {
