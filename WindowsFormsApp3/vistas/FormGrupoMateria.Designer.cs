@@ -36,7 +36,7 @@
             this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.flPanelTitulos = new System.Windows.Forms.FlowLayoutPanel();
-            this.flPanelEntregas = new System.Windows.Forms.FlowLayoutPanel();
+            this.flPanelTareas = new System.Windows.Forms.FlowLayoutPanel();
             this.ckBox1 = new System.Windows.Forms.CheckBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblMateria = new System.Windows.Forms.Label();
@@ -63,7 +63,7 @@
             this.grpBxModulo.SuspendLayout();
             this.tlPanel.SuspendLayout();
             this.flPanelAlumnos.SuspendLayout();
-            this.flPanelEntregas.SuspendLayout();
+            this.flPanelTareas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.upDnProyectos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnTareas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnExamenes)).BeginInit();
@@ -111,7 +111,7 @@
             this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlPanel.Controls.Add(this.flPanelAlumnos, 0, 1);
             this.tlPanel.Controls.Add(this.flPanelTitulos, 1, 0);
-            this.tlPanel.Controls.Add(this.flPanelEntregas, 1, 1);
+            this.tlPanel.Controls.Add(this.flPanelTareas, 1, 1);
             this.tlPanel.Location = new System.Drawing.Point(6, 30);
             this.tlPanel.Name = "tlPanel";
             this.tlPanel.RowCount = 2;
@@ -150,16 +150,16 @@
             this.flPanelTitulos.TabIndex = 0;
             this.flPanelTitulos.WrapContents = false;
             // 
-            // flPanelEntregas
+            // flPanelTareas
             // 
-            this.flPanelEntregas.AutoScroll = true;
-            this.flPanelEntregas.Controls.Add(this.ckBox1);
-            this.flPanelEntregas.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flPanelEntregas.Location = new System.Drawing.Point(336, 78);
-            this.flPanelEntregas.Name = "flPanelEntregas";
-            this.flPanelEntregas.Size = new System.Drawing.Size(470, 336);
-            this.flPanelEntregas.TabIndex = 1;
-            this.flPanelEntregas.WrapContents = false;
+            this.flPanelTareas.AutoScroll = true;
+            this.flPanelTareas.Controls.Add(this.ckBox1);
+            this.flPanelTareas.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flPanelTareas.Location = new System.Drawing.Point(336, 78);
+            this.flPanelTareas.Name = "flPanelTareas";
+            this.flPanelTareas.Size = new System.Drawing.Size(470, 336);
+            this.flPanelTareas.TabIndex = 1;
+            this.flPanelTareas.WrapContents = false;
             // 
             // ckBox1
             // 
@@ -507,8 +507,8 @@
             this.tlPanel.ResumeLayout(false);
             this.flPanelAlumnos.ResumeLayout(false);
             this.flPanelAlumnos.PerformLayout();
-            this.flPanelEntregas.ResumeLayout(false);
-            this.flPanelEntregas.PerformLayout();
+            this.flPanelTareas.ResumeLayout(false);
+            this.flPanelTareas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.upDnProyectos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnTareas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnExamenes)).EndInit();
@@ -533,7 +533,7 @@
         private System.Windows.Forms.FlowLayoutPanel flPanelAlumnos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flPanelTitulos;
-        private System.Windows.Forms.FlowLayoutPanel flPanelEntregas;
+        private System.Windows.Forms.FlowLayoutPanel flPanelTareas;
         private System.Windows.Forms.CheckBox ckBox1;
         private System.Windows.Forms.NumericUpDown upDnProyectos;
         private System.Windows.Forms.Label label1;

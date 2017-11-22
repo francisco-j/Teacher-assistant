@@ -40,7 +40,7 @@ namespace WindowsFormsApp3
             grpBxModulo.AccessibleDescription = dbConection.tipoTarea.ToString();
 
             flPanelTitulos.Controls.Clear();
-            flPanelEntregas.Controls.Clear();
+            flPanelTareas.Controls.Clear();
             Tarea[] listTareas = dbConection.getTareas(idMateria);
 
             foreach (Tarea tarea in listTareas)
@@ -54,7 +54,7 @@ namespace WindowsFormsApp3
             {
                 FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelTareas(alumno.getId(), listTareas);
 
-                flPanelEntregas.Controls.Add(entregas);
+                flPanelTareas.Controls.Add(entregas);
             }
         }
 
@@ -67,19 +67,32 @@ namespace WindowsFormsApp3
             grpBxModulo.AccessibleDescription = dbConection.tipoProy.ToString();
 
             flPanelTitulos.Controls.Clear();
-            flPanelEntregas.Controls.Clear();
+            flPanelTareas.Controls.Clear();
             Proyecto[] listProyectos = dbConection.getProyectos(idMateria);
 
             foreach (Proyecto proyecto in listProyectos)
             {
-                flPanelTitulos.Controls.Add(new tiltLabel(proyecto.nombre));
+                tiltLabel nombreEntrega = new tiltLabel(proyecto.nombre);
+                nombreEntrega.Name = proyecto.id.ToString();
+
+                //Sólo aquí cuando se van a mostrar NumericUpDown tenemos que dejar más espacio entre uno y otro porque sino se ve todo amontonado
+                nombreEntrega.Margin = new Padding(0,0,10,0);
+
+                MenuItem[] menu = {
+                    new MenuItem("Borrar", borrarEntrega_Click)
+                };
+                menu[0].Name = proyecto.id.ToString();
+
+                nombreEntrega.ContextMenu = new ContextMenu(menu);
+
+                flPanelTitulos.Controls.Add(nombreEntrega);
             }
 
             foreach (Alumno alumno in alumnos)
             {
                 FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelProyectos(alumno.getId(), listProyectos);
-
-                flPanelEntregas.Controls.Add(entregas);
+                entregas.Margin = new Padding(0, 0, 0, 3);
+                flPanelTareas.Controls.Add(entregas);
             }
         }
 
@@ -92,19 +105,31 @@ namespace WindowsFormsApp3
             grpBxModulo.AccessibleDescription = dbConection.tipoExam.ToString();
 
             flPanelTitulos.Controls.Clear();
-            flPanelEntregas.Controls.Clear();
+            flPanelTareas.Controls.Clear();
             Examen[] listExamenes = dbConection.getExamenes(idMateria);
 
             foreach (Examen exam in listExamenes)
             {
-                flPanelTitulos.Controls.Add(new tiltLabel(exam.nombre));
+                tiltLabel nombreEntrega = new tiltLabel(exam.nombre);
+                nombreEntrega.Name = exam.id.ToString();
+
+                //Sólo aquí cuando se van a mostrar NumericUpDown tenemos que dejar más espacio entre uno y otro porque sino se ve todo amontonado
+                nombreEntrega.Margin = new Padding(0, 0, 10, 0);
+
+                MenuItem[] menu = {
+                    new MenuItem("Borrar", borrarEntrega_Click)
+                };
+                menu[0].Name = exam.id.ToString();
+
+                nombreEntrega.ContextMenu = new ContextMenu(menu);
+                flPanelTitulos.Controls.Add(nombreEntrega);
             }
 
             foreach (Alumno alumno in alumnos)
             {
                 FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelExamenes(alumno.getId(), listExamenes);
-
-                flPanelEntregas.Controls.Add(entregas);
+                entregas.Margin = new Padding(0, 0, 0, 3);
+                flPanelTareas.Controls.Add(entregas);
             }
             
         }
@@ -116,13 +141,24 @@ namespace WindowsFormsApp3
             btnAgregar.Visible = false;
 
             flPanelTitulos.Controls.Clear();
-            flPanelEntregas.Controls.Clear();
-            PersonalizacionComponentes.decorarPanelCalificaciones(alumnos, idMateria, ref flPanelTitulos, ref flPanelEntregas);
+            flPanelTareas.Controls.Clear();
+            //PersonalizacionComponentes.decorarPanelCalificaciones(alumnos, idMateria, ref flPanelTitulos, ref flPanelTareas);
         }
 
-#endregion
+        #endregion
 
-#region Otros eventos
+        #region Otros eventos
+
+        /// <summary>Cuando se presiona la opción contextual de las entregas para eliminar entregas</summary>
+        private void borrarEntrega_Click(object sender, EventArgs e)
+        {
+            if( MessageBox.Show("¿Seguro que deseas eliminar esta entrega, al hacerlo se eliminarán los registros de los alumnos relacionados a ella?",
+                "Eliminar entrega", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes )
+            {
+                //Crear método en dbConection que elimine la tarea;
+            }
+
+        }
 
         /// <summary> cargar menu tareas </summary>
         private void FormGrupoMateria_Load(object sender, EventArgs e)
@@ -168,14 +204,14 @@ namespace WindowsFormsApp3
             
         }
 
-        public void asistenciaSelected(string idAlumno, string idTarea)
+        public void entregaSelected(string idAlumno, string idTarea)
         {
             (flPanelAlumnos.Controls.Find(idAlumno, false)[0] as Label).BackColor = Color.Silver;
             (flPanelTitulos.Controls.Find(idTarea, false)[0] as tiltLabel).BackColor = Color.Silver;
         }
 
         /// <summary>Cuando el puntero salga de algún TareaButton regresará a su color ordinario el nombre y la fecha de la asistencia correspondiente</summary>
-        public void asistenciaLeaveSelected(string idAlumno, string idTarea)
+        public void entregaLeaveSelected(string idAlumno, string idTarea)
         {
             (flPanelAlumnos.Controls.Find(idAlumno, false)[0] as Label).BackColor = Color.WhiteSmoke;
             (flPanelTitulos.Controls.Find(idTarea, false)[0] as Label).BackColor = Color.WhiteSmoke;
