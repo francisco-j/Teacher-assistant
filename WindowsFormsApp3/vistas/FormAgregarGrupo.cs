@@ -13,7 +13,7 @@ namespace WindowsFormsApp3
         //para cuando se crea un grupo
         int idMaestro;
 
-// ******************* constructores ****************************
+#region constructores
 
         /// <summary> ventana para agregar nuevos grupos </summary>
         public FormAgregarGrupo(int idMaestro)
@@ -40,8 +40,10 @@ namespace WindowsFormsApp3
 
         }
 
-// ************************** eventos para asignar *************************************
-        
+#endregion
+
+#region eventos para asignar
+
         /// <summary> para crear un nuevo grupo </summary>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -65,5 +67,8 @@ namespace WindowsFormsApp3
             dbConection.modificarGrupo(idGrupo, grado, grupo, escuela);
             this.Dispose();
         }
+
+#endregion
+
     }
 }

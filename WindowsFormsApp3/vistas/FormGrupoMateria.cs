@@ -115,7 +115,7 @@ namespace WindowsFormsApp3
 
             flPanelTitulos.Controls.Clear();
             flPanelEntregas.Controls.Clear();
-            //PersonalizacionComponentes.decorarPanelCalificaciones(ref fLPanel);
+            PersonalizacionComponentes.decorarPanelCalificaciones(alumnos, idMateria, ref flPanelTitulos, ref flPanelEntregas);
         }
 
 #endregion

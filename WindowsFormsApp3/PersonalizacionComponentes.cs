@@ -109,11 +109,36 @@ namespace WindowsFormsApp3
             return panel;
         }
 
+        /// <summary> llena las calificaciones de los lumnos por rubro </summary>
+        internal static void decorarPanelCalificaciones(Alumno[] alumnos, int idMateria, ref FlowLayoutPanel flPanelTitulos, ref FlowLayoutPanel flPanelEntregas)
+        {
+            foreach(Alumno alumno in alumnos)
+            {
+                FlowLayoutPanel panel = new FlowLayoutPanel();
+                panel.Margin = new Padding(0);
 
-        #endregion
+                int[] calificaciones = dbConection.getCalifProy(idAlumno, listProyectos);
+
+                foreach (int calif in calificaciones)
+                {
+                    NumericUpDown nud = new NumericUpDown();
+                    nud.Size = new Size(34, 20);
+                    nud.Font = miFuenteUpDnCalif;
+                    nud.Value = calif;
+                    panel.Controls.Add(nud);
+                }
+                panel.Size = panel.PreferredSize;
+            }
+            
+            dbConection.;
+            //SELECT * FROM Products WHERE Price > (SELECT Avg(Price) FROM Products);
+        }
 
 
-        #region metodos
+#endregion
+
+
+#region metodos
 
         /// <summary> debuelbe el contenedor con la informacion del grupo indicado </summary>
         public static FlowLayoutPanel hacerConternedorGrupo(Grupo grupo, int color)
