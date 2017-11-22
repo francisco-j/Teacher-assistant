@@ -72,11 +72,16 @@
             // 
             // txbBusqueda
             // 
+            this.txbBusqueda.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txbBusqueda.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbBusqueda.Location = new System.Drawing.Point(818, 30);
             this.txbBusqueda.Name = "txbBusqueda";
+            this.txbBusqueda.ReadOnly = true;
             this.txbBusqueda.Size = new System.Drawing.Size(211, 30);
             this.txbBusqueda.TabIndex = 13;
+            this.txbBusqueda.Text = "Nombre del alumno";
+            this.txbBusqueda.Click += new System.EventHandler(this.txbBusqueda_Click);
             this.txbBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbBusqueda_KeyPress);
             // 
             // btnAjustes

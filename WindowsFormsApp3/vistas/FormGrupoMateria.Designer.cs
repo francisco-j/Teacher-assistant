@@ -143,6 +143,7 @@
             // 
             // flPanelTitulos
             // 
+            this.flPanelTitulos.AutoScroll = true;
             this.flPanelTitulos.Location = new System.Drawing.Point(336, 3);
             this.flPanelTitulos.Name = "flPanelTitulos";
             this.flPanelTitulos.Size = new System.Drawing.Size(455, 69);
@@ -158,6 +159,7 @@
             this.flPanelEntregas.Name = "flPanelEntregas";
             this.flPanelEntregas.Size = new System.Drawing.Size(470, 336);
             this.flPanelEntregas.TabIndex = 1;
+            this.flPanelEntregas.WrapContents = false;
             // 
             // ckBox1
             // 
@@ -424,6 +426,7 @@
             this.lblTareas.Size = new System.Drawing.Size(68, 24);
             this.lblTareas.TabIndex = 30;
             this.lblTareas.Text = "Tareas";
+            this.lblTareas.Click += new System.EventHandler(this.btnTareas_Click);
             // 
             // lblExamenes
             // 
@@ -435,6 +438,7 @@
             this.lblExamenes.Size = new System.Drawing.Size(93, 24);
             this.lblExamenes.TabIndex = 31;
             this.lblExamenes.Text = "Proyectos";
+            this.lblExamenes.Click += new System.EventHandler(this.btnProyectos_Click);
             // 
             // lblProyectos
             // 
@@ -446,6 +450,7 @@
             this.lblProyectos.Size = new System.Drawing.Size(101, 24);
             this.lblProyectos.TabIndex = 32;
             this.lblProyectos.Text = "Exámenes";
+            this.lblProyectos.Click += new System.EventHandler(this.btnExamenes_Click);
             // 
             // lblCalificaciones
             // 
@@ -458,6 +463,7 @@
             this.lblCalificaciones.Size = new System.Drawing.Size(125, 24);
             this.lblCalificaciones.TabIndex = 33;
             this.lblCalificaciones.Text = "Calificaciones";
+            this.lblCalificaciones.Click += new System.EventHandler(this.btnCalificaciones_Click);
             // 
             // FormGrupoMateria
             // 
