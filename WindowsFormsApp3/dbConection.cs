@@ -468,7 +468,7 @@ namespace WindowsFormsApp3
                     if (reader.Read())
                         calificaciones.Add((int)reader["calif"]);
                     else
-                        calificaciones.Add(0);
+                        calificaciones.Add(5);      //La calificación mínima es 5
 
                     reader.Close();
                 }
@@ -502,7 +502,7 @@ namespace WindowsFormsApp3
                     if (reader.Read())
                         calificaciones.Add((int)reader["calif"]);
                     else
-                        calificaciones.Add(0);
+                        calificaciones.Add(5);
 
                     reader.Close();
                 }
@@ -951,6 +951,12 @@ namespace WindowsFormsApp3
 
         /// <summary>Establece que el alumno con ese Id no entregó la tarea con ese ID</summary>
         internal static void quitarTareaEntregada(int idAlumno, int idTarea)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>Actualiza la calificación del alumno con ese id, puede ser de examen o proyecto que tenga ese ID</summary>
+        internal static void actualizarCalificacionEntrega(int idAlumno, decimal calificacion)
         {
             throw new NotImplementedException();
         }

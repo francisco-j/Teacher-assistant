@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Text;
-using System.Linq;
-using System.Windows.Forms;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp3.componentes_visuales
 {
@@ -38,17 +34,18 @@ namespace WindowsFormsApp3.componentes_visuales
         private void mouseLeaveButton(object sender, EventArgs e)
         {
             string idAlumno = this.Parent.Name;
-            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).asistenciaLeaveSelected(idAlumno, idTarea.ToString());
+            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).entregaLeaveSelected(idAlumno, idTarea.ToString());
         }
 
         private void mouseEnterButton(object sender, EventArgs e)
         {
             string idAlumno = this.Parent.Name;
-            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).asistenciaSelected(idAlumno, idTarea.ToString());
+            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).entregaSelected(idAlumno, idTarea.ToString());
         }
 
         private void clickTareaButton(object sender, EventArgs e)
         {
+            //El contenedor padre debe de tener como nombre el id del alumno al que hace referencia
             int idAlumno = int.Parse(this.Parent.Name);
 
             if (!entregada)

@@ -72,16 +72,16 @@ namespace WindowsFormsApp3
         {
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.Margin = new Padding(0);
+            panel.Name = idAlumno.ToString();
 
             int[] calificaciones = dbConection.getCalifExam(idAlumno, listExamenes);
-
-            foreach (int calif in calificaciones)
+            int indiceCalif = 0;
+            foreach (Examen examActual in listExamenes)
             {
-                NumericUpDown nud = new NumericUpDown();
-                nud.Size = new Size(34, 20);
-                nud.Font = miFuenteUpDnCalif;
-                nud.Value = calif;
-                panel.Controls.Add(nud);
+                NumUpDownCalificacion numericCalificacion = new NumUpDownCalificacion(examActual.id, (decimal)calificaciones[indiceCalif]);
+                panel.Controls.Add(numericCalificacion);
+
+                indiceCalif++;
             }
             panel.Size = panel.PreferredSize;
             
@@ -93,16 +93,16 @@ namespace WindowsFormsApp3
         {
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.Margin = new Padding(0);
+            panel.Name = idAlumno.ToString();
 
             int[] calificaciones = dbConection.getCalifProy(idAlumno, listProyectos);
-
-            foreach (int calif in calificaciones)
+            int indiceCalif = 0;
+            foreach (Proyecto proyActual in listProyectos )
             {
-                NumericUpDown nud = new NumericUpDown();
-                nud.Size = new Size(34, 20);
-                nud.Font = miFuenteUpDnCalif;
-                nud.Value = calif;
-                panel.Controls.Add(nud);
+                NumUpDownCalificacion numericCalificacion = new NumUpDownCalificacion(proyActual.id, (decimal)calificaciones[indiceCalif]);
+                panel.Controls.Add(numericCalificacion);
+
+                indiceCalif++;
             }
             panel.Size = panel.PreferredSize;
 
