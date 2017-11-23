@@ -816,7 +816,10 @@ namespace WindowsFormsApp3
                 {
                     reader.Close();
                     comand = new OleDbCommand();
-                    comand.CommandText = "INSERT INTO Usuarios (usuario, contrasena) VALUES('" + usuario + "', '" + contra + "')";
+                    comand.CommandText = 
+                        "INSERT INTO Usuarios " +
+                        "(usuario, contrasena) " +
+                        "VALUES('" + usuario + "', '" + contra + "')";
                     comand.Connection = conection;
                     Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
                 }
@@ -885,7 +888,7 @@ namespace WindowsFormsApp3
                 //leer id
                 comand.CommandText = "SELECT @@IDENTITY";
                 id = (int)comand.ExecuteScalar();
-                Console.WriteLine("Materia (id = "+id+") agregado");
+                Console.WriteLine("Materia (id = "+id+") agregada");
 
                 //agregar rubros
                 comand.CommandText =
@@ -915,15 +918,27 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> Registra un nuevo alumno en la BD </summary>
-        internal static void agregarAlumno(Alumno alumno)
+        internal static Alumno agregarAlumno(int idGrupo, string nombre, string paterno, string materno)
         {
-            comand.CommandText = "INSERT INTO Alumnos (nombres, apellidoPaterno, apellidoMaterno, grupo) VALUES('" + alumno.getNombres() + "','" + alumno.getPaterno() + "','" + alumno.getMaterno() + "'," + alumno.getGupo() + ")";
-            comand.Connection = conection;
             try
             {
+                comand.Connection = conection;
                 conection.Open();
-                Console.WriteLine( comand.ExecuteNonQuery() + " lienaagregada" );
-            } finally
+
+                comand.CommandText = 
+                    "INSERT INTO Alumnos " +
+                    "(nombres, apellidoPaterno, apellidoMaterno, grupo) " +
+                    "VALUES('" + nombre + "','" + paterno + "','" + materno + "'," + idGrupo + ")";
+                Console.WriteLine( comand.ExecuteNonQuery() + " liena agregada" );
+
+                //leer id
+                comand.CommandText = "SELECT @@IDENTITY";
+                int id = (int)comand.ExecuteScalar();
+                Console.WriteLine("alumno (id = " + id + ") agregado");
+
+                return new Alumno(id,nombre,paterno,materno);
+            }
+            finally
             {
                 conection.Close();
             }
