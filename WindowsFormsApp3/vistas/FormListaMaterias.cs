@@ -101,7 +101,7 @@ namespace WindowsFormsApp3
         private void btnAgregarAlumno_Click(object sender, EventArgs e)
         {
             FormAgregarAlumno alumnoNuevo = new FormAgregarAlumno(idGrupo);
-            alumnoNuevo.ShowDialog();
+            alumnoNuevo.ShowDialog(this);
         }
 
         /// <summary> Muestra un ventana busqueda indicada </summary>
