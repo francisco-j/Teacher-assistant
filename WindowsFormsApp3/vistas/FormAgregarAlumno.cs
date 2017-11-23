@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsApp3.clases_objeto;
 
@@ -23,12 +24,24 @@ namespace WindowsFormsApp3.vistas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            //nombre(s)
             string nombre = txbNombre.Text.Trim();
+            string[] nombres = nombre.Split(' ');
+            nombre = "";
+            foreach (string name in nombres)
+                nombre += ' ' + name.First().ToString().ToUpper() + name.Substring(1);
+            nombre = nombre.Trim();
+
+            //paterno
             string paterno = txbPaterno.Text.Trim();
+            paterno = paterno.First().ToString().ToUpper() + paterno.Substring(1);
+
+            //materno
             string materno = txbMaterno.Text.Trim();
+            materno = materno.First().ToString().ToUpper() + materno.Substring(1);
 
             //Validaciones de campos vacíos
-            if( nombre == "" )
+            if ( nombre == "" )
             {
                 System.Media.SystemSounds.Beep.Play();
                 txbNombre.Focus();
@@ -49,8 +62,9 @@ namespace WindowsFormsApp3.vistas
             else
             {
                 Alumno alumno = dbConection.agregarAlumno(idGrupo, nombre, paterno, materno);
-                
-                ((FormListaMaterias)this.Owner).recibirAlumno(alumno);
+
+                FormListaMaterias flm = (FormListaMaterias)this.Owner;
+                flm.recibirAlumno(alumno);
 
                 this.Dispose();
             }

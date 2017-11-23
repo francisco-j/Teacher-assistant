@@ -920,6 +920,7 @@ namespace WindowsFormsApp3
         /// <summary> Registra un nuevo alumno en la BD </summary>
         internal static Alumno agregarAlumno(int idGrupo, string nombre, string paterno, string materno)
         {
+            int id;
             try
             {
                 comand.Connection = conection;
@@ -933,15 +934,16 @@ namespace WindowsFormsApp3
 
                 //leer id
                 comand.CommandText = "SELECT @@IDENTITY";
-                int id = (int)comand.ExecuteScalar();
-                Console.WriteLine("alumno (id = " + id + ") agregado");
-
-                return new Alumno(id,nombre,paterno,materno);
+                id = (int)comand.ExecuteScalar();
             }
             finally
             {
                 conection.Close();
             }
+
+            Console.WriteLine("alumno (id = " + id + ") agregado");
+
+            return new Alumno(id, nombre, paterno, materno, idGrupo);
         }
 
         /// <summary> registra la falta del alumno indicado el dia indicado en la DB  </summary>
