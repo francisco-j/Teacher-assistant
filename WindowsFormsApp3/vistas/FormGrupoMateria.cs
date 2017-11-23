@@ -41,6 +41,7 @@ namespace WindowsFormsApp3
 
             flPanelTitulos.Controls.Clear();
             flPanelTareas.Controls.Clear();
+
             Tarea[] listTareas = dbConection.getTareas(idMateria);
 
             foreach (Tarea tarea in listTareas)
@@ -116,12 +117,10 @@ namespace WindowsFormsApp3
                 //Sólo aquí cuando se van a mostrar NumericUpDown tenemos que dejar más espacio entre uno y otro porque sino se ve todo amontonado
                 nombreEntrega.Margin = new Padding(0, 0, 10, 0);
 
-                MenuItem[] menu = {
-                    new MenuItem("Borrar", borrarEntrega_Click)
-                };
+                MenuItem[] menu = {  new MenuItem("Borrar", borrarEntrega_Click) };
                 menu[0].Name = exam.id.ToString();
-
                 nombreEntrega.ContextMenu = new ContextMenu(menu);
+
                 flPanelTitulos.Controls.Add(nombreEntrega);
             }
 
@@ -141,25 +140,15 @@ namespace WindowsFormsApp3
             btnAgregar.Visible = false;
 
             flPanelTitulos.Controls.Clear();
-            flPanelEntregas.Controls.Clear();
+            flPanelTareas.Controls.Clear();
 
-            PersonalizacionComponentes.decorarPanelCalificaciones(alumnos, idMateria, ref flPanelTitulos, ref flPanelEntregas);
-
-            int[] tiposEntregables = dbConection.getTiposEntregablesDe(idGrupo);
-            String[] nombresEntregables = dbConection.getNombreTipo(tiposEntregables);
+            String[] nombresEntregables = dbConection.getNombresTipoDe(idMateria);
 
             foreach (string nombre in nombresEntregables)
             {
                 flPanelTitulos.Controls.Add(new tiltLabel(nombre));
             }
-
-            foreach (Alumno alumno in alumnos)
-            {
-                FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelCalif(alumno.getId(), tiposEntregables);
-
-                flPanelEntregas.Controls.Add(entregas);
-            }
-
+            
         }
 
         #endregion
