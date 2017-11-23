@@ -655,23 +655,6 @@ namespace WindowsFormsApp3
             }
         }
 
-        /// <summary> Pide toda la información del alumno para devolver otro alumno pero con su Id </summary>
-        internal static Alumno getAlumno( string nombre, string paterno, string materno, int idGrupo )
-        {
-            conection.Open();
-            comand.CommandText = "SELECT * FROM Alumnos WHERE nombres='" + nombre + "' AND apellidoPaterno='" + paterno + "' AND apellidoMaterno='" + materno + "' AND grupo=" + idGrupo;
-            Console.WriteLine(comand.CommandText);
-            reader = comand.ExecuteReader();
-
-            reader.Read();
-
-            Alumno alumno = new Alumno( (int)reader["id"], nombre, paterno, materno, idGrupo );
-            reader.Close();
-            conection.Close();
-
-            return alumno;
-        }
-
         /// <summary> Pide el id y devuelve un alumno con toda su información </summary>
         internal static Alumno getAlumno( int id )
         {
@@ -834,7 +817,10 @@ namespace WindowsFormsApp3
         /// <summary> agrega un dia al grupo indicado </summary>
         internal static void agregarDiaClase( DiaClase dia )
         {
-            comand.CommandText = "INSERT INTO DiasClase (fecha, idGrupo) VALUES(#" + dia.dia.ToString("MM'/'dd'/'yy") + "#, " + dia.idGrupo + " )";
+            comand.CommandText = 
+                "INSERT INTO DiasClase " +
+                "(fecha, idGrupo) " +
+                "VALUES(#" + dia.dia.ToString("MM'/'dd'/'yy") + "#, " + dia.idGrupo + " )";
             comand.Connection = conection;
             try
             {
@@ -943,6 +929,7 @@ namespace WindowsFormsApp3
 
             Console.WriteLine("alumno (id = " + id + ") agregado");
 
+            //devolber una copia del alumno recien agregado
             return new Alumno(id, nombre, paterno, materno, idGrupo);
         }
 
@@ -953,7 +940,10 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "INSERT INTO inAsistencias (alumno, dia) VALUES(" + idAlumno + ",#" + dia.ToString("MM'/'dd'/'yy") + "#)";
+                comand.CommandText = 
+                    "INSERT INTO inAsistencias " +
+                    "(alumno, dia) " +
+                    "VALUES(" + idAlumno + ",#" + dia.ToString("MM'/'dd'/'yy") + "#)";
 
                 Console.WriteLine(comand.ExecuteNonQuery() + " ; falta del alumno: " + idAlumno + " del día: " + dia.ToShortDateString());
             }
@@ -970,7 +960,10 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "DELETE * FROM inAsistencias WHERE alumno = " + idAlumno + "AND dia = #" + dia.ToString("MM'/'dd'/'yy") + "#";
+                comand.CommandText = 
+                    "DELETE * FROM inAsistencias " +
+                    "WHERE alumno = " + idAlumno + 
+                    "AND dia = #" + dia.ToString("MM'/'dd'/'yy") + "#";
 
                 Console.WriteLine(comand.ExecuteNonQuery() + " ; falta borrada del alumno: " + idAlumno + " del dia: " + dia.ToShortDateString() );
             }
@@ -1027,7 +1020,10 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand = new OleDbCommand("UPDATE Alumnos SET nombres='" + nombres + "', apellidoPaterno='" + paterno + "', apellidoMaterno='" + materno + "' WHERE id=" + id, conection);
+                comand.CommandText = 
+                    "UPDATE Alumnos " +
+                    "SET nombres ='" + nombres + "', apellidoPaterno ='" + paterno + "', apellidoMaterno ='" + materno + 
+                    "' WHERE id=" + id;
 
                 Console.WriteLine(comand.ExecuteNonQuery() + " Alumno actualizado");
             }
@@ -1039,7 +1035,10 @@ namespace WindowsFormsApp3
 
         internal static void modificarMateria(int idMateria, string nombre)
         {
-            comand.CommandText = "UPDATE Materias SET nombre = '" + nombre + "' WHERE id = " + idMateria;
+            comand.CommandText = 
+                "UPDATE Materias " +
+                "SET nombre = '" + nombre + 
+                "' WHERE id = " + idMateria;
             comand.Connection = conection;
             try
             {
@@ -1057,37 +1056,13 @@ namespace WindowsFormsApp3
             newValor *= 10;
             try
             {
-                conection.Open();
-
+                comand.CommandText = 
+                    "UPDATE Rubros " +
+                    "SET porcentage = " + newValor + 
+                    " WHERE materia=" + idMateria + "AND tipo =" + tipo;
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipo;
-                reader = comand.ExecuteReader();
 
-                bool yaExiste = reader.Read();
-
-                reader.Close();
-
-                if (yaExiste)
-                {
-                    comand.CommandText = 
-                        "UPDATE Rubros " +
-                        "SET porcentage = " + newValor + 
-                        " WHERE materia=" + idMateria + "AND tipo =" + tipo;
-                    comand.Connection = conection;
-
-                    comand.ExecuteNonQuery();
-                }
-                else
-                {
-                    comand.CommandText = 
-                        "INSERT INTO Rubros " +
-                        "(porcentage, materia, tipo) " +
-                        "VALUES(" + newValor + ", "+ idMateria + "," + tipo + ")";
-
-                    comand.Connection = conection;
-
-                    comand.ExecuteNonQuery();
-                }
+                comand.ExecuteNonQuery();
             }
             finally
             {
@@ -1125,15 +1100,21 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand = new OleDbCommand("DELETE * FROM DiasClase WHERE fecha=#" + dia + "# AND idGrupo=" + idGrupo, conection);
+                comand.CommandText = 
+                    "DELETE * FROM DiasClase " +
+                    "WHERE fecha=#" + dia + "# " +
+                    "AND idGrupo=" + idGrupo;
                 Console.WriteLine(comand.ExecuteNonQuery() + ": Día borrado " + dia );
                 conection.Close();
 
-                conection.Open();
                 //Elimina todas las inasistencias de ese día en la base de datos
+                conection.Open();
                 foreach( Alumno alumActual in alumnosGrupo )
                 {
-                    comand = new OleDbCommand("DELETE * FROM inAsistencias WHERE alumno=" + alumActual.getId() + " AND dia=#" + dia + "#", conection);
+                    comand.CommandText = 
+                        "DELETE * FROM inAsistencias " +
+                        "WHERE alumno=" + alumActual.getId() + 
+                        " AND dia=#" + dia + "#";
                     comand.ExecuteNonQuery();
                 }
             }
@@ -1150,9 +1131,11 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand = new OleDbCommand("DELETE * FROM Alumnos WHERE id=" + idAlumno, conection);
+                comand.CommandText = 
+                    "DELETE * FROM Alumnos " +
+                    "WHERE id=" + idAlumno;
                 comand.ExecuteNonQuery();
-                Console.Write("Alumno Borrado");
+                Console.Write("Alumno "+idAlumno+" Borrado");
             }
             finally
             {
@@ -1162,7 +1145,9 @@ namespace WindowsFormsApp3
 
         internal static void borrarMateria(int idMateria)
         {
-            comand.CommandText = "DELETE FROM Materias WHERE id = " + idMateria;
+            comand.CommandText = 
+                "DELETE FROM Materias " +
+                "WHERE id = " + idMateria;
             comand.Connection = conection;
             try
             {
