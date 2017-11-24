@@ -23,7 +23,7 @@ namespace WindowsFormsApp3
         private static Font miFuenteUpDnCalif = new Font("Microsoft Sans Serif", 9);
 
 
-        #region llenado de paneneles de entregas/calif/asist
+#region llenado de paneneles de entregas/calif/asist
 
 
         /// <summary> panel con dateCheckBox por cada di, del alumno indicado </summary>
@@ -110,29 +110,21 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> llena las calificaciones de los lumnos por rubro </summary>
-        /*internal static void decorarPanelCalificaciones(Alumno[] alumnos, int idMateria, ref FlowLayoutPanel flPanelTitulos, ref FlowLayoutPanel flPanelEntregas)
+        internal static void hacerPanelCalif(int idAlumno, int[] tiposTareas)
         {
-            foreach(Alumno alumno in alumnos)
+            FlowLayoutPanel panel = new FlowLayoutPanel();
+            panel.Margin = new Padding(0);
+
+            int[] calificaciones = dbConection.getCalifRubro( idAlumno, tiposTareas);
+
+            foreach (int calif in calificaciones)
             {
-                FlowLayoutPanel panel = new FlowLayoutPanel();
-                panel.Margin = new Padding(0);
-
-                int[] calificaciones = dbConection.getCalifProy(idAlumno, listProyectos);
-
-                foreach (int calif in calificaciones)
-                {
-                    NumericUpDown nud = new NumericUpDown();
-                    nud.Size = new Size(34, 20);
-                    nud.Font = miFuenteUpDnCalif;
-                    nud.Value = calif;
-                    panel.Controls.Add(nud);
-                }
-                panel.Size = panel.PreferredSize;
+                Label lab = new Label();
+                lab.Text = calif.ToString();
+                panel.Controls.Add(lab);
             }
-            
-            dbConection.;
-            //SELECT * FROM Products WHERE Price > (SELECT Avg(Price) FROM Products);
-        }*/
+            panel.Size = panel.PreferredSize;   
+        }
 
 
         #endregion
@@ -225,35 +217,38 @@ namespace WindowsFormsApp3
         }
         
         /// <summary> crea un panel con los DateButtons de l alumno indicado </summary>
-        internal static void llenarPanelAlunos(FlowLayoutPanel panel, Alumno[] alumnos)
+        public static void llenarPanelAlunos(FlowLayoutPanel panel, Alumno[] alumnos)
         {
             panel.Controls.Clear();
 
             foreach (Alumno alumno in alumnos)
             {
-                Label nombre = new Label();
-
-                nombre.AutoSize = true;
-                nombre.Font = miFuentelblAlumno;
-
-                //Si el nombre es mayor a 25 caracteres lo recorta y le pone el tooltip
-                string nameAlumno = alumno.nombreCompletoPA();
-                if (nameAlumno.Length > 25)
-                {
-                    ToolTip message = new ToolTip();
-                    message.SetToolTip(nombre, alumno.nombreCompletoPA());
-                    nameAlumno = nameAlumno.Substring(0, 23) + "...";
-                }
-
-                nombre.Text = nameAlumno;
-                nombre.Name = alumno.getId().ToString();
-
-                nombre.DoubleClick += labelAlumno_Click;
+                Label nombre = hacerLabelAlumno(alumno);
                 //El evento para el click derecho de las etiquetas se debe programar donde se manda llamar este método para poder
                 //vincular el panel con los cambios y no tener que refrescar la pantalla
 
                 panel.Controls.Add(nombre);
             }
+        }
+
+        public static Label hacerLabelAlumno(Alumno alumno)
+        {
+            Label nombre = new Label();
+            nombre.AutoSize = true;
+            nombre.Font = miFuentelblAlumno;
+            nombre.Name = alumno.getId().ToString();
+
+            string nameAlumno = alumno.nombreCompletoPA();
+            if (nameAlumno.Length > 25)
+            {
+                ToolTip message = new ToolTip();
+                message.SetToolTip(nombre, alumno.nombreCompletoPA());
+                nameAlumno = nameAlumno.Substring(0, 23) + "...";
+            }
+            nombre.Text = nameAlumno;
+            nombre.DoubleClick += labelAlumno_Click;
+
+            return nombre;
         }
 
         /// <summary> decora el botón con la información de la materia indicada </summary>
@@ -331,7 +326,7 @@ namespace WindowsFormsApp3
 #region eventos para asignar a materia
 
         /// <summary> evento para los botonesMateria </summary>
-        private static void materia_Click(object sender, System.EventArgs e)
+        private static void materia_Click(object sender, EventArgs e)
         {
             string materia = (sender as Button).Name.Replace("btnMateria", "");
             int idMateria = int.Parse(materia);
@@ -341,7 +336,7 @@ namespace WindowsFormsApp3
         }
         
         /// <summary> para menu contextual de grupo </summary>
-        private static void editarM_Click(object sender, System.EventArgs e)
+        private static void editarM_Click(object sender, EventArgs e)
         {
             int idMateria = int.Parse((sender as MenuItem).Name.Replace("Editar", ""));
 
@@ -351,7 +346,7 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> para menu contextual de grupo </summary>
-        private static void borrarM_Click(object sender, System.EventArgs e)
+        private static void borrarM_Click(object sender, EventArgs e)
         {
             int idMateria = int.Parse((sender as MenuItem).Name.Replace("Borar", ""));
 
@@ -361,7 +356,9 @@ namespace WindowsFormsApp3
             Program.listaMaterias.cargarMaterias();
         }
 
-        #endregion
+#endregion
+
+#region eventos para asignar a lblAlumno
 
         /// <summary>Muestra un nuevo Form con la información del alumno presionado</summary>
         public static void labelAlumno_Click(object sender, EventArgs e)
@@ -371,5 +368,7 @@ namespace WindowsFormsApp3
 
             new FormAlumno(infoAlumno);
         }
+
+#endregion
     }
 }

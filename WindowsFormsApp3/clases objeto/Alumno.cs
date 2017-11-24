@@ -1,9 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-
+﻿
 namespace WindowsFormsApp3.clases_objeto
 {
     public class Alumno
@@ -14,8 +9,8 @@ namespace WindowsFormsApp3.clases_objeto
         private string apellidoM;
         private int grupo;
 
-//***********************************  constructor **********************************************
-    
+#region constructor
+
         /// <summary> para lecturas </summary>
         public Alumno(int id, string nombre, string apellidoP, string apellidoM, int grupo)
         {
@@ -26,21 +21,9 @@ namespace WindowsFormsApp3.clases_objeto
             this.grupo = grupo;
         }
 
-        /// <summary> para cuando recien se crea un alumno y se va a agregar a la DB </summary>
-        public Alumno(int grupo, string nombre, string apellidoP, string apellidoM)
-        {
-            string[] nombres = nombre.Split(' ');
-            nombre = "";
-            foreach (string name in nombres)
-                nombre += ' ' + name.First().ToString().ToUpper() + name.Substring(1);
+        #endregion
 
-            this.nombre = nombre.Trim();
-            this.apellidoP = apellidoP.First().ToString().ToUpper() + apellidoP.Substring(1);
-            this.apellidoM = apellidoM.First().ToString().ToUpper() + apellidoM.Substring(1);
-            this.grupo = grupo;
-        }
-
-//************************************* metodos ****************************************************
+#region metodos
 
         /// <summary> debuelbe el nombre del alumno por nombre </summary>
         public string nombreCompletoPN()
@@ -55,7 +38,9 @@ namespace WindowsFormsApp3.clases_objeto
 
         }
 
-// ******************************* geters *********************************************************
+        #endregion
+
+#region geters
 
         public int getGupo()
         {
@@ -82,4 +67,7 @@ namespace WindowsFormsApp3.clases_objeto
             return apellidoM;
         }
     }
+
+#endregion
+
 }

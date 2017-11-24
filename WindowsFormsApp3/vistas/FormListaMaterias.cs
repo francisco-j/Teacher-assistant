@@ -15,9 +15,6 @@ namespace WindowsFormsApp3
         private Alumno[] alumnosGrupo;
         private int idMaestro;
 
-        //Recibe un alumno de FormAgregarAlumno cuando se agregue un alumno desde ese formulario
-        private Alumno nuevoAlumno;
-
 #region constructor
 
         /// <summary> ventana que muestra la lista de materias del grupo indicado </summary>
@@ -47,11 +44,9 @@ namespace WindowsFormsApp3
             this.Show();
         }
 
-        #endregion
+#endregion
 
-        #region eventos
-
-        #region ScrollEvents
+#region ScrollEvents
 
         /// <summary>/// Cuando se mueva el panel de asistencia desplaza también el de fechas en caso de ser horizontal y el de nombres en caso de ser verical/// </summary>
         private void flPanelAsistencias_Scroll(object sender, ScrollEventArgs e)
@@ -72,7 +67,9 @@ namespace WindowsFormsApp3
             flPanelAsistencias.HorizontalScroll.Value = flPanelFechas.HorizontalScroll.Value;
         }
 
-        #endregion
+#endregion
+
+#region otros eventos
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
@@ -104,62 +101,7 @@ namespace WindowsFormsApp3
         private void btnAgregarAlumno_Click(object sender, EventArgs e)
         {
             FormAgregarAlumno alumnoNuevo = new FormAgregarAlumno(idGrupo);
-
-            if( alumnoNuevo.ShowDialog(this) == DialogResult.OK)
-            {
-                nuevoAlumno = dbConection.getAlumno(nuevoAlumno.getNombres(), nuevoAlumno.getPaterno(), nuevoAlumno.getMaterno(), nuevoAlumno.getGupo());
-
-                Label nombre = new Label();
-                nombre.AutoSize = true;
-                nombre.Font = new Font("Microsoft Sans Serif", 16);
-                nombre.Name = nuevoAlumno.getId() + "";
-
-                string nameAlumno = nuevoAlumno.nombreCompletoPA();
-                if (nameAlumno.Length > 25)
-                {
-                    ToolTip message = new ToolTip();
-                    message.SetToolTip(nombre, nuevoAlumno.nombreCompletoPA());
-                    nameAlumno = nameAlumno.Substring(0, 23) + "...";
-                }
-                nombre.Text = nameAlumno;
-                nombre.DoubleClick += PersonalizacionComponentes.labelAlumno_Click;
-
-                //Se le agrega el menú contextual al nuevo label que mstrará el nombre del alumno
-                MenuItem[] menu = {
-                    new MenuItem("Editar", editarAlumno_Click),
-                    new MenuItem("Borrar", borrarAlumno_Click)
-                };
-                menu[0].Name = nuevoAlumno.getId() + "";
-                menu[1].Name = nuevoAlumno.getId() + "";
-
-                nombre.ContextMenu = new ContextMenu( menu );
-
-                flPanelAlumnos.Controls.Add(nombre);
-
-                //Para evitar que desacomode los días nuevos para este nuevo alumno
-                System.Collections.IEnumerator fechas = flPanelFechas.Controls.GetEnumerator();
-                List<DiaClase> daysNewAlum = new List<DiaClase>();
-
-                while( fechas.MoveNext() )
-                {
-                    string[] actualDay = ((tiltLabel)fechas.Current).Text.Split('/');
-                    daysNewAlum.Add(new DiaClase( new DateTime( Convert.ToInt32(actualDay[2]), Convert.ToInt32(actualDay[1]), Convert.ToInt32(actualDay[0])), nuevoAlumno.getId()));
-                }
-
-                //Asistencias
-                //DiaClase[] diasClase = dbConection.getDiasClase(idGrupo);
-                FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(nuevoAlumno.getId(), daysNewAlum.ToArray());
-                asistencias.Name = nuevoAlumno.getId().ToString();
-
-                //Quitar el label de controlsi es que está
-                quitarLabelControl();
-
-                flPanelAsistencias.Controls.Add(asistencias);
-
-                Console.WriteLine(flPanelFechas.Controls.Count + " dias ");
-                if (flPanelFechas.Controls.Count <= 10)
-                    agregarLabelControl();
-            }
+            alumnoNuevo.ShowDialog(this);
         }
 
         /// <summary> Muestra un ventana busqueda indicada </summary>
@@ -230,20 +172,22 @@ namespace WindowsFormsApp3
         /// <summary>Muestra un formulario para que se pueda cambiar el nombre y lo actualice en la base de datos y en la etiqueta de nombre</summary>
         private void editarAlumno_Click(object sender, EventArgs e)
         {
-            Alumno alumno = dbConection.getAlumno(Convert.ToInt32((sender as MenuItem).Name));
+            int idAlumno = Convert.ToInt32((sender as MenuItem).Name);
+
+            Alumno alumno = dbConection.getAlumno(idAlumno);
             FormBorrarAlumno formEditarAlum = new FormBorrarAlumno(alumno, false);
 
             if (formEditarAlum.ShowDialog(this) == DialogResult.OK)
             {
-                Alumno alumnoEditado = dbConection.getAlumno(Convert.ToInt32((sender as MenuItem).Name));
+                Alumno alumnoEditado = dbConection.getAlumno(idAlumno);
                 string nameAlumno = alumnoEditado.nombreCompletoPA();
                 if (nameAlumno.Length > 25)
                 {
                     ToolTip message = new ToolTip();
-                    message.SetToolTip(((Label)(flPanelAlumnos.Controls.Find(alumnoEditado.getId().ToString(), false)[0])), alumno.nombreCompletoPA());
+                    message.SetToolTip(((Label)(flPanelAlumnos.Controls.Find(idAlumno.ToString(), false)[0])), alumno.nombreCompletoPA());
                     nameAlumno = nameAlumno.Substring(0, 23) + "...";
                 }
-                ((Label)(flPanelAlumnos.Controls.Find(alumnoEditado.getId().ToString(), false)[0])).Text = nameAlumno;
+                ( (Label)( flPanelAlumnos.Controls.Find( idAlumno.ToString(), false ) [0] ) ).Text = nameAlumno;
             }
         }
 
@@ -295,9 +239,9 @@ namespace WindowsFormsApp3
 
         }
 
-        #endregion
+#endregion
 
-        #region metodos
+#region metodos
 
         public int getIdGrupo()
         {
@@ -305,9 +249,52 @@ namespace WindowsFormsApp3
         }
 
         /// <summary>/// Usado para recibir de FormAgregarAlumno la información del alumno agregado</summary>
-        public void recibirNombreAlumno(Alumno nuevo)
+        public void recibirAlumno(Alumno nuevo)
         {
-            nuevoAlumno = nuevo;
+            //agregar alumno al array
+            Array.Resize(ref alumnosGrupo, alumnosGrupo.Length);
+            alumnosGrupo[alumnosGrupo.Length - 1] = nuevo;
+
+            //hacer el label
+            Label nombre = PersonalizacionComponentes.hacerLabelAlumno(nuevo); 
+
+            //agregar el menú contextual
+            MenuItem[] menu = {
+                new MenuItem("Editar", editarAlumno_Click),
+                new MenuItem("Borrar", borrarAlumno_Click)
+            };
+            menu[0].Name = nuevo.getId() + "";
+            menu[1].Name = nuevo.getId() + "";
+
+            nombre.ContextMenu = new ContextMenu(menu);
+
+            flPanelAlumnos.Controls.Add(nombre);
+
+            //Para evitar que desacomode los días nuevos para este nuevo alumno
+            System.Collections.IEnumerator fechas = flPanelFechas.Controls.GetEnumerator();
+            List<DiaClase> daysNewAlum = new List<DiaClase>();
+
+            while (fechas.MoveNext())
+            {
+                string[] actualDay = ((tiltLabel)fechas.Current).Text.Split('/');
+
+                daysNewAlum.Add( new DiaClase( new DateTime( Convert.ToInt32(actualDay[2]), Convert.ToInt32(actualDay[1]), Convert.ToInt32(actualDay[0]) ), nuevo.getId() ) );
+            }
+
+            //Asistencias
+            //DiaClase[] diasClase = dbConection.getDiasClase(idGrupo);
+            FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(nuevo.getId(), daysNewAlum.ToArray());
+            asistencias.Name = nuevo.getId().ToString();
+
+            //Quitar el label de control si es que está
+            quitarLabelControl();
+
+            flPanelAsistencias.Controls.Add(asistencias);
+
+            Console.WriteLine(flPanelFechas.Controls.Count + " dias ");
+            if (flPanelFechas.Controls.Count <= 10)
+                agregarLabelControl();
+
         }
 
         ///<sumary> limpia el contenedor y carga todas las materias como botones nuevos </sumary>
