@@ -32,12 +32,6 @@
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblDatosGrupo = new System.Windows.Forms.Label();
             this.grpBxModulo = new System.Windows.Forms.GroupBox();
-            this.tlPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.flPanelTitulos = new System.Windows.Forms.FlowLayoutPanel();
-            this.flPanelTareas = new System.Windows.Forms.FlowLayoutPanel();
-            this.ckBox1 = new System.Windows.Forms.CheckBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblMateria = new System.Windows.Forms.Label();
             this.btnCalificaciones = new System.Windows.Forms.Button();
@@ -60,13 +54,15 @@
             this.lblExamenes = new System.Windows.Forms.Label();
             this.lblProyectos = new System.Windows.Forms.Label();
             this.lblCalificaciones = new System.Windows.Forms.Label();
+            this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tlPanel = new System.Windows.Forms.TableLayoutPanel();
             this.grpBxModulo.SuspendLayout();
-            this.tlPanel.SuspendLayout();
-            this.flPanelAlumnos.SuspendLayout();
-            this.flPanelTareas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.upDnProyectos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnTareas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnExamenes)).BeginInit();
+            this.flPanelAlumnos.SuspendLayout();
+            this.tlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGrupo
@@ -103,72 +99,6 @@
             this.grpBxModulo.TabIndex = 16;
             this.grpBxModulo.TabStop = false;
             this.grpBxModulo.Text = "Módulo";
-            // 
-            // tlPanel
-            // 
-            this.tlPanel.ColumnCount = 2;
-            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlPanel.Controls.Add(this.flPanelAlumnos, 0, 1);
-            this.tlPanel.Controls.Add(this.flPanelTitulos, 1, 0);
-            this.tlPanel.Controls.Add(this.flPanelTareas, 1, 1);
-            this.tlPanel.Location = new System.Drawing.Point(6, 30);
-            this.tlPanel.Name = "tlPanel";
-            this.tlPanel.RowCount = 2;
-            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.91045F));
-            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.08955F));
-            this.tlPanel.Size = new System.Drawing.Size(809, 419);
-            this.tlPanel.TabIndex = 21;
-            // 
-            // flPanelAlumnos
-            // 
-            this.flPanelAlumnos.AutoScroll = true;
-            this.flPanelAlumnos.Controls.Add(this.label2);
-            this.flPanelAlumnos.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flPanelAlumnos.Location = new System.Drawing.Point(3, 78);
-            this.flPanelAlumnos.Name = "flPanelAlumnos";
-            this.flPanelAlumnos.Size = new System.Drawing.Size(327, 319);
-            this.flPanelAlumnos.TabIndex = 0;
-            this.flPanelAlumnos.WrapContents = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(321, 26);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Francisco Javier Fuentes Torres";
-            // 
-            // flPanelTitulos
-            // 
-            this.flPanelTitulos.AutoScroll = true;
-            this.flPanelTitulos.Location = new System.Drawing.Point(336, 3);
-            this.flPanelTitulos.Name = "flPanelTitulos";
-            this.flPanelTitulos.Size = new System.Drawing.Size(455, 69);
-            this.flPanelTitulos.TabIndex = 0;
-            this.flPanelTitulos.WrapContents = false;
-            // 
-            // flPanelTareas
-            // 
-            this.flPanelTareas.AutoScroll = true;
-            this.flPanelTareas.Controls.Add(this.ckBox1);
-            this.flPanelTareas.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flPanelTareas.Location = new System.Drawing.Point(336, 78);
-            this.flPanelTareas.Name = "flPanelTareas";
-            this.flPanelTareas.Size = new System.Drawing.Size(470, 336);
-            this.flPanelTareas.TabIndex = 1;
-            this.flPanelTareas.WrapContents = false;
-            // 
-            // ckBox1
-            // 
-            this.ckBox1.AutoSize = true;
-            this.ckBox1.Location = new System.Drawing.Point(3, 3);
-            this.ckBox1.Name = "ckBox1";
-            this.ckBox1.Size = new System.Drawing.Size(15, 14);
-            this.ckBox1.TabIndex = 0;
-            this.ckBox1.UseVisualStyleBackColor = true;
             // 
             // btnAgregar
             // 
@@ -465,6 +395,41 @@
             this.lblCalificaciones.Text = "Calificaciones";
             this.lblCalificaciones.Click += new System.EventHandler(this.btnCalificaciones_Click);
             // 
+            // flPanelAlumnos
+            // 
+            this.flPanelAlumnos.AutoScroll = true;
+            this.flPanelAlumnos.Controls.Add(this.label2);
+            this.flPanelAlumnos.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flPanelAlumnos.Location = new System.Drawing.Point(3, 78);
+            this.flPanelAlumnos.Name = "flPanelAlumnos";
+            this.flPanelAlumnos.Size = new System.Drawing.Size(315, 319);
+            this.flPanelAlumnos.TabIndex = 0;
+            this.flPanelAlumnos.WrapContents = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(260, 52);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Francisco Javier Fuentes Torres";
+            // 
+            // tlPanel
+            // 
+            this.tlPanel.ColumnCount = 2;
+            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 321F));
+            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 470F));
+            this.tlPanel.Controls.Add(this.flPanelAlumnos, 0, 1);
+            this.tlPanel.Location = new System.Drawing.Point(6, 30);
+            this.tlPanel.Name = "tlPanel";
+            this.tlPanel.RowCount = 2;
+            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.91045F));
+            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.08955F));
+            this.tlPanel.Size = new System.Drawing.Size(809, 419);
+            this.tlPanel.TabIndex = 21;
+            // 
             // FormGrupoMateria
             // 
             this.AccessibleName = "FormGrupo";
@@ -504,14 +469,12 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGrupoMateria_FormClosed);
             this.Load += new System.EventHandler(this.FormGrupoMateria_Load);
             this.grpBxModulo.ResumeLayout(false);
-            this.tlPanel.ResumeLayout(false);
-            this.flPanelAlumnos.ResumeLayout(false);
-            this.flPanelAlumnos.PerformLayout();
-            this.flPanelTareas.ResumeLayout(false);
-            this.flPanelTareas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.upDnProyectos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnTareas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnExamenes)).EndInit();
+            this.flPanelAlumnos.ResumeLayout(false);
+            this.flPanelAlumnos.PerformLayout();
+            this.tlPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -529,12 +492,6 @@
         private System.Windows.Forms.GroupBox grpBxModulo;
         private System.Windows.Forms.Label lblMateria;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.TableLayoutPanel tlPanel;
-        private System.Windows.Forms.FlowLayoutPanel flPanelAlumnos;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.FlowLayoutPanel flPanelTitulos;
-        private System.Windows.Forms.FlowLayoutPanel flPanelTareas;
-        private System.Windows.Forms.CheckBox ckBox1;
         private System.Windows.Forms.NumericUpDown upDnProyectos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown upDnTareas;
@@ -550,5 +507,8 @@
         private System.Windows.Forms.Label lblExamenes;
         private System.Windows.Forms.Label lblProyectos;
         private System.Windows.Forms.Label lblCalificaciones;
+        private System.Windows.Forms.TableLayoutPanel tlPanel;
+        private System.Windows.Forms.FlowLayoutPanel flPanelAlumnos;
+        private System.Windows.Forms.Label label2;
     }
 }

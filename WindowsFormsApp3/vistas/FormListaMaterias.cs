@@ -168,7 +168,7 @@ namespace WindowsFormsApp3
             if( txbBusqueda.Text == "Nombre del alumno" )
                 new FormResultadoBusqueda("", idMaestro);
             else
-                new FormResultadoBusqueda("", idMaestro);
+                new FormResultadoBusqueda(txbBusqueda.Text, idMaestro);
         }
 
         /// <summary>Obtiene el día seleccionado del calendario cuando se quiere agregar un nuevo día</summary>
@@ -440,8 +440,11 @@ namespace WindowsFormsApp3
 
         private void txbBusqueda_Click(object sender, EventArgs e)
         {
-            txbBusqueda.Text = "";
-            txbBusqueda.ReadOnly = false;
+            if( txbBusqueda.ReadOnly )
+            {
+                txbBusqueda.Text = "";
+                txbBusqueda.ReadOnly = false;
+            }
         }
     }
 }

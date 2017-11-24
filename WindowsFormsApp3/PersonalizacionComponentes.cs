@@ -15,13 +15,13 @@ namespace WindowsFormsApp3
 {
     abstract class PersonalizacionComponentes
     {
-        private static Color[] coloresBotones = new Color[10] { Color.FromArgb( 114, 112, 202 ), Color.FromArgb(234, 136, 48), Color.FromArgb( 234, 66, 48 ), Color.FromArgb( 30, 145, 133 ), Color.FromArgb( 91, 211, 72 ), Color.FromArgb( 194, 40, 116 ), Color.FromArgb( 255, 235, 87 ), Color.FromArgb( 56, 175, 203 ), Color.FromArgb( 32, 126, 144 ), Color.FromArgb( 223, 46, 70 ) };
+        private static Color[] coloresBotones = new Color[10] { Color.FromArgb(114, 112, 202), Color.FromArgb(234, 136, 48), Color.FromArgb(234, 66, 48), Color.FromArgb(30, 145, 133), Color.FromArgb(91, 211, 72), Color.FromArgb(194, 40, 116), Color.FromArgb(255, 235, 87), Color.FromArgb(56, 175, 203), Color.FromArgb(32, 126, 144), Color.FromArgb(223, 46, 70) };
         private static Font miFuenteGrupo = new Font("Microsoft Sans Serif", 30, FontStyle.Bold);
-        private static Font miFuenteMateria = new Font("Microsoft Sans Serif",12 , FontStyle.Bold );
+        private static Font miFuenteMateria = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
         private static Font miFuenteInfo = new Font("Microsoft Sans Serif", 16);
         private static Font miFuentelblAlumno = new Font("Microsoft Sans Serif", 16);
         private static Font miFuenteUpDnCalif = new Font("Microsoft Sans Serif", 9);
-        
+
 
         #region llenado de paneneles de entregas/calif/asist
 
@@ -37,7 +37,7 @@ namespace WindowsFormsApp3
 
             DateTime[] faltas = dbConection.getFaltas(idAlumno);
 
-            foreach ( DiaClase dia in diasClase)
+            foreach (DiaClase dia in diasClase)
             {
                 bool asistencia = !faltas.Contains(dia.dia);
                 panel.Controls.Add(new DateButton(dia, asistencia));
@@ -73,7 +73,6 @@ namespace WindowsFormsApp3
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.Margin = new Padding(0);
             panel.Name = idAlumno.ToString();
-
             int[] calificaciones = dbConection.getCalifExam(idAlumno, listExamenes);
             int indiceCalif = 0;
             foreach (Examen examActual in listExamenes)
@@ -84,7 +83,7 @@ namespace WindowsFormsApp3
                 indiceCalif++;
             }
             panel.Size = panel.PreferredSize;
-            
+            //panel.BorderStyle = BorderStyle.FixedSingle;
             return panel;
         }
 
@@ -97,7 +96,7 @@ namespace WindowsFormsApp3
 
             int[] calificaciones = dbConection.getCalifProy(idAlumno, listProyectos);
             int indiceCalif = 0;
-            foreach (Proyecto proyActual in listProyectos )
+            foreach (Proyecto proyActual in listProyectos)
             {
                 NumUpDownCalificacion numericCalificacion = new NumUpDownCalificacion(proyActual.id, (decimal)calificaciones[indiceCalif]);
                 panel.Controls.Add(numericCalificacion);
@@ -105,6 +104,7 @@ namespace WindowsFormsApp3
                 indiceCalif++;
             }
             panel.Size = panel.PreferredSize;
+            //panel.BorderStyle = BorderStyle.FixedSingle;
 
             return panel;
         }
@@ -135,10 +135,10 @@ namespace WindowsFormsApp3
         }*/
 
 
-#endregion
+        #endregion
 
 
-#region metodos
+        #region metodos
 
         /// <summary> debuelbe el contenedor con la informacion del grupo indicado </summary>
         public static FlowLayoutPanel hacerConternedorGrupo(Grupo grupo, int color)
@@ -156,7 +156,7 @@ namespace WindowsFormsApp3
             boton.Size = new Size(150, 115);
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
-            boton.BackColor = coloresBotones[ color];
+            boton.BackColor = coloresBotones[color];
 
             //label (estilo, tamano e info)
             info.Font = miFuenteInfo;
@@ -171,15 +171,15 @@ namespace WindowsFormsApp3
 
                 nameGroup = nameGroup.Substring(0, 16) + "...";
             }
-            info.Text = nameGroup + "\n"+  dbConection.numeroAlumnosEn(grupo.getId()) + " alumnos";
+            info.Text = nameGroup + "\n" + dbConection.numeroAlumnosEn(grupo.getId()) + " alumnos";
 
             //contenedor (tamano)
             contenedor.Size = new Size(393, 121);
-            contenedor.Margin = new Padding(0,0,0,30 );
+            contenedor.Margin = new Padding(0, 0, 0, 30);
 
             //contenedor(llenar)
             contenedor.Controls.Add(boton);
-            contenedor.Controls.Add( info );
+            contenedor.Controls.Add(info);
 
             //menu contextual del boton(click derecho)
             MenuItem[] mi = {
@@ -193,10 +193,37 @@ namespace WindowsFormsApp3
 
             //eventos
             boton.Click += new EventHandler(grupo_Click);
-            
+
             return contenedor;
         }
 
+        public static FlowLayoutPanel hacerContenedorEntregas(string name)
+        {
+            FlowLayoutPanel panel = new FlowLayoutPanel();
+            panel.Name = name;
+            panel.AutoScroll = true;
+            panel.AutoSize = false;
+            panel.Size = new Size(470, 336);
+            panel.BackColor = Color.WhiteSmoke;
+            panel.WrapContents = true;
+
+            return panel;
+
+        }
+
+        public static FlowLayoutPanel hacerContenedorTitulosEntregas(string name)
+        {
+            FlowLayoutPanel flPanelTitulos = new FlowLayoutPanel();
+            flPanelTitulos.AutoScroll = true;
+            flPanelTitulos.Location = new Point(336, 3);
+            flPanelTitulos.Name = name;
+            flPanelTitulos.Size = new Size(455, 69);
+            flPanelTitulos.TabIndex = 0;
+            flPanelTitulos.WrapContents = false;
+
+            return flPanelTitulos;
+        }
+        
         /// <summary> crea un panel con los DateButtons de l alumno indicado </summary>
         internal static void llenarPanelAlunos(FlowLayoutPanel panel, Alumno[] alumnos)
         {

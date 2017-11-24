@@ -15,7 +15,7 @@ namespace WindowsFormsApp3
 
         private static OleDbDataReader reader;
 
-        public static int tipoTarea = 1, tipoExam = 2, tipoProy = 3;
+        public const int tipoTarea = 1, tipoExam = 2, tipoProy = 3;
         
 #region control
 
@@ -233,6 +233,56 @@ namespace WindowsFormsApp3
                         Alumno a = new Alumno(id, nombre, apellidoP, apellidoM, grupo);
 
                         lAlumnos.Add(a);
+                    }
+                    reader.Close();
+                }
+
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+
+            return lAlumnos.ToArray();
+        }
+
+        internal static string[] prediccionBusqueda( string name, int idMaestro )
+        {
+            List<int> gruposDeMaestro = new List<int>();
+            List<string> lAlumnos = new List<string>();
+
+            try
+            {
+                conection.Open();
+
+                comand.CommandText =
+                    "SELECT * FROM Grupos " +
+                    "WHERE maestro=" + idMaestro;
+                reader = comand.ExecuteReader();
+
+                //busca todos los grupos del maestro
+                while (reader.Read())
+                {
+                    gruposDeMaestro.Add((int)reader["id"]);
+                }
+
+                reader.Close();
+
+                //para cada grupo busca los alumnos que coincidan
+                foreach (int grupoM in gruposDeMaestro)
+                {
+                    comand.CommandText =
+                        "SELECT * FROM Alumnos " +
+                        "WHERE nombres & ' ' & apellidoPaterno & ' ' & apellidoMaterno like '%" + name + "%'" +
+                        "AND grupo=" + grupoM;
+                    reader = comand.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string coincidencia = reader["nombres"].ToString() + " " + reader["apellidoPaterno"].ToString() + " " + reader["apellidoMaterno"].ToString();
+
+                        lAlumnos.Add(coincidencia);
                     }
                     reader.Close();
                 }
@@ -878,7 +928,18 @@ namespace WindowsFormsApp3
         /// <summary>Establece que el alumno con ese Id sí entregó la tarea</summary>
         internal static void setTareaEntregada(int idAlumno, int idTarea)
         {
-            throw new NotImplementedException();
+            /*try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "INSERT INTO Entregas (alumno, entregable) VALUES(" + idAlumno + ",#" + dia.ToString("MM'/'dd'/'yy") + "#)";
+
+                Console.WriteLine(comand.ExecuteNonQuery() + " ; falta del alumno: " + idAlumno + " del día: " + dia.ToShortDateString());
+            }
+            finally
+            {
+                conection.Close();
+            }*/
         }
 
         /// <summary>Establece que el alumno con ese Id no entregó la tarea con ese ID</summary>
@@ -888,7 +949,7 @@ namespace WindowsFormsApp3
         }
 
         /// <summary>Actualiza la calificación del alumno con ese id, puede ser de examen o proyecto que tenga ese ID</summary>
-        internal static void actualizarCalificacionEntrega(int idAlumno, decimal calificacion)
+        internal static void actualizarCalificacionEntrega(int idAlumno, int idEntrega,decimal calificacion)
         {
             throw new NotImplementedException();
         }

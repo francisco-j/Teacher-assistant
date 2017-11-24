@@ -9,13 +9,12 @@ namespace WindowsFormsApp3.componentes_visuales
     {
         private int idTarea;
         public bool entregada;
-        private static Image[] imagesAsistencia = { Properties.Resources.icoCheckMark, Properties.Resources.icoXMark };
 
         public TareaButton(int idTarea, bool entregada)
         {
             this.idTarea = idTarea;
             this.entregada = entregada;
-            this.BackgroundImage = entregada ? imagesAsistencia[0] : imagesAsistencia[1];
+            this.BackgroundImage = entregada ? Properties.Resources.icoCheckMark : Properties.Resources.icoXMark;
 
             this.Name = idTarea.ToString();
             this.Size = new Size(44, 26);
@@ -48,19 +47,19 @@ namespace WindowsFormsApp3.componentes_visuales
             //El contenedor padre debe de tener como nombre el id del alumno al que hace referencia
             int idAlumno = int.Parse(this.Parent.Name);
 
-            if (!entregada)
+            entregada = !entregada;
+
+            if (entregada)
             {
                 dbConection.setTareaEntregada(idAlumno, idTarea);
-                entregada = true;
-                this.BackgroundImage = imagesAsistencia[0];
+                this.BackgroundImage = Properties.Resources.icoCheckMark;
             }
             else
             {
                 dbConection.quitarTareaEntregada(idAlumno, idTarea);
-                entregada = false;
-                this.BackgroundImage = imagesAsistencia[1];
+                this.BackgroundImage = Properties.Resources.icoXMark;
             }
-        }
-
     }
+
+}
 }

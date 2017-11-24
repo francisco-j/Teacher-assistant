@@ -109,7 +109,6 @@
             // 
             this.cbGrupo.FormattingEnabled = true;
             this.cbGrupo.Items.AddRange(new object[] {
-            "",
             "A",
             "B",
             "C",

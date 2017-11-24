@@ -69,7 +69,7 @@
             this.txbBusqueda.Name = "txbBusqueda";
             this.txbBusqueda.ReadOnly = true;
             this.txbBusqueda.Size = new System.Drawing.Size(200, 30);
-            this.txbBusqueda.TabIndex = 20;
+            this.txbBusqueda.TabIndex = 2;
             this.txbBusqueda.Text = "Nombre del alumno";
             this.txbBusqueda.Click += new System.EventHandler(this.txbBusqueda_Click);
             this.txbBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbBusqueda_KeyPress);
@@ -82,7 +82,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(855, 35);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(44, 30);
-            this.btnBuscar.TabIndex = 21;
+            this.btnBuscar.TabIndex = 3;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -95,7 +95,7 @@
             this.btnAgregarGrupo.Location = new System.Drawing.Point(833, 458);
             this.btnAgregarGrupo.Name = "btnAgregarGrupo";
             this.btnAgregarGrupo.Size = new System.Drawing.Size(32, 32);
-            this.btnAgregarGrupo.TabIndex = 22;
+            this.btnAgregarGrupo.TabIndex = 1;
             this.btnAgregarGrupo.UseVisualStyleBackColor = true;
             this.btnAgregarGrupo.Click += new System.EventHandler(this.btnAgregarGrupo_Click);
             // 
@@ -109,7 +109,7 @@
             this.btnLogOut.Location = new System.Drawing.Point(2, 0);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(47, 49);
-            this.btnLogOut.TabIndex = 23;
+            this.btnLogOut.TabIndex = 4;
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
@@ -121,7 +121,7 @@
             this.contenedorGrupos.Location = new System.Drawing.Point(92, 80);
             this.contenedorGrupos.Name = "contenedorGrupos";
             this.contenedorGrupos.Size = new System.Drawing.Size(806, 365);
-            this.contenedorGrupos.TabIndex = 25;
+            this.contenedorGrupos.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
