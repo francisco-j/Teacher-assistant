@@ -14,6 +14,7 @@ namespace WindowsFormsApp3.vistas
     public partial class FormAgregarMateria : Form
     {
         int idGrupo;
+        string nombreAnterior;
 
         //para cuando se modifica la materia
         int idMateria;
@@ -35,8 +36,9 @@ namespace WindowsFormsApp3.vistas
             this.idMateria = materia.getId();
             txbNombreMateria.Text = materia.getNombre();
 
+            nombreAnterior = materia.getNombre();
+
             btnGuardar.Click += btnGuardar_Click;
-            
         }
 
 
@@ -59,7 +61,9 @@ namespace WindowsFormsApp3.vistas
                 //inicial con mayuscula y el reso minusculas
                 nombre = nombre.First().ToString().ToUpper() + nombre.Substring(1);
 
-                dbConection.modificarMateria(idMateria, nombre);
+                Console.WriteLine("Partnre: " + this.Owner.Name + " Editar: " + nombreAnterior);
+                (this.Owner as FormListaMaterias).modificacionMateria( nombre, idMateria, nombreAnterior);
+                dbConection.modificarMateria(idMateria, nombre );
                 this.Dispose();
             }
         }
@@ -81,7 +85,7 @@ namespace WindowsFormsApp3.vistas
                 //inicial con mayuscula y el reso normal
                 nombre = nombre.First().ToString().ToUpper() + nombre.Substring(1);
 
-                dbConection.agregarMateria(nombre, idGrupo);
+                (this.Owner as FormListaMaterias).recibirMateria( new Materia( dbConection.agregarMateria(nombre, idGrupo), nombre, idGrupo ) );
 
                 this.Dispose();
             }

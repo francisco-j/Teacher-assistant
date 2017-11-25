@@ -24,6 +24,8 @@ namespace WindowsFormsApp3.vistas
                 txbEscuela.Text == grupo.getEscuela() )
             {
                 dbConection.borrarGrupo(grupo.getId());
+
+                (this.Owner as FormListaGrupos).eliminarGrupo(grupo.getId());
                 this.Dispose();
             }
             else

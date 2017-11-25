@@ -11,9 +11,10 @@ namespace WindowsFormsApp3
     public partial class FormListaMaterias : Form
     {
         private int idGrupo;
-        private Materia[] materias;
-        private Alumno[] alumnosGrupo;
+        private List<Materia> materias;
+        private List<Alumno> alumnosGrupo;
         private int idMaestro;
+        private int color = 0;
 
 #region constructor
 
@@ -26,16 +27,19 @@ namespace WindowsFormsApp3
             this.idGrupo = idGrupo;
             this.Text = dbConection.getGrupo( idGrupo ).ToString();
             lblGrupo.Text += this.Text;
-            
+
+            quitar.Dispose();
+            quitar2.Dispose();
+            quitar3.Dispose();
 
             cargarMaterias();
             cargarAlumnos();
             cargarAsistencias();
 
-            string[] alumnosForPrediccion = new string[alumnosGrupo.Length];
-            for (short i = 0; i < alumnosGrupo.Length; i++ )
+            string[] alumnosForPrediccion = new string[alumnosGrupo.Count];
+            for (short i = 0; i < alumnosGrupo.Count; i++ )
             {
-                Alumno alum = alumnosGrupo.GetValue(i) as Alumno;
+                Alumno alum = alumnosGrupo[i] as Alumno;
                 alumnosForPrediccion[ i ] = alum.getNombres() + " " + alum.getPaterno() + " " + alum.getMaterno();
             }
             txbBusqueda.AutoCompleteCustomSource.AddRange(alumnosForPrediccion);
@@ -82,7 +86,10 @@ namespace WindowsFormsApp3
             FormAgregarMateria nuevaMateria = new FormAgregarMateria(idGrupo);
 
             if( nuevaMateria.ShowDialog(this) == DialogResult.OK)
-                cargarMaterias();
+            {
+                lblArrowMateria.Dispose();
+                lblInfoMaterias.Dispose();
+            }
         }
 
         private void FormListaG_FormClosed(object sender, FormClosedEventArgs e)
@@ -251,9 +258,10 @@ namespace WindowsFormsApp3
         /// <summary>/// Usado para recibir de FormAgregarAlumno la información del alumno agregado</summary>
         public void recibirAlumno(Alumno nuevo)
         {
+            lblInfoAlumnos.Dispose();
+            lblArrowAlumno.Dispose();
             //agregar alumno al array
-            Array.Resize(ref alumnosGrupo, alumnosGrupo.Length);
-            alumnosGrupo[alumnosGrupo.Length - 1] = nuevo;
+            alumnosGrupo.Add(nuevo);
 
             //hacer el label
             Label nombre = PersonalizacionComponentes.hacerLabelAlumno(nuevo); 
@@ -297,20 +305,64 @@ namespace WindowsFormsApp3
 
         }
 
+        /// <summary>Usado para recibir toda la información (incluido el id) de la materia nueva que se acaba de registrar</summary>
+        public void recibirMateria( Materia newMateria )
+        {
+            materias.Add(newMateria);
+            flPanelMaterias.Controls.Add(PersonalizacionComponentes.hacerBotonMateria(newMateria, color));
+            color++;
+        }
+
+        /// <summary>Actualizará el botón de la materia correspondiente y el elemento en la lista de materias que se haya cambiado su nombre</summary>
+        public void modificacionMateria( string nombreNuevo, int id, string nombreAnterior )
+        {
+            (flPanelMaterias.Controls.Find(id.ToString(), false)[0] as Button).Text = nombreNuevo;
+            int indice = 0;
+            for (int i = 0; i < materias.Count; i++)
+            {
+                if (materias[i].getId() == id)
+                {
+                    indice = i;
+                    break;
+                }
+            }
+            materias[indice] = new Materia(id, nombreNuevo, idGrupo);
+        }
+
+        /// <summary>Eliminará el botón correspondiente y el elemento de la lista que coincida con el id de la materia recibidad</summary>
+        public void eliminarMateria( int idEliminar )
+        {
+            flPanelMaterias.Controls.RemoveByKey( idEliminar.ToString() );
+            int indice = 0;
+            for (int i = 0; i < materias.Count; i++)
+            {
+                if (materias[i].getId() == idEliminar )
+                {
+                    indice = i;
+                    break;
+                }
+            }
+            materias.RemoveAt(indice);
+        }
+
         ///<sumary> limpia el contenedor y carga todas las materias como botones nuevos </sumary>
         public void cargarMaterias()
         {
             materias = dbConection.materiasAsociadasCon(idGrupo);
-
-            flPanelMaterias.Controls.Clear();
-            int color = 0;
-
-            foreach (Materia materia in materias)
+            
+            if( materias.Count != 0 )
             {
-                Button boton = PersonalizacionComponentes.hacerBotonMateria(materia, color);
-                flPanelMaterias.Controls.Add(boton);
+                lblInfoMaterias.Dispose();
+                lblArrowMateria.Dispose();
+                color = 0;
+
+                foreach (Materia materia in materias)
+                {
+                    Button boton = PersonalizacionComponentes.hacerBotonMateria(materia, color);
+                    flPanelMaterias.Controls.Add(boton);
                 
-                color++;
+                    color++;
+                }
             }
         }
 
@@ -319,62 +371,72 @@ namespace WindowsFormsApp3
         {
             alumnosGrupo = dbConection.alumnosGrupo( idGrupo );
 
-            PersonalizacionComponentes.llenarPanelAlunos(flPanelAlumnos, alumnosGrupo);
-
-            System.Collections.IEnumerator labelsAlumnos = flPanelAlumnos.Controls.GetEnumerator();
-
-            while( labelsAlumnos.MoveNext() )
+            if( alumnosGrupo.Count != 0 )
             {
-                string idAlumno = ((Label)labelsAlumnos.Current).Name;
+                lblInfoAlumnos.Dispose();
+                lblArrowAlumno.Dispose();
+                PersonalizacionComponentes.llenarPanelAlunos(flPanelAlumnos, alumnosGrupo);
 
-                MenuItem[] menu = {
-                    new MenuItem("Editar", editarAlumno_Click),
-                    new MenuItem("Borrar", borrarAlumno_Click)
-                };
-                menu[0].Name = idAlumno;
-                menu[1].Name = idAlumno;
+                System.Collections.IEnumerator labelsAlumnos = flPanelAlumnos.Controls.GetEnumerator();
 
-                ((Label)labelsAlumnos.Current).ContextMenu = new ContextMenu(menu);
+                while( labelsAlumnos.MoveNext() )
+                {
+                    string idAlumno = ((Label)labelsAlumnos.Current).Name;
+
+                    MenuItem[] menu = {
+                        new MenuItem("Editar", editarAlumno_Click),
+                        new MenuItem("Borrar", borrarAlumno_Click)
+                    };
+                    menu[0].Name = idAlumno;
+                    menu[1].Name = idAlumno;
+
+                    ((Label)labelsAlumnos.Current).ContextMenu = new ContextMenu(menu);
+                }
             }
         }
 
         /// <summary> llena la lista de asistencias </summary>
         private void cargarAsistencias()
         {
-            flPanelAsistencias.Controls.Clear();
-            flPanelFechas.Controls.Clear();
             DiaClase[] diasClase = dbConection.getDiasClase(idGrupo);
             
-            foreach (DiaClase dia in diasClase)
+            if( diasClase.Length != 0 )
             {
-                tiltLabel labelFecha = new tiltLabel(dia);
+                flPanelAsistencias.Controls.Clear();
+                lblArrowDia.Dispose();
+                foreach (DiaClase dia in diasClase)
+                {
+                    tiltLabel labelFecha = new tiltLabel(dia);
 
-                MenuItem[] menu = {
-                    new MenuItem("Borrar", borrarFecha_Click)
-                };
-                menu[0].Name = dia.dia.ToString("dd'/'MM'/'yy");
+                    MenuItem[] menu = {
+                        new MenuItem("Borrar", borrarFecha_Click)
+                    };
+                    menu[0].Name = dia.dia.ToString("dd'/'MM'/'yy");
 
-                labelFecha.ContextMenu = new ContextMenu(menu);
-                flPanelFechas.Controls.Add( labelFecha );
-            }
+                    labelFecha.ContextMenu = new ContextMenu(menu);
+                    flPanelFechas.Controls.Add( labelFecha );
+                }
             
-            foreach (Alumno alumno in alumnosGrupo)
-            {
-                FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(alumno.getId(), diasClase);
-                asistencias.Name = alumno.getId().ToString();
-                flPanelAsistencias.Controls.Add(asistencias);
-            }
-            /*Cuando el número de días no es diez no aparece la barra ed scroll horizontal por lo que hay que hacer la validación y 
-             en este caso agregar un label con el tamaño de un scroll y que no desalinea los nombres con los días de asistencia */
-            if (diasClase.Length <= 10)
-            {
-                agregarLabelControl();
+                foreach (Alumno alumno in alumnosGrupo)
+                {
+                    FlowLayoutPanel asistencias = PersonalizacionComponentes.hacerPanelAsistencias(alumno.getId(), diasClase);
+                    asistencias.Name = alumno.getId().ToString();
+                    flPanelAsistencias.Controls.Add(asistencias);
+                }
+                /*Cuando el número de días no es diez no aparece la barra ed scroll horizontal por lo que hay que hacer la validación y 
+                 en este caso agregar un label con el tamaño de un scroll y que no desalinea los nombres con los días de asistencia */
+                if (diasClase.Length <= 10)
+                {
+                    agregarLabelControl();
+                }
             }
         }
 
         /// <summary> Cuando se agrega un nuevo día para el grupo actual agrega una columna de DateButtons por cada alumno </summary>
         private void actualizarAssitencia(DateTime dia)
         {
+            lblInfoDias.Dispose();
+            lblArrowDia.Dispose();
             DiaClase diaNuevo = new DiaClase(dia, idGrupo);
             //Se sacan todos los paneles de asistencias de los alumnos
             System.Collections.IEnumerator alumnosPanels = flPanelAsistencias.Controls.GetEnumerator();

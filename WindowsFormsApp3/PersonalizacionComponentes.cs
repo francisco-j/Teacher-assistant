@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using WindowsFormsApp3.vistas;
 using WindowsFormsApp3.clases_objeto;
 using WindowsFormsApp3.componentes_visuales;
+using System.Collections.Generic;
 
 /// <summary>
 /// clase encargada de guardar los métodos que usaremos para personalizar componentes como:
@@ -141,10 +142,11 @@ namespace WindowsFormsApp3
             Label info = new Label();
             Button boton = new Button();
             FlowLayoutPanel contenedor = new FlowLayoutPanel();
+            contenedor.Name = grupo.getId().ToString();
 
             //boton (informacion y estilo)
             boton.Text = grupo.ToString();
-            boton.Name = "btnGrupo" + grupo.getId();
+            boton.Name = grupo.getId() + "";
 
             boton.Font = miFuenteGrupo;
             boton.Size = new Size(150, 115);
@@ -154,7 +156,7 @@ namespace WindowsFormsApp3
 
             //label (estilo, tamano e info)
             info.Font = miFuenteInfo;
-            info.Name = grupo.getId() + "";
+            info.Name = "Label" + grupo.getId();
             info.Size = new Size(231, 52);
 
             string nameGroup = grupo.getEscuela();
@@ -220,11 +222,11 @@ namespace WindowsFormsApp3
         }
         
         /// <summary> crea un panel con los DateButtons de l alumno indicado </summary>
-        public static void llenarPanelAlunos(FlowLayoutPanel panel, Alumno[] alumnos)
+        public static void llenarPanelAlunos(FlowLayoutPanel panel, List<Alumno> alumnos)
         {
             panel.Controls.Clear();
 
-            foreach (Alumno alumno in alumnos)
+            foreach (Alumno alumno in alumnos.ToArray() )
             {
                 Label nombre = hacerLabelAlumno(alumno);
                 //El evento para el click derecho de las etiquetas se debe programar donde se manda llamar este método para poder
@@ -268,7 +270,7 @@ namespace WindowsFormsApp3
 
             boton.Text = materia.toString();
             boton.Size = new Size(172, 48);
-            boton.Name = "btnMateria" + materia.getId();
+            boton.Name = materia.getId().ToString();
 
             //evento
             boton.Click += new EventHandler(materia_Click);
@@ -294,8 +296,7 @@ namespace WindowsFormsApp3
         /// <summary> evento para los botonesGrupo  </summary>
         private static void grupo_Click(object sender, System.EventArgs e)
         {
-            string grupo = (sender as Button).Name.Replace("btnGrupo", "");
-            int idGrupo = int.Parse(grupo);
+            int idGrupo = int.Parse((sender as Button).Name);
 
             int idMaestro = dbConection.getIdMaestro(idGrupo);
             Program.showListaMaterias(idGrupo, idMaestro);
@@ -307,8 +308,7 @@ namespace WindowsFormsApp3
         {
             int idGrupo = int.Parse((sender as MenuItem).Name);
             FormAgregarGrupo modificarGrupo = new FormAgregarGrupo(dbConection.getGrupo(idGrupo));
-            if( modificarGrupo.ShowDialog() == DialogResult.OK)
-                Program.listaGrupos.cargarBotones();
+            modificarGrupo.ShowDialog(Program.listaGrupos);
 
         }
 
@@ -318,8 +318,6 @@ namespace WindowsFormsApp3
             int idGrupo = int.Parse((sender as MenuItem).Name);
             FormBorrarGrupo borrarG = new FormBorrarGrupo(idGrupo);
             borrarG.ShowDialog(Program.listaGrupos);
-
-            Program.listaGrupos.cargarBotones();
             Program.listaGrupos.mostrarLblInfo();
         }
 
@@ -331,8 +329,7 @@ namespace WindowsFormsApp3
         /// <summary> evento para los botonesMateria </summary>
         private static void materia_Click(object sender, EventArgs e)
         {
-            string materia = (sender as Button).Name.Replace("btnMateria", "");
-            int idMateria = int.Parse(materia);
+            int idMateria = int.Parse((sender as Button).Name);
 
             Program.showGrupoMateria(idMateria, ((FormListaMaterias)Program.listaMaterias).getIdGrupo());
             Program.listaMaterias.Hide();
@@ -344,8 +341,7 @@ namespace WindowsFormsApp3
             int idMateria = int.Parse((sender as MenuItem).Name.Replace("Editar", ""));
 
             FormAgregarMateria modoficarMateria =new FormAgregarMateria(dbConection.getMateria(idMateria));
-            if( modoficarMateria.ShowDialog() == DialogResult.OK)
-                Program.listaMaterias.cargarMaterias();
+            modoficarMateria.ShowDialog(Program.listaMaterias);
         }
 
         /// <summary> para menu contextual de grupo </summary>
@@ -354,9 +350,7 @@ namespace WindowsFormsApp3
             int idMateria = int.Parse((sender as MenuItem).Name.Replace("Borar", ""));
 
             FormBorrarMateria borrarM = new FormBorrarMateria(dbConection.getMateria(idMateria));
-            borrarM.ShowDialog();
-
-            Program.listaMaterias.cargarMaterias();
+            borrarM.ShowDialog( Program.listaMaterias );
         }
 
 #endregion

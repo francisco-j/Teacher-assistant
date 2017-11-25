@@ -122,7 +122,7 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> retorna los grupos asociados al maestro indicado </summary>
-        internal static Grupo[] GruposAsociadosCon(int idUsuario)
+        internal static List<Grupo> GruposAsociadosCon(int idUsuario)
         {
             try
             {
@@ -144,7 +144,7 @@ namespace WindowsFormsApp3
 
                     lGrupos.Add(g);
                 }
-                return lGrupos.ToArray();
+                return lGrupos;
             }
             finally
             {
@@ -154,7 +154,7 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> Retorna las materias asociadas al grupo indicado <summary>
-        internal static Materia[] materiasAsociadasCon(int idGrupo)
+        internal static List<Materia> materiasAsociadasCon(int idGrupo)
         {
             List<Materia> lMaterias = new List<Materia>();
             try
@@ -179,11 +179,11 @@ namespace WindowsFormsApp3
                 reader.Close();
                 conection.Close();
             }
-            return lMaterias.ToArray();
+            return lMaterias;
         }
 
         /// <summary> Se obtienen todos los alumnos del grupo enviado como parámetro </summary>
-        internal static Alumno[] alumnosGrupo(int idGrupo)
+        internal static List<Alumno> alumnosGrupo(int idGrupo)
         {
             List<Alumno> lAlumnos = new List<Alumno>();
             try
@@ -210,7 +210,7 @@ namespace WindowsFormsApp3
                 reader.Close();
                 conection.Close();
             }
-            return lAlumnos.ToArray();
+            return lAlumnos;
         }
 
         /// <summary> devuelbe todos los alumnos que concidan con el string indicado. Toma en cuenta nombre, apellidoM y apellidoM. Pero si el string abarca mas de uno no encontrara al alumno deseado </summary>
@@ -904,8 +904,9 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> registra el grupo indicado en la base de datos </summary>
-        internal static void agregarGrupo(int grado, char grupo, String escuela, int maestro)
+        internal static int agregarGrupo(int grado, char grupo, String escuela, int maestro)
         {
+            int id;
             try
             {
                 comand.Connection = conection;
@@ -916,15 +917,18 @@ namespace WindowsFormsApp3
 
                 conection.Open();
                 comand.ExecuteNonQuery();
+                comand.CommandText = "SELECT @@IDENTITY";
+                id = (int)comand.ExecuteScalar();
             }
             finally
             {
                 conection.Close();
             }
+            return id;
         }
 
         /// <summary> registra la materia indicada en la base de datos </summary>
-        internal static void agregarMateria(String nombre, int salon)
+        internal static int agregarMateria(String nombre, int salon)
         {
             int id;
 
@@ -969,7 +973,7 @@ namespace WindowsFormsApp3
             {
                 conection.Close();
             }
-
+            return id;
         }
 
         /// <summary> Registra un nuevo alumno en la BD </summary>
@@ -1195,7 +1199,7 @@ namespace WindowsFormsApp3
             
         }
 
-        internal static void borrarDiaClase( string dia, int idGrupo, Alumno[] alumnosGrupo )
+        internal static void borrarDiaClase( string dia, int idGrupo, List<Alumno> alumnosGrupo )
         {
             try
             {
@@ -1209,11 +1213,11 @@ namespace WindowsFormsApp3
 
                 //Elimina todas las inasistencias de ese día en la base de datos
                 conection.Open();
-                foreach( Alumno alumActual in alumnosGrupo )
+                foreach( Alumno alumActual in alumnosGrupo.ToArray() )
                 {
-                    comand.CommandText = 
+                    comand.CommandText =
                         "DELETE * FROM inAsistencias " +
-                        "WHERE alumno=" + alumActual.getId() + 
+                        "WHERE alumno=" + alumActual.getId() +
                         " AND dia=#" + dia + "#";
                     comand.ExecuteNonQuery();
                 }
@@ -1222,8 +1226,6 @@ namespace WindowsFormsApp3
             {
                 conection.Close();
             }
-
-
         }
 
         internal static void borrarAlumno(int idAlumno)

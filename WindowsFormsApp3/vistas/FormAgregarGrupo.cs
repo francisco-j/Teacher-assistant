@@ -37,7 +37,6 @@ namespace WindowsFormsApp3
             txbEscuela.Text = grupo.getEscuela();
 
             btnGuardar.Click += btnModificar_Click;
-
         }
 
 #endregion
@@ -52,7 +51,9 @@ namespace WindowsFormsApp3
             string escuela = txbEscuela.Text.Trim();
 
             //try catch
-            dbConection.agregarGrupo(grado, grupo, escuela, idMaestro);
+            int idGrupo = dbConection.agregarGrupo(grado, grupo, escuela, idMaestro);
+
+            (this.Owner as FormListaGrupos).recibirGrupoNuevo(new Grupo(idGrupo, grado, grupo, escuela));
             this.Dispose();
         }
         
@@ -65,6 +66,8 @@ namespace WindowsFormsApp3
 
             //try catch
             dbConection.modificarGrupo(idGrupo, grado, grupo, escuela);
+
+            (this.Owner as FormListaGrupos).modificacionGrupo(new Grupo(idGrupo, grado, grupo, escuela));
             this.Dispose();
         }
 

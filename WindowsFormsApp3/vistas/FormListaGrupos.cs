@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using WindowsFormsApp3.clases_objeto;
 using WindowsFormsApp3.vistas;
@@ -9,7 +10,8 @@ namespace WindowsFormsApp3
     {
         // id del maestro que inició sesión
         private int idMaestro;
-        private Grupo[] grupos;
+        private List<Grupo> grupos;
+        private int color;
 
 //*********************************  constructor ********************************
 
@@ -51,11 +53,16 @@ namespace WindowsFormsApp3
 
         private void btnAgregarGrupo_Click(object sender, System.EventArgs e)
         {
-            if (new FormAgregarGrupo(idMaestro).ShowDialog(this) == DialogResult.OK)
+            if( grupos.Count != 10 )
             {
-                cargarBotones();
-
-                removeLblInfo();
+                if (new FormAgregarGrupo(idMaestro).ShowDialog(this) == DialogResult.OK)
+                {
+                    removeLblInfo();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sólo puedes agregar un máximo de 10 grupos por maestro", "´Grupos llenos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -67,7 +74,7 @@ namespace WindowsFormsApp3
             grupos = dbConection.GruposAsociadosCon(idMaestro);
 
             contenedorGrupos.Controls.Clear();
-            int color = 0;
+            color = 0;
             
             Panel contenedor;
 
@@ -79,7 +86,57 @@ namespace WindowsFormsApp3
                 color++;
             }
 
-            return grupos.Length > 0;
+            return grupos.Count > 0;
+        }
+
+        public void recibirGrupoNuevo( Grupo newGrupo )
+        {
+            grupos.Add(newGrupo);
+            contenedorGrupos.Controls.Add( PersonalizacionComponentes.hacerConternedorGrupo(newGrupo, color) );
+            color++;
+        }
+
+        public void modificacionGrupo( Grupo grupoModificado )
+        {
+            string id = grupoModificado.getId().ToString();
+            FlowLayoutPanel panelGrupoCambios = ((FlowLayoutPanel)contenedorGrupos.Controls.Find(id, false)[0]);
+            Button botonGrupo = (Button)panelGrupoCambios.Controls.Find(id, false)[0];
+            botonGrupo.Text = grupoModificado.ToString();
+
+            Label info = (Label)panelGrupoCambios.Controls.Find("Label" + id, false)[0];
+            string nameGroup = grupoModificado.getEscuela();
+            if (nameGroup.Length > 18)
+            {
+                ToolTip message = new ToolTip();
+                message.SetToolTip(info, nameGroup);
+
+                nameGroup = nameGroup.Substring(0, 16) + "...";
+            }
+            info.Text = nameGroup + "\n" + dbConection.numeroAlumnosEn(grupoModificado.getId()) + " alumnos";
+
+            //Se cambia también en la lista
+            for( int i = 0; i < grupos.Count; i++ )
+            {
+                if( grupos[i].getId() == grupoModificado.getId() )
+                {
+                    grupos[i] = grupoModificado;
+                    break;
+                }
+            }
+        }
+
+        public void eliminarGrupo( int idGrupoEliminar )
+        {
+            contenedorGrupos.Controls.RemoveByKey(idGrupoEliminar.ToString());
+
+            for( int i = 0; i < grupos.Count; i++ )
+            {
+                if( grupos[i].getId() == idGrupoEliminar )
+                {
+                    grupos.RemoveAt(i);
+                    break;
+                }
+            }
         }
 
 // ********************************** geter *********************************************
@@ -112,7 +169,7 @@ namespace WindowsFormsApp3
 
         public void mostrarLblInfo()
         {
-            if( grupos.Length == 0 )
+            if( grupos.Count == 0 )
             {
                 lblInfo.Show();
                 lblArrow.Show();

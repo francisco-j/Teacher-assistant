@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Collections.Generic;
+
 namespace WindowsFormsApp3.clases_objeto
 {
     public class Alumno
@@ -65,6 +68,11 @@ namespace WindowsFormsApp3.clases_objeto
         public string getMaterno()
         {
             return apellidoM;
+        }
+
+        public static explicit operator Alumno(List<Alumno> v)
+        {
+            throw new NotImplementedException();
         }
     }
 

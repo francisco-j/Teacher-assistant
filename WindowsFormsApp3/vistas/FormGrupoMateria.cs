@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp3.clases_objeto;
@@ -11,7 +12,7 @@ namespace WindowsFormsApp3
     {
         int idMateria;
         int idGrupo;
-        Alumno[] alumnos;
+        List<Alumno> alumnos;
         //Tareas = 0, Proyectos = 1, Examenes = 2, Calificaciones = 3;
         private enum Entregas { TAREAS = 0, PROYECTOS, EXAMENES, CALIFICACIONES }
         private Entregas panelActivo;
