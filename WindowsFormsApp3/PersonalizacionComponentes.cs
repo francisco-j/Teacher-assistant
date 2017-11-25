@@ -83,7 +83,7 @@ namespace WindowsFormsApp3
                 indiceCalif++;
             }
             panel.Size = panel.PreferredSize;
-            //panel.BorderStyle = BorderStyle.FixedSingle;
+
             return panel;
         }
 
@@ -104,7 +104,6 @@ namespace WindowsFormsApp3
                 indiceCalif++;
             }
             panel.Size = panel.PreferredSize;
-            //panel.BorderStyle = BorderStyle.FixedSingle;
 
             return panel;
         }
@@ -194,10 +193,11 @@ namespace WindowsFormsApp3
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.Name = name;
             panel.AutoScroll = true;
-            panel.AutoSize = false;
+            panel.FlowDirection = FlowDirection.TopDown;
             panel.Size = new Size(470, 336);
             panel.BackColor = Color.WhiteSmoke;
-            panel.WrapContents = true;
+            panel.TabIndex = 1;
+            panel.WrapContents = false;
 
             return panel;
 

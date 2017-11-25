@@ -24,7 +24,7 @@ namespace WindowsFormsApp3.vistas
             string nameEntregable = txbNombreEntregable.Text;
            // for ( char i = nameEntregable; i <= 10; i++ )
                 
-            dbConection.agregarEntregable(tipo, nameEntregable, materia);
+            ( this.Owner as FormGrupoMateria ).recibirIdEntregaNueva( nameEntregable, dbConection.agregarEntregable(tipo, nameEntregable, materia) );
             this.Dispose();
         }
     }

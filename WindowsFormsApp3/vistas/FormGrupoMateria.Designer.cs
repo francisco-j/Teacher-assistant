@@ -32,6 +32,9 @@
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblDatosGrupo = new System.Windows.Forms.Label();
             this.grpBxModulo = new System.Windows.Forms.GroupBox();
+            this.tlPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblMateria = new System.Windows.Forms.Label();
             this.btnCalificaciones = new System.Windows.Forms.Button();
@@ -54,15 +57,12 @@
             this.lblExamenes = new System.Windows.Forms.Label();
             this.lblProyectos = new System.Windows.Forms.Label();
             this.lblCalificaciones = new System.Windows.Forms.Label();
-            this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tlPanel = new System.Windows.Forms.TableLayoutPanel();
             this.grpBxModulo.SuspendLayout();
+            this.tlPanel.SuspendLayout();
+            this.flPanelAlumnos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.upDnProyectos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnTareas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnExamenes)).BeginInit();
-            this.flPanelAlumnos.SuspendLayout();
-            this.tlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGrupo
@@ -99,6 +99,41 @@
             this.grpBxModulo.TabIndex = 16;
             this.grpBxModulo.TabStop = false;
             this.grpBxModulo.Text = "Módulo";
+            // 
+            // tlPanel
+            // 
+            this.tlPanel.ColumnCount = 2;
+            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 321F));
+            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 488F));
+            this.tlPanel.Controls.Add(this.flPanelAlumnos, 0, 1);
+            this.tlPanel.Location = new System.Drawing.Point(6, 30);
+            this.tlPanel.Name = "tlPanel";
+            this.tlPanel.RowCount = 2;
+            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.91045F));
+            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.08955F));
+            this.tlPanel.Size = new System.Drawing.Size(809, 419);
+            this.tlPanel.TabIndex = 21;
+            // 
+            // flPanelAlumnos
+            // 
+            this.flPanelAlumnos.AutoScroll = true;
+            this.flPanelAlumnos.Controls.Add(this.label2);
+            this.flPanelAlumnos.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flPanelAlumnos.Location = new System.Drawing.Point(3, 78);
+            this.flPanelAlumnos.Name = "flPanelAlumnos";
+            this.flPanelAlumnos.Size = new System.Drawing.Size(315, 319);
+            this.flPanelAlumnos.TabIndex = 0;
+            this.flPanelAlumnos.WrapContents = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(260, 52);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Francisco Javier Fuentes Torres";
             // 
             // btnAgregar
             // 
@@ -395,41 +430,6 @@
             this.lblCalificaciones.Text = "Calificaciones";
             this.lblCalificaciones.Click += new System.EventHandler(this.btnCalificaciones_Click);
             // 
-            // flPanelAlumnos
-            // 
-            this.flPanelAlumnos.AutoScroll = true;
-            this.flPanelAlumnos.Controls.Add(this.label2);
-            this.flPanelAlumnos.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flPanelAlumnos.Location = new System.Drawing.Point(3, 78);
-            this.flPanelAlumnos.Name = "flPanelAlumnos";
-            this.flPanelAlumnos.Size = new System.Drawing.Size(315, 319);
-            this.flPanelAlumnos.TabIndex = 0;
-            this.flPanelAlumnos.WrapContents = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(260, 52);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Francisco Javier Fuentes Torres";
-            // 
-            // tlPanel
-            // 
-            this.tlPanel.ColumnCount = 2;
-            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 321F));
-            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 470F));
-            this.tlPanel.Controls.Add(this.flPanelAlumnos, 0, 1);
-            this.tlPanel.Location = new System.Drawing.Point(6, 30);
-            this.tlPanel.Name = "tlPanel";
-            this.tlPanel.RowCount = 2;
-            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.91045F));
-            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.08955F));
-            this.tlPanel.Size = new System.Drawing.Size(809, 419);
-            this.tlPanel.TabIndex = 21;
-            // 
             // FormGrupoMateria
             // 
             this.AccessibleName = "FormGrupo";
@@ -464,17 +464,18 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormGrupoMateria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "FormGrupo";
             this.Text = "Grupo materia";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGrupoMateria_FormClosed);
             this.Load += new System.EventHandler(this.FormGrupoMateria_Load);
             this.grpBxModulo.ResumeLayout(false);
+            this.tlPanel.ResumeLayout(false);
+            this.flPanelAlumnos.ResumeLayout(false);
+            this.flPanelAlumnos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.upDnProyectos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnTareas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnExamenes)).EndInit();
-            this.flPanelAlumnos.ResumeLayout(false);
-            this.flPanelAlumnos.PerformLayout();
-            this.tlPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

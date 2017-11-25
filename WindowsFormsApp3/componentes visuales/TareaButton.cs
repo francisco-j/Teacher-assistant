@@ -7,12 +7,10 @@ namespace WindowsFormsApp3.componentes_visuales
     /// <summary> para cada tarea para cada alumno </summary>
     class TareaButton : Button
     {
-        private int idTarea;
         public bool entregada;
 
         public TareaButton(int idTarea, bool entregada)
         {
-            this.idTarea = idTarea;
             this.entregada = entregada;
             this.BackgroundImage = entregada ? Properties.Resources.icoCheckMark : Properties.Resources.icoXMark;
 
@@ -33,13 +31,13 @@ namespace WindowsFormsApp3.componentes_visuales
         private void mouseLeaveButton(object sender, EventArgs e)
         {
             string idAlumno = this.Parent.Name;
-            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).entregaLeaveSelected(idAlumno, idTarea.ToString());
+            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).entregaLeaveSelected(idAlumno, this.Name);
         }
 
         private void mouseEnterButton(object sender, EventArgs e)
         {
             string idAlumno = this.Parent.Name;
-            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).entregaSelected(idAlumno, idTarea.ToString());
+            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).entregaSelected(idAlumno, this.Name );
         }
 
         private void clickTareaButton(object sender, EventArgs e)
@@ -51,12 +49,12 @@ namespace WindowsFormsApp3.componentes_visuales
 
             if (entregada)
             {
-                dbConection.setTareaEntregada(idAlumno, idTarea);
+                dbConection.setTareaEntregada(idAlumno, Convert.ToInt32( this.Name ) );
                 this.BackgroundImage = Properties.Resources.icoCheckMark;
             }
             else
             {
-                dbConection.quitarTareaEntregada(idAlumno, idTarea);
+                dbConection.quitarTareaEntregada(idAlumno, Convert.ToInt32( this.Name ) );
                 this.BackgroundImage = Properties.Resources.icoXMark;
             }
     }

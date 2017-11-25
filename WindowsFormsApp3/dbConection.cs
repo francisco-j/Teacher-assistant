@@ -809,9 +809,10 @@ namespace WindowsFormsApp3
 
 #region escritura
 
-        /// <summary> registra el entregable en la db </summary>
-        internal static void agregarEntregable(int tipo, string nombre, int materia)
+        /// <summary> registra el entregable en la db y regresa su id</summary>
+        internal static int agregarEntregable(int tipo, string nombre, int materia)
         {
+            int id = 0;
             try
             {
                 conection.Open();
@@ -820,13 +821,18 @@ namespace WindowsFormsApp3
                     "INSERT INTO Entregables " +
                     "(tipo, nombre, materia) " +
                     "VALUES(" + tipo + ", '" + nombre + "', " + materia + ")";
-                Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+                Console.WriteLine(comand.ExecuteNonQuery() + " entregable agregado");
+
+                comand.CommandText = "SELECT @@IDENTITY";
+                id = (int)comand.ExecuteScalar();
+                Console.WriteLine("id de entrega: " + id);
             }
             finally
             {
                 conection.Close();
                 reader.Close();
             }
+            return id;
         }
 
         /// <summary> registra el usuario indicado en la base de datos </summary>
@@ -1221,7 +1227,22 @@ namespace WindowsFormsApp3
             }
         }
 
-#endregion
+        internal static void eliminarTarea(int idTarea )
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void eliminarExamen(int idExamen)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void eliminarProyecto(int idProyecto)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
 
     }
 }
