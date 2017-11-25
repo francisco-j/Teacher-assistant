@@ -81,7 +81,7 @@ namespace WindowsFormsApp3
             int indiceCalif = 0;
             foreach (Examen examActual in listExamenes)
             {
-                NumUpDownCalificacion numericCalificacion = new NumUpDownCalificacion(examActual.id, (decimal)calificaciones[indiceCalif]);
+                NumUpDownCalificacion numericCalificacion = new NumUpDownCalificacion(examActual.id, calificaciones[indiceCalif]);
                 panel.Controls.Add(numericCalificacion);
 
                 indiceCalif++;
@@ -102,7 +102,8 @@ namespace WindowsFormsApp3
             int indiceCalif = 0;
             foreach (Proyecto proyActual in listProyectos)
             {
-                NumUpDownCalificacion numericCalificacion = new NumUpDownCalificacion(proyActual.id, (decimal)calificaciones[indiceCalif]);
+                Console.WriteLine("Calificaciones: "+calificaciones[indiceCalif]);
+                NumUpDownCalificacion numericCalificacion = new NumUpDownCalificacion(proyActual.id, calificaciones[indiceCalif]);
                 panel.Controls.Add(numericCalificacion);
 
                 indiceCalif++;

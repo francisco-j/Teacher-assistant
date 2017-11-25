@@ -517,9 +517,9 @@ namespace WindowsFormsApp3
                     reader = comand.ExecuteReader();
 
                     if (reader.Read())
-                        calificaciones.Add((int)reader["calif"]);
+                        calificaciones.Add( (int)reader["calif"] );
                     else
-                        calificaciones.Add(5);
+                        calificaciones.Add(50);
 
                     reader.Close();
                 }
@@ -775,7 +775,7 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> porcentage de la calificaicon que cada tubro tiene en la materia indicada </summary>
-        internal static void getPorcentages(int idMateria, out int tareas, out int examenes, out int proyectos)
+        internal static void getPorcentages(int idMateria, out decimal tareas, out decimal examenes, out decimal proyectos)
         {
             try
             {
@@ -784,18 +784,18 @@ namespace WindowsFormsApp3
                 comand.Connection = conection;
                 comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoTarea;
                 reader = comand.ExecuteReader();
-                tareas = reader.Read() ? (int)reader["porcentage"]/10 : 3;
+                tareas = reader.Read() ? (decimal)((int)reader["porcentage"])/10 : 3;
                 reader.Close();
 
                 comand.Connection = conection;
                 comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoExam;
                 reader = comand.ExecuteReader();
-                examenes = reader.Read() ? (int)reader["porcentage"]/10 : 4;
+                examenes = reader.Read() ? (decimal)((int)reader["porcentage"]) / 10 : 4;
                 reader.Close();
 
                 comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoProy;
                 reader = comand.ExecuteReader();
-                proyectos = reader.Read() ? (int)reader["porcentage"]/10 : 3;
+                proyectos = reader.Read() ? (decimal)((int)reader["porcentage"])/ 10 : 3;
                 reader.Close();
             }
             finally
@@ -840,7 +840,7 @@ namespace WindowsFormsApp3
             conection.Open();
 
             comand.CommandText = tipo == tipoTarea ? "INSERT INTO Entregas (alumno, tipo, entregable, calif ) VALUES(" + idAlumno + "," + tipo + ", " + idEntrega + ", " + 0 + ")"
-                : "INSERT INTO Entregas (alumno, tipo, entregable, calif ) VALUES(" + idAlumno + "," + tipo + ", " + idEntrega + ", " + 10 + ")";
+                : "INSERT INTO Entregas (alumno, tipo, entregable, calif ) VALUES(" + idAlumno + "," + tipo + ", " + idEntrega + ", " + 100 + ")";
             comand.Connection = conection;
 
             comand.ExecuteNonQuery();
@@ -952,20 +952,20 @@ namespace WindowsFormsApp3
                 //agregar rubros
                 comand.CommandText =
                     "INSERT INTO Rubros " +
-                    "(tipo, porcentage, materia) " +
-                    "VALUES("+tipoTarea+",3,"+id+")";
+                    " (tipo, porcentage, materia) " +
+                    "VALUES("+tipoTarea+",30,"+id+")";
                 comand.ExecuteNonQuery();
 
                 comand.CommandText =
                     "INSERT INTO Rubros " +
                     "(tipo, porcentage, materia) " +
-                    "VALUES(" + tipoProy + ",3," + id + ")";
+                    "VALUES(" + tipoProy + ",30," + id + ")";
                 comand.ExecuteNonQuery();
 
                 comand.CommandText =
                     "INSERT INTO Rubros " +
                     "(tipo, porcentage, materia) " +
-                    "VALUES(" + tipoExam + ",4," + id + ")";
+                    "VALUES(" + tipoExam + ",40," + id + ")";
                 comand.ExecuteNonQuery();
 
             }
@@ -1086,7 +1086,7 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand = new OleDbCommand("UPDATE Entregas SET calif=" + calificacion + " WHERE alumno=" + idAlumno + " AND entregable=" + idEntrega, conection);
+                comand = new OleDbCommand("UPDATE Entregas SET calif=" + calificacion * 10 + " WHERE alumno=" + idAlumno + " AND entregable=" + idEntrega, conection);
                 Console.WriteLine(comand.ExecuteNonQuery() + " calificación actualizada al alumno: " + idAlumno);
             }
             finally
@@ -1160,6 +1160,7 @@ namespace WindowsFormsApp3
             newValor *= 10;
             try
             {
+                conection.Open();
                 comand.CommandText = 
                     "UPDATE Rubros " +
                     "SET porcentage = " + newValor + 

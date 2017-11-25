@@ -7,7 +7,7 @@ namespace WindowsFormsApp3.componentes_visuales
     class NumUpDownCalificacion : NumericUpDown
     {
 
-        public NumUpDownCalificacion( int idEntrega, decimal calificacion )
+        public NumUpDownCalificacion( int idEntrega, int calificacion )
         {
             this.Name = idEntrega.ToString();
             this.Font = new Font("Microsoft Sans Serif", 9);
@@ -18,8 +18,11 @@ namespace WindowsFormsApp3.componentes_visuales
             this.Maximum = 10;
             this.Minimum = 5;
 
-            this.Value = calificacion;
-            this.ForeColor = calificacion >= 8 ? Color.Black : Color.Red;
+            decimal calif = (decimal)calificacion / 10;
+            Console.WriteLine("calificacion: " + calificacion);
+            Console.WriteLine("calif: " + calif);
+            this.Value = calif;
+            this.ForeColor = calif >= 8 ? Color.Black : Color.Red;
 
             this.Margin = new Padding(0, 0, 8, 3 );
 

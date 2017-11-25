@@ -327,7 +327,7 @@ namespace WindowsFormsApp3
 
             lblTotal.Text = total.ToString();
 
-            lblTotal.ForeColor = total!=10 ? Color.Salmon: Color.FromArgb(56, 164, 140);
+            lblTotal.ForeColor = total!=10 ? Color.Red: Color.FromArgb(56, 164, 140);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -376,12 +376,15 @@ namespace WindowsFormsApp3
 
             this.Text = grupo + " " + materia;
 
-            int tareas, examenes, proyectos;
+            decimal tareas, examenes, proyectos;
             dbConection.getPorcentages(idMateria, out tareas, out examenes, out proyectos);
 
             upDnTareas.Value = tareas;
             upDnExamenes.Value = examenes;
             upDnProyectos.Value = proyectos;
+
+            lblTotal.Text = (tareas + examenes + proyectos).ToString();
+            lblTotal.ForeColor = tareas + examenes + proyectos != 10 ? Color.Red : Color.FromArgb(56, 164, 140);
 
             upDnTareas.AccessibleDescription = dbConection.tipoTarea.ToString();
             upDnExamenes.AccessibleDescription = dbConection.tipoExam.ToString();
@@ -468,7 +471,8 @@ namespace WindowsFormsApp3
 
                 while (alumnosPanels.MoveNext())
                 {
-                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new NumUpDownCalificacion( proyecto.id, (decimal)10 ));
+                    //Se manda 100 porque en el construtor lo divide entre 10
+                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new NumUpDownCalificacion( proyecto.id, 100 ));
                     ((FlowLayoutPanel)alumnosPanels.Current).Size = ((FlowLayoutPanel)alumnosPanels.Current).PreferredSize;
                 }
             }
@@ -491,7 +495,8 @@ namespace WindowsFormsApp3
 
                 while (alumnosPanels.MoveNext())
                 {
-                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new NumUpDownCalificacion(examen.id, (decimal)10));
+                    //Se manda 100 porque en el construtor lo divide entre 10
+                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new NumUpDownCalificacion(examen.id, 100));
                     ((FlowLayoutPanel)alumnosPanels.Current).Size = ((FlowLayoutPanel)alumnosPanels.Current).PreferredSize;
                 }
             }
