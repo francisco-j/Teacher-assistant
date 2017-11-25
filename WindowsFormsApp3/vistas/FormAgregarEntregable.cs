@@ -22,9 +22,9 @@ namespace WindowsFormsApp3.vistas
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string nameEntregable = txbNombreEntregable.Text;
-           // for ( char i = nameEntregable; i <= 10; i++ )
-                
-            ( this.Owner as FormGrupoMateria ).recibirIdEntregaNueva( nameEntregable, dbConection.agregarEntregable(tipo, nameEntregable, materia) );
+            // for ( char i = nameEntregable; i <= 10; i++ )
+            Console.WriteLine("Tipo grabado: " + tipo );
+            ( this.Owner as FormGrupoMateria ).recibirIdEntregaNueva( nameEntregable, dbConection.agregarEntregable(tipo, nameEntregable, materia), tipo );
             this.Dispose();
         }
     }

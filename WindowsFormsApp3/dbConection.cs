@@ -367,7 +367,7 @@ namespace WindowsFormsApp3
                 comand.CommandText =
                     "SELECT * FROM Entregables " +
                     "WHERE materia =" + idMateria +
-                    "AND tipo >= " + tipoProy;
+                    "AND tipo = " + tipoProy;
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())
@@ -821,7 +821,7 @@ namespace WindowsFormsApp3
                     "INSERT INTO Entregables " +
                     "(tipo, nombre, materia) " +
                     "VALUES(" + tipo + ", '" + nombre + "', " + materia + ")";
-                Console.WriteLine(comand.ExecuteNonQuery() + " entregable agregado");
+                Console.WriteLine(comand.ExecuteNonQuery() + " entregable agregado del tipo " + tipo);
 
                 comand.CommandText = "SELECT @@IDENTITY";
                 id = (int)comand.ExecuteScalar();
@@ -833,6 +833,19 @@ namespace WindowsFormsApp3
                 reader.Close();
             }
             return id;
+        }
+
+        internal static void agregarEntregas( int idAlumno, int tipo, int idEntrega )
+        {
+            conection.Open();
+
+            comand.CommandText = tipo == tipoTarea ? "INSERT INTO Entregas (alumno, tipo, entregable, calif ) VALUES(" + idAlumno + "," + tipo + ", " + idEntrega + ", " + 0 + ")"
+                : "INSERT INTO Entregas (alumno, tipo, entregable, calif ) VALUES(" + idAlumno + "," + tipo + ", " + idEntrega + ", " + 10 + ")";
+            comand.Connection = conection;
+
+            comand.ExecuteNonQuery();
+
+            conection.Close();
         }
 
         /// <summary> registra el usuario indicado en la base de datos </summary>

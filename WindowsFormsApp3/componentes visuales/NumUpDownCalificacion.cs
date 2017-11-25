@@ -9,7 +9,6 @@ namespace WindowsFormsApp3.componentes_visuales
 
         public NumUpDownCalificacion( int idEntrega, decimal calificacion )
         {
-
             this.Name = idEntrega.ToString();
             this.Font = new Font("Microsoft Sans Serif", 9);
             this.Size = new Size(40, 22);

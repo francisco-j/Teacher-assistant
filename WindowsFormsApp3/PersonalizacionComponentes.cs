@@ -60,7 +60,10 @@ namespace WindowsFormsApp3
             foreach (Tarea tarea in listTareas)
             {
                 bool entregada = entregas.Contains(tarea.id);
-                panel.Controls.Add(new TareaButton(tarea.id, true));
+                if( entregada )
+                    panel.Controls.Add(new TareaButton(tarea.id, true));
+                else
+                    panel.Controls.Add(new TareaButton(tarea.id, false));
             }
             panel.Size = panel.PreferredSize;
 

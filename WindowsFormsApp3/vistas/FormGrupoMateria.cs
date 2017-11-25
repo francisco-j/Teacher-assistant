@@ -71,6 +71,7 @@ namespace WindowsFormsApp3
 
                 Tarea[] listTareas = dbConection.getTareas(idMateria);
 
+
                 foreach (Tarea tarea in listTareas)
                 {
                     tiltLabel nombreTarea = new tiltLabel(tarea.nombre);
@@ -86,6 +87,7 @@ namespace WindowsFormsApp3
                     flPanelEntregas[ 1, (int)Entregas.TAREAS ].Controls.Add(nombreTarea);
                 }
 
+                
                 foreach (Alumno alumno in alumnos)
                 {
                     FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelTareas(alumno.getId(), listTareas);
@@ -260,7 +262,7 @@ namespace WindowsFormsApp3
                     }
 
                     //Llamar al método de dbConection para que elimine la tarea
-                    //dbConection.eliminarTarea( Convert.ToInt32(idTareaEliminar));
+                    dbConection.eliminarTarea( Convert.ToInt32(idTareaEliminar));
                 }
                 else if( grpBxModulo.Text == "Proyectos" )
                 {
@@ -336,10 +338,18 @@ namespace WindowsFormsApp3
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            int tipo = int.Parse(grpBxModulo.AccessibleDescription);
+            //La siguiente línea estaba mandando tipos diferentes, por eso la cambié
+            //int tipo = int.Parse(grpBxModulo.AccessibleDescription);
+            int tipo;
+            if (grpBxModulo.Text == "Tareas")
+                tipo = 1;
+            else if (grpBxModulo.Text == "Proyectos")
+                tipo = 3;
+            else
+                tipo = 2;
+
             FormAgregarEntregable newEntregable = new FormAgregarEntregable(tipo, idMateria);
-            newEntregable.ShowDialog(this);
-            
+            newEntregable.ShowDialog(this);   
         }
 
         public void entregaSelected(string idAlumno, string idTarea)
@@ -419,7 +429,8 @@ namespace WindowsFormsApp3
             }
         }
 
-        internal void recibirIdEntregaNueva(string nombre, int idEntrega)
+        /// <summary>Recibe de FormAgregarEntrega la información de la entrega que se acaba de registrar en la base de datos</summary>
+        internal void recibirIdEntregaNueva(string nombre, int idEntrega, int tipo)
         {
             if( grpBxModulo.Text == "Tareas" )
             {
@@ -463,7 +474,7 @@ namespace WindowsFormsApp3
 
                 while (alumnosPanels.MoveNext())
                 {
-                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new NumUpDownCalificacion( proyecto.id, (decimal)5 ));
+                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new NumUpDownCalificacion( proyecto.id, (decimal)10 ));
                     ((FlowLayoutPanel)alumnosPanels.Current).Size = ((FlowLayoutPanel)alumnosPanels.Current).PreferredSize;
                 }
             }
@@ -486,9 +497,14 @@ namespace WindowsFormsApp3
 
                 while (alumnosPanels.MoveNext())
                 {
-                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new NumUpDownCalificacion(examen.id, (decimal)5));
+                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new NumUpDownCalificacion(examen.id, (decimal)10));
                     ((FlowLayoutPanel)alumnosPanels.Current).Size = ((FlowLayoutPanel)alumnosPanels.Current).PreferredSize;
                 }
+            }
+
+            foreach( Alumno alumno in alumnos )
+            {
+                dbConection.agregarEntregas(alumno.getId(), tipo, idEntrega );
             }
         }
 
