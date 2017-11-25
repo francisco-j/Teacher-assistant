@@ -51,7 +51,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.lbl2 = new System.Windows.Forms.Label();
             this.lbl3 = new System.Windows.Forms.Label();
             this.lblTareas = new System.Windows.Forms.Label();
             this.lblExamenes = new System.Windows.Forms.Label();
@@ -367,13 +366,6 @@
             this.lbl1.Size = new System.Drawing.Size(470, 19);
             this.lbl1.TabIndex = 27;
             // 
-            // lbl2
-            // 
-            this.lbl2.Location = new System.Drawing.Point(542, 195);
-            this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(22, 317);
-            this.lbl2.TabIndex = 28;
-            // 
             // lbl3
             // 
             this.lbl3.Location = new System.Drawing.Point(234, 505);
@@ -442,7 +434,6 @@
             this.Controls.Add(this.lblExamenes);
             this.Controls.Add(this.lblTareas);
             this.Controls.Add(this.lbl3);
-            this.Controls.Add(this.lbl2);
             this.Controls.Add(this.lbl1);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label6);
@@ -502,7 +493,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lbl1;
-        private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.Label lbl3;
         private System.Windows.Forms.Label lblTareas;
         private System.Windows.Forms.Label lblExamenes;

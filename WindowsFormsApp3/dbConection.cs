@@ -1045,30 +1045,50 @@ namespace WindowsFormsApp3
         /// <summary>Establece que el alumno con ese Id sí entregó la tarea</summary>
         internal static void setTareaEntregada(int idAlumno, int idTarea)
         {
-            /*try
+            try
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "INSERT INTO Entregas (alumno, entregable) VALUES(" + idAlumno + ",#" + dia.ToString("MM'/'dd'/'yy") + "#)";
+                comand.CommandText = "INSERT INTO Entregas (alumno, tipo, entregable, calif) VALUES(" + idAlumno + "," + 1 + "," + idTarea + "," + 0 + ")";
 
-                Console.WriteLine(comand.ExecuteNonQuery() + " ; falta del alumno: " + idAlumno + " del día: " + dia.ToShortDateString());
+                Console.WriteLine(comand.ExecuteNonQuery() + " Tarea agregada para el alumno: " + idAlumno );
             }
             finally
             {
                 conection.Close();
-            }*/
+            }
         }
 
         /// <summary>Establece que el alumno con ese Id no entregó la tarea con ese ID</summary>
         internal static void quitarTareaEntregada(int idAlumno, int idTarea)
         {
-            throw new NotImplementedException();
+            try
+            {
+                conection.Open();
+                comand.Connection = conection;
+                comand.CommandText = "DELETE * FROM Entregas WHERE alumno=" + idAlumno + " AND entregable=" + idTarea ;
+
+                Console.WriteLine(comand.ExecuteNonQuery() + " Tarea borrada para el alumno: " + idAlumno);
+            }
+            finally
+            {
+                conection.Close();
+            }
         }
 
         /// <summary>Actualiza la calificación del alumno con ese id, puede ser de examen o proyecto que tenga ese ID</summary>
         internal static void actualizarCalificacionEntrega(int idAlumno, int idEntrega,decimal calificacion)
         {
-            throw new NotImplementedException();
+            try
+            {
+                conection.Open();
+                comand = new OleDbCommand("UPDATE Entregas SET calif=" + calificacion + " WHERE alumno=" + idAlumno + " AND entregable=" + idEntrega, conection);
+                Console.WriteLine(comand.ExecuteNonQuery() + " calificación actualizada al alumno: " + idAlumno);
+            }
+            finally
+            {
+                conection.Close();
+            }
         }
 
         #endregion

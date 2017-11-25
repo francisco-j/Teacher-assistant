@@ -33,9 +33,8 @@ namespace WindowsFormsApp3.componentes_visuales
             int idAlumno = Convert.ToInt32( this.Parent.Name );
 
             this.ForeColor = this.Value >= 8 ? Color.Black : Color.Red;
-
-            //Quitar como comentario cuando se implemente el método
-            //dbConection.actualizarCalificacionEntrega(idAlumno, Convert.ToInt32(this.Name), this.Value);
+            
+            dbConection.actualizarCalificacionEntrega(idAlumno, Convert.ToInt32(this.Name), this.Value);
         }
 
         private void mouseLeaveNum(object sender, EventArgs e)
