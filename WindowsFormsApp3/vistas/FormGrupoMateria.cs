@@ -260,9 +260,6 @@ namespace WindowsFormsApp3
                         ((FlowLayoutPanel)tareasAlumnos.Current).Controls.RemoveByKey( idTareaEliminar );
                         ((FlowLayoutPanel)tareasAlumnos.Current).Size = ((FlowLayoutPanel)tareasAlumnos.Current).PreferredSize;
                     }
-
-                    //Llamar al método de dbConection para que elimine la tarea
-                    dbConection.eliminarTarea( Convert.ToInt32(idTareaEliminar));
                 }
                 else if( grpBxModulo.Text == "Proyectos" )
                 {
@@ -276,9 +273,6 @@ namespace WindowsFormsApp3
                         ((FlowLayoutPanel)proyectosAlumnos.Current).Controls.RemoveByKey(idTareaEliminar);
                         ((FlowLayoutPanel)proyectosAlumnos.Current).Size = ((FlowLayoutPanel)proyectosAlumnos.Current).PreferredSize;
                     }
-
-                    //Llamar al método de dbConection para que elimine el proyecto
-                    //dbConection.eliminarProyecto( Convert.ToInt32(idTareaEliminar) );
                 }
                 else //Exámenes, porque de calificaciones no se podrá eliminar nada
                 {
@@ -292,10 +286,9 @@ namespace WindowsFormsApp3
                         ((FlowLayoutPanel)examenesAlumnos.Current).Controls.RemoveByKey(idTareaEliminar);
                         ((FlowLayoutPanel)examenesAlumnos.Current).Size = ((FlowLayoutPanel)examenesAlumnos.Current).PreferredSize;
                     }
-
-                    //Llamar al método de dbConection para que elimine el examen
-                    //dbConection.eliminarExamen( Convert.ToInt32(idTareaEliminar));
                 }
+                //Lo elimina de la base de datos
+                dbConection.eliminarEntrega(Convert.ToInt32( idTareaEliminar ) );
             }
 
         }

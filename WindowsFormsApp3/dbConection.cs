@@ -1240,19 +1240,20 @@ namespace WindowsFormsApp3
             }
         }
 
-        internal static void eliminarTarea(int idTarea )
+        internal static void eliminarEntrega(int idEntrega)
         {
-            throw new NotImplementedException();
-        }
+            try
+            { 
+                conection.Open();
+                comand = new OleDbCommand("DELETE * FROM Entregables WHERE id=" + idEntrega, conection);
+                Console.WriteLine("Entrega eliminada: " + idEntrega);
+                comand.ExecuteNonQuery();
+            }
+            finally
+            {
+                conection.Close();
+            }
 
-        internal static void eliminarExamen(int idExamen)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal static void eliminarProyecto(int idProyecto)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion
