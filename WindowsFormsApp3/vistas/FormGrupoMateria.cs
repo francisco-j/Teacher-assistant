@@ -210,29 +210,60 @@ namespace WindowsFormsApp3
         /// <summary> muestra la ventana tareas </summary>
         private void btnCalificaciones_Click(object sender, EventArgs e)
         {
-            desactivarPanelActivo((int)Entregas.CALIFICACIONES );
-            btnAgregar.Visible = true;
-            grpBxModulo.Text = "Calificaciones";
-            panelActivo = Entregas.CALIFICACIONES;
-
             if (instancesPaneles[(int)Entregas.CALIFICACIONES ])
             {
+                grpBxModulo.Text = "Calificaciones";
+                btnAgregar.Visible = false;
+                desactivarPanelActivo((int)Entregas.CALIFICACIONES );
+                panelActivo = Entregas.CALIFICACIONES;
                 //Si ya se instanció mostrará ese panel de calificaciones y el de los títulos de las calificaciones
                 flPanelEntregas[0, (int)Entregas.CALIFICACIONES ].Show();
                 flPanelEntregas[1, (int)Entregas.CALIFICACIONES ].Show();
             }
             else
             {
-                instancesPaneles[ (int)Entregas.CALIFICACIONES ] = true;
-                flPanelEntregas[0, (int)Entregas.CALIFICACIONES] = PersonalizacionComponentes.hacerContenedorEntregas("flPanelCalificaciones");
-                flPanelEntregas[1, (int)Entregas.CALIFICACIONES] = PersonalizacionComponentes.hacerContenedorTitulosEntregas("flPanelTitulosCalificaciones");
+                if( MessageBox.Show("Estás a punto de ver las calificaciones calculadas con los siguientes valores en los rubros" + System.Environment.NewLine + 
+                    "Tareas: " + upDnTareas.Value + System.Environment.NewLine + "Proyectos: " + upDnProyectos.Value + System.Environment.NewLine + 
+                    "Exámenes: " + upDnExamenes.Value, "Confirmación ver calificaciones", MessageBoxButtons.YesNo, MessageBoxIcon.Information ) == DialogResult.Yes )
+                {
+                    //Si es visible pero falso es que ya estaba creado es porque se cambió el valor de algún nuUpRubro
+                    if ( flPanelEntregas[0, (int)Entregas.CALIFICACIONES].Visible )
+                    {
+                        flPanelEntregas[0, (int)Entregas.CALIFICACIONES].Controls.Clear();
+                        flPanelEntregas[0, (int)Entregas.CALIFICACIONES].Controls.Clear();
+                    }
+                    grpBxModulo.Text = "Calificaciones";
+                    btnAgregar.Visible = false;
+                    desactivarPanelActivo((int)Entregas.CALIFICACIONES);
+                    panelActivo = Entregas.CALIFICACIONES;
 
-                tlPanel.Controls.Add(flPanelEntregas[0, (int)Entregas.CALIFICACIONES], 1, 1);
-                tlPanel.Controls.Add(flPanelEntregas[1, (int)Entregas.CALIFICACIONES], 1, 0);
+                    instancesPaneles[ (int)Entregas.CALIFICACIONES ] = true;
 
-                flPanelEntregas[0, (int)Entregas.CALIFICACIONES].Show();
-                flPanelEntregas[1, (int)Entregas.CALIFICACIONES].Show();
-                //PersonalizacionComponentes.decorarPanelCalificaciones(alumnos, idMateria, ref flPanelTitulos, ref flPanelTareas);
+                    flPanelEntregas[0, (int)Entregas.CALIFICACIONES] = PersonalizacionComponentes.hacerContenedorEntregas("flPanelCalificaciones");
+                    flPanelEntregas[1, (int)Entregas.CALIFICACIONES] = PersonalizacionComponentes.hacerContenedorTitulosEntregas("flPanelTitulosCalificaciones");
+
+                    tlPanel.Controls.Add(flPanelEntregas[0, (int)Entregas.CALIFICACIONES], 1, 1);
+                    tlPanel.Controls.Add(flPanelEntregas[1, (int)Entregas.CALIFICACIONES], 1, 0);
+
+                    flPanelEntregas[0, (int)Entregas.CALIFICACIONES].Show();
+                    flPanelEntregas[1, (int)Entregas.CALIFICACIONES].Show();
+
+                    tiltLabel[] titulos = new tiltLabel[4];
+
+                    titulos[0] = new tiltLabel("Tareas");
+                    titulos[1] = new tiltLabel("Poyectos");
+                    titulos[2] = new tiltLabel("Exámenes");
+                    titulos[3] = new tiltLabel("Promedio");
+
+                    titulos[0].Margin= new Padding(0, 0, 50, 0);
+                    titulos[1].Margin= new Padding(0, 0, 50, 0);
+                    titulos[2].Margin = new Padding(0, 0, 50, 0);
+                    titulos[3].Margin = new Padding(0, 0, 50, 0);
+
+                    flPanelEntregas[1, (int)Entregas.CALIFICACIONES].Controls.AddRange(titulos);
+
+                    PersonalizacionComponentes.decorarPanelesCalificaciones(alumnos, idMateria, upDnTareas.Value, upDnProyectos.Value, upDnExamenes.Value, ref flPanelEntregas[0, (int)Entregas.CALIFICACIONES]);
+                }
             }
         }
 
@@ -301,6 +332,9 @@ namespace WindowsFormsApp3
             panelActivo = Entregas.TAREAS;
             instancesPaneles = new bool[4] { false, false, false, false };
 
+            flPanelEntregas[0, (int)Entregas.CALIFICACIONES] = new FlowLayoutPanel();
+            flPanelEntregas[1, (int)Entregas.CALIFICACIONES] = new FlowLayoutPanel();
+
             btnTareas.PerformClick(); 
         }
 
@@ -318,6 +352,9 @@ namespace WindowsFormsApp3
 
         private void rubroUpDn_ValueChanged(object sender, EventArgs e)
         {
+            //Cuando se cambie el valor de alguno de los parámetros se deben de mostrar las calificacines 
+            //con el nuevo valor por lo que se hará falsa esta variable y se cargará otra vez el panel cuando se presiona en btnCalificaciones
+            instancesPaneles[(int)Entregas.CALIFICACIONES] = false;
             NumericUpDown nud = sender as NumericUpDown;
 
             int tipo = int.Parse(nud.AccessibleDescription);

@@ -81,6 +81,7 @@ namespace WindowsFormsApp3
             int indiceCalif = 0;
             foreach (Examen examActual in listExamenes)
             {
+                Console.WriteLine("Calificación alumno examen: " + calificaciones[indiceCalif] + "  Examen id: " + listExamenes[indiceCalif].id );
                 NumUpDownCalificacion numericCalificacion = new NumUpDownCalificacion(examActual.id, calificaciones[indiceCalif]);
                 panel.Controls.Add(numericCalificacion);
 
@@ -113,8 +114,9 @@ namespace WindowsFormsApp3
             return panel;
         }
 
-        /// <summary> llena las calificaciones de los lumnos por rubro </summary>
-        internal static void hacerPanelCalif(int idAlumno, int[] tiposTareas)
+        //Ya hay otro método que lo hace
+        // <summary> llena las calificaciones de los lumnos por rubro </summary>
+        /*internal static void hacerPanelCalif(int idAlumno, int[] tiposTareas)
         {
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.Margin = new Padding(0);
@@ -128,7 +130,7 @@ namespace WindowsFormsApp3
                 panel.Controls.Add(lab);
             }
             panel.Size = panel.PreferredSize;   
-        }
+        }*/
 
 
         #endregion
@@ -206,7 +208,6 @@ namespace WindowsFormsApp3
             panel.WrapContents = false;
 
             return panel;
-
         }
 
         public static FlowLayoutPanel hacerContenedorTitulosEntregas(string name)
@@ -221,7 +222,62 @@ namespace WindowsFormsApp3
 
             return flPanelTitulos;
         }
-        
+
+        internal static void decorarPanelesCalificaciones(List<Alumno> alumnos, int idMateria, decimal valorTareas, decimal valorProyectos, decimal valorExa, ref FlowLayoutPanel panelCalificaciones)
+        {
+            int tareasTotales = dbConection.getNumeroEntregablesTotales(idMateria, 1);
+
+            //Columas: Tareas, proyectos, exámenes y promedio
+            //Filas: Una por cada alumno del grupo
+            decimal[,] matrizCalif = new decimal[alumnos.Count, 4];
+
+            int fila = 0;
+            foreach( Alumno alumno in alumnos )
+            {
+                matrizCalif[fila, 0] = (dbConection.getNumeroTareas(alumno.getId(), idMateria) * valorTareas ) / tareasTotales;
+                matrizCalif[fila, 1] = (dbConection.getPromCalifProyectosOExam(alumno.getId(), idMateria, 3) * valorProyectos);
+                matrizCalif[fila, 2] = (dbConection.getPromCalifProyectosOExam(alumno.getId(), idMateria, 2) * valorExa);
+                matrizCalif[fila, 3] = matrizCalif[fila, 0] + matrizCalif[fila, 1] + matrizCalif[fila, 2];
+                /*Control, para verificar que está bien
+                 * Console.WriteLine("Promedio: " + matrizCalif[fila, 3]);
+                Console.WriteLine("tareas: " + matrizCalif[fila, 0]);
+                Console.WriteLine("proyectos: " + matrizCalif[fila, 1]);
+                Console.WriteLine("exámenes: " + matrizCalif[fila, 2]);*/
+
+                FlowLayoutPanel panelCalifAlum = new FlowLayoutPanel();
+                panelCalifAlum.Margin = new Padding(0);
+                
+                panelCalifAlum.Controls.Add( getLabelCalificacion(matrizCalif[fila, 0], alumno.getId() ) );
+
+                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 1], alumno.getId()));
+
+                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 2], alumno.getId()));
+
+                Label lblPromedio = getLabelCalificacion(matrizCalif[fila, 3], alumno.getId());
+                if (matrizCalif[fila, 3] < 8)
+                    lblPromedio.ForeColor = Color.Red;
+                panelCalifAlum.Controls.Add( lblPromedio );
+
+                panelCalifAlum.Size = panelCalifAlum.PreferredSize;
+
+                panelCalificaciones.Controls.Add( panelCalifAlum );
+
+                fila++;
+            }
+        }
+
+        public static Label getLabelCalificacion( decimal calificacion, int idAlumno )
+        {
+            Label lblCalif = new Label();
+            lblCalif.Text = Decimal.Round(calificacion, 2).ToString();
+            lblCalif.ForeColor = Color.FromArgb(11, 115, 115);
+
+            lblCalif.Size = new Size(88, 23);
+            lblCalif.Margin = new Padding(0);
+
+            return lblCalif;
+        }
+
         /// <summary> crea un panel con los DateButtons de l alumno indicado </summary>
         public static void llenarPanelAlunos(FlowLayoutPanel panel, List<Alumno> alumnos)
         {
@@ -322,10 +378,9 @@ namespace WindowsFormsApp3
             Program.listaGrupos.mostrarLblInfo();
         }
 
+        #endregion
 
-#endregion
-
-#region eventos para asignar a materia
+        #region eventos para asignar a materia
 
         /// <summary> evento para los botonesMateria </summary>
         private static void materia_Click(object sender, EventArgs e)
