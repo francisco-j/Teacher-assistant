@@ -603,6 +603,8 @@ namespace WindowsFormsApp3
                 comand.Connection = conection;
 
                 object promedio = (object)comand.ExecuteScalar();
+                if (promedio == DBNull.Value)
+                    return 0;
                 Console.WriteLine("Promedio database(dividir entre 100): " + promedio.ToString());
                 //El promedio lo saca en base 100 por lo que se divide entre 100 para que quede como lo necesitamos
                 return (decimal)( Convert.ToDecimal( promedio) / 100 );

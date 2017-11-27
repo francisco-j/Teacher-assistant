@@ -226,7 +226,9 @@ namespace WindowsFormsApp3
         internal static void decorarPanelesCalificaciones(List<Alumno> alumnos, int idMateria, decimal valorTareas, decimal valorProyectos, decimal valorExa, ref FlowLayoutPanel panelCalificaciones)
         {
             int tareasTotales = dbConection.getNumeroEntregablesTotales(idMateria, 1);
-
+            //Si no se tiene ninguna tarea no podemos dividir entre 0
+            if (tareasTotales == 0)
+                tareasTotales++;
             //Columas: Tareas, proyectos, exámenes y promedio
             //Filas: Una por cada alumno del grupo
             decimal[,] matrizCalif = new decimal[alumnos.Count, 4];
