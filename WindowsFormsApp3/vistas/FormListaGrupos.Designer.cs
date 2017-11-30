@@ -66,6 +66,7 @@
             this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbBusqueda.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.txbBusqueda.Location = new System.Drawing.Point(649, 32);
+            this.txbBusqueda.MaxLength = 65;
             this.txbBusqueda.Name = "txbBusqueda";
             this.txbBusqueda.ReadOnly = true;
             this.txbBusqueda.Size = new System.Drawing.Size(200, 30);

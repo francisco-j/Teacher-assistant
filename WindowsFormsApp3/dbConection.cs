@@ -929,7 +929,7 @@ namespace WindowsFormsApp3
                         "(usuario, contrasena) " +
                         "VALUES('" + usuario + "', '" + contra + "')";
                     comand.Connection = conection;
-                    Console.WriteLine(comand.ExecuteNonQuery() + " lienas con cambios");
+                    Console.WriteLine(comand.ExecuteNonQuery() + " línas con cambios");
                 }
             }
             finally

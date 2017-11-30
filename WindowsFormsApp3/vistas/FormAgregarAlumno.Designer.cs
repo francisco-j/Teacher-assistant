@@ -42,6 +42,7 @@
             // 
             this.txbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txbNombre.Location = new System.Drawing.Point(118, 30);
+            this.txbNombre.MaxLength = 20;
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(100, 20);
             this.txbNombre.TabIndex = 0;
@@ -51,6 +52,7 @@
             // 
             this.txbPaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txbPaterno.Location = new System.Drawing.Point(118, 64);
+            this.txbPaterno.MaxLength = 15;
             this.txbPaterno.Name = "txbPaterno";
             this.txbPaterno.Size = new System.Drawing.Size(100, 20);
             this.txbPaterno.TabIndex = 1;
@@ -60,6 +62,7 @@
             // 
             this.txbMaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txbMaterno.Location = new System.Drawing.Point(118, 99);
+            this.txbMaterno.MaxLength = 15;
             this.txbMaterno.Name = "txbMaterno";
             this.txbMaterno.Size = new System.Drawing.Size(100, 20);
             this.txbMaterno.TabIndex = 2;

@@ -40,6 +40,7 @@
             this.txbNombreMateria.BackColor = System.Drawing.SystemColors.Window;
             this.txbNombreMateria.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txbNombreMateria.Location = new System.Drawing.Point(63, 43);
+            this.txbNombreMateria.MaxLength = 20;
             this.txbNombreMateria.Name = "txbNombreMateria";
             this.txbNombreMateria.Size = new System.Drawing.Size(122, 20);
             this.txbNombreMateria.TabIndex = 0;

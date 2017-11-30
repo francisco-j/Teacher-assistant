@@ -42,9 +42,11 @@
             this.btnAddDia = new System.Windows.Forms.Button();
             this.tlPanel = new System.Windows.Forms.TableLayoutPanel();
             this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
+            this.quitar3 = new System.Windows.Forms.Label();
             this.lblInfoAlumnos = new System.Windows.Forms.Label();
             this.lblArrowAlumno = new System.Windows.Forms.Label();
             this.flPanelFechas = new System.Windows.Forms.FlowLayoutPanel();
+            this.quitar2 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.flPanelAsistencias = new System.Windows.Forms.FlowLayoutPanel();
             this.quitar = new System.Windows.Forms.CheckBox();
             this.lblInfoDias = new System.Windows.Forms.Label();
@@ -54,8 +56,6 @@
             this.lbl1 = new System.Windows.Forms.Label();
             this.lbl3 = new System.Windows.Forms.Label();
             this.lblArrowDia = new System.Windows.Forms.Label();
-            this.quitar2 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
-            this.quitar3 = new System.Windows.Forms.Label();
             this.flPanelMaterias.SuspendLayout();
             this.grBoxAsistencia.SuspendLayout();
             this.tlPanel.SuspendLayout();
@@ -83,6 +83,7 @@
             this.txbBusqueda.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbBusqueda.Location = new System.Drawing.Point(818, 30);
+            this.txbBusqueda.MaxLength = 65;
             this.txbBusqueda.Name = "txbBusqueda";
             this.txbBusqueda.ReadOnly = true;
             this.txbBusqueda.Size = new System.Drawing.Size(211, 30);
@@ -230,6 +231,16 @@
             this.flPanelAlumnos.WrapContents = false;
             this.flPanelAlumnos.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flPanelAlumnos_Scroll);
             // 
+            // quitar3
+            // 
+            this.quitar3.AutoSize = true;
+            this.quitar3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.quitar3.Location = new System.Drawing.Point(3, 0);
+            this.quitar3.Name = "quitar3";
+            this.quitar3.Size = new System.Drawing.Size(321, 26);
+            this.quitar3.TabIndex = 0;
+            this.quitar3.Text = "Francisco Javier Fuentes Torres";
+            // 
             // lblInfoAlumnos
             // 
             this.lblInfoAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -258,6 +269,17 @@
             this.flPanelFechas.TabIndex = 0;
             this.flPanelFechas.WrapContents = false;
             this.flPanelFechas.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flPanelFechas_Scroll);
+            // 
+            // quitar2
+            // 
+            this.quitar2.Fecha = new System.DateTime(((long)(0)));
+            this.quitar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitar2.Location = new System.Drawing.Point(3, 0);
+            this.quitar2.Name = "quitar2";
+            this.quitar2.RotationAngle = -60D;
+            this.quitar2.Size = new System.Drawing.Size(44, 57);
+            this.quitar2.TabIndex = 0;
+            this.quitar2.Text = "00/00/00";
             // 
             // flPanelAsistencias
             // 
@@ -346,27 +368,6 @@
             this.lblArrowDia.Name = "lblArrowDia";
             this.lblArrowDia.Size = new System.Drawing.Size(70, 102);
             this.lblArrowDia.TabIndex = 33;
-            // 
-            // quitar2
-            // 
-            this.quitar2.Fecha = new System.DateTime(((long)(0)));
-            this.quitar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quitar2.Location = new System.Drawing.Point(3, 0);
-            this.quitar2.Name = "quitar2";
-            this.quitar2.RotationAngle = -60D;
-            this.quitar2.Size = new System.Drawing.Size(44, 57);
-            this.quitar2.TabIndex = 0;
-            this.quitar2.Text = "00/00/00";
-            // 
-            // quitar3
-            // 
-            this.quitar3.AutoSize = true;
-            this.quitar3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.quitar3.Location = new System.Drawing.Point(3, 0);
-            this.quitar3.Name = "quitar3";
-            this.quitar3.Size = new System.Drawing.Size(321, 26);
-            this.quitar3.TabIndex = 0;
-            this.quitar3.Text = "Francisco Javier Fuentes Torres";
             // 
             // FormListaMaterias
             // 

@@ -41,6 +41,7 @@
             // txbUsuario
             // 
             this.txbUsuario.Location = new System.Drawing.Point(197, 22);
+            this.txbUsuario.MaxLength = 20;
             this.txbUsuario.Name = "txbUsuario";
             this.txbUsuario.Size = new System.Drawing.Size(130, 20);
             this.txbUsuario.TabIndex = 0;
@@ -49,6 +50,7 @@
             // txbContrasena
             // 
             this.txbContrasena.Location = new System.Drawing.Point(197, 55);
+            this.txbContrasena.MaxLength = 20;
             this.txbContrasena.Name = "txbContrasena";
             this.txbContrasena.PasswordChar = '•';
             this.txbContrasena.Size = new System.Drawing.Size(130, 20);
@@ -58,6 +60,7 @@
             // txbConfirmacion
             // 
             this.txbConfirmacion.Location = new System.Drawing.Point(197, 93);
+            this.txbConfirmacion.MaxLength = 20;
             this.txbConfirmacion.Name = "txbConfirmacion";
             this.txbConfirmacion.PasswordChar = '•';
             this.txbConfirmacion.Size = new System.Drawing.Size(130, 20);

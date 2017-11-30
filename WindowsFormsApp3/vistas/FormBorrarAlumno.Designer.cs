@@ -43,6 +43,7 @@
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(109, 86);
+            this.txtNombre.MaxLength = 35;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(172, 24);
             this.txtNombre.TabIndex = 3;
@@ -119,6 +120,7 @@
             // 
             this.txtPaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPaterno.Location = new System.Drawing.Point(109, 125);
+            this.txtPaterno.MaxLength = 15;
             this.txtPaterno.Name = "txtPaterno";
             this.txtPaterno.Size = new System.Drawing.Size(172, 24);
             this.txtPaterno.TabIndex = 10;
@@ -128,6 +130,7 @@
             // 
             this.txtMaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaterno.Location = new System.Drawing.Point(109, 167);
+            this.txtMaterno.MaxLength = 15;
             this.txtMaterno.Name = "txtMaterno";
             this.txtMaterno.Size = new System.Drawing.Size(172, 24);
             this.txtMaterno.TabIndex = 11;
