@@ -268,11 +268,45 @@ namespace WindowsFormsApp3
             }
         }
 
-        public static Label getLabelCalificacion( decimal calificacion, int idAlumno )
+        public static void llenarPanelCalificacionesBusqueda( ref FlowLayoutPanel panel, decimal[,] matrizCalif, int idAlumno, List<Materia> materias, decimal[,] porcentajeCalificaciones )
+        {
+            int fila = 0;
+            foreach( Materia materia in materias )
+            {
+                FlowLayoutPanel panelCalifAlum = new FlowLayoutPanel();
+                panelCalifAlum.Margin = new Padding(0);
+                
+                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 0], idAlumno, porcentajeCalificaciones[fila, 0]));
+
+                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 1], idAlumno, porcentajeCalificaciones[fila, 1]));
+
+                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 2], idAlumno, porcentajeCalificaciones[fila, 2]));
+
+                Label lblPromedio = getLabelCalificacion(matrizCalif[fila, 3], idAlumno, 0, true);
+                if (matrizCalif[fila, 3] < 8)
+                    lblPromedio.ForeColor = Color.Red;
+                panelCalifAlum.Controls.Add(lblPromedio);
+
+                panelCalifAlum.Size = panelCalifAlum.PreferredSize;
+
+                panel.Controls.Add(panelCalifAlum);
+
+                fila++;
+            }
+        }
+
+        public static Label getLabelCalificacion( decimal calificacion, int idAlumno, decimal porcentaje = 0, bool promedio = false)
         {
             Label lblCalif = new Label();
             lblCalif.Text = Decimal.Round(calificacion, 2).ToString();
             lblCalif.ForeColor = Color.FromArgb(11, 115, 115);
+
+            if (!promedio)
+            {
+                ToolTip message = new ToolTip();
+                message.SetToolTip(lblCalif, "Valor asignado: " + porcentaje);
+            }
+
 
             lblCalif.Size = new Size(88, 23);
             lblCalif.Margin = new Padding(0);
@@ -311,6 +345,37 @@ namespace WindowsFormsApp3
             }
             nombre.Text = nameAlumno;
             nombre.DoubleClick += labelAlumno_Click;
+
+            return nombre;
+        }
+
+        public static void llenarPanelMateriasBusqueda(ref FlowLayoutPanel panel, List<Materia> materias)
+        {
+            panel.Controls.Clear();
+
+            foreach (Materia materia in materias )
+            {
+                Label nombre = hacerLabelMateria(materia);
+
+                panel.Controls.Add(nombre);
+            }
+        }
+
+        public static Label hacerLabelMateria(Materia materia)
+        {
+            Label nombre = new Label();
+            nombre.AutoSize = true;
+            nombre.Font = miFuentelblAlumno;
+            nombre.Name = materia.getId().ToString();
+
+            string nameMateria = materia.getNombre();
+            if (nameMateria.Length > 25)
+            {
+                ToolTip message = new ToolTip();
+                message.SetToolTip(nombre, materia.getNombre());
+                nameMateria = nameMateria.Substring(0, 23) + "...";
+            }
+            nombre.Text = nameMateria;
 
             return nombre;
         }

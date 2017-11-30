@@ -83,12 +83,19 @@ namespace WindowsFormsApp3
 
         private void btnAgregarMateria_Click(object sender, EventArgs e)
         {
-            FormAgregarMateria nuevaMateria = new FormAgregarMateria(idGrupo);
-
-            if( nuevaMateria.ShowDialog(this) == DialogResult.OK)
+            if( materias.Count <= 10 )
             {
-                lblArrowMateria.Dispose();
-                lblInfoMaterias.Dispose();
+                FormAgregarMateria nuevaMateria = new FormAgregarMateria(idGrupo);
+
+                if( nuevaMateria.ShowDialog(this) == DialogResult.OK)
+                {
+                    lblArrowMateria.Dispose();
+                    lblInfoMaterias.Dispose();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sólo se pueden agregar 10 materias por grupo", "Error al agregar materia", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -107,8 +114,16 @@ namespace WindowsFormsApp3
         /// <summary> Muestra un ventana para agregar un alumno a la BD y a los componentes visuales</summary>
         private void btnAgregarAlumno_Click(object sender, EventArgs e)
         {
-            FormAgregarAlumno alumnoNuevo = new FormAgregarAlumno(idGrupo);
-            alumnoNuevo.ShowDialog(this);
+            if( alumnosGrupo.Count <= 60 )
+            {
+                FormAgregarAlumno alumnoNuevo = new FormAgregarAlumno(idGrupo);
+                alumnoNuevo.ShowDialog(this);
+            }
+            else
+            {
+                MessageBox.Show("Sólo se pueden agregar 60 alumnos por grupo", "Error al agregar alumno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         /// <summary> Muestra un ventana busqueda indicada </summary>
