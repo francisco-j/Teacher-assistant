@@ -38,8 +38,11 @@
             this.lblPromedio = new System.Windows.Forms.Label();
             this.lblFaltas = new System.Windows.Forms.Label();
             this.lblCantidadFaltas = new System.Windows.Forms.Label();
+            this.flPanelRubros = new System.Windows.Forms.FlowLayoutPanel();
+            this.quitar2 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.tlPanel.SuspendLayout();
             this.flPanelMaterias.SuspendLayout();
+            this.flPanelRubros.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -85,6 +88,7 @@
             this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 321F));
             this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 488F));
             this.tlPanel.Controls.Add(this.flPanelMaterias, 0, 1);
+            this.tlPanel.Controls.Add(this.flPanelRubros, 1, 0);
             this.tlPanel.Location = new System.Drawing.Point(19, 83);
             this.tlPanel.Name = "tlPanel";
             this.tlPanel.RowCount = 2;
@@ -147,6 +151,27 @@
             this.lblCantidadFaltas.TabIndex = 25;
             this.lblCantidadFaltas.Text = "0";
             // 
+            // flPanelRubros
+            // 
+            this.flPanelRubros.AutoScroll = true;
+            this.flPanelRubros.Controls.Add(this.quitar2);
+            this.flPanelRubros.Location = new System.Drawing.Point(324, 3);
+            this.flPanelRubros.Name = "flPanelRubros";
+            this.flPanelRubros.Size = new System.Drawing.Size(455, 69);
+            this.flPanelRubros.TabIndex = 1;
+            this.flPanelRubros.WrapContents = false;
+            // 
+            // quitar2
+            // 
+            this.quitar2.Fecha = new System.DateTime(((long)(0)));
+            this.quitar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitar2.Location = new System.Drawing.Point(3, 0);
+            this.quitar2.Name = "quitar2";
+            this.quitar2.RotationAngle = -60D;
+            this.quitar2.Size = new System.Drawing.Size(44, 57);
+            this.quitar2.TabIndex = 0;
+            this.quitar2.Text = "00/00/00";
+            // 
             // FormAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,6 +192,7 @@
             this.tlPanel.ResumeLayout(false);
             this.flPanelMaterias.ResumeLayout(false);
             this.flPanelMaterias.PerformLayout();
+            this.flPanelRubros.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +208,7 @@
         private System.Windows.Forms.Label lblPromedio;
         private System.Windows.Forms.Label lblFaltas;
         private System.Windows.Forms.Label lblCantidadFaltas;
+        private System.Windows.Forms.FlowLayoutPanel flPanelRubros;
+        private componentes_visuales.tiltLabel quitar2;
     }
 }

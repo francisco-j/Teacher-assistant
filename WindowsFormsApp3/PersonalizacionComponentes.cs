@@ -268,21 +268,22 @@ namespace WindowsFormsApp3
             }
         }
 
-        public static void llenarPanelCalificacionesBusqueda( ref FlowLayoutPanel panel, decimal[,] matrizCalif, int idAlumno, List<Materia> materias, decimal[,] porcentajeCalificaciones )
+        public static void llenarPanelCalificacionesBusqueda( ref FlowLayoutPanel panel, decimal[,] matrizCalif, int idAlumno, List<Materia> materias, decimal[,] porcentajeCalificaciones, FormAlumno padre )
         {
             int fila = 0;
             foreach( Materia materia in materias )
             {
                 FlowLayoutPanel panelCalifAlum = new FlowLayoutPanel();
                 panelCalifAlum.Margin = new Padding(0);
+                panelCalifAlum.Name = materia.getId().ToString();
                 
-                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 0], idAlumno, porcentajeCalificaciones[fila, 0]));
+                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 0], idAlumno,"Tareas" ,padre, porcentajeCalificaciones[fila, 0]));
 
-                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 1], idAlumno, porcentajeCalificaciones[fila, 1]));
+                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 1], idAlumno, "Proyectos", padre, porcentajeCalificaciones[fila, 1]));
 
-                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 2], idAlumno, porcentajeCalificaciones[fila, 2]));
+                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 2], idAlumno, "Examenes", padre, porcentajeCalificaciones[fila, 2]));
 
-                Label lblPromedio = getLabelCalificacion(matrizCalif[fila, 3], idAlumno, 0, true);
+                Label lblPromedio = getLabelCalificacion(matrizCalif[fila, 3], idAlumno, "Promedio", padre, 0, true);
                 if (matrizCalif[fila, 3] < 8)
                     lblPromedio.ForeColor = Color.Red;
                 panelCalifAlum.Controls.Add(lblPromedio);
@@ -295,11 +296,16 @@ namespace WindowsFormsApp3
             }
         }
 
-        public static Label getLabelCalificacion( decimal calificacion, int idAlumno, decimal porcentaje = 0, bool promedio = false)
+        public static Label getLabelCalificacion( decimal calificacion, int idAlumno, string nombre = "", Form padre = null, decimal porcentaje = 0, bool promedio = false)
         {
             Label lblCalif = new Label();
+            lblCalif.AutoSize = false;
+            lblCalif.Font = miFuentelblAlumno;
             lblCalif.Text = Decimal.Round(calificacion, 2).ToString();
             lblCalif.ForeColor = Color.FromArgb(11, 115, 115);
+            lblCalif.Name = nombre;
+            lblCalif.TextAlign = ContentAlignment.TopCenter;
+            lblCalif.BorderStyle = BorderStyle.FixedSingle;
 
             if (!promedio)
             {
@@ -308,8 +314,14 @@ namespace WindowsFormsApp3
             }
 
 
-            lblCalif.Size = new Size(88, 23);
+            lblCalif.Size = new Size(88, 27);
             lblCalif.Margin = new Padding(0);
+
+            if( padre != null )
+            {
+                lblCalif.MouseEnter += (padre as FormAlumno).lblCalificacionEnter;
+                lblCalif.MouseLeave += (padre as FormAlumno).lblCalificacionLeave;
+            }
 
             return lblCalif;
         }
@@ -356,8 +368,9 @@ namespace WindowsFormsApp3
             foreach (Materia materia in materias )
             {
                 Label nombre = hacerLabelMateria(materia);
-
+                nombre.Name = materia.getId().ToString();
                 panel.Controls.Add(nombre);
+                //nombre.BorderStyle = BorderStyle.FixedSingle;
             }
         }
 

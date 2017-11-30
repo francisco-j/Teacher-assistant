@@ -19,7 +19,8 @@ namespace WindowsFormsApp3.vistas
         public FormAlumno(Alumno alumno)
         {
             InitializeComponent();
-            
+
+            flPanelRubros.Controls.Clear();
             int idGrupo = alumno.getGupo();
 
             lblNombre.Text = alumno.nombreCompletoPA();
@@ -30,7 +31,6 @@ namespace WindowsFormsApp3.vistas
 
             //Panel de títulos: Tareas, Proyectos, Exámenes, Promedio
             PersonalizacionComponentes.llenarPanelMateriasBusqueda(ref flPanelMaterias, materias );
-            FlowLayoutPanel panelTitulos = PersonalizacionComponentes.hacerContenedorTitulosEntregas("flPanelRubros");
             tiltLabel[] titulos = new tiltLabel[4];
 
             titulos[0] = new tiltLabel("Tareas");
@@ -38,13 +38,18 @@ namespace WindowsFormsApp3.vistas
             titulos[2] = new tiltLabel("Exámenes");
             titulos[3] = new tiltLabel("Promedio");
 
+            titulos[0].Name = "Tareas";
+            titulos[1].Name = "Proyectos";
+            titulos[2].Name = "Examenes";
+            titulos[3].Name = "Promedio";
+
             titulos[0].Margin = new Padding(0, 0, 50, 0);
             titulos[1].Margin = new Padding(0, 0, 50, 0);
             titulos[2].Margin = new Padding(0, 0, 50, 0);
             titulos[3].Margin = new Padding(0, 0, 50, 0);
-            panelTitulos.Controls.AddRange(titulos);
+            flPanelRubros.Controls.AddRange(titulos);
             
-            tlPanel.Controls.Add(panelTitulos, 1, 0 );
+            tlPanel.Controls.Add(flPanelRubros, 1, 0 );
 
             //Promedio de cada materia
             decimal[,] calificaciones = new decimal[materias.Count, 4];
@@ -53,8 +58,7 @@ namespace WindowsFormsApp3.vistas
             dbConection.llenarMatrizCalificaciones(alumno.getId(), alumno.getGupo(), materias, calificaciones, ref promedioTotal, porcentajesCalificaciones );
 
             FlowLayoutPanel panelCalificaciones = PersonalizacionComponentes.hacerContenedorEntregas("flPanelCalificaciones");
-            PersonalizacionComponentes.llenarPanelCalificacionesBusqueda(ref panelCalificaciones, calificaciones, alumno.getId(), materias, porcentajesCalificaciones);
-
+            PersonalizacionComponentes.llenarPanelCalificacionesBusqueda(ref panelCalificaciones, calificaciones, alumno.getId(), materias, porcentajesCalificaciones, this);
             tlPanel.Controls.Add(panelCalificaciones, 1, 1 );
 
             promedioTotal = Decimal.Round(promedioTotal, 2);
@@ -72,6 +76,20 @@ namespace WindowsFormsApp3.vistas
         private void btnOk_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        /// <summary>Cuando el mouse entra a alguno de los labels de calificaciones cambiará el fondo del nombre de la materia y el rubro que corresponden de la asistencia</summary>
+        public void lblCalificacionEnter(object sender, EventArgs e)
+        {
+            (flPanelMaterias.Controls.Find((sender as Label).Parent.Name, false)[0] as Label).BackColor = Color.Silver;
+            (flPanelRubros.Controls.Find((sender as Label).Name, false)[0] as Label).BackColor = Color.Silver;
+        }
+
+        /// <summary>Cuando el puntero salga de algún label regresará a su color ordinario el nombre de la materia y la tarea correspondiente</summary>
+        public void lblCalificacionLeave(object sender, EventArgs e)
+        {
+            (flPanelMaterias.Controls.Find((sender as Label).Parent.Name, false)[0] as Label).BackColor = Color.WhiteSmoke;
+            (flPanelRubros.Controls.Find((sender as Label).Name, false)[0] as Label).BackColor = Color.WhiteSmoke;
         }
     }
 }

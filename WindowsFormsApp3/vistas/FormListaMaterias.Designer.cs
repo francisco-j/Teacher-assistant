@@ -103,6 +103,7 @@
             this.btnAjustes.Size = new System.Drawing.Size(40, 34);
             this.btnAjustes.TabIndex = 16;
             this.btnAjustes.UseVisualStyleBackColor = true;
+            this.btnAjustes.Visible = false;
             // 
             // btnAgregarMateria
             // 

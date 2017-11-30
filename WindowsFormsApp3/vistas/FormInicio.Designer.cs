@@ -177,7 +177,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Inicio de Sesion";
+            this.Text = "Inicio de Sesión";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormInicio_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.picVulcanoLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTaLogo)).EndInit();
