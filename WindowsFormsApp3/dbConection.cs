@@ -1152,7 +1152,10 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "INSERT INTO Entregas (alumno, tipo, entregable, calif) VALUES(" + idAlumno + "," + 1 + "," + idTarea + "," + 0 + ")";
+                comand.CommandText = 
+                    "INSERT INTO Entregas " +
+                    "(alumno, tipo, entregable, calif) " +
+                    "VALUES(" + idAlumno + "," + 1 + "," + idTarea + "," + 0 + ")";
 
                 Console.WriteLine(comand.ExecuteNonQuery() + " Tarea agregada para el alumno: " + idAlumno );
             }
@@ -1185,7 +1188,10 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand = new OleDbCommand("UPDATE Entregas SET calif=" + calificacion * 10 + " WHERE alumno=" + idAlumno + " AND entregable=" + idEntrega, conection);
+                comand.CommandText = 
+                    "UPDATE Entregas " +
+                    "SET calif=" + calificacion * 10 + 
+                    " WHERE alumno=" + idAlumno + " AND entregable=" + idEntrega;
                 Console.WriteLine(comand.ExecuteNonQuery() + " calificación actualizada al alumno: " + idAlumno);
             }
             finally
