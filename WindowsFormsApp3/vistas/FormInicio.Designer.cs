@@ -49,6 +49,7 @@
             this.txbContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbContrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(109)))), ((int)(((byte)(94)))));
             this.txbContrasena.Location = new System.Drawing.Point(113, 304);
+            this.txbContrasena.MaxLength = 20;
             this.txbContrasena.Name = "txbContrasena";
             this.txbContrasena.PasswordChar = '•';
             this.txbContrasena.Size = new System.Drawing.Size(200, 21);
@@ -116,6 +117,7 @@
             // txbUsuario
             // 
             this.txbUsuario.Location = new System.Drawing.Point(113, 279);
+            this.txbUsuario.MaxLength = 20;
             this.txbUsuario.Name = "txbUsuario";
             this.txbUsuario.Size = new System.Drawing.Size(200, 20);
             this.txbUsuario.TabIndex = 0;
@@ -175,7 +177,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Inicio de Sesion";
+            this.Text = "Inicio de Sesión";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormInicio_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.picVulcanoLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTaLogo)).EndInit();

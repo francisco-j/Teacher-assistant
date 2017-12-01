@@ -95,6 +95,7 @@
             // txbEscuela
             // 
             this.txbEscuela.Location = new System.Drawing.Point(101, 107);
+            this.txbEscuela.MaxLength = 35;
             this.txbEscuela.Name = "txbEscuela";
             this.txbEscuela.Size = new System.Drawing.Size(100, 20);
             this.txbEscuela.TabIndex = 2;

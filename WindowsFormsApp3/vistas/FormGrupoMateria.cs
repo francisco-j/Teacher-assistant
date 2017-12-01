@@ -229,8 +229,12 @@ namespace WindowsFormsApp3
                     //Si es visible pero falso es que ya estaba creado es porque se cambió el valor de algún nuUpRubro
                     if ( flPanelEntregas[0, (int)Entregas.CALIFICACIONES].Visible )
                     {
+                        //Cuando se actualice uno de los rubros y ya se haya cargado el panel de calificaciones entrerá en esta opción para limpiar el panel y volver a cargarlo
                         flPanelEntregas[0, (int)Entregas.CALIFICACIONES].Controls.Clear();
-                        flPanelEntregas[0, (int)Entregas.CALIFICACIONES].Controls.Clear();
+                        flPanelEntregas[1, (int)Entregas.CALIFICACIONES].Controls.Clear();
+                        tlPanel.Controls.RemoveByKey("flPanelCalificaciones");
+                        tlPanel.Controls.RemoveByKey("flPanelTitulosCalificaciones");
+
                     }
                     grpBxModulo.Text = "Calificaciones";
                     btnAgregar.Visible = false;

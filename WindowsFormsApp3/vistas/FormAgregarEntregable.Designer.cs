@@ -39,10 +39,10 @@
             this.txbNombreEntregable.BackColor = System.Drawing.SystemColors.Window;
             this.txbNombreEntregable.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txbNombreEntregable.Location = new System.Drawing.Point(75, 60);
+            this.txbNombreEntregable.MaxLength = 15;
             this.txbNombreEntregable.Name = "txbNombreEntregable";
             this.txbNombreEntregable.Size = new System.Drawing.Size(122, 20);
             this.txbNombreEntregable.TabIndex = 2;
-            this.txbNombreEntregable.MaxLength = 10;
             // 
             // lblNombre
             // 

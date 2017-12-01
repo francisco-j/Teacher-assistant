@@ -226,7 +226,9 @@ namespace WindowsFormsApp3
         internal static void decorarPanelesCalificaciones(List<Alumno> alumnos, int idMateria, decimal valorTareas, decimal valorProyectos, decimal valorExa, ref FlowLayoutPanel panelCalificaciones)
         {
             int tareasTotales = dbConection.getNumeroEntregablesTotales(idMateria, 1);
-
+            //Si no se tiene ninguna tarea no podemos dividir entre 0
+            if (tareasTotales == 0)
+                tareasTotales++;
             //Columas: Tareas, proyectos, exámenes y promedio
             //Filas: Una por cada alumno del grupo
             decimal[,] matrizCalif = new decimal[alumnos.Count, 4];
@@ -266,14 +268,60 @@ namespace WindowsFormsApp3
             }
         }
 
-        public static Label getLabelCalificacion( decimal calificacion, int idAlumno )
+        public static void llenarPanelCalificacionesBusqueda( ref FlowLayoutPanel panel, decimal[,] matrizCalif, int idAlumno, List<Materia> materias, decimal[,] porcentajeCalificaciones, FormAlumno padre )
+        {
+            int fila = 0;
+            foreach( Materia materia in materias )
+            {
+                FlowLayoutPanel panelCalifAlum = new FlowLayoutPanel();
+                panelCalifAlum.Margin = new Padding(0);
+                panelCalifAlum.Name = materia.getId().ToString();
+                
+                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 0], idAlumno,"Tareas" ,padre, porcentajeCalificaciones[fila, 0]));
+
+                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 1], idAlumno, "Proyectos", padre, porcentajeCalificaciones[fila, 1]));
+
+                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 2], idAlumno, "Examenes", padre, porcentajeCalificaciones[fila, 2]));
+
+                Label lblPromedio = getLabelCalificacion(matrizCalif[fila, 3], idAlumno, "Promedio", padre, 0, true);
+                if (matrizCalif[fila, 3] < 8)
+                    lblPromedio.ForeColor = Color.Red;
+                panelCalifAlum.Controls.Add(lblPromedio);
+
+                panelCalifAlum.Size = panelCalifAlum.PreferredSize;
+
+                panel.Controls.Add(panelCalifAlum);
+
+                fila++;
+            }
+        }
+
+        public static Label getLabelCalificacion( decimal calificacion, int idAlumno, string nombre = "", Form padre = null, decimal porcentaje = 0, bool promedio = false)
         {
             Label lblCalif = new Label();
+            lblCalif.AutoSize = false;
+            lblCalif.Font = miFuentelblAlumno;
             lblCalif.Text = Decimal.Round(calificacion, 2).ToString();
             lblCalif.ForeColor = Color.FromArgb(11, 115, 115);
+            lblCalif.Name = nombre;
+            lblCalif.TextAlign = ContentAlignment.TopCenter;
+            lblCalif.BorderStyle = BorderStyle.FixedSingle;
 
-            lblCalif.Size = new Size(88, 23);
+            if (!promedio)
+            {
+                ToolTip message = new ToolTip();
+                message.SetToolTip(lblCalif, "Valor asignado: " + porcentaje);
+            }
+
+
+            lblCalif.Size = new Size(88, 27);
             lblCalif.Margin = new Padding(0);
+
+            if( padre != null )
+            {
+                lblCalif.MouseEnter += (padre as FormAlumno).lblCalificacionEnter;
+                lblCalif.MouseLeave += (padre as FormAlumno).lblCalificacionLeave;
+            }
 
             return lblCalif;
         }
@@ -309,6 +357,38 @@ namespace WindowsFormsApp3
             }
             nombre.Text = nameAlumno;
             nombre.DoubleClick += labelAlumno_Click;
+
+            return nombre;
+        }
+
+        public static void llenarPanelMateriasBusqueda(ref FlowLayoutPanel panel, List<Materia> materias)
+        {
+            panel.Controls.Clear();
+
+            foreach (Materia materia in materias )
+            {
+                Label nombre = hacerLabelMateria(materia);
+                nombre.Name = materia.getId().ToString();
+                panel.Controls.Add(nombre);
+                //nombre.BorderStyle = BorderStyle.FixedSingle;
+            }
+        }
+
+        public static Label hacerLabelMateria(Materia materia)
+        {
+            Label nombre = new Label();
+            nombre.AutoSize = true;
+            nombre.Font = miFuentelblAlumno;
+            nombre.Name = materia.getId().ToString();
+
+            string nameMateria = materia.getNombre();
+            if (nameMateria.Length > 25)
+            {
+                ToolTip message = new ToolTip();
+                message.SetToolTip(nombre, materia.getNombre());
+                nameMateria = nameMateria.Substring(0, 23) + "...";
+            }
+            nombre.Text = nameMateria;
 
             return nombre;
         }
