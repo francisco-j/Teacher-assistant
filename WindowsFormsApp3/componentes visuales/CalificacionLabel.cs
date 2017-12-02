@@ -8,9 +8,12 @@ namespace WindowsFormsApp3.componentes_visuales
     class CalificacionLabel : Label
     {
         public decimal calificacion { get; set; }
+        //Proyecto 1, examen 2
+        public int tipo { get; set; }
 
-        public CalificacionLabel( int idEntregable, decimal calificacion )
+        public CalificacionLabel( int idEntregable, decimal calificacion, int tipo )
         {
+            this.tipo = tipo;
             this.Font = new Font("Microsoft Sans Serif", 16);
             this.Name = idEntregable.ToString();
             this.Size = new Size(44, 26);
@@ -71,13 +74,13 @@ namespace WindowsFormsApp3.componentes_visuales
         private void mouseLeaveLabel(object sender, EventArgs e)
         {
             string idAlumno = this.Parent.Name;
-            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).entregaLeaveSelected(idAlumno, this.Name);
+            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).entregaLeaveSelected(idAlumno, this.Name, tipo);
         }
 
         private void mouseEnterLabel(object sender, EventArgs e)
         {
             string idAlumno = this.Parent.Name;
-            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).entregaSelected(idAlumno, this.Name);
+            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).entregaSelected(idAlumno, this.Name, tipo);
         }
 
 #endregion

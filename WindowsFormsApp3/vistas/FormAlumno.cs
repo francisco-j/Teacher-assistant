@@ -14,8 +14,6 @@ namespace WindowsFormsApp3.vistas
 {
     public partial class FormAlumno : Form
     {
-        Alumno alumno;
-
         public FormAlumno(Alumno alumno)
         {
             InitializeComponent();

@@ -82,7 +82,7 @@ namespace WindowsFormsApp3
             foreach (Examen examActual in listExamenes)
             {
                 //Console.WriteLine("Calificación alumno examen: " + calificaciones[indiceCalif] + "  Examen id: " + listExamenes[indiceCalif].id );
-                CalificacionLabel labelCalificacion = new CalificacionLabel(examActual.id, calificaciones[indiceCalif]);
+                CalificacionLabel labelCalificacion = new CalificacionLabel(examActual.id, calificaciones[indiceCalif], 2);
                 panel.Controls.Add(labelCalificacion);
 
                 indiceCalif++;
@@ -104,7 +104,7 @@ namespace WindowsFormsApp3
             foreach (Proyecto proyActual in listProyectos)
             {
                 Console.WriteLine("Calificaciones: "+calificaciones[indiceCalif]);
-                CalificacionLabel lblCalificacion = new CalificacionLabel(proyActual.id, calificaciones[indiceCalif]);
+                CalificacionLabel lblCalificacion = new CalificacionLabel(proyActual.id, calificaciones[indiceCalif], 1);
                 panel.Controls.Add(lblCalificacion);
 
                 indiceCalif++;
@@ -223,7 +223,7 @@ namespace WindowsFormsApp3
             return flPanelTitulos;
         }
 
-        internal static void decorarPanelesCalificaciones(List<Alumno> alumnos, int idMateria, decimal valorTareas, decimal valorProyectos, decimal valorExa, ref FlowLayoutPanel panelCalificaciones)
+        internal static void decorarPanelesCalificaciones(List<Alumno> alumnos, int idMateria, decimal valorTareas, decimal valorProyectos, decimal valorExa, ref FlowLayoutPanel panelCalificaciones, FormGrupoMateria padre)
         {
             int tareasTotales = dbConection.getNumeroEntregablesTotales(idMateria, 1);
             //Si no se tiene ninguna tarea no podemos dividir entre 0
@@ -248,14 +248,15 @@ namespace WindowsFormsApp3
 
                 FlowLayoutPanel panelCalifAlum = new FlowLayoutPanel();
                 panelCalifAlum.Margin = new Padding(0);
+                panelCalifAlum.Name = alumno.getId().ToString();
                 
-                panelCalifAlum.Controls.Add( getLabelCalificacion(matrizCalif[fila, 0], alumno.getId() ) );
+                panelCalifAlum.Controls.Add( getLabelCalificacion(matrizCalif[fila, 0], "Tareas", padre ) );
 
-                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 1], alumno.getId()));
+                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 1], "Proyectos", padre));
 
-                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 2], alumno.getId()));
+                panelCalifAlum.Controls.Add(getLabelCalificacion(matrizCalif[fila, 2], "Exámenes", padre));
 
-                Label lblPromedio = getLabelCalificacion(matrizCalif[fila, 3], alumno.getId());
+                Label lblPromedio = getLabelCalificacion(matrizCalif[fila, 3], "Promedio", padre);
                 if (matrizCalif[fila, 3] < 8)
                     lblPromedio.ForeColor = Color.Red;
                 panelCalifAlum.Controls.Add( lblPromedio );
@@ -296,6 +297,7 @@ namespace WindowsFormsApp3
             }
         }
 
+        //Labels de calificación para las ventanas de resumen académico al presionar doble click en un alumno
         public static Label getLabelCalificacion( decimal calificacion, int idAlumno, string nombre = "", Form padre = null, decimal porcentaje = 0, bool promedio = false)
         {
             Label lblCalif = new Label();
@@ -322,6 +324,27 @@ namespace WindowsFormsApp3
                 lblCalif.MouseEnter += (padre as FormAlumno).lblCalificacionEnter;
                 lblCalif.MouseLeave += (padre as FormAlumno).lblCalificacionLeave;
             }
+
+            return lblCalif;
+        }
+
+        //Labels de calificacion para la ventana Grupo Materia-Calificaciones
+        public static Label getLabelCalificacion( decimal calificacion, string nombre, FormGrupoMateria padre )
+        {
+            Label lblCalif = new Label();
+            lblCalif.AutoSize = false;
+            lblCalif.Font = miFuentelblAlumno;
+            lblCalif.Text = Decimal.Round(calificacion, 2).ToString();
+            lblCalif.ForeColor = Color.FromArgb(11, 115, 115);
+            lblCalif.Name = nombre;
+            lblCalif.TextAlign = ContentAlignment.TopCenter;
+            lblCalif.BorderStyle = BorderStyle.FixedSingle;
+            
+            lblCalif.Size = new Size(88, 27);
+            lblCalif.Margin = new Padding(0);
+
+            lblCalif.MouseEnter += padre.lblCalificacionEnter;
+            lblCalif.MouseLeave += padre.lblCalificacionLeave;
 
             return lblCalif;
         }

@@ -261,6 +261,11 @@ namespace WindowsFormsApp3
                     titulos[2] = new tiltLabel("Exámenes");
                     titulos[3] = new tiltLabel("Promedio");
 
+                    titulos[0].Name = "Tareas";
+                    titulos[1].Name = "Proyectos";
+                    titulos[2].Name = "Exámenes";
+                    titulos[3].Name = "Promedio";
+
                     titulos[0].Margin= new Padding(0, 0, 50, 0);
                     titulos[1].Margin= new Padding(0, 0, 50, 0);
                     titulos[2].Margin = new Padding(0, 0, 50, 0);
@@ -268,7 +273,7 @@ namespace WindowsFormsApp3
 
                     flPanelEntregas[1, (int)Entregas.CALIFICACIONES].Controls.AddRange(titulos);
 
-                    PersonalizacionComponentes.decorarPanelesCalificaciones(alumnos, idMateria, upDnTareas.Value, upDnProyectos.Value, upDnExamenes.Value, ref flPanelEntregas[0, (int)Entregas.CALIFICACIONES]);
+                    PersonalizacionComponentes.decorarPanelesCalificaciones(alumnos, idMateria, upDnTareas.Value, upDnProyectos.Value, upDnExamenes.Value, ref flPanelEntregas[0, (int)Entregas.CALIFICACIONES], this);
                 }
             }
         }
@@ -389,18 +394,45 @@ namespace WindowsFormsApp3
             newEntregable.ShowDialog(this);   
         }
 
-        public void entregaSelected(string idAlumno, string idTarea)
+        #region Eventos MouseEnterAndLeave
+
+        public void tareaSelected(string idAlumno, string idTarea)
         {
             (flPanelAlumnos.Controls.Find(idAlumno, false)[0] as Label).BackColor = Color.Silver;
-            //(flPanelTitulos.Controls.Find(idTarea, false)[0] as tiltLabel).BackColor = Color.Silver;
+            (flPanelEntregas[1, (int)Entregas.TAREAS].Controls.Find(idTarea, false)[0] as tiltLabel).BackColor = Color.Silver;
         }
 
         /// <summary>Cuando el puntero salga de algún TareaButton regresará a su color ordinario el nombre y la fecha de la asistencia correspondiente</summary>
-        public void entregaLeaveSelected(string idAlumno, string idTarea)
+        public void tareaLeaveSelected(string idAlumno, string idTarea)
         {
             (flPanelAlumnos.Controls.Find(idAlumno, false)[0] as Label).BackColor = Color.WhiteSmoke;
-            //(flPanelTitulos.Controls.Find(idTarea, false)[0] as Label).BackColor = Color.WhiteSmoke;
+            (flPanelEntregas[1, (int)Entregas.TAREAS].Controls.Find(idTarea, false)[0] as Label).BackColor = Color.WhiteSmoke;
         }
+
+        internal void lblCalificacionLeave(object sender, EventArgs e)
+        {
+            flPanelEntregas[1, (int)Entregas.CALIFICACIONES].Controls.Find((sender as Label).Name, false)[0].BackColor = Color.WhiteSmoke;
+            flPanelAlumnos.Controls.Find((sender as Label).Parent.Name, false)[0].BackColor = Color.WhiteSmoke;
+        }
+
+        internal void lblCalificacionEnter(object sender, EventArgs e)
+        {
+            flPanelEntregas[1, (int)Entregas.CALIFICACIONES].Controls.Find((sender as Label).Name, false)[0].BackColor = Color.Silver;
+            flPanelAlumnos.Controls.Find((sender as Label).Parent.Name, false)[0].BackColor = Color.Silver;
+        }
+
+        internal void entregaLeaveSelected(string idAlumno, string name, int tipo)
+        {
+            (flPanelAlumnos.Controls.Find(idAlumno, false)[0] as Label).BackColor = Color.WhiteSmoke;
+            (flPanelEntregas[1, tipo].Controls.Find(name, false)[0] as Label).BackColor = Color.WhiteSmoke;
+        }
+
+        internal void entregaSelected(string idAlumno, string name, int tipo)
+        {
+            (flPanelAlumnos.Controls.Find(idAlumno, false)[0] as Label).BackColor = Color.Silver;
+            (flPanelEntregas[1, tipo].Controls.Find(name, false)[0] as tiltLabel).BackColor = Color.Silver;
+        }
+#endregion
 
         #endregion
 
@@ -515,7 +547,7 @@ namespace WindowsFormsApp3
                 while (alumnosPanels.MoveNext())
                 {
                     //Se manda 100 porque en el construtor lo divide entre 10
-                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new CalificacionLabel( proyecto.id, 100 ));
+                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new CalificacionLabel( proyecto.id, 100, 1 ));
                     ((FlowLayoutPanel)alumnosPanels.Current).Size = ((FlowLayoutPanel)alumnosPanels.Current).PreferredSize;
                 }
             }
@@ -539,7 +571,7 @@ namespace WindowsFormsApp3
                 while (alumnosPanels.MoveNext())
                 {
                     //Se manda 100 porque en el construtor lo divide entre 10
-                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new CalificacionLabel(examen.id, 100));
+                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new CalificacionLabel(examen.id, 100, 2));
                     ((FlowLayoutPanel)alumnosPanels.Current).Size = ((FlowLayoutPanel)alumnosPanels.Current).PreferredSize;
                 }
             }
