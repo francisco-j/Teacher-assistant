@@ -51,6 +51,9 @@
     <Compile Include="clases objeto\Examen.cs" />
     <Compile Include="clases objeto\Proyecto.cs" />
     <Compile Include="clases objeto\Tarea.cs" />
+    <Compile Include="componentes visuales\CalificacionLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="componentes visuales\DateButton.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -104,8 +104,8 @@ namespace WindowsFormsApp3
             foreach (Proyecto proyActual in listProyectos)
             {
                 Console.WriteLine("Calificaciones: "+calificaciones[indiceCalif]);
-                NumUpDownCalificacion numericCalificacion = new NumUpDownCalificacion(proyActual.id, calificaciones[indiceCalif]);
-                panel.Controls.Add(numericCalificacion);
+                CalificacionLabel lblCalificacion = new CalificacionLabel(proyActual.id, calificaciones[indiceCalif]);
+                panel.Controls.Add(lblCalificacion);
 
                 indiceCalif++;
             }

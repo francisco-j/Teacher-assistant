@@ -19,8 +19,6 @@ namespace WindowsFormsApp3.componentes_visuales
             this.Minimum = 5;
 
             decimal calif = (decimal)calificacion / 10;
-            Console.WriteLine("calificacion: " + calificacion);
-            Console.WriteLine("calif: " + calif);
             this.Value = calif;
             this.ForeColor = calif >= 8 ? Color.Black : Color.Red;
 
