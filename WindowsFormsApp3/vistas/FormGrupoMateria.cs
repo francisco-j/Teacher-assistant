@@ -33,6 +33,8 @@ namespace WindowsFormsApp3
             this.idGrupo = idGrupo;
             alumnos = dbConection.alumnosGrupo(idGrupo);
 
+            flPanel.Dispose();
+            flPanelFechas.Dispose();
             personalizarVentana(idMateria, idGrupo);
         }
         
@@ -513,13 +515,13 @@ namespace WindowsFormsApp3
                 while (alumnosPanels.MoveNext())
                 {
                     //Se manda 100 porque en el construtor lo divide entre 10
-                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new NumUpDownCalificacion( proyecto.id, 100 ));
+                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new CalificacionLabel( proyecto.id, 100 ));
                     ((FlowLayoutPanel)alumnosPanels.Current).Size = ((FlowLayoutPanel)alumnosPanels.Current).PreferredSize;
                 }
             }
             else
             {
-                Proyecto examen = new Proyecto(nombre, idEntrega);
+                Examen examen = new Examen(nombre, idEntrega);
                 tiltLabel nombreExamen = new tiltLabel(examen.nombre);
                 nombreExamen.Name = examen.id.ToString();
 
@@ -537,7 +539,7 @@ namespace WindowsFormsApp3
                 while (alumnosPanels.MoveNext())
                 {
                     //Se manda 100 porque en el construtor lo divide entre 10
-                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new NumUpDownCalificacion(examen.id, 100));
+                    ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new CalificacionLabel(examen.id, 100));
                     ((FlowLayoutPanel)alumnosPanels.Current).Size = ((FlowLayoutPanel)alumnosPanels.Current).PreferredSize;
                 }
             }
@@ -549,6 +551,5 @@ namespace WindowsFormsApp3
         }
 
         #endregion
-
     }
 }

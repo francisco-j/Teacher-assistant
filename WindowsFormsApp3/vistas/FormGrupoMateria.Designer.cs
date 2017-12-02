@@ -50,18 +50,24 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.lbl1 = new System.Windows.Forms.Label();
             this.lbl3 = new System.Windows.Forms.Label();
             this.lblTareas = new System.Windows.Forms.Label();
             this.lblExamenes = new System.Windows.Forms.Label();
             this.lblProyectos = new System.Windows.Forms.Label();
             this.lblCalificaciones = new System.Windows.Forms.Label();
+            this.flPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.quitar = new System.Windows.Forms.CheckBox();
+            this.lblInfoDias = new System.Windows.Forms.Label();
+            this.flPanelFechas = new System.Windows.Forms.FlowLayoutPanel();
+            this.quitar2 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.grpBxModulo.SuspendLayout();
             this.tlPanel.SuspendLayout();
             this.flPanelAlumnos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.upDnProyectos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnTareas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnExamenes)).BeginInit();
+            this.flPanel.SuspendLayout();
+            this.flPanelFechas.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGrupo
@@ -102,14 +108,16 @@
             // tlPanel
             // 
             this.tlPanel.ColumnCount = 2;
-            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 321F));
-            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 488F));
+            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlPanel.Controls.Add(this.flPanelFechas, 1, 0);
+            this.tlPanel.Controls.Add(this.flPanel, 0, 1);
             this.tlPanel.Controls.Add(this.flPanelAlumnos, 0, 1);
             this.tlPanel.Location = new System.Drawing.Point(6, 30);
             this.tlPanel.Name = "tlPanel";
             this.tlPanel.RowCount = 2;
-            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.91045F));
-            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.08955F));
+            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlPanel.Size = new System.Drawing.Size(809, 419);
             this.tlPanel.TabIndex = 21;
             // 
@@ -118,9 +126,9 @@
             this.flPanelAlumnos.AutoScroll = true;
             this.flPanelAlumnos.Controls.Add(this.label2);
             this.flPanelAlumnos.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flPanelAlumnos.Location = new System.Drawing.Point(3, 78);
+            this.flPanelAlumnos.Location = new System.Drawing.Point(3, 80);
             this.flPanelAlumnos.Name = "flPanelAlumnos";
-            this.flPanelAlumnos.Size = new System.Drawing.Size(315, 319);
+            this.flPanelAlumnos.Size = new System.Drawing.Size(327, 319);
             this.flPanelAlumnos.TabIndex = 0;
             this.flPanelAlumnos.WrapContents = false;
             // 
@@ -130,7 +138,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(260, 52);
+            this.label2.Size = new System.Drawing.Size(321, 26);
             this.label2.TabIndex = 0;
             this.label2.Text = "Francisco Javier Fuentes Torres";
             // 
@@ -359,13 +367,6 @@
             this.lblTotal.Text = "10";
             this.lblTotal.UseWaitCursor = true;
             // 
-            // lbl1
-            // 
-            this.lbl1.Location = new System.Drawing.Point(557, 167);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(470, 19);
-            this.lbl1.TabIndex = 27;
-            // 
             // lbl3
             // 
             this.lbl3.Location = new System.Drawing.Point(234, 505);
@@ -422,6 +423,58 @@
             this.lblCalificaciones.Text = "Calificaciones";
             this.lblCalificaciones.Click += new System.EventHandler(this.btnCalificaciones_Click);
             // 
+            // flPanel
+            // 
+            this.flPanel.AutoScroll = true;
+            this.flPanel.Controls.Add(this.quitar);
+            this.flPanel.Controls.Add(this.lblInfoDias);
+            this.flPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flPanel.Location = new System.Drawing.Point(336, 80);
+            this.flPanel.Name = "flPanel";
+            this.flPanel.Size = new System.Drawing.Size(470, 336);
+            this.flPanel.TabIndex = 2;
+            this.flPanel.WrapContents = false;
+            // 
+            // quitar
+            // 
+            this.quitar.AutoSize = true;
+            this.quitar.Location = new System.Drawing.Point(3, 3);
+            this.quitar.Name = "quitar";
+            this.quitar.Size = new System.Drawing.Size(15, 14);
+            this.quitar.TabIndex = 0;
+            this.quitar.UseVisualStyleBackColor = true;
+            // 
+            // lblInfoDias
+            // 
+            this.lblInfoDias.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfoDias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.lblInfoDias.Location = new System.Drawing.Point(3, 20);
+            this.lblInfoDias.Name = "lblInfoDias";
+            this.lblInfoDias.Size = new System.Drawing.Size(305, 310);
+            this.lblInfoDias.TabIndex = 29;
+            this.lblInfoDias.Text = "\r\n\r\nPara agregar un día de asistencia haz clic aquí";
+            // 
+            // flPanelFechas
+            // 
+            this.flPanelFechas.AutoScroll = true;
+            this.flPanelFechas.Controls.Add(this.quitar2);
+            this.flPanelFechas.Location = new System.Drawing.Point(336, 3);
+            this.flPanelFechas.Name = "flPanelFechas";
+            this.flPanelFechas.Size = new System.Drawing.Size(455, 71);
+            this.flPanelFechas.TabIndex = 3;
+            this.flPanelFechas.WrapContents = false;
+            // 
+            // quitar2
+            // 
+            this.quitar2.Fecha = new System.DateTime(((long)(0)));
+            this.quitar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitar2.Location = new System.Drawing.Point(3, 0);
+            this.quitar2.Name = "quitar2";
+            this.quitar2.RotationAngle = -60D;
+            this.quitar2.Size = new System.Drawing.Size(44, 57);
+            this.quitar2.TabIndex = 0;
+            this.quitar2.Text = "00/00/00";
+            // 
             // FormGrupoMateria
             // 
             this.AccessibleName = "FormGrupo";
@@ -434,7 +487,6 @@
             this.Controls.Add(this.lblExamenes);
             this.Controls.Add(this.lblTareas);
             this.Controls.Add(this.lbl3);
-            this.Controls.Add(this.lbl1);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -467,6 +519,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.upDnProyectos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnTareas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnExamenes)).EndInit();
+            this.flPanel.ResumeLayout(false);
+            this.flPanel.PerformLayout();
+            this.flPanelFechas.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -492,7 +547,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Label lbl3;
         private System.Windows.Forms.Label lblTareas;
         private System.Windows.Forms.Label lblExamenes;
@@ -501,5 +555,10 @@
         private System.Windows.Forms.TableLayoutPanel tlPanel;
         private System.Windows.Forms.FlowLayoutPanel flPanelAlumnos;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.FlowLayoutPanel flPanel;
+        private System.Windows.Forms.CheckBox quitar;
+        private System.Windows.Forms.Label lblInfoDias;
+        private System.Windows.Forms.FlowLayoutPanel flPanelFechas;
+        private componentes_visuales.tiltLabel quitar2;
     }
 }

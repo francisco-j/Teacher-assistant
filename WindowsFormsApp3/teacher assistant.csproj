@@ -58,9 +58,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="clases objeto\Materia.cs" />
-    <Compile Include="componentes visuales\NumUpDownCalificacion.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="componentes visuales\TareaButton.cs">
       <SubType>Component</SubType>
     </Compile>

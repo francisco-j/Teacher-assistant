@@ -81,9 +81,9 @@ namespace WindowsFormsApp3
             int indiceCalif = 0;
             foreach (Examen examActual in listExamenes)
             {
-                Console.WriteLine("Calificación alumno examen: " + calificaciones[indiceCalif] + "  Examen id: " + listExamenes[indiceCalif].id );
-                NumUpDownCalificacion numericCalificacion = new NumUpDownCalificacion(examActual.id, calificaciones[indiceCalif]);
-                panel.Controls.Add(numericCalificacion);
+                //Console.WriteLine("Calificación alumno examen: " + calificaciones[indiceCalif] + "  Examen id: " + listExamenes[indiceCalif].id );
+                CalificacionLabel labelCalificacion = new CalificacionLabel(examActual.id, calificaciones[indiceCalif]);
+                panel.Controls.Add(labelCalificacion);
 
                 indiceCalif++;
             }
@@ -216,7 +216,7 @@ namespace WindowsFormsApp3
             flPanelTitulos.AutoScroll = true;
             flPanelTitulos.Location = new Point(336, 3);
             flPanelTitulos.Name = name;
-            flPanelTitulos.Size = new Size(455, 69);
+            flPanelTitulos.Size = new Size(455, 71);
             flPanelTitulos.TabIndex = 0;
             flPanelTitulos.WrapContents = false;
 
