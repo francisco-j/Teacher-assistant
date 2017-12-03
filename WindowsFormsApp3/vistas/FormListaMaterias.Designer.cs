@@ -230,7 +230,6 @@
             this.flPanelAlumnos.Size = new System.Drawing.Size(327, 319);
             this.flPanelAlumnos.TabIndex = 0;
             this.flPanelAlumnos.WrapContents = false;
-            this.flPanelAlumnos.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flPanelAlumnos_Scroll);
             // 
             // quitar3
             // 
@@ -269,7 +268,6 @@
             this.flPanelFechas.Size = new System.Drawing.Size(455, 71);
             this.flPanelFechas.TabIndex = 0;
             this.flPanelFechas.WrapContents = false;
-            this.flPanelFechas.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flPanelFechas_Scroll);
             // 
             // quitar2
             // 

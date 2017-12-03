@@ -340,7 +340,7 @@ namespace WindowsFormsApp3
             lblCalif.TextAlign = ContentAlignment.TopCenter;
             lblCalif.BorderStyle = BorderStyle.FixedSingle;
             
-            lblCalif.Size = new Size(88, 27);
+            lblCalif.Size = new Size(88, 26);
             lblCalif.Margin = new Padding(0);
 
             lblCalif.MouseEnter += padre.lblCalificacionEnter;

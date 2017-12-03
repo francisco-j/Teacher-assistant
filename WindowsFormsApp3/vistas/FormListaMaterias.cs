@@ -59,21 +59,31 @@ namespace WindowsFormsApp3
             flPanelAlumnos.VerticalScroll.Value = flPanelAsistencias.VerticalScroll.Value;
         }
 
-        /// <summary>///Cuando se realiza scroll en el panel de nombres se desplaza también verticalmente el panel de easistencias/// </summary>
-        private void flPanelAlumnos_Scroll(object sender, ScrollEventArgs e)
+        /*Aunque este método hace exactamene lo mismo que el de arriba se tiene que dejar por separado porque este se asigna desde código y el otro desde el diseñador
+         y si se tratan de hacer los dos por código manda un error al tratar de asignarle un método que no recibe los parámetros adecuados*/
+         /// <summary> Evento que desplaza verticalmente la lista de alumnos cuando se desplaza el panel de asistencias con el Scroll del mouse</summary>
+        private void flPanelAsistencias_MouseScroll(object sender, MouseEventArgs e)
+        {
+            flPanelFechas.HorizontalScroll.Value = flPanelAsistencias.HorizontalScroll.Value;
+            flPanelAlumnos.VerticalScroll.Value = flPanelAsistencias.VerticalScroll.Value;
+        }
+
+        //Este solamente necesita el evento de scroll del mouse porque la barra de scroll del panel de alumnos está siempre oculta al usuario
+        /// <summary>Cuando se realiza scroll con el Scroll del mouse en el panel de alumnos también se desplaza verticalmente el panel de asistencias</summary>
+        private void FlPanelAlumnos_MouseWheel(object sender, MouseEventArgs e)
         {
             flPanelAsistencias.VerticalScroll.Value = flPanelAlumnos.VerticalScroll.Value;
         }
 
-        /// <summary>///Cuando se desplaza el panel de fecha también se cambia el valor de desplazamiento horizontal del panel de asistencias /// </summary>
-        private void flPanelFechas_Scroll(object sender, ScrollEventArgs e)
+        /// <summary>Desplaza horizontalmente el panel de asistencias cuando se hace scroll con el scroll del mouse sobre el panel de fechas</summary>
+        private void FlPanelFechas_MouseWheel(object sender, MouseEventArgs e)
         {
             flPanelAsistencias.HorizontalScroll.Value = flPanelFechas.HorizontalScroll.Value;
         }
 
-#endregion
+        #endregion
 
-#region otros eventos
+        #region otros eventos
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
@@ -408,6 +418,8 @@ namespace WindowsFormsApp3
                     ((Label)labelsAlumnos.Current).ContextMenu = new ContextMenu(menu);
                 }
             }
+
+            flPanelAlumnos.MouseWheel += FlPanelAlumnos_MouseWheel;
         }
 
         /// <summary> llena la lista de asistencias </summary>
@@ -445,6 +457,10 @@ namespace WindowsFormsApp3
                     agregarLabelControl();
                 }
             }
+
+            //Evento de Scroll con el scroll del mouse
+            flPanelAsistencias.MouseWheel += flPanelAsistencias_MouseScroll;
+            flPanelFechas.MouseWheel += FlPanelFechas_MouseWheel;
         }
 
         /// <summary> Cuando se agrega un nuevo día para el grupo actual agrega una columna de DateButtons por cada alumno </summary>

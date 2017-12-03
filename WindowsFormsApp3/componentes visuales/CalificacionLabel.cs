@@ -14,17 +14,19 @@ namespace WindowsFormsApp3.componentes_visuales
         public CalificacionLabel( int idEntregable, decimal calificacion, int tipo )
         {
             this.tipo = tipo;
-            this.Font = new Font("Microsoft Sans Serif", 16);
+            this.Font = new Font("Microsoft Sans Serif", 15);
             this.Name = idEntregable.ToString();
-            this.Size = new Size(44, 26);
+            this.Size = new Size(88, 26);
             this.FlatStyle = FlatStyle.Flat;
             this.BorderStyle = BorderStyle.FixedSingle;
+            this.TextAlign = ContentAlignment.TopCenter;
+
             this.BackColor = Color.WhiteSmoke;
             this.Margin = new Padding(0);
             this.calificacion = calificacion / 10;
             this.Text = this.calificacion.ToString();
 
-            this.ForeColor = this.calificacion >= 8 ? Color.Black : Color.Red;
+            this.ForeColor = this.calificacion >= 8 ? Color.FromArgb(11, 115, 115) : Color.Red;
 
             this.MouseClick += clickCalificacionLabel;
             this.MouseEnter += mouseEnterLabel;
@@ -66,7 +68,7 @@ namespace WindowsFormsApp3.componentes_visuales
             int idAlumno = Convert.ToInt32(this.Parent.Name);
 
             this.Text = calificacion.ToString();
-            this.ForeColor = this.calificacion >= 8 ? Color.Black : Color.Red;
+            this.ForeColor = this.calificacion >= 8 ? Color.FromArgb(11, 115, 115) : Color.Red;
 
             dbConection.actualizarCalificacionEntrega(idAlumno, Convert.ToInt32(this.Name), calificacion);
         }
@@ -118,7 +120,7 @@ namespace WindowsFormsApp3.componentes_visuales
                 {
                     this.calificacion = grade;
                     this.Text = this.calificacion.ToString();
-                    this.ForeColor = this.calificacion >= 8 ? Color.Black : Color.Red;
+                    this.ForeColor = this.calificacion >= 8 ? Color.FromArgb(11, 115, 115) : Color.Red;
 
                     this.Controls.RemoveByKey("txtTemp");
 

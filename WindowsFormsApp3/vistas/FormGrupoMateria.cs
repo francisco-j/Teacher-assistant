@@ -134,7 +134,7 @@ namespace WindowsFormsApp3
                     nombreEntrega.Name = proyecto.id.ToString();
 
                     //Sólo aquí cuando se van a mostrar NumericUpDown tenemos que dejar más espacio entre uno y otro porque sino se ve todo amontonado
-                    nombreEntrega.Margin = new Padding(0, 0, 10, 0);
+                    nombreEntrega.Margin = new Padding(0, 0, 50, 0);
 
                     MenuItem[] menu = { new MenuItem("Borrar", borrarEntrega_Click) };
                     menu[0].Name = proyecto.id.ToString();
@@ -147,7 +147,7 @@ namespace WindowsFormsApp3
                 foreach (Alumno alumno in alumnos)
                 {
                     FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelProyectos(alumno.getId(), listProyectos);
-                    entregas.Margin = new Padding(0, 0, 0, 3);
+                    entregas.Margin = new Padding(0, 0, 0, 0);
                     flPanelEntregas[ 0, (int)Entregas.PROYECTOS ].Controls.Add(entregas);
                 }
             }
@@ -191,7 +191,7 @@ namespace WindowsFormsApp3
                     nombreEntrega.Name = exam.id.ToString();
 
                     //Sólo aquí cuando se van a mostrar NumericUpDown tenemos que dejar más espacio entre uno y otro porque sino se ve todo amontonado
-                    nombreEntrega.Margin = new Padding(0, 0, 10, 0);
+                    nombreEntrega.Margin = new Padding(0, 0, 50, 0);
 
                     MenuItem[] menu = { new MenuItem("Borrar", borrarEntrega_Click) };
                     menu[0].Name = exam.id.ToString();
@@ -203,7 +203,7 @@ namespace WindowsFormsApp3
                 foreach (Alumno alumno in alumnos)
                 {
                     FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelExamenes(alumno.getId(), listExamenes);
-                    entregas.Margin = new Padding(0, 0, 0, 3);
+                    entregas.Margin = new Padding(0, 0, 0, 0);
                     flPanelEntregas[ 0, (int)Entregas.EXAMENES ].Controls.Add(entregas);
                 }
             }            
@@ -393,6 +393,17 @@ namespace WindowsFormsApp3
             FormAgregarEntregable newEntregable = new FormAgregarEntregable(tipo, idMateria);
             newEntregable.ShowDialog(this);   
         }
+
+#region Eventos ScrollPaneles
+
+        private void flPanelTareas_Scroll(object sender, ScrollEventArgs e)
+        {
+            //flPanelFechas.HorizontalScroll.Value = flPanelAsistencias.HorizontalScroll.Value;
+            //flPanelAlumnos.VerticalScroll.Value = flPanelAsistencias.VerticalScroll.Value;
+        }
+
+        #endregion
+
 
         #region Eventos MouseEnterAndLeave
 
