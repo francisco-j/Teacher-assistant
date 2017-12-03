@@ -96,6 +96,11 @@ namespace WindowsFormsApp3
                     FlowLayoutPanel entregas = PersonalizacionComponentes.hacerPanelTareas(alumno.getId(), listTareas);
                     flPanelEntregas[ 0, (int)Entregas.TAREAS ].Controls.Add(entregas);
                 }
+
+                //ScrollEvents Tareas
+                flPanelEntregas[0, (int)Entregas.TAREAS].Scroll += flPanelTareas_Scroll;
+                flPanelEntregas[0, (int)Entregas.TAREAS].MouseWheel += flPanelTareas_MouseScroll;
+                flPanelEntregas[1, (int)Entregas.TAREAS].MouseWheel += flPanelTareasTitulos_MouseWheel;
             }
         }
 
@@ -150,6 +155,11 @@ namespace WindowsFormsApp3
                     entregas.Margin = new Padding(0, 0, 0, 0);
                     flPanelEntregas[ 0, (int)Entregas.PROYECTOS ].Controls.Add(entregas);
                 }
+
+                //ScrollEvents Proyectos
+                flPanelEntregas[0, (int)Entregas.PROYECTOS].Scroll += flPanelProyectos_Scroll;
+                flPanelEntregas[0, (int)Entregas.PROYECTOS].MouseWheel += flPanelProyectos_MouseScroll;
+                flPanelEntregas[1, (int)Entregas.PROYECTOS].MouseWheel += flPanelProyectosTitulos_MouseWheel;
             }
         }
 
@@ -206,6 +216,11 @@ namespace WindowsFormsApp3
                     entregas.Margin = new Padding(0, 0, 0, 0);
                     flPanelEntregas[ 0, (int)Entregas.EXAMENES ].Controls.Add(entregas);
                 }
+
+                //ScrollEvents Exámenes
+                flPanelEntregas[0, (int)Entregas.EXAMENES].Scroll += flPanelExamenes_Scroll;
+                flPanelEntregas[0, (int)Entregas.EXAMENES].MouseWheel += flPanelExamenes_MouseScroll;
+                flPanelEntregas[1, (int)Entregas.EXAMENES].MouseWheel += flPanelExamenesTitulos_MouseWheel;
             }            
         }
 
@@ -274,6 +289,11 @@ namespace WindowsFormsApp3
                     flPanelEntregas[1, (int)Entregas.CALIFICACIONES].Controls.AddRange(titulos);
 
                     PersonalizacionComponentes.decorarPanelesCalificaciones(alumnos, idMateria, upDnTareas.Value, upDnProyectos.Value, upDnExamenes.Value, ref flPanelEntregas[0, (int)Entregas.CALIFICACIONES], this);
+
+                    //ScrollEvents Calificaciones
+                    flPanelEntregas[0, (int)Entregas.CALIFICACIONES].Scroll += flPanelCalificaciones_Scroll;
+                    flPanelEntregas[0, (int)Entregas.CALIFICACIONES].MouseWheel += flPanelCalificaciones_MouseScroll;
+                    flPanelEntregas[1, (int)Entregas.CALIFICACIONES].MouseWheel += flPanelCalificacionesTitulos_MouseWheel;
                 }
             }
         }
@@ -346,7 +366,9 @@ namespace WindowsFormsApp3
             flPanelEntregas[0, (int)Entregas.CALIFICACIONES] = new FlowLayoutPanel();
             flPanelEntregas[1, (int)Entregas.CALIFICACIONES] = new FlowLayoutPanel();
 
-            btnTareas.PerformClick(); 
+            btnTareas.PerformClick();
+
+            flPanelAlumnos.MouseWheel += FlPanelAlumnos_MouseWheel;
         }
 
         /// <summary> te regresa a lista grupos </summary>
@@ -396,10 +418,81 @@ namespace WindowsFormsApp3
 
 #region Eventos ScrollPaneles
 
+        //Ver los eventos de Scroll en ListaMaterias para entender esta parte
         private void flPanelTareas_Scroll(object sender, ScrollEventArgs e)
         {
-            //flPanelFechas.HorizontalScroll.Value = flPanelAsistencias.HorizontalScroll.Value;
-            //flPanelAlumnos.VerticalScroll.Value = flPanelAsistencias.VerticalScroll.Value;
+            flPanelEntregas[ 1, (int)Entregas.TAREAS ].HorizontalScroll.Value = flPanelEntregas[0, (int)Entregas.TAREAS].HorizontalScroll.Value;
+            flPanelAlumnos.VerticalScroll.Value = flPanelEntregas[0, (int)Entregas.TAREAS].VerticalScroll.Value;
+        }
+
+        private void flPanelTareas_MouseScroll(object sender, MouseEventArgs e)
+        {
+            flPanelEntregas[1, (int)Entregas.TAREAS].HorizontalScroll.Value = flPanelEntregas[0, (int)Entregas.TAREAS].HorizontalScroll.Value;
+            flPanelAlumnos.VerticalScroll.Value = flPanelEntregas[0, (int)Entregas.TAREAS].VerticalScroll.Value;
+        }
+
+        private void flPanelTareasTitulos_MouseWheel(object sender, MouseEventArgs e)
+        {
+            flPanelEntregas[0, (int)Entregas.TAREAS].HorizontalScroll.Value = flPanelEntregas[1, (int)Entregas.TAREAS].HorizontalScroll.Value;
+        }
+
+        private void flPanelProyectos_Scroll(object sender, ScrollEventArgs e)
+        {
+            Console.WriteLine("Dentro de Scroll");
+            flPanelEntregas[1, (int)Entregas.PROYECTOS].HorizontalScroll.Value = flPanelEntregas[0, (int)Entregas.PROYECTOS].HorizontalScroll.Value;
+            flPanelAlumnos.VerticalScroll.Value = flPanelEntregas[0, (int)Entregas.PROYECTOS].VerticalScroll.Value;
+        }
+
+        private void flPanelProyectos_MouseScroll(object sender, MouseEventArgs e)
+        {
+            Console.WriteLine("Dentro de MouseScroll");
+
+            flPanelEntregas[1, (int)Entregas.PROYECTOS].HorizontalScroll.Value = flPanelEntregas[0, (int)Entregas.PROYECTOS].HorizontalScroll.Value;
+            flPanelAlumnos.VerticalScroll.Value = flPanelEntregas[0, (int)Entregas.PROYECTOS].VerticalScroll.Value;
+        }
+
+        private void flPanelProyectosTitulos_MouseWheel(object sender, MouseEventArgs e)
+        {
+            flPanelEntregas[0, (int)Entregas.PROYECTOS].HorizontalScroll.Value = flPanelEntregas[1, (int)Entregas.PROYECTOS].HorizontalScroll.Value;
+        }
+
+        private void flPanelExamenes_Scroll(object sender, ScrollEventArgs e)
+        {
+            flPanelEntregas[1, (int)Entregas.EXAMENES].HorizontalScroll.Value = flPanelEntregas[0, (int)Entregas.EXAMENES].HorizontalScroll.Value;
+            flPanelAlumnos.VerticalScroll.Value = flPanelEntregas[0, (int)Entregas.EXAMENES].VerticalScroll.Value;
+        }
+
+        private void flPanelExamenes_MouseScroll(object sender, MouseEventArgs e)
+        {
+            flPanelEntregas[1, (int)Entregas.EXAMENES].HorizontalScroll.Value = flPanelEntregas[0, (int)Entregas.EXAMENES].HorizontalScroll.Value;
+            flPanelAlumnos.VerticalScroll.Value = flPanelEntregas[0, (int)Entregas.EXAMENES].VerticalScroll.Value;
+        }
+
+        private void flPanelExamenesTitulos_MouseWheel(object sender, MouseEventArgs e)
+        {
+            flPanelEntregas[0, (int)Entregas.EXAMENES].HorizontalScroll.Value = flPanelEntregas[1, (int)Entregas.EXAMENES].HorizontalScroll.Value;
+        }
+
+        private void flPanelCalificaciones_Scroll(object sender, ScrollEventArgs e)
+        {
+            flPanelEntregas[1, (int)Entregas.CALIFICACIONES].HorizontalScroll.Value = flPanelEntregas[0, (int)Entregas.CALIFICACIONES].HorizontalScroll.Value;
+            flPanelAlumnos.VerticalScroll.Value = flPanelEntregas[0, (int)Entregas.CALIFICACIONES].VerticalScroll.Value;
+        }
+
+        private void flPanelCalificaciones_MouseScroll(object sender, MouseEventArgs e)
+        {
+            flPanelEntregas[1, (int)Entregas.CALIFICACIONES].HorizontalScroll.Value = flPanelEntregas[0, (int)Entregas.CALIFICACIONES].HorizontalScroll.Value;
+            flPanelAlumnos.VerticalScroll.Value = flPanelEntregas[0, (int)Entregas.CALIFICACIONES].VerticalScroll.Value;
+        }
+
+        private void flPanelCalificacionesTitulos_MouseWheel(object sender, MouseEventArgs e)
+        {
+            //Por el momento no hace nada porque hay 5 columnas nada más
+        }
+
+        private void FlPanelAlumnos_MouseWheel(object sender, MouseEventArgs e)
+        {
+            flPanelEntregas[ 0, (int)panelActivo ].VerticalScroll.Value = flPanelAlumnos.VerticalScroll.Value;
         }
 
         #endregion
