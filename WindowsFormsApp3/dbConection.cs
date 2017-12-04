@@ -75,6 +75,24 @@ namespace WindowsFormsApp3
             }
         }
 
+        /// <summary>Cuando se va a registrar un nuevo alumno se verifica que no exista en ese grupo un alumno con exactamente los mismos nombres</summary>
+        internal static bool alumnoNameExists(int idGrupo, string nombre, string paterno, string materno)
+        {
+            try
+            {
+                conection.Open();
+                comand = new OleDbCommand("SELECT * FROM Alumnos WHERE grupo="+ idGrupo + " AND nombres='" + nombre + "' AND apellidoPaterno='" + paterno + "' AND apellidoMaterno='" + materno + "'", conection);
+                reader = comand.ExecuteReader();
+
+                return reader.HasRows;
+            }
+            finally
+            {
+                reader.Close();
+                conection.Close();
+            }
+        }
+
         #endregion
 
         #region lectura de arrays

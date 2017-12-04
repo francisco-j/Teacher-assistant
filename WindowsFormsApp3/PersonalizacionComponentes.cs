@@ -439,7 +439,7 @@ namespace WindowsFormsApp3
             //menu contextual del boton(click derecho)
             MenuItem[] mi = {
                     new MenuItem("Editar",editarM_Click),
-                    new MenuItem("Borar",borrarM_Click),
+                    new MenuItem("Borrar",borrarM_Click),
                 };
             mi[0].Name = "Editar" + materia.getId().ToString();
             mi[1].Name = "Borar" + materia.getId().ToString();

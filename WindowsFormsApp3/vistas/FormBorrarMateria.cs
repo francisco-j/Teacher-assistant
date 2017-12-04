@@ -39,5 +39,11 @@ namespace WindowsFormsApp3.vistas
 
             }
         }
+
+        private void txbNombreMateria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnBorrar.PerformClick();
+        }
     }
 }

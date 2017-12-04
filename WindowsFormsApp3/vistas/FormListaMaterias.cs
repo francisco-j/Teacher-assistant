@@ -10,9 +10,9 @@ namespace WindowsFormsApp3
 {
     public partial class FormListaMaterias : Form
     {
-        private int idGrupo;
+        public int idGrupo;
         private List<Materia> materias;
-        private List<Alumno> alumnosGrupo;
+        public List<Alumno> alumnosGrupo;
         private int idMaestro;
         private int color = 0;
 
@@ -36,14 +36,14 @@ namespace WindowsFormsApp3
             cargarAlumnos();
             cargarAsistencias();
 
-            string[] alumnosForPrediccion = new string[alumnosGrupo.Count];
+            /*string[] alumnosForPrediccion = new string[alumnosGrupo.Count];
             for (short i = 0; i < alumnosGrupo.Count; i++ )
             {
                 Alumno alum = alumnosGrupo[i] as Alumno;
                 alumnosForPrediccion[ i ] = alum.getNombres() + " " + alum.getPaterno() + " " + alum.getMaterno();
             }
             txbBusqueda.AutoCompleteCustomSource.AddRange(alumnosForPrediccion);
-
+            */
 
             this.Show();
         }
@@ -132,7 +132,6 @@ namespace WindowsFormsApp3
             else
             {
                 MessageBox.Show("Sólo se pueden agregar 60 alumnos por grupo", "Error al agregar alumno", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
 
@@ -327,7 +326,6 @@ namespace WindowsFormsApp3
             Console.WriteLine(flPanelFechas.Controls.Count + " dias ");
             if (flPanelFechas.Controls.Count <= 10)
                 agregarLabelControl();
-
         }
 
         /// <summary>Usado para recibir toda la información (incluido el id) de la materia nueva que se acaba de registrar</summary>
