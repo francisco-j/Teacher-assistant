@@ -391,6 +391,7 @@ namespace WindowsFormsApp3
             foreach (Materia materia in materias )
             {
                 Label nombre = hacerLabelMateria(materia);
+                nombre.TextAlign = ContentAlignment.TopLeft;
                 nombre.Name = materia.getId().ToString();
                 panel.Controls.Add(nombre);
                 //nombre.BorderStyle = BorderStyle.FixedSingle;

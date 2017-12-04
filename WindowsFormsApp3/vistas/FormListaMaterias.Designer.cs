@@ -341,7 +341,7 @@
             // 
             // lbl2
             // 
-            this.lbl2.Location = new System.Drawing.Point(542, 195);
+            this.lbl2.Location = new System.Drawing.Point(542, 190);
             this.lbl2.Name = "lbl2";
             this.lbl2.Size = new System.Drawing.Size(22, 317);
             this.lbl2.TabIndex = 21;

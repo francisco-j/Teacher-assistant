@@ -33,6 +33,10 @@
             this.lblDatosGrupo = new System.Windows.Forms.Label();
             this.grpBxModulo = new System.Windows.Forms.GroupBox();
             this.tlPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.flPanelFechas = new System.Windows.Forms.FlowLayoutPanel();
+            this.flPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.quitar = new System.Windows.Forms.CheckBox();
+            this.lblInfoDias = new System.Windows.Forms.Label();
             this.flPanelAlumnos = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -55,19 +59,18 @@
             this.lblExamenes = new System.Windows.Forms.Label();
             this.lblProyectos = new System.Windows.Forms.Label();
             this.lblCalificaciones = new System.Windows.Forms.Label();
-            this.flPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.quitar = new System.Windows.Forms.CheckBox();
-            this.lblInfoDias = new System.Windows.Forms.Label();
-            this.flPanelFechas = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.quitar2 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.grpBxModulo.SuspendLayout();
             this.tlPanel.SuspendLayout();
+            this.flPanelFechas.SuspendLayout();
+            this.flPanel.SuspendLayout();
             this.flPanelAlumnos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.upDnProyectos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnTareas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnExamenes)).BeginInit();
-            this.flPanel.SuspendLayout();
-            this.flPanelFechas.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGrupo
@@ -120,6 +123,47 @@
             this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlPanel.Size = new System.Drawing.Size(809, 419);
             this.tlPanel.TabIndex = 21;
+            // 
+            // flPanelFechas
+            // 
+            this.flPanelFechas.AutoScroll = true;
+            this.flPanelFechas.Controls.Add(this.quitar2);
+            this.flPanelFechas.Location = new System.Drawing.Point(336, 3);
+            this.flPanelFechas.Name = "flPanelFechas";
+            this.flPanelFechas.Size = new System.Drawing.Size(455, 71);
+            this.flPanelFechas.TabIndex = 3;
+            this.flPanelFechas.WrapContents = false;
+            // 
+            // flPanel
+            // 
+            this.flPanel.AutoScroll = true;
+            this.flPanel.Controls.Add(this.quitar);
+            this.flPanel.Controls.Add(this.lblInfoDias);
+            this.flPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flPanel.Location = new System.Drawing.Point(336, 80);
+            this.flPanel.Name = "flPanel";
+            this.flPanel.Size = new System.Drawing.Size(470, 336);
+            this.flPanel.TabIndex = 2;
+            this.flPanel.WrapContents = false;
+            // 
+            // quitar
+            // 
+            this.quitar.AutoSize = true;
+            this.quitar.Location = new System.Drawing.Point(3, 3);
+            this.quitar.Name = "quitar";
+            this.quitar.Size = new System.Drawing.Size(15, 14);
+            this.quitar.TabIndex = 0;
+            this.quitar.UseVisualStyleBackColor = true;
+            // 
+            // lblInfoDias
+            // 
+            this.lblInfoDias.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfoDias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.lblInfoDias.Location = new System.Drawing.Point(3, 20);
+            this.lblInfoDias.Name = "lblInfoDias";
+            this.lblInfoDias.Size = new System.Drawing.Size(305, 310);
+            this.lblInfoDias.TabIndex = 29;
+            this.lblInfoDias.Text = "\r\n\r\nPara agregar un día de asistencia haz clic aquí";
             // 
             // flPanelAlumnos
             // 
@@ -246,19 +290,20 @@
             // upDnProyectos
             // 
             this.upDnProyectos.DecimalPlaces = 1;
+            this.upDnProyectos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.upDnProyectos.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-            this.upDnProyectos.Location = new System.Drawing.Point(927, 9);
+            this.upDnProyectos.Location = new System.Drawing.Point(895, 44);
             this.upDnProyectos.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.upDnProyectos.Name = "upDnProyectos";
-            this.upDnProyectos.Size = new System.Drawing.Size(36, 20);
+            this.upDnProyectos.Size = new System.Drawing.Size(41, 22);
             this.upDnProyectos.TabIndex = 25;
             this.upDnProyectos.Value = new decimal(new int[] {
             25,
@@ -269,10 +314,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
-            this.label1.Location = new System.Drawing.Point(982, 14);
+            this.label1.Location = new System.Drawing.Point(835, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(54, 18);
             this.label1.TabIndex = 26;
             this.label1.Text = "Tareas";
             this.label1.UseWaitCursor = true;
@@ -280,19 +326,20 @@
             // upDnTareas
             // 
             this.upDnTareas.DecimalPlaces = 1;
+            this.upDnTareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.upDnTareas.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-            this.upDnTareas.Location = new System.Drawing.Point(1030, 9);
+            this.upDnTareas.Location = new System.Drawing.Point(895, 9);
             this.upDnTareas.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.upDnTareas.Name = "upDnTareas";
-            this.upDnTareas.Size = new System.Drawing.Size(36, 20);
+            this.upDnTareas.Size = new System.Drawing.Size(38, 22);
             this.upDnTareas.TabIndex = 25;
             this.upDnTareas.Value = new decimal(new int[] {
             25,
@@ -303,10 +350,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
-            this.label3.Location = new System.Drawing.Point(968, 39);
+            this.label3.Location = new System.Drawing.Point(954, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.Size = new System.Drawing.Size(78, 18);
             this.label3.TabIndex = 26;
             this.label3.Text = "Exámenes";
             this.label3.UseWaitCursor = true;
@@ -314,19 +362,20 @@
             // upDnExamenes
             // 
             this.upDnExamenes.DecimalPlaces = 1;
+            this.upDnExamenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.upDnExamenes.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-            this.upDnExamenes.Location = new System.Drawing.Point(1030, 37);
+            this.upDnExamenes.Location = new System.Drawing.Point(1038, 9);
             this.upDnExamenes.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.upDnExamenes.Name = "upDnExamenes";
-            this.upDnExamenes.Size = new System.Drawing.Size(36, 20);
+            this.upDnExamenes.Size = new System.Drawing.Size(39, 22);
             this.upDnExamenes.TabIndex = 25;
             this.upDnExamenes.Value = new decimal(new int[] {
             25,
@@ -337,10 +386,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
-            this.label5.Location = new System.Drawing.Point(867, 11);
+            this.label5.Location = new System.Drawing.Point(813, 42);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 13);
+            this.label5.Size = new System.Drawing.Size(76, 18);
             this.label5.TabIndex = 26;
             this.label5.Text = "Proyectos";
             this.label5.UseWaitCursor = true;
@@ -348,10 +398,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
-            this.label6.Location = new System.Drawing.Point(933, 68);
+            this.label6.Location = new System.Drawing.Point(954, 48);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.Size = new System.Drawing.Size(41, 18);
             this.label6.TabIndex = 26;
             this.label6.Text = "Total";
             this.label6.UseWaitCursor = true;
@@ -359,10 +410,11 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
-            this.lblTotal.Location = new System.Drawing.Point(967, 69);
+            this.lblTotal.Location = new System.Drawing.Point(1001, 48);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(19, 13);
+            this.lblTotal.Size = new System.Drawing.Size(24, 18);
             this.lblTotal.TabIndex = 26;
             this.lblTotal.Text = "10";
             this.lblTotal.UseWaitCursor = true;
@@ -423,46 +475,26 @@
             this.lblCalificaciones.Text = "Calificaciones";
             this.lblCalificaciones.Click += new System.EventHandler(this.btnCalificaciones_Click);
             // 
-            // flPanel
+            // lbl2
             // 
-            this.flPanel.AutoScroll = true;
-            this.flPanel.Controls.Add(this.quitar);
-            this.flPanel.Controls.Add(this.lblInfoDias);
-            this.flPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flPanel.Location = new System.Drawing.Point(336, 80);
-            this.flPanel.Name = "flPanel";
-            this.flPanel.Size = new System.Drawing.Size(470, 336);
-            this.flPanel.TabIndex = 2;
-            this.flPanel.WrapContents = false;
+            this.lbl2.Location = new System.Drawing.Point(542, 190);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(22, 317);
+            this.lbl2.TabIndex = 34;
             // 
-            // quitar
+            // label4
             // 
-            this.quitar.AutoSize = true;
-            this.quitar.Location = new System.Drawing.Point(3, 3);
-            this.quitar.Name = "quitar";
-            this.quitar.Size = new System.Drawing.Size(15, 14);
-            this.quitar.TabIndex = 0;
-            this.quitar.UseVisualStyleBackColor = true;
+            this.label4.Location = new System.Drawing.Point(234, 505);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(330, 15);
+            this.label4.TabIndex = 35;
             // 
-            // lblInfoDias
+            // lbl1
             // 
-            this.lblInfoDias.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoDias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.lblInfoDias.Location = new System.Drawing.Point(3, 20);
-            this.lblInfoDias.Name = "lblInfoDias";
-            this.lblInfoDias.Size = new System.Drawing.Size(305, 310);
-            this.lblInfoDias.TabIndex = 29;
-            this.lblInfoDias.Text = "\r\n\r\nPara agregar un día de asistencia haz clic aquí";
-            // 
-            // flPanelFechas
-            // 
-            this.flPanelFechas.AutoScroll = true;
-            this.flPanelFechas.Controls.Add(this.quitar2);
-            this.flPanelFechas.Location = new System.Drawing.Point(336, 3);
-            this.flPanelFechas.Name = "flPanelFechas";
-            this.flPanelFechas.Size = new System.Drawing.Size(455, 71);
-            this.flPanelFechas.TabIndex = 3;
-            this.flPanelFechas.WrapContents = false;
+            this.lbl1.Location = new System.Drawing.Point(557, 167);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(470, 19);
+            this.lbl1.TabIndex = 36;
             // 
             // quitar2
             // 
@@ -482,13 +514,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1083, 582);
+            this.Controls.Add(this.lbl1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lbl2);
             this.Controls.Add(this.lblCalificaciones);
             this.Controls.Add(this.lblProyectos);
             this.Controls.Add(this.lblExamenes);
             this.Controls.Add(this.lblTareas);
             this.Controls.Add(this.lbl3);
             this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.upDnExamenes);
@@ -514,14 +549,14 @@
             this.Load += new System.EventHandler(this.FormGrupoMateria_Load);
             this.grpBxModulo.ResumeLayout(false);
             this.tlPanel.ResumeLayout(false);
+            this.flPanelFechas.ResumeLayout(false);
+            this.flPanel.ResumeLayout(false);
+            this.flPanel.PerformLayout();
             this.flPanelAlumnos.ResumeLayout(false);
             this.flPanelAlumnos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.upDnProyectos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnTareas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upDnExamenes)).EndInit();
-            this.flPanel.ResumeLayout(false);
-            this.flPanel.PerformLayout();
-            this.flPanelFechas.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -560,5 +595,8 @@
         private System.Windows.Forms.Label lblInfoDias;
         private System.Windows.Forms.FlowLayoutPanel flPanelFechas;
         private componentes_visuales.tiltLabel quitar2;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl1;
     }
 }

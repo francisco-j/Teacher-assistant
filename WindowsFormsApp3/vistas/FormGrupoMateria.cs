@@ -97,6 +97,9 @@ namespace WindowsFormsApp3
                     flPanelEntregas[ 0, (int)Entregas.TAREAS ].Controls.Add(entregas);
                 }
 
+                if (listTareas.Length <= 10)
+                    agregarLabelControl();
+
                 //ScrollEvents Tareas
                 flPanelEntregas[0, (int)Entregas.TAREAS].Scroll += flPanelTareas_Scroll;
                 flPanelEntregas[0, (int)Entregas.TAREAS].MouseWheel += flPanelTareas_MouseScroll;
@@ -155,6 +158,9 @@ namespace WindowsFormsApp3
                     entregas.Margin = new Padding(0, 0, 0, 0);
                     flPanelEntregas[ 0, (int)Entregas.PROYECTOS ].Controls.Add(entregas);
                 }
+
+                if (listProyectos.Length <= 5)
+                    agregarLabelControl();
 
                 //ScrollEvents Proyectos
                 flPanelEntregas[0, (int)Entregas.PROYECTOS].Scroll += flPanelProyectos_Scroll;
@@ -216,6 +222,9 @@ namespace WindowsFormsApp3
                     entregas.Margin = new Padding(0, 0, 0, 0);
                     flPanelEntregas[ 0, (int)Entregas.EXAMENES ].Controls.Add(entregas);
                 }
+
+                if (listExamenes.Length <= 5)
+                    agregarLabelControl();
 
                 //ScrollEvents Exámenes
                 flPanelEntregas[0, (int)Entregas.EXAMENES].Scroll += flPanelExamenes_Scroll;
@@ -290,6 +299,8 @@ namespace WindowsFormsApp3
 
                     PersonalizacionComponentes.decorarPanelesCalificaciones(alumnos, idMateria, upDnTareas.Value, upDnProyectos.Value, upDnExamenes.Value, ref flPanelEntregas[0, (int)Entregas.CALIFICACIONES], this);
 
+                    agregarLabelControl();
+
                     //ScrollEvents Calificaciones
                     flPanelEntregas[0, (int)Entregas.CALIFICACIONES].Scroll += flPanelCalificaciones_Scroll;
                     flPanelEntregas[0, (int)Entregas.CALIFICACIONES].MouseWheel += flPanelCalificaciones_MouseScroll;
@@ -315,7 +326,10 @@ namespace WindowsFormsApp3
                 {
                     //Se elimina del panel de fechas el dateLabel
                     flPanelEntregas[ 1, (int)Entregas.TAREAS ].Controls.RemoveByKey( idTareaEliminar );
-                    
+
+                    Console.WriteLine(flPanelEntregas[1, (int)Entregas.TAREAS].Controls.Count + " Tareas" );
+                    bool contieneLabel = flPanelEntregas[1, (int)Entregas.TAREAS].Controls.Count <= 10;
+                    quitarLabelControl();
                     System.Collections.IEnumerator tareasAlumnos = flPanelEntregas[ 0, (int)Entregas.TAREAS ].Controls.GetEnumerator();
 
                     while (tareasAlumnos.MoveNext())
@@ -323,11 +337,17 @@ namespace WindowsFormsApp3
                         ((FlowLayoutPanel)tareasAlumnos.Current).Controls.RemoveByKey( idTareaEliminar );
                         ((FlowLayoutPanel)tareasAlumnos.Current).Size = ((FlowLayoutPanel)tareasAlumnos.Current).PreferredSize;
                     }
+
+                    if (contieneLabel)
+                        agregarLabelControl();
                 }
                 else if( grpBxModulo.Text == "Proyectos" )
                 {
                     //Se elimina del panel de fechas el dateLabel
                     flPanelEntregas[1, (int)Entregas.PROYECTOS].Controls.RemoveByKey(idTareaEliminar);
+
+                    bool contieneLabel = flPanelEntregas[1, (int)Entregas.PROYECTOS].Controls.Count <= 5;
+                    quitarLabelControl();
 
                     System.Collections.IEnumerator proyectosAlumnos = flPanelEntregas[0, (int)Entregas.PROYECTOS].Controls.GetEnumerator();
 
@@ -336,11 +356,17 @@ namespace WindowsFormsApp3
                         ((FlowLayoutPanel)proyectosAlumnos.Current).Controls.RemoveByKey(idTareaEliminar);
                         ((FlowLayoutPanel)proyectosAlumnos.Current).Size = ((FlowLayoutPanel)proyectosAlumnos.Current).PreferredSize;
                     }
+
+                    if (contieneLabel)
+                        agregarLabelControl();
                 }
                 else //Exámenes, porque de calificaciones no se podrá eliminar nada
                 {
                     //Se elimina del panel de fechas el dateLabel
                     flPanelEntregas[ 1, (int)Entregas.EXAMENES ].Controls.RemoveByKey(idTareaEliminar);
+
+                    bool contieneLabel = flPanelEntregas[1, (int)Entregas.EXAMENES].Controls.Count <= 5;
+                    quitarLabelControl();
 
                     System.Collections.IEnumerator examenesAlumnos = flPanelEntregas[0, (int)Entregas.EXAMENES].Controls.GetEnumerator();
 
@@ -349,6 +375,9 @@ namespace WindowsFormsApp3
                         ((FlowLayoutPanel)examenesAlumnos.Current).Controls.RemoveByKey(idTareaEliminar);
                         ((FlowLayoutPanel)examenesAlumnos.Current).Size = ((FlowLayoutPanel)examenesAlumnos.Current).PreferredSize;
                     }
+
+                    if( contieneLabel )
+                        agregarLabelControl();
                 }
                 //Lo elimina de la base de datos
                 dbConection.eliminarEntrega(Convert.ToInt32( idTareaEliminar ) );
@@ -623,6 +652,9 @@ namespace WindowsFormsApp3
                 //Se van agregando los títulos de las entregas al contenedor de titulos de tareas
                 flPanelEntregas[1, (int)Entregas.TAREAS].Controls.Add(nombreTarea);
 
+                bool labelControl = flPanelEntregas[1, (int)Entregas.TAREAS].Controls.Count <= 10;
+                quitarLabelControl();
+
                 System.Collections.IEnumerator alumnosPanels = flPanelEntregas[0, (int)Entregas.TAREAS].Controls.GetEnumerator();
 
                 while( alumnosPanels.MoveNext() )
@@ -630,6 +662,9 @@ namespace WindowsFormsApp3
                     ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new TareaButton( tarea.id, true ) );
                     ((FlowLayoutPanel)alumnosPanels.Current).Size = ((FlowLayoutPanel)alumnosPanels.Current).PreferredSize;
                 }
+
+                if (labelControl)
+                    agregarLabelControl();
             }
             else if ( grpBxModulo.Text == "Proyectos")
             {
@@ -637,6 +672,7 @@ namespace WindowsFormsApp3
                 tiltLabel nombreProyecto = new tiltLabel(proyecto.nombre);
                 nombreProyecto.Name = proyecto.id.ToString();
 
+                nombreProyecto.Margin = new Padding(0, 0, 50, 0);
                 MenuItem[] menu = {
                         new MenuItem("Borrar", borrarEntrega_Click)
                     };
@@ -646,6 +682,9 @@ namespace WindowsFormsApp3
                 //Se van agregando los títulos de las entregas al contenedor de titulos de tareas
                 flPanelEntregas[1, (int)Entregas.PROYECTOS ].Controls.Add(nombreProyecto);
 
+                bool labelControl = flPanelEntregas[1, (int)Entregas.PROYECTOS].Controls.Count <= 5;
+                quitarLabelControl();
+
                 System.Collections.IEnumerator alumnosPanels = flPanelEntregas[0, (int)Entregas.PROYECTOS].Controls.GetEnumerator();
 
                 while (alumnosPanels.MoveNext())
@@ -654,12 +693,17 @@ namespace WindowsFormsApp3
                     ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new CalificacionLabel( proyecto.id, 100, 1 ));
                     ((FlowLayoutPanel)alumnosPanels.Current).Size = ((FlowLayoutPanel)alumnosPanels.Current).PreferredSize;
                 }
+
+                if (labelControl)
+                    agregarLabelControl();
             }
             else
             {
                 Examen examen = new Examen(nombre, idEntrega);
                 tiltLabel nombreExamen = new tiltLabel(examen.nombre);
                 nombreExamen.Name = examen.id.ToString();
+
+                nombreExamen.Margin = new Padding(0, 0, 50, 0);
 
                 MenuItem[] menu = {
                         new MenuItem("Borrar", borrarEntrega_Click)
@@ -670,6 +714,9 @@ namespace WindowsFormsApp3
                 //Se van agregando los títulos de las entregas al contenedor de titulos de tareas
                 flPanelEntregas[1, (int)Entregas.EXAMENES].Controls.Add(nombreExamen);
 
+                bool labelControl = flPanelEntregas[1, (int)Entregas.EXAMENES].Controls.Count <= 5;
+                quitarLabelControl();
+
                 System.Collections.IEnumerator alumnosPanels = flPanelEntregas[0, (int)Entregas.EXAMENES].Controls.GetEnumerator();
 
                 while (alumnosPanels.MoveNext())
@@ -678,12 +725,35 @@ namespace WindowsFormsApp3
                     ((FlowLayoutPanel)alumnosPanels.Current).Controls.Add(new CalificacionLabel(examen.id, 100, 2));
                     ((FlowLayoutPanel)alumnosPanels.Current).Size = ((FlowLayoutPanel)alumnosPanels.Current).PreferredSize;
                 }
+
+                if (labelControl)
+                    agregarLabelControl();
             }
 
             foreach( Alumno alumno in alumnos )
             {
                 dbConection.agregarEntregas(alumno.getId(), tipo, idEntrega );
             }
+        }
+
+        private bool quitarLabelControl()
+        {
+            if (flPanelEntregas[0, (int)panelActivo].Controls.ContainsKey("labelScrollSustituto"))
+            {
+                flPanelEntregas[0, (int)panelActivo].Controls.RemoveByKey("labelScrollSustituto");
+                return true;
+            }
+            return false;
+        }
+
+        private void agregarLabelControl()
+        {
+            Label lbl = new Label();
+            lbl.Name = "labelScrollSustituto";
+            lbl.Size = new Size(330, 15);
+            lbl.BackColor = Color.WhiteSmoke;
+            Console.WriteLine("Panel activo: "+panelActivo);
+            flPanelEntregas[0,(int)panelActivo].Controls.Add(lbl);
         }
 
         #endregion

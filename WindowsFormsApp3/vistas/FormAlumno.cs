@@ -22,7 +22,10 @@ namespace WindowsFormsApp3.vistas
             int idGrupo = alumno.getGupo();
 
             lblNombre.Text = alumno.nombreCompletoPA();
-            lblGrupo.Text = dbConection.getGrupo(alumno.getGupo()).ToString();
+
+            Grupo grupo = dbConection.getGrupo(alumno.getGupo());
+            lblGrupo.Text += " " + grupo.ToString();
+            lblEscuela.Text += " " + grupo.getEscuela();
 
             //Conseguir las materias
             List<Materia> materias = dbConection.materiasAsociadasCon(alumno.getGupo());
@@ -62,6 +65,8 @@ namespace WindowsFormsApp3.vistas
             promedioTotal = Decimal.Round(promedioTotal, 2);
 
             lblPromedio.Text += " " + promedioTotal;
+            lblPromedio.ForeColor = promedioTotal >= 8 ? Color.FromArgb(11, 115, 115) : Color.Red;
+
             int faltas = dbConection.getNumeroFaltas(alumno.getId());
             lblCantidadFaltas.Text = " " + faltas;
             lblCantidadFaltas.ForeColor = faltas >= 3 ? Color.Red : Color.FromArgb(11, 115, 115);
@@ -70,7 +75,6 @@ namespace WindowsFormsApp3.vistas
             this.Show();
         }
         
-
         private void btnOk_Click(object sender, EventArgs e)
         {
             this.Dispose();
