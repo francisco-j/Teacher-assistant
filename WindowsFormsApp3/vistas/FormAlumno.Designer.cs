@@ -35,11 +35,12 @@
             this.tlPanel = new System.Windows.Forms.TableLayoutPanel();
             this.flPanelMaterias = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
+            this.flPanelRubros = new System.Windows.Forms.FlowLayoutPanel();
+            this.quitar2 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.lblPromedio = new System.Windows.Forms.Label();
             this.lblFaltas = new System.Windows.Forms.Label();
             this.lblCantidadFaltas = new System.Windows.Forms.Label();
-            this.flPanelRubros = new System.Windows.Forms.FlowLayoutPanel();
-            this.quitar2 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
+            this.lblEscuela = new System.Windows.Forms.Label();
             this.tlPanel.SuspendLayout();
             this.flPanelMaterias.SuspendLayout();
             this.flPanelRubros.SuspendLayout();
@@ -50,7 +51,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.lblNombre.Location = new System.Drawing.Point(118, 38);
+            this.lblNombre.Location = new System.Drawing.Point(169, 38);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(492, 39);
             this.lblNombre.TabIndex = 7;
@@ -59,13 +60,13 @@
             // lblGrupo
             // 
             this.lblGrupo.AutoSize = true;
-            this.lblGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.lblGrupo.Location = new System.Drawing.Point(12, 38);
+            this.lblGrupo.Location = new System.Drawing.Point(562, 9);
             this.lblGrupo.Name = "lblGrupo";
-            this.lblGrupo.Size = new System.Drawing.Size(81, 42);
+            this.lblGrupo.Size = new System.Drawing.Size(172, 29);
             this.lblGrupo.TabIndex = 9;
-            this.lblGrupo.Text = "3°D";
+            this.lblGrupo.Text = "Grado y grupo:";
             // 
             // btnOk
             // 
@@ -89,6 +90,7 @@
             this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 488F));
             this.tlPanel.Controls.Add(this.flPanelMaterias, 0, 1);
             this.tlPanel.Controls.Add(this.flPanelRubros, 1, 0);
+            this.tlPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
             this.tlPanel.Location = new System.Drawing.Point(19, 83);
             this.tlPanel.Name = "tlPanel";
             this.tlPanel.RowCount = 2;
@@ -112,11 +114,34 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(260, 52);
             this.label2.TabIndex = 0;
             this.label2.Text = "Francisco Javier Fuentes Torres";
+            // 
+            // flPanelRubros
+            // 
+            this.flPanelRubros.AutoScroll = true;
+            this.flPanelRubros.Controls.Add(this.quitar2);
+            this.flPanelRubros.Location = new System.Drawing.Point(324, 3);
+            this.flPanelRubros.Name = "flPanelRubros";
+            this.flPanelRubros.Size = new System.Drawing.Size(455, 69);
+            this.flPanelRubros.TabIndex = 1;
+            this.flPanelRubros.WrapContents = false;
+            // 
+            // quitar2
+            // 
+            this.quitar2.Fecha = new System.DateTime(((long)(0)));
+            this.quitar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitar2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.quitar2.Location = new System.Drawing.Point(3, 0);
+            this.quitar2.Name = "quitar2";
+            this.quitar2.RotationAngle = -60D;
+            this.quitar2.Size = new System.Drawing.Size(44, 57);
+            this.quitar2.TabIndex = 0;
+            this.quitar2.Text = "00/00/00";
             // 
             // lblPromedio
             // 
@@ -151,26 +176,16 @@
             this.lblCantidadFaltas.TabIndex = 25;
             this.lblCantidadFaltas.Text = "0";
             // 
-            // flPanelRubros
+            // lblEscuela
             // 
-            this.flPanelRubros.AutoScroll = true;
-            this.flPanelRubros.Controls.Add(this.quitar2);
-            this.flPanelRubros.Location = new System.Drawing.Point(324, 3);
-            this.flPanelRubros.Name = "flPanelRubros";
-            this.flPanelRubros.Size = new System.Drawing.Size(455, 69);
-            this.flPanelRubros.TabIndex = 1;
-            this.flPanelRubros.WrapContents = false;
-            // 
-            // quitar2
-            // 
-            this.quitar2.Fecha = new System.DateTime(((long)(0)));
-            this.quitar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quitar2.Location = new System.Drawing.Point(3, 0);
-            this.quitar2.Name = "quitar2";
-            this.quitar2.RotationAngle = -60D;
-            this.quitar2.Size = new System.Drawing.Size(44, 57);
-            this.quitar2.TabIndex = 0;
-            this.quitar2.Text = "00/00/00";
+            this.lblEscuela.AutoSize = true;
+            this.lblEscuela.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEscuela.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.lblEscuela.Location = new System.Drawing.Point(123, 9);
+            this.lblEscuela.Name = "lblEscuela";
+            this.lblEscuela.Size = new System.Drawing.Size(105, 29);
+            this.lblEscuela.TabIndex = 26;
+            this.lblEscuela.Text = "Escuela:";
             // 
             // FormAlumno
             // 
@@ -178,6 +193,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(857, 558);
+            this.Controls.Add(this.lblEscuela);
             this.Controls.Add(this.lblCantidadFaltas);
             this.Controls.Add(this.lblFaltas);
             this.Controls.Add(this.lblPromedio);
@@ -210,5 +226,6 @@
         private System.Windows.Forms.Label lblCantidadFaltas;
         private System.Windows.Forms.FlowLayoutPanel flPanelRubros;
         private componentes_visuales.tiltLabel quitar2;
+        private System.Windows.Forms.Label lblEscuela;
     }
 }

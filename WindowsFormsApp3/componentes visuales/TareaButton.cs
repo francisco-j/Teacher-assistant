@@ -31,13 +31,13 @@ namespace WindowsFormsApp3.componentes_visuales
         private void mouseLeaveButton(object sender, EventArgs e)
         {
             string idAlumno = this.Parent.Name;
-            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).entregaLeaveSelected(idAlumno, this.Name);
+            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).tareaLeaveSelected(idAlumno, this.Name);
         }
 
         private void mouseEnterButton(object sender, EventArgs e)
         {
             string idAlumno = this.Parent.Name;
-            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).entregaSelected(idAlumno, this.Name );
+            (this.Parent.Parent.Parent.Parent.Parent as FormGrupoMateria).tareaSelected(idAlumno, this.Name );
         }
 
         private void clickTareaButton(object sender, EventArgs e)
