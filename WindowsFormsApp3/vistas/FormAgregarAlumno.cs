@@ -61,13 +61,21 @@ namespace WindowsFormsApp3.vistas
             }
             else
             {
-                //Este método también agregará todos los registros de las tareas, exámenes y proyectos de todas las materias del grupo al que pertenece
-                Alumno alumno = dbConection.agregarAlumno(idGrupo, nombre, paterno, materno);
+                if( !dbConection.alumnoNameExists(idGrupo, nombre, paterno, materno) )
+                {
+                    //Este método también agregará todos los registros de las tareas, exámenes y proyectos de todas las materias del grupo al que pertenece
+                    Alumno alumno = dbConection.agregarAlumno(idGrupo, nombre, paterno, materno);
 
-                FormListaMaterias flm = (FormListaMaterias)this.Owner;
-                flm.recibirAlumno(alumno);
+                    FormListaMaterias flm = (FormListaMaterias)this.Owner;
+                    flm.recibirAlumno(alumno);
 
-                this.Dispose();
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Ya existe un alumno con esos nombres, intenta con otro", "Alumno ya registrado", MessageBoxButtons.OK, MessageBoxIcon.Error );
+                    txbNombre.Focus();
+                }
             }
         }
 

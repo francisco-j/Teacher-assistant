@@ -19,6 +19,12 @@ namespace WindowsFormsApp3.vistas
             lblNombre.Text += txtTipo;
         }
 
+        private void txbNombreEntregable_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnGuardar.PerformClick();
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string nameEntregable = txbNombreEntregable.Text;

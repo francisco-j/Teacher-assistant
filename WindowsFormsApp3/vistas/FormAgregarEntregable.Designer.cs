@@ -43,6 +43,7 @@
             this.txbNombreEntregable.Name = "txbNombreEntregable";
             this.txbNombreEntregable.Size = new System.Drawing.Size(122, 20);
             this.txbNombreEntregable.TabIndex = 2;
+            this.txbNombreEntregable.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbNombreEntregable_KeyPress);
             // 
             // lblNombre
             // 

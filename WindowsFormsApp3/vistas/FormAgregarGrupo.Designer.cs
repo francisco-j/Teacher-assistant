@@ -65,6 +65,7 @@
             this.txbEscuela.Name = "txbEscuela";
             this.txbEscuela.Size = new System.Drawing.Size(100, 20);
             this.txbEscuela.TabIndex = 2;
+            this.txbEscuela.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbEscuela_KeyPress);
             // 
             // lblGrupo
             // 

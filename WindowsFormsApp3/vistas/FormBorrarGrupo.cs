@@ -35,5 +35,11 @@ namespace WindowsFormsApp3.vistas
                 txbEscuela.BackColor = Color.LightSalmon;
             }
         }
+
+        private void txbEscuela_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnBorrar.PerformClick();
+        }
     }
 }

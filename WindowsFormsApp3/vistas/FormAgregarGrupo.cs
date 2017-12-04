@@ -71,7 +71,14 @@ namespace WindowsFormsApp3
             this.Dispose();
         }
 
-#endregion
+        #endregion
 
+        private void txbEscuela_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if( e.KeyChar == 13 )
+            {
+                btnGuardar.PerformClick();
+            }
+        }
     }
 }
