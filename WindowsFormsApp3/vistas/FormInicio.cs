@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using WindowsFormsApp3.componentes_visuales;
 
 namespace WindowsFormsApp3
 {
     public partial class FormInicio : Form
     {
 
-// ******************************** costructor *********************************
+#region costructor
+
         public FormInicio()
         {
             InitializeComponent();
             this.Show();
         }
 
-// ****************************** btn_event *******************************************
+        #endregion
+
+#region btn_event
+
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             txbUsuario.BackColor = Color.White;
@@ -53,8 +54,9 @@ namespace WindowsFormsApp3
             }
         }
 
+        #endregion
+#region eventos_enter
 
-// *****************************  eventos_enter ********************************************
         private void txbUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
@@ -78,5 +80,7 @@ namespace WindowsFormsApp3
             txbUsuario.Focus();
         }
     }
+
+#endregion
 
 }

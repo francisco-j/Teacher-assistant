@@ -3,7 +3,7 @@
   <Class Name="WindowsFormsApp3.PersonalizacionComponentes">
     <Position X="14.5" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>QAIJCISICACAAAAAAIIAAgAIEEAACAAAgAgCAAkAAAA=</HashCode>
+      <HashCode>QAIJCISICACAAgAAAIICAgAIEEAACAAAgAgCAAkAAAA=</HashCode>
       <FileName>PersonalizacionComponentes.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -73,7 +73,7 @@
   <Class Name="WindowsFormsApp3.vistas.FormAlumno" Collapsed="true">
     <Position X="7.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>CAAAAMAIACCAAAAAACCEAAACAAAhBAAAAAAAAAAQAAA=</HashCode>
+      <HashCode>AAAAAIQAACCIABAAAACAAgADEAABBAACAgAAAIwAAAA=</HashCode>
       <FileName>vistas\FormAlumno.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -108,14 +108,14 @@
   <Class Name="WindowsFormsApp3.dbConection">
     <Position X="12.25" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>BAEKAQBBAYwCAGAIADFwAEiEQILBFIBAggQQA0IQCCg=</HashCode>
+      <HashCode>BAEKQQBBAYwCAGAIADFwAEiEQILBFIBAggQQA0IQCCg=</HashCode>
       <FileName>dbConection.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WindowsFormsApp3.clases_objeto.Alumno" Collapsed="true">
     <Position X="3.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EgAMAAAAAAQAAMCAAAAAABAAAAABAAAAAAAAAAAACgA=</HashCode>
+      <HashCode>EgAMAAAAAAQAAMCAAAAAABAAAAAAAAAAAAAAAAAACgA=</HashCode>
       <FileName>clases objeto\Alumno.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -136,7 +136,7 @@
   <Class Name="WindowsFormsApp3.clases_objeto.Materia" Collapsed="true">
     <Position X="2" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAACAAAAghAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AgAAAAAAAAAAAACAAAAggAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>clases objeto\Materia.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -201,6 +201,18 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>clases objeto\Tarea.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp3.Properties.Resources" Collapsed="true">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAFAAASkAAACACAABEAFACYIIAAASABAgAAIAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp3.Properties.Settings" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAIAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

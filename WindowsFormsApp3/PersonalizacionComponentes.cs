@@ -405,7 +405,7 @@ namespace WindowsFormsApp3
             boton.FlatAppearance.BorderSize = 0;
             boton.BackColor = coloresBotones[ color];
 
-            boton.Text = materia.toString();
+            boton.Text = materia.getNombre();
             boton.Size = new Size(172, 48);
             boton.Name = materia.getId().ToString();
 

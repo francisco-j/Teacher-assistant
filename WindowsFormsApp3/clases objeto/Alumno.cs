@@ -70,10 +70,6 @@ namespace WindowsFormsApp3.clases_objeto
             return apellidoM;
         }
 
-        public static explicit operator Alumno(List<Alumno> v)
-        {
-            throw new NotImplementedException();
-        }
     }
 
 #endregion

@@ -31,9 +31,5 @@ namespace WindowsFormsApp3.clases_objeto
             return nombre;
         }
 
-        public string toString()
-        {
-            return nombre;
-        }
     }
 }

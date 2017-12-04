@@ -214,7 +214,7 @@ namespace WindowsFormsApp3
             return lAlumnos;
         }
 
-        /// <summary> devuelbe todos los alumnos que concidan con el string indicado. Toma en cuenta nombre, apellidoM y apellidoM. Pero si el string abarca mas de uno no encontrara al alumno deseado </summary>
+        /// <summary> devuelve todos los alumnos que concidan con el string indicado.</summary>
         internal static Alumno[] buscar(string name, int idMaestro)
         {
             List<int> gruposDeMaestro = new List<int>();
@@ -255,6 +255,7 @@ namespace WindowsFormsApp3
             return lAlumnos.ToArray();
         }
 
+        /// <summary> devuelve array con nombres de alumnos que coincidan </summary>
         internal static string[] prediccionBusqueda(string name, int idMaestro)
         {
             List<int> gruposDeMaestro = new List<int>();
@@ -264,26 +265,16 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
 
-                comand.CommandText =
-                    "SELECT * FROM Grupos " +
-                    "WHERE maestro=" + idMaestro;
-                reader = comand.ExecuteReader();
-
-                //busca todos los grupos del maestro
-                while (reader.Read())
-                {
-                    gruposDeMaestro.Add((int)reader["id"]);
-                }
-
-                reader.Close();
-
                 //para cada grupo busca los alumnos que coincidan
                 foreach (int grupoM in gruposDeMaestro)
                 {
                     comand.CommandText =
                         "SELECT * FROM Alumnos " +
                         "WHERE nombres & ' ' & apellidoPaterno & ' ' & apellidoMaterno like '%" + name + "%'" +
-                        "AND grupo=" + grupoM;
+                        "AND grupo IN (" +
+                            "SELECT id FROM Grupos " +
+                            "WHERE maestro=" + idMaestro +
+                        ")";
                     reader = comand.ExecuteReader();
 
                     while (reader.Read())
@@ -575,6 +566,7 @@ namespace WindowsFormsApp3
             }
         }
 
+        /// <summary> devuelve la cantidad de entregables en la materia especificada </summary>
         internal static int getNumeroEntregablesTotales(int idMateria, int tipo)
         {
             try
@@ -592,6 +584,7 @@ namespace WindowsFormsApp3
             }
         }
 
+        /// <summary> devuelve cantidad de tareas entregadas por el alumno en el grupo indicado </summary>
         internal static int getNumeroTareas(int idAlumno, int idMateria)
         {
             try
@@ -608,7 +601,7 @@ namespace WindowsFormsApp3
             }
         }
 
-
+        /// <summary> devuelve la calificacion promedio del alumno en la materia indicada del tipo de entregable indicado </summary>
         internal static decimal getPromCalifProyectosOExam(int idAlumno, int idMateria, int tipo)
         {
             try
@@ -907,12 +900,16 @@ namespace WindowsFormsApp3
             return id;
         }
 
+        /// <summary> registra entregas relaizadas por los alumnos </summary>
         internal static void agregarEntregas(int idAlumno, int tipo, int idEntrega)
         {
             conection.Open();
 
-            comand.CommandText = tipo == tipoTarea ? "INSERT INTO Entregas (alumno, tipo, entregable, calif ) VALUES(" + idAlumno + "," + tipo + ", " + idEntrega + ", " + 0 + ")"
-                : "INSERT INTO Entregas (alumno, tipo, entregable, calif ) VALUES(" + idAlumno + "," + tipo + ", " + idEntrega + ", " + 100 + ")";
+            comand.CommandText = (
+                    tipo == tipoTarea ? 
+                    "INSERT INTO Entregas (alumno, tipo, entregable, calif ) VALUES(" + idAlumno + "," + tipo + ", " + idEntrega + ", " + 0 + ")"
+                    : "INSERT INTO Entregas (alumno, tipo, entregable, calif ) VALUES(" + idAlumno + "," + tipo + ", " + idEntrega + ", " + 100 + ")"
+                );
             comand.Connection = conection;
 
             comand.ExecuteNonQuery();
@@ -1163,7 +1160,7 @@ namespace WindowsFormsApp3
             }
         }
 
-        /// <summary>Establece que el alumno con ese Id sí entregó la tarea</summary>
+        /// <summary> Establece que el alumno con ese Id sí entregó la tarea </summary>
         internal static void setTareaEntregada(int idAlumno, int idTarea)
         {
             try
@@ -1183,7 +1180,7 @@ namespace WindowsFormsApp3
             }
         }
 
-        /// <summary>Establece que el alumno con ese Id no entregó la tarea con ese ID</summary>
+        /// <summary> Establece que el alumno con ese Id no entregó la tarea con ese ID </summary>
         internal static void quitarTareaEntregada(int idAlumno, int idTarea)
         {
             try
