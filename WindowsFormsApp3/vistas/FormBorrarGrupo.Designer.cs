@@ -71,14 +71,13 @@
             "E",
             "F",
             "G",
-            "H",
-            "I",
-            "j",
-            "K"});
+            "H"});
             this.cbGrupo.Location = new System.Drawing.Point(164, 65);
+            this.cbGrupo.MaxLength = 1;
             this.cbGrupo.Name = "cbGrupo";
             this.cbGrupo.Size = new System.Drawing.Size(37, 21);
             this.cbGrupo.TabIndex = 1;
+            this.cbGrupo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbGrupo_KeyPress);
             // 
             // numGrado
             // 
@@ -91,6 +90,7 @@
             this.numGrado.Name = "numGrado";
             this.numGrado.Size = new System.Drawing.Size(34, 20);
             this.numGrado.TabIndex = 0;
+            this.numGrado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numGrado_KeyPress);
             // 
             // txbEscuela
             // 
@@ -99,6 +99,7 @@
             this.txbEscuela.Name = "txbEscuela";
             this.txbEscuela.Size = new System.Drawing.Size(100, 20);
             this.txbEscuela.TabIndex = 2;
+            this.txbEscuela.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbEscuela_KeyPress);
             // 
             // lblGrado
             // 

@@ -41,7 +41,6 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGuardar.Location = new System.Drawing.Point(81, 107);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
@@ -65,6 +64,7 @@
             this.txbEscuela.Name = "txbEscuela";
             this.txbEscuela.Size = new System.Drawing.Size(100, 20);
             this.txbEscuela.TabIndex = 2;
+            this.txbEscuela.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbEscuela_KeyPress);
             // 
             // lblGrupo
             // 
@@ -105,6 +105,7 @@
             0,
             0,
             0});
+            this.numGrado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numGrado_KeyPress);
             // 
             // cbGrupo
             // 
@@ -117,15 +118,14 @@
             "E",
             "F",
             "G",
-            "H",
-            "I",
-            "j",
-            "K"});
+            "H"});
             this.cbGrupo.Location = new System.Drawing.Point(156, 21);
+            this.cbGrupo.MaxLength = 1;
             this.cbGrupo.Name = "cbGrupo";
             this.cbGrupo.Size = new System.Drawing.Size(37, 21);
             this.cbGrupo.TabIndex = 1;
             this.cbGrupo.Text = "A";
+            this.cbGrupo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbGrupo_KeyPress);
             // 
             // FormAgregarGrupo
             // 

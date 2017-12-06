@@ -47,21 +47,20 @@ namespace WindowsFormsApp3.vistas
         /// <summary> para modificar una materia existente </summary>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string nombre = txbNombreMateria.Text;
+            string nombre = txbNombreMateria.Text.Trim();
 
             if (nombre == string.Empty)
             {
                 System.Media.SystemSounds.Beep.Play();
                 txbNombreMateria.Focus();
                 txbNombreMateria.BackColor = Color.LightSalmon;
-
             }
             else
             {
                 //inicial con mayuscula y el reso minusculas
                 nombre = nombre.First().ToString().ToUpper() + nombre.Substring(1);
 
-                Console.WriteLine("Partnre: " + this.Owner.Name + " Editar: " + nombreAnterior);
+                Console.WriteLine("Partner: " + this.Owner.Name + " Editar: " + nombreAnterior);
                 (this.Owner as FormListaMaterias).modificacionMateria( nombre, idMateria, nombreAnterior);
                 dbConection.modificarMateria(idMateria, nombre );
                 this.Dispose();
@@ -71,7 +70,7 @@ namespace WindowsFormsApp3.vistas
         /// <summary> para crear una nueva materia </summary>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            string nombre = txbNombreMateria.Text;
+            string nombre = txbNombreMateria.Text.Trim();
 
             if (nombre == string.Empty)
             {
@@ -89,19 +88,19 @@ namespace WindowsFormsApp3.vistas
 
                 this.Dispose();
             }
-
-
         }
 
         private void txbNombreMateria_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetterOrDigit(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
                 btnGuardar.PerformClick();
-        }
-
-        private void btnGuardar_Click_1(object sender, EventArgs e)
-        {
-
+            }
         }
     }
 }

@@ -24,36 +24,20 @@ namespace WindowsFormsApp3.vistas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //nombre(s)
-            string nombre = txbNombre.Text.Trim();
-            string[] nombres = nombre.Split(' ');
-            nombre = "";
-            foreach (string name in nombres)
-                nombre += ' ' + name.First().ToString().ToUpper() + name.Substring(1);
-            nombre = nombre.Trim();
-
-            //paterno
-            string paterno = txbPaterno.Text.Trim();
-            paterno = paterno.First().ToString().ToUpper() + paterno.Substring(1);
-
-            //materno
-            string materno = txbMaterno.Text.Trim();
-            materno = materno.First().ToString().ToUpper() + materno.Substring(1);
-
             //Validaciones de campos vacíos
-            if ( nombre == "" )
+            if ( txbNombre.Text.Trim() == "" )
             {
                 System.Media.SystemSounds.Beep.Play();
                 txbNombre.Focus();
                 txbNombre.BackColor = Color.LightSalmon;
             }
-            else if( paterno == "" )
+            else if( txbPaterno.Text.Trim() == "" )
             {
                 System.Media.SystemSounds.Beep.Play();
                 txbPaterno.Focus();
                 txbPaterno.BackColor = Color.LightSalmon;
             }
-            else if( materno == "" )
+            else if( txbMaterno.Text.Trim() == "" )
             {
                 System.Media.SystemSounds.Beep.Play();
                 txbMaterno.Focus();
@@ -61,32 +45,77 @@ namespace WindowsFormsApp3.vistas
             }
             else
             {
-                //Este método también agregará todos los registros de las tareas, exámenes y proyectos de todas las materias del grupo al que pertenece
-                Alumno alumno = dbConection.agregarAlumno(idGrupo, nombre, paterno, materno);
+                //nombre(s)
+                string nombre = txbNombre.Text.Trim();
+                string[] nombres = nombre.Split(' ');
+                nombre = "";
+                foreach (string name in nombres)
+                        nombre += ' ' + name.First().ToString().ToUpper() + name.Substring(1);
+                nombre = nombre.Trim();
 
-                FormListaMaterias flm = (FormListaMaterias)this.Owner;
-                flm.recibirAlumno(alumno);
+                //paterno
+                string paterno = txbPaterno.Text.Trim();
+                paterno = paterno.First().ToString().ToUpper() + paterno.Substring(1);
 
-                this.Dispose();
+                //materno
+                string materno = txbMaterno.Text.Trim();
+                materno = materno.First().ToString().ToUpper() + materno.Substring(1);
+
+                if ( !dbConection.alumnoNameExists(idGrupo, nombre, paterno, materno) )
+                {
+                    //Este método también agregará todos los registros de las tareas, exámenes y proyectos de todas las materias del grupo al que pertenece
+                    Alumno alumno = dbConection.agregarAlumno(idGrupo, nombre, paterno, materno);
+
+                    FormListaMaterias flm = (FormListaMaterias)this.Owner;
+                    flm.recibirAlumno(alumno);
+
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Ya existe un alumno con esos nombres, intenta con otro", "Alumno ya registrado", MessageBoxButtons.OK, MessageBoxIcon.Error );
+                    txbNombre.Focus();
+                }
             }
         }
 
         private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetter(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
                 txbPaterno.Focus();
+            }
         }
 
         private void txbPaterno_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetter(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
                 txbMaterno.Focus();
+            }
         }
 
         private void txbMaterno_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetter(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
                 btnGuardar.PerformClick();
+            }
         }
 
 #endregion

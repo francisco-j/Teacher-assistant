@@ -41,7 +41,7 @@ namespace WindowsFormsApp3
             }
             else
             {
-                new FormResultadoBusqueda(txbBusqueda.Text, idMaestro);
+                new FormResultadoBusqueda(txbBusqueda.Text.Trim(), idMaestro);
             }
         }
 
@@ -55,10 +55,7 @@ namespace WindowsFormsApp3
         {
             if( grupos.Count != 10 )
             {
-                if (new FormAgregarGrupo(idMaestro).ShowDialog(this) == DialogResult.OK)
-                {
-                    removeLblInfo();
-                }
+                new FormAgregarGrupo(idMaestro).ShowDialog(this);
             }
             else
             {
@@ -91,6 +88,7 @@ namespace WindowsFormsApp3
 
         public void recibirGrupoNuevo( Grupo newGrupo )
         {
+            removeLblInfo();
             grupos.Add(newGrupo);
             contenedorGrupos.Controls.Add( PersonalizacionComponentes.hacerConternedorGrupo(newGrupo, color) );
             color++;
@@ -149,8 +147,15 @@ namespace WindowsFormsApp3
 
         private void txbBusqueda_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetter(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
                 btnBuscar.PerformClick();
+            }
         }
 
         private void FormListaGrupos_FormClosed(object sender, FormClosedEventArgs e)

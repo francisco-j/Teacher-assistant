@@ -24,7 +24,7 @@ namespace WindowsFormsApp3.vistas
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            if (txbNombreMateria.Text == materia.getNombre())
+            if (txbNombreMateria.Text.ToLower() == materia.getNombre().ToLower())
             {
                 dbConection.borrarMateria(materia.getId());
 
@@ -36,7 +36,19 @@ namespace WindowsFormsApp3.vistas
                 System.Media.SystemSounds.Beep.Play();
                 txbNombreMateria.Focus();
                 txbNombreMateria.BackColor = Color.LightSalmon;
+            }
+        }
 
+        private void txbNombreMateria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetterOrDigit(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
+                btnBorrar.PerformClick();
             }
         }
     }

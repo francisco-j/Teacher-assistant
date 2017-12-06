@@ -12,6 +12,9 @@ namespace WindowsFormsApp3
         public FormInicio()
         {
             InitializeComponent();
+            //txbUsuario.KeyDown += Program.txbUsuario_KeyDown;
+            //txbContrasena.KeyDown += Program.txbUsuario_KeyDown;
+
             this.Show();
         }
 
@@ -59,14 +62,28 @@ namespace WindowsFormsApp3
 
         private void txbUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetterOrDigit(e.KeyChar) && !( e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13 ) )
+            {
+                e.Handled = true;
+            }
+            else if( e.KeyChar == 13 )
+            {
                 txbContrasena.Focus();
+            }
         }
 
         private void txbContrasena_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetterOrDigit(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
                 btnIniciar.PerformClick();
+            }
         }
 
         private void FormInicio_FormClosed(object sender, FormClosedEventArgs e)

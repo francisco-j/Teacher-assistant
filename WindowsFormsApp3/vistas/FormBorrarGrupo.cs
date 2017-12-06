@@ -19,21 +19,61 @@ namespace WindowsFormsApp3.vistas
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            if ( numGrado.Value == grupo.getGrado() &&
-                cbGrupo.Text == grupo.getGrupo() && 
-                txbEscuela.Text == grupo.getEscuela() )
+            if ( numGrado.Value != grupo.getGrado() )
+            {
+                System.Media.SystemSounds.Beep.Play();
+                numGrado.Focus();
+            }
+            else if( cbGrupo.Text.ToLower() != grupo.getGrupo().ToLower() )
+            {
+                System.Media.SystemSounds.Beep.Play();
+                numGrado.Focus();
+            }
+            else if( txbEscuela.Text.ToLower() != grupo.getEscuela().ToLower() )
+            {
+                System.Media.SystemSounds.Beep.Play();
+                txbEscuela.Focus();
+                txbEscuela.BackColor = System.Drawing.Color.LightSalmon;
+            }
+            else
             {
                 dbConection.borrarGrupo(grupo.getId());
 
                 (this.Owner as FormListaGrupos).eliminarGrupo(grupo.getId());
                 this.Dispose();
             }
-            else
+        }
+
+        private void txbEscuela_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetterOrDigit(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
             {
-                System.Media.SystemSounds.Beep.Play();
-                txbEscuela.Focus();
-                txbEscuela.BackColor = Color.LightSalmon;
+                e.Handled = true;
             }
+            else if (e.KeyChar == 13)
+            {
+                btnBorrar.PerformClick();
+            }
+        }
+
+        private void cbGrupo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetterOrDigit(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
+                txbEscuela.Focus();
+            }
+        }
+
+        private void numGrado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                cbGrupo.Focus();
         }
     }
 }

@@ -10,9 +10,9 @@ namespace WindowsFormsApp3
 {
     public partial class FormListaMaterias : Form
     {
-        private int idGrupo;
+        public int idGrupo;
         private List<Materia> materias;
-        private List<Alumno> alumnosGrupo;
+        public List<Alumno> alumnosGrupo;
         private int idMaestro;
         private int color = 0;
 
@@ -36,14 +36,14 @@ namespace WindowsFormsApp3
             cargarAlumnos();
             cargarAsistencias();
 
-            string[] alumnosForPrediccion = new string[alumnosGrupo.Count];
+            /*string[] alumnosForPrediccion = new string[alumnosGrupo.Count];
             for (short i = 0; i < alumnosGrupo.Count; i++ )
             {
                 Alumno alum = alumnosGrupo[i] as Alumno;
                 alumnosForPrediccion[ i ] = alum.getNombres() + " " + alum.getPaterno() + " " + alum.getMaterno();
             }
             txbBusqueda.AutoCompleteCustomSource.AddRange(alumnosForPrediccion);
-
+            */
 
             this.Show();
         }
@@ -96,12 +96,7 @@ namespace WindowsFormsApp3
             if( materias.Count <= 10 )
             {
                 FormAgregarMateria nuevaMateria = new FormAgregarMateria(idGrupo);
-
-                if( nuevaMateria.ShowDialog(this) == DialogResult.OK)
-                {
-                    lblArrowMateria.Dispose();
-                    lblInfoMaterias.Dispose();
-                }
+                nuevaMateria.ShowDialog(this);
             }
             else
             {
@@ -117,8 +112,15 @@ namespace WindowsFormsApp3
 
         private void txbBusqueda_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetter(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
                 btnBuscar.PerformClick();
+            }
         }
 
         /// <summary> Muestra un ventana para agregar un alumno a la BD y a los componentes visuales</summary>
@@ -132,7 +134,6 @@ namespace WindowsFormsApp3
             else
             {
                 MessageBox.Show("Sólo se pueden agregar 60 alumnos por grupo", "Error al agregar alumno", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
 
@@ -142,7 +143,7 @@ namespace WindowsFormsApp3
             if( txbBusqueda.Text == "Nombre del alumno" )
                 new FormResultadoBusqueda("", idMaestro);
             else
-                new FormResultadoBusqueda(txbBusqueda.Text, idMaestro);
+                new FormResultadoBusqueda(txbBusqueda.Text.Trim(), idMaestro);
         }
 
         /// <summary>Obtiene el día seleccionado del calendario cuando se quiere agregar un nuevo día</summary>
@@ -161,6 +162,10 @@ namespace WindowsFormsApp3
                 MessageBox.Show("El día que tratas de agregar ya está contemplado en las asistencias", "Día ya registrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             fecha.Hide();
+
+
+            //int desplazamientoScroll = flPanelAsistencias.HorizontalScroll.Maximum;
+            //flPanelAsistencias.HorizontalScroll.Value = desplazamientoScroll;
         }
 
         /// <summary>Cuando pierde el foco ocultará el calendario de agregar día</summary>
@@ -175,7 +180,9 @@ namespace WindowsFormsApp3
             MonthCalendar fecha = new MonthCalendar();
             this.Controls.Add(fecha);
 
-            fecha.Location = new Point(567, 57);
+            //fecha.Location = new Point(567, 57);
+            fecha.Location = new Point(770, 365);
+
             fecha.Name = "mtcCalendario";
             fecha.Size = new Size(200, 20);
             fecha.TabIndex = 2;
@@ -327,12 +334,13 @@ namespace WindowsFormsApp3
             Console.WriteLine(flPanelFechas.Controls.Count + " dias ");
             if (flPanelFechas.Controls.Count <= 10)
                 agregarLabelControl();
-
         }
 
         /// <summary>Usado para recibir toda la información (incluido el id) de la materia nueva que se acaba de registrar</summary>
         public void recibirMateria( Materia newMateria )
         {
+            lblArrowMateria.Dispose();
+            lblInfoMaterias.Dispose();
             materias.Add(newMateria);
             flPanelMaterias.Controls.Add(PersonalizacionComponentes.hacerBotonMateria(newMateria, color));
             color++;

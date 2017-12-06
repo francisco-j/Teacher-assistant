@@ -44,6 +44,7 @@
             this.txbNombreMateria.Name = "txbNombreMateria";
             this.txbNombreMateria.Size = new System.Drawing.Size(122, 20);
             this.txbNombreMateria.TabIndex = 0;
+            this.txbNombreMateria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbNombreMateria_KeyPress);
             // 
             // lblNombre
             // 

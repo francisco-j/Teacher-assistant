@@ -38,11 +38,12 @@
             // 
             this.txbNombreEntregable.BackColor = System.Drawing.SystemColors.Window;
             this.txbNombreEntregable.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txbNombreEntregable.Location = new System.Drawing.Point(75, 60);
-            this.txbNombreEntregable.MaxLength = 15;
+            this.txbNombreEntregable.Location = new System.Drawing.Point(63, 60);
+            this.txbNombreEntregable.MaxLength = 20;
             this.txbNombreEntregable.Name = "txbNombreEntregable";
-            this.txbNombreEntregable.Size = new System.Drawing.Size(122, 20);
+            this.txbNombreEntregable.Size = new System.Drawing.Size(147, 20);
             this.txbNombreEntregable.TabIndex = 2;
+            this.txbNombreEntregable.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbNombreEntregable_KeyPress);
             // 
             // lblNombre
             // 
@@ -56,8 +57,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGuardar.Location = new System.Drawing.Point(99, 110);
+            this.btnGuardar.Location = new System.Drawing.Point(94, 102);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 4;

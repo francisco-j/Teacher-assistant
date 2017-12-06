@@ -62,7 +62,14 @@ namespace WindowsFormsApp3.vistas
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            mostrar(txbBusqueda.Text, idMaestro);
+            if( txbBusqueda.Text.Trim() != string.Empty )
+                mostrar(txbBusqueda.Text, idMaestro);
+            else
+            {
+                txbBusqueda.Focus();
+                txbBusqueda.BackColor = System.Drawing.Color.LightSalmon;
+                System.Media.SystemSounds.Beep.Play();
+            }
         }
 
         private void lstBxNombres_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -71,7 +78,19 @@ namespace WindowsFormsApp3.vistas
             new FormAlumno(alumnos[index]);
         }
 
-#endregion
+        #endregion
 
+        private void txbBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetter(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
+                btnBuscar.PerformClick();
+            }
+        }
     }
 }

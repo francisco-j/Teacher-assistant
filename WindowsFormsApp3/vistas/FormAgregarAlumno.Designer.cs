@@ -44,7 +44,7 @@
             this.txbNombre.Location = new System.Drawing.Point(118, 30);
             this.txbNombre.MaxLength = 20;
             this.txbNombre.Name = "txbNombre";
-            this.txbNombre.Size = new System.Drawing.Size(100, 20);
+            this.txbNombre.Size = new System.Drawing.Size(114, 20);
             this.txbNombre.TabIndex = 0;
             this.txbNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbNombre_KeyPress);
             // 
@@ -54,7 +54,7 @@
             this.txbPaterno.Location = new System.Drawing.Point(118, 64);
             this.txbPaterno.MaxLength = 15;
             this.txbPaterno.Name = "txbPaterno";
-            this.txbPaterno.Size = new System.Drawing.Size(100, 20);
+            this.txbPaterno.Size = new System.Drawing.Size(114, 20);
             this.txbPaterno.TabIndex = 1;
             this.txbPaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbPaterno_KeyPress);
             // 
@@ -64,7 +64,7 @@
             this.txbMaterno.Location = new System.Drawing.Point(118, 99);
             this.txbMaterno.MaxLength = 15;
             this.txbMaterno.Name = "txbMaterno";
-            this.txbMaterno.Size = new System.Drawing.Size(100, 20);
+            this.txbMaterno.Size = new System.Drawing.Size(114, 20);
             this.txbMaterno.TabIndex = 2;
             this.txbMaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbMaterno_KeyPress);
             // 
@@ -100,7 +100,6 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnGuardar.Location = new System.Drawing.Point(80, 141);
             this.btnGuardar.Name = "btnGuardar";
@@ -127,6 +126,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormAgregarAlumno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Alumno";
             this.ResumeLayout(false);
             this.PerformLayout();

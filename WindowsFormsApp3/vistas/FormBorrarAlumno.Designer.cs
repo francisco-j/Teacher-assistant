@@ -41,19 +41,19 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(109, 86);
-            this.txtNombre.MaxLength = 35;
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(91, 85);
+            this.txtNombre.MaxLength = 20;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(172, 24);
+            this.txtNombre.Size = new System.Drawing.Size(172, 21);
             this.txtNombre.TabIndex = 3;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // btnCambio
             // 
             this.btnCambio.AutoSize = true;
-            this.btnCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCambio.Location = new System.Drawing.Point(109, 219);
+            this.btnCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCambio.Location = new System.Drawing.Point(91, 204);
             this.btnCambio.Name = "btnCambio";
             this.btnCambio.Size = new System.Drawing.Size(75, 28);
             this.btnCambio.TabIndex = 5;
@@ -64,75 +64,75 @@
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
-            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.ForeColor = System.Drawing.Color.Black;
-            this.lblInfo.Location = new System.Drawing.Point(21, 20);
+            this.lblInfo.Location = new System.Drawing.Point(46, 27);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(248, 20);
+            this.lblInfo.Size = new System.Drawing.Size(196, 15);
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "Escribe el nombre del alumno que";
             // 
             // lblInfo2
             // 
             this.lblInfo2.AutoSize = true;
-            this.lblInfo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo2.ForeColor = System.Drawing.Color.Black;
-            this.lblInfo2.Location = new System.Drawing.Point(63, 49);
+            this.lblInfo2.Location = new System.Drawing.Point(86, 55);
             this.lblInfo2.Name = "lblInfo2";
-            this.lblInfo2.Size = new System.Drawing.Size(150, 20);
+            this.lblInfo2.Size = new System.Drawing.Size(119, 15);
             this.lblInfo2.TabIndex = 6;
             this.lblInfo2.Text = "que deseas eliminar";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.Black;
             this.lblNombre.Location = new System.Drawing.Point(16, 88);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(87, 20);
+            this.lblNombre.Size = new System.Drawing.Size(69, 15);
             this.lblNombre.TabIndex = 7;
             this.lblNombre.Text = "Nombre(s):";
             // 
             // lblPaterno
             // 
             this.lblPaterno.AutoSize = true;
-            this.lblPaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPaterno.ForeColor = System.Drawing.Color.Black;
             this.lblPaterno.Location = new System.Drawing.Point(15, 127);
             this.lblPaterno.Name = "lblPaterno";
-            this.lblPaterno.Size = new System.Drawing.Size(88, 20);
+            this.lblPaterno.Size = new System.Drawing.Size(66, 15);
             this.lblPaterno.TabIndex = 8;
             this.lblPaterno.Text = "A. Paterno:";
             // 
             // lblMaterno
             // 
             this.lblMaterno.AutoSize = true;
-            this.lblMaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMaterno.ForeColor = System.Drawing.Color.Black;
             this.lblMaterno.Location = new System.Drawing.Point(12, 169);
             this.lblMaterno.Name = "lblMaterno";
-            this.lblMaterno.Size = new System.Drawing.Size(91, 20);
+            this.lblMaterno.Size = new System.Drawing.Size(69, 15);
             this.lblMaterno.TabIndex = 9;
             this.lblMaterno.Text = "A. Materno:";
             // 
             // txtPaterno
             // 
-            this.txtPaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPaterno.Location = new System.Drawing.Point(109, 125);
+            this.txtPaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPaterno.Location = new System.Drawing.Point(91, 124);
             this.txtPaterno.MaxLength = 15;
             this.txtPaterno.Name = "txtPaterno";
-            this.txtPaterno.Size = new System.Drawing.Size(172, 24);
+            this.txtPaterno.Size = new System.Drawing.Size(172, 21);
             this.txtPaterno.TabIndex = 10;
             this.txtPaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaterno_KeyPress);
             // 
             // txtMaterno
             // 
-            this.txtMaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaterno.Location = new System.Drawing.Point(109, 167);
+            this.txtMaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaterno.Location = new System.Drawing.Point(91, 166);
             this.txtMaterno.MaxLength = 15;
             this.txtMaterno.Name = "txtMaterno";
-            this.txtMaterno.Size = new System.Drawing.Size(172, 24);
+            this.txtMaterno.Size = new System.Drawing.Size(172, 21);
             this.txtMaterno.TabIndex = 11;
             this.txtMaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaterno_KeyPress);
             // 
@@ -141,7 +141,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(302, 277);
+            this.ClientSize = new System.Drawing.Size(289, 264);
             this.Controls.Add(this.txtMaterno);
             this.Controls.Add(this.txtPaterno);
             this.Controls.Add(this.lblMaterno);
@@ -152,6 +152,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblInfo);
             this.Name = "FormBorrarAlumno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eliminar alumno";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -32,19 +32,19 @@ namespace WindowsFormsApp3.vistas
 
         private void editar_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text == "")
+            if (txtNombre.Text.Trim() == "")
             {
                 txtNombre.Focus();
                 txtNombre.BackColor = Color.LightSalmon;
                 System.Media.SystemSounds.Beep.Play();
             }
-            else if (txtPaterno.Text == "")
+            else if (txtPaterno.Text.Trim() == "")
             {
                 txtPaterno.Focus();
                 txtPaterno.BackColor = Color.LightSalmon;
                 System.Media.SystemSounds.Beep.Play();
             }
-            else if (txtMaterno.Text == "")
+            else if (txtMaterno.Text.Trim() == "")
             {
                 txtNombre.Focus();
                 txtNombre.BackColor = Color.LightSalmon;
@@ -63,20 +63,41 @@ namespace WindowsFormsApp3.vistas
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetter(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
                 txtPaterno.Focus();
+            }
         }
 
         private void txtPaterno_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetterOrDigit(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
                 txtMaterno.Focus();
+            }
         }
 
         private void txtMaterno_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetterOrDigit(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
                 btnCambio.PerformClick();
+            }
         }
 
         private void btnCambio_Click(object sender, EventArgs e)
@@ -103,7 +124,6 @@ namespace WindowsFormsApp3.vistas
             {
                 dbConection.borrarAlumno(alumno.getId());
                 this.DialogResult = DialogResult.OK;
-                Console.WriteLine("Borrar");
                 this.Dispose();
             }
         }

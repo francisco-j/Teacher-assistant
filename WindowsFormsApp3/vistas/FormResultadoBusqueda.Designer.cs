@@ -77,10 +77,11 @@
             // 
             this.txbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbBusqueda.Location = new System.Drawing.Point(12, 12);
-            this.txbBusqueda.MaxLength = 65;
+            this.txbBusqueda.MaxLength = 50;
             this.txbBusqueda.Name = "txbBusqueda";
             this.txbBusqueda.Size = new System.Drawing.Size(245, 30);
             this.txbBusqueda.TabIndex = 15;
+            this.txbBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbBusqueda_KeyPress);
             // 
             // btnBuscar
             // 

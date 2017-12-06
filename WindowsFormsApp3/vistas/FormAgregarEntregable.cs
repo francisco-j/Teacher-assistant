@@ -19,13 +19,35 @@ namespace WindowsFormsApp3.vistas
             lblNombre.Text += txtTipo;
         }
 
+        private void txbNombreEntregable_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetterOrDigit(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
+                btnGuardar.PerformClick();
+            }
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string nameEntregable = txbNombreEntregable.Text;
-            // for ( char i = nameEntregable; i <= 10; i++ )
-            Console.WriteLine("Tipo grabado: " + tipo );
-            ( this.Owner as FormGrupoMateria ).recibirIdEntregaNueva( nameEntregable, dbConection.agregarEntregable(tipo, nameEntregable, materia), tipo );
-            this.Dispose();
+            if( txbNombreEntregable.Text.Trim() != string.Empty )
+            {
+                string nameEntregable = txbNombreEntregable.Text;
+                // for ( char i = nameEntregable; i <= 10; i++ )
+                Console.WriteLine("Tipo grabado: " + tipo );
+                ( this.Owner as FormGrupoMateria ).recibirIdEntregaNueva( nameEntregable, dbConection.agregarEntregable(tipo, nameEntregable, materia), tipo );
+                this.Dispose();
+            }
+            else
+            {
+                txbNombreEntregable.Focus();
+                txbNombreEntregable.BackColor = System.Drawing.Color.LightSalmon;
+                System.Media.SystemSounds.Beep.Play();
+            }
         }
     }
 }
