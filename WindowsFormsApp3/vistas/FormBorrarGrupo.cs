@@ -75,11 +75,5 @@ namespace WindowsFormsApp3.vistas
             if (e.KeyChar == 13)
                 cbGrupo.Focus();
         }
-
-        private void txbEscuela_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-                btnBorrar.PerformClick();
-        }
     }
 }

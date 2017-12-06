@@ -36,5 +36,17 @@ namespace WindowsFormsApp3.vistas
                 System.Media.SystemSounds.Beep.Play();
             }
         }
+        private void txbNombreEntregable_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Sólo acepta letras o dígitos, borrar, enter o espacios
+            if (!Char.IsLetter(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == 13)
+            {
+                btnGuardar.PerformClick();
+            }
+        }
     }
 }

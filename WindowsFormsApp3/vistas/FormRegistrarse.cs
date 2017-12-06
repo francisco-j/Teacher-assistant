@@ -83,7 +83,7 @@ namespace WindowsFormsApp3
             }
             else if (e.KeyChar == 13)
             {
-                txbContrasena.Focus();
+                txbConfirmacion.Focus();
             }
         }
 

@@ -45,6 +45,22 @@ namespace WindowsFormsApp3.vistas
             }
             else
             {
+                //nombre(s)
+                string nombre = txbNombre.Text.Trim();
+                string[] nombres = nombre.Split(' ');
+                nombre = "";
+                foreach (string name in nombres)
+                    nombre += ' ' + name.First().ToString().ToUpper() + name.Substring(1);
+                nombre = nombre.Trim();
+
+                //paterno
+                string paterno = txbPaterno.Text.Trim();
+                paterno = paterno.First().ToString().ToUpper() + paterno.Substring(1);
+
+                //materno
+                string materno = txbMaterno.Text.Trim();
+                materno = materno.First().ToString().ToUpper() + materno.Substring(1);
+
                 //Este método también agregará todos los registros de las tareas, exámenes y proyectos de todas las materias del grupo al que pertenece
                 Alumno alumno = dbConection.agregarAlumno(idGrupo, nombre, paterno, materno);
 
@@ -52,13 +68,8 @@ namespace WindowsFormsApp3.vistas
                     flm.recibirAlumno(alumno);
 
                     this.Dispose();
-                }
-                else
-                {
-                    MessageBox.Show("Ya existe un alumno con esos nombres, intenta con otro", "Alumno ya registrado", MessageBoxButtons.OK, MessageBoxIcon.Error );
-                    txbNombre.Focus();
-                }
             }
+           
         }
 
         private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
