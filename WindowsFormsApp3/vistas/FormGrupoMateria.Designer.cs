@@ -34,6 +34,7 @@
             this.grpBxModulo = new System.Windows.Forms.GroupBox();
             this.tlPanel = new System.Windows.Forms.TableLayoutPanel();
             this.flPanelFechas = new System.Windows.Forms.FlowLayoutPanel();
+            this.quitar2 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.flPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.quitar = new System.Windows.Forms.CheckBox();
             this.lblInfoDias = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.lbl2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.quitar2 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.grpBxModulo.SuspendLayout();
             this.tlPanel.SuspendLayout();
             this.flPanelFechas.SuspendLayout();
@@ -133,6 +133,17 @@
             this.flPanelFechas.Size = new System.Drawing.Size(455, 71);
             this.flPanelFechas.TabIndex = 3;
             this.flPanelFechas.WrapContents = false;
+            // 
+            // quitar2
+            // 
+            this.quitar2.Fecha = new System.DateTime(((long)(0)));
+            this.quitar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitar2.Location = new System.Drawing.Point(3, 0);
+            this.quitar2.Name = "quitar2";
+            this.quitar2.RotationAngle = -60D;
+            this.quitar2.Size = new System.Drawing.Size(44, 57);
+            this.quitar2.TabIndex = 0;
+            this.quitar2.Text = "00/00/00";
             // 
             // flPanel
             // 
@@ -496,17 +507,6 @@
             this.lbl1.Size = new System.Drawing.Size(470, 19);
             this.lbl1.TabIndex = 36;
             // 
-            // quitar2
-            // 
-            this.quitar2.Fecha = new System.DateTime(((long)(0)));
-            this.quitar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quitar2.Location = new System.Drawing.Point(3, 0);
-            this.quitar2.Name = "quitar2";
-            this.quitar2.RotationAngle = -60D;
-            this.quitar2.Size = new System.Drawing.Size(44, 57);
-            this.quitar2.TabIndex = 0;
-            this.quitar2.Text = "00/00/00";
-            // 
             // FormGrupoMateria
             // 
             this.AccessibleName = "FormGrupo";
@@ -541,6 +541,8 @@
             this.Controls.Add(this.lblGrupo);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormGrupoMateria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "FormGrupo";

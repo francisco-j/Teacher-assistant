@@ -118,6 +118,8 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormResultadoBusqueda";
             this.Text = "Resultado de Búsqueda";
             this.panel1.ResumeLayout(false);

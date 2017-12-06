@@ -60,7 +60,7 @@ namespace WindowsFormsApp3.vistas
         private void cbGrupo_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Sólo acepta letras o dígitos, borrar, enter o espacios
-            if (!Char.IsLetterOrDigit(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 13))
+            if (!Char.IsLetter(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 13))
             {
                 e.Handled = true;
             }

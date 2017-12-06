@@ -28,7 +28,7 @@ namespace WindowsFormsApp3.vistas
             {
                 dbConection.borrarMateria(materia.getId());
 
-                (this.Owner as FormListaMaterias).eliminarMateria(materia.getId());
+                (this.Owner as frmMaterias).eliminarMateria(materia.getId());
                 this.Dispose();
             }
             else

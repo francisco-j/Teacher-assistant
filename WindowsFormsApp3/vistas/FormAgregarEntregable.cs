@@ -39,7 +39,7 @@ namespace WindowsFormsApp3.vistas
         private void txbNombreEntregable_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Sólo acepta letras o dígitos, borrar, enter o espacios
-            if (!Char.IsLetter(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            if (!Char.IsLetterOrDigit(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
             {
                 e.Handled = true;
             }

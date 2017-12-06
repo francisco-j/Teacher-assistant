@@ -7,7 +7,7 @@ namespace WindowsFormsApp3
     {
         public static FormInicio inicio;
         public static FormListaGrupos listaGrupos;
-        public static FormListaMaterias listaMaterias;
+        public static frmMaterias listaMaterias;
         public static FormGrupoMateria grupo;
 
         [STAThread]
@@ -61,7 +61,7 @@ namespace WindowsFormsApp3
         /// <summary> muestra las materias del grupo especificado </summary>
         internal static void showListaMaterias(int idGrupo, int idMaestro)
         {
-            listaMaterias = new FormListaMaterias(idGrupo, idMaestro);
+            listaMaterias = new frmMaterias(idGrupo, idMaestro);
         }
 
         internal static void returnToListaMaterias()

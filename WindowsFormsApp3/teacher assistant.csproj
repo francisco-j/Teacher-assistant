@@ -115,6 +115,12 @@
     <Compile Include="vistas\FormBorrarMateria.Designer.cs">
       <DependentUpon>FormBorrarMateria.cs</DependentUpon>
     </Compile>
+    <Compile Include="vistas\FormCargando.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\FormCargando.Designer.cs">
+      <DependentUpon>FormCargando.cs</DependentUpon>
+    </Compile>
     <Compile Include="vistas\FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormBorrarMateria.resx">
       <DependentUpon>FormBorrarMateria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\FormCargando.resx">
+      <DependentUpon>FormCargando.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>

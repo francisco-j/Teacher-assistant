@@ -151,6 +151,8 @@
             this.Controls.Add(this.btnCambio);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblInfo);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormBorrarAlumno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eliminar alumno";

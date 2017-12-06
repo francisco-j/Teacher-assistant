@@ -1223,8 +1223,9 @@ namespace WindowsFormsApp3
                 conection.Open();
                 comand.CommandText = 
                     "UPDATE Entregas " +
-                    "SET calif=" + calificacion * 10 + 
+                    "SET calif=" + (int)(calificacion * 10 )+ 
                     " WHERE alumno=" + idAlumno + " AND entregable=" + idEntrega;
+                Console.WriteLine(comand.CommandText);
                 Console.WriteLine(comand.ExecuteNonQuery() + " calificación actualizada al alumno: " + idAlumno);
             }
             finally

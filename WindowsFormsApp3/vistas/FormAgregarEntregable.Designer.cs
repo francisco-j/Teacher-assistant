@@ -75,6 +75,8 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.btnGuardar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormAgregarEntregable";
             this.Text = "Agregar ";
             this.ResumeLayout(false);

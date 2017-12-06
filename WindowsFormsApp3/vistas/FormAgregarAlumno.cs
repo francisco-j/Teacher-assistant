@@ -64,7 +64,7 @@ namespace WindowsFormsApp3.vistas
                 //Este método también agregará todos los registros de las tareas, exámenes y proyectos de todas las materias del grupo al que pertenece
                 Alumno alumno = dbConection.agregarAlumno(idGrupo, nombre, paterno, materno);
 
-                    FormListaMaterias flm = (FormListaMaterias)this.Owner;
+                    frmMaterias flm = (frmMaterias)this.Owner;
                     flm.recibirAlumno(alumno);
 
                     this.Dispose();

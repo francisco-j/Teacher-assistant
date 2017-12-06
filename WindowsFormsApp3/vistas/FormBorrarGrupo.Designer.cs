@@ -143,6 +143,8 @@
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.lblIndicaciones);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormBorrarGrupo";
             this.Text = "Borrar ";
             ((System.ComponentModel.ISupportInitialize)(this.numGrado)).EndInit();

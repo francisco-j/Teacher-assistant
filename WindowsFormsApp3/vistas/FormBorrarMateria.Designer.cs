@@ -86,6 +86,8 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.btnBorrar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormBorrarMateria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Borrar materia";

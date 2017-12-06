@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace WindowsFormsApp3
 {
-    public partial class FormListaMaterias : Form
+    public partial class frmMaterias : Form
     {
         public int idGrupo;
         private List<Materia> materias;
@@ -19,7 +19,7 @@ namespace WindowsFormsApp3
 #region constructor
 
         /// <summary> ventana que muestra la lista de materias del grupo indicado </summary>
-        public FormListaMaterias(int idGrupo, int idMaestro)
+        public frmMaterias(int idGrupo, int idMaestro)
         {
             InitializeComponent();
 

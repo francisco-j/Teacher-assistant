@@ -61,7 +61,7 @@ namespace WindowsFormsApp3.vistas
                 nombre = nombre.First().ToString().ToUpper() + nombre.Substring(1);
 
                 Console.WriteLine("Partner: " + this.Owner.Name + " Editar: " + nombreAnterior);
-                (this.Owner as FormListaMaterias).modificacionMateria( nombre, idMateria, nombreAnterior);
+                (this.Owner as frmMaterias).modificacionMateria( nombre, idMateria, nombreAnterior);
                 dbConection.modificarMateria(idMateria, nombre );
                 this.Dispose();
             }
@@ -84,7 +84,7 @@ namespace WindowsFormsApp3.vistas
                 //inicial con mayuscula y el reso normal
                 nombre = nombre.First().ToString().ToUpper() + nombre.Substring(1);
 
-                (this.Owner as FormListaMaterias).recibirMateria( new Materia( dbConection.agregarMateria(nombre, idGrupo), nombre, idGrupo ) );
+                (this.Owner as frmMaterias).recibirMateria( new Materia( dbConection.agregarMateria(nombre, idGrupo), nombre, idGrupo ) );
 
                 this.Dispose();
             }

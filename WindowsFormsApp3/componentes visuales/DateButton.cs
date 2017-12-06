@@ -35,13 +35,13 @@ namespace WindowsFormsApp3.componentes_visuales
         private void mouseLeaveButton(object sender, EventArgs e)
         {
             string idAlumno = this.Parent.Name;
-            (this.Parent.Parent.Parent.Parent.Parent as FormListaMaterias).asistenciaLeaveSelected(idAlumno, dia.dia.ToString("dd'/'MM'/'yy"));
+            (this.Parent.Parent.Parent.Parent.Parent as frmMaterias).asistenciaLeaveSelected(idAlumno, dia.dia.ToString("dd'/'MM'/'yy"));
         }
 
         private void mouseEnterButton(object sender, EventArgs e)
         {
             string idAlumno = this.Parent.Name;
-            (this.Parent.Parent.Parent.Parent.Parent as FormListaMaterias).asistenciaSelected(idAlumno, dia.dia.ToString("dd'/'MM'/'yy"));
+            (this.Parent.Parent.Parent.Parent.Parent as frmMaterias).asistenciaSelected(idAlumno, dia.dia.ToString("dd'/'MM'/'yy"));
         }
 
         private void clickDateButton(object sender, EventArgs e)

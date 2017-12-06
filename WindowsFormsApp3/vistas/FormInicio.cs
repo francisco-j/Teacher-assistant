@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using WindowsFormsApp3.vistas;
 
 namespace WindowsFormsApp3
 {
@@ -95,6 +96,12 @@ namespace WindowsFormsApp3
         {
             new FormRegistrarse().ShowDialog();
             txbUsuario.Focus();
+        }
+
+        private void btnPruebas_Click(object sender, EventArgs e)
+        {
+            FormCargando carga = new FormCargando(this);
+            carga.ShowDialog(this);
         }
     }
 
