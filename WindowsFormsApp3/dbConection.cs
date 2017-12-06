@@ -75,70 +75,9 @@ namespace WindowsFormsApp3
             }
         }
 
-        /// <summary>Cuando se va a registrar un nuevo alumno se verifica que no exista en ese grupo un alumno con exactamente los mismos nombres</summary>
-        internal static bool alumnoNameExists(int idGrupo, string nombre, string paterno, string materno)
-        {
-            try
-            {
-                conection.Open();
-                comand = new OleDbCommand("SELECT * FROM Alumnos WHERE grupo="+ idGrupo + " AND nombres='" + nombre + "' AND apellidoPaterno='" + paterno + "' AND apellidoMaterno='" + materno + "'", conection);
-                reader = comand.ExecuteReader();
-
-                return reader.HasRows;
-            }
-            finally
-            {
-                reader.Close();
-                conection.Close();
-            }
-        }
-
         #endregion
 
         #region lectura de arrays
-
-        //Ya lo hacen bien otros métodos
-        // <summary> array de una calificacion por cada rubro </summary>
-        /* internal static int[] getCalifRubro(int idAlumno, int[] tiposTareas)
-         {
-             List<int> calif = new List<int>();
-
-             try
-             {
-                 foreach( int rubro in tiposTareas)
-                 {
-                     if (rubro == 1)
-                     {
-                         //lee cantidad de tareas en la amteria
-                         //lee cantidad de tareas de l alumno
-                         //calif.Add entregas/entregadas
-                     }
-                     else
-                     {
-                         conection.Open();
-                         comand.Connection = conection;
-                         comand.CommandText =
-                             "SELECT Avg(calif) " +
-                             "FROM Entregas " +
-                             "WHERE alumno =" + idAlumno ;
-                             //" AND tarea pertenece a la materia" ;
-                         reader = comand.ExecuteReader();
-
-                         reader.Read();
-
-                         Alumno alumno = new Alumno((int)reader["id"], reader["nombres"].ToString(), reader["apellidoPaterno"].ToString(), reader["apellidoMaterno"].ToString(), (int)reader["grupo"]);
-                         Console.WriteLine("Alumno obtenido desde DB: " + alumno.getId());
-                     }
-                     conection.Close();
-                 }
-             }
-             finally
-             {
-                 reader.Close();
-                 conection.Close();
-             }
-             return calif.ToArray();
-         }*/
 
         /// <summary> retorna los grupos asociados al maestro indicado </summary>
         internal static List<Grupo> GruposAsociadosCon(int idUsuario)
@@ -276,32 +215,26 @@ namespace WindowsFormsApp3
         /// <summary> devuelve array con nombres de alumnos que coincidan </summary>
         internal static string[] prediccionBusqueda(string name, int idMaestro)
         {
-            List<int> gruposDeMaestro = new List<int>();
             List<string> lAlumnos = new List<string>();
 
             try
             {
                 conection.Open();
 
-                //para cada grupo busca los alumnos que coincidan
-                foreach (int grupoM in gruposDeMaestro)
-                {
-                    comand.CommandText =
+                comand.CommandText =
                         "SELECT * FROM Alumnos " +
                         "WHERE nombres & ' ' & apellidoPaterno & ' ' & apellidoMaterno like '%" + name + "%'" +
                         "AND grupo IN (" +
                             "SELECT id FROM Grupos " +
                             "WHERE maestro=" + idMaestro +
                         ")";
-                    reader = comand.ExecuteReader();
+                reader = comand.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        string coincidencia = reader["nombres"].ToString() + " " + reader["apellidoPaterno"].ToString() + " " + reader["apellidoMaterno"].ToString();
+                while (reader.Read())
+                {
+                    string coincidencia = reader["nombres"].ToString() + " " + reader["apellidoPaterno"].ToString() + " " + reader["apellidoMaterno"].ToString();
 
-                        lAlumnos.Add(coincidencia);
-                    }
-                    reader.Close();
+                    lAlumnos.Add(coincidencia);
                 }
 
             }
@@ -429,7 +362,7 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM inAsistencias WHERE alumno =" + idAlumno;
+                comand.CommandText = "SELECT dia FROM inAsistencias WHERE alumno =" + idAlumno;
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())
@@ -446,6 +379,7 @@ namespace WindowsFormsApp3
             return lFaltas.ToArray();
         }
 
+        /// <summary> cuenta cuantas faltas tiene el alumo indicado </summary>
         internal static int getNumeroFaltas( int idAlumno )
         {
             try
@@ -462,8 +396,8 @@ namespace WindowsFormsApp3
             }
         }
 
-        /// <summary> array de id's de las tareas entregadas por el alumno indicado </summary>
-        internal static int[] getEntregasTareas(int idAlumno) //+ y que sean de x materia
+        /// <summary> array de id's de las tareas de x materia entregadas por el alumno indicado </summary>
+        internal static int[] getEntregasTareas(int idAlumno, int materia)
         {
             List<int> entregas = new List<int>();
             try
@@ -471,10 +405,13 @@ namespace WindowsFormsApp3
                 conection.Open();
                 comand.Connection = conection;
                 comand.CommandText =
-                    "SELECT * FROM Entregas " +
+                    "SELECT entregable FROM Entregas " +
                     "WHERE alumno =" + idAlumno +
-                    "AND tipo = " + tipoTarea;
-                //+ y que sean de x materia
+                    "AND entregable IN (" +
+                        "SELECT id FROM entregables " +
+                            "WHERE tipo =" + tipoTarea +
+                            "AND materia = " + materia +
+                        ")";
                 reader = comand.ExecuteReader();
 
                 while (reader.Read())
@@ -492,7 +429,7 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> array de calificaciones de los examenes presentados por el alumno indicado </summary>
-        internal static int[] getCalifExam(int idAlumno, Examen[] listExamenes) //+ y que sean de x materia
+        internal static int[] getCalifExam(int idAlumno, Examen[] listExamenes)
         {
             List<int> calificaciones = new List<int>();
             try
@@ -525,7 +462,7 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> array de calificaciones de los proyectos presentados por el alumno indicado </summary>
-        internal static int[] getCalifProy(int idAlumno, Proyecto[] listProyectoss) //+ y que sean de x materia
+        internal static int[] getCalifProy(int idAlumno, Proyecto[] listProyectoss)
         {
             List<int> calificaciones = new List<int>();
             try
@@ -562,27 +499,7 @@ namespace WindowsFormsApp3
 
         #region lectura
 
-        /// <summary> Validación si la fecha que se trata de agregar no existe ya para este grupo </summary>
-        internal static bool dayExists(DateTime dia, int idGrupo)
-        {
-            try
-            {
-                conection.Open();
-                comand.CommandText =
-                    "SELECT * FROM DiasClase " +
-                    "WHERE fecha=#" + dia.ToString("MM'/'dd'/'yy") + "# " +
-                    "AND idGrupo=" + idGrupo;
-                reader = comand.ExecuteReader();
-                reader.Read();
-
-                return (reader.HasRows);
-            }
-            finally
-            {
-                reader.Close();
-                conection.Close();
-            }
-        }
+        
 
         /// <summary> devuelve la cantidad de entregables en la materia especificada </summary>
         internal static int getNumeroEntregablesTotales(int idMateria, int tipo)
@@ -971,22 +888,39 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> agrega un dia al grupo indicado </summary>
-        internal static void agregarDiaClase(DiaClase dia)
+        internal static bool agregarDiaClase(DateTime dia, int idGrupo)
         {
-            comand.CommandText =
-                "INSERT INTO DiasClase " +
-                "(fecha, idGrupo) " +
-                "VALUES(#" + dia.dia.ToString("MM'/'dd'/'yy") + "#, " + dia.idGrupo + " )";
-            comand.Connection = conection;
             try
             {
+                //verificar que el dia no exista
                 conection.Open();
-                comand.ExecuteNonQuery();
-                Console.WriteLine("Dia agregado");
+                comand.CommandText =
+                    "SELECT * FROM DiasClase " +
+                    "WHERE fecha=#" + dia.ToString("MM'/'dd'/'yy") + "# " +
+                    "AND idGrupo=" + idGrupo;
+                reader = comand.ExecuteReader();
+
+                //si ya existe se retorna false y no se agrega el dia
+                if (reader.Read())
+                    return false;
+
+                //sino se continua
+                reader.Close();
+
+                comand.CommandText =
+                    "INSERT INTO DiasClase " +
+                    "(fecha, idGrupo) " +
+                    "VALUES(#" + dia.ToString("MM'/'dd'/'yy") + "#, " + idGrupo + " )";
+                comand.Connection = conection;
+            
+                Console.WriteLine(comand.ExecuteNonQuery() + " Dia agregado");
+
+                return true;
             }
             finally
             {
                 conection.Close();
+                reader.Close();
             }
         }
 
@@ -1004,6 +938,7 @@ namespace WindowsFormsApp3
 
                 conection.Open();
                 comand.ExecuteNonQuery();
+
                 comand.CommandText = "SELECT @@IDENTITY";
                 id = (int)comand.ExecuteScalar();
             }
@@ -1018,7 +953,6 @@ namespace WindowsFormsApp3
         internal static int agregarMateria(String nombre, int salon)
         {
             int id;
-
             try
             {
                 conection.Open();
@@ -1072,19 +1006,25 @@ namespace WindowsFormsApp3
                 comand.Connection = conection;
                 conection.Open();
 
-                comand.CommandText = "INSERT INTO Alumnos (nombres, apellidoPaterno, apellidoMaterno, grupo) " +
+                comand.CommandText = 
+                    "INSERT INTO Alumnos " +
+                    "(nombres, apellidoPaterno, apellidoMaterno, grupo) " +
                     "VALUES('" + nombre + "','" + paterno + "','" + materno + "'," + idGrupo + ")";
                 Console.WriteLine(comand.ExecuteNonQuery() + " alumno agregado");
 
                 //leer id
                 comand.CommandText = "SELECT @@IDENTITY";
                 id = (int)comand.ExecuteScalar();
+                reader.Close();
 
-                conection.Close();
-
-                //Grabar exámenes
-                conection.Open();
-                comand = new OleDbCommand("SELECT id FROM Entregables WHERE tipo = " + 2 + " AND materia IN (SELECT id FROM Materias WHERE grupo = " + idGrupo + ")", conection);
+                //leer exámenes
+                comand.CommandText = 
+                    "SELECT id FROM Entregables " +
+                    "WHERE tipo = " + tipoExam + 
+                    " AND materia IN (" +
+                        "SELECT id FROM Materias " +
+                        "WHERE grupo = " + idGrupo + 
+                    ")";
                 reader = comand.ExecuteReader();
 
                 List<int> examenes = new List<int>();
@@ -1094,16 +1034,18 @@ namespace WindowsFormsApp3
                 }
                 reader.Close();
 
-                foreach (int idExa in examenes)
+                //Grabar exámenes
+                foreach (int idExam in examenes)
                 {
-                    comand.CommandText = "INSERT INTO Entregas (alumno, tipo, entregable, calif) VALUES (" + id + ", " + 2 +
-                        ", " + idExa + ", " + 100 + ")";
+                    comand.CommandText = 
+                        "INSERT INTO Entregas " +
+                        "(alumno, tipo, entregable, calif) " +
+                        "VALUES (" + id + ", " + tipoExam + ", " + idExam + ", " + 100 + ")";
                     comand.ExecuteNonQuery();
                 }
-                conection.Close();
+                reader.Close();
 
                 //Grabar proyectos
-                conection.Open();
                 comand = new OleDbCommand("SELECT id FROM Entregables WHERE tipo = " + 3 + " AND materia IN (SELECT id FROM Materias WHERE grupo = " + idGrupo + ")", conection);
                 reader = comand.ExecuteReader();
 
@@ -1215,7 +1157,7 @@ namespace WindowsFormsApp3
             }
         }
 
-        /// <summary>Actualiza la calificación del alumno con ese id, puede ser de examen o proyecto que tenga ese ID</summary>
+        /// <summary> Actualiza la calificación del alumno con ese id, puede ser de examen o proyecto que tenga ese ID</summary>
         internal static void actualizarCalificacionEntrega(int idAlumno, int idEntrega, decimal calificacion)
         {
             try
@@ -1223,8 +1165,9 @@ namespace WindowsFormsApp3
                 conection.Open();
                 comand.CommandText = 
                     "UPDATE Entregas " +
-                    "SET calif=" + calificacion * 10 + 
+                    "SET calif=" + (int)(calificacion * 10) + 
                     " WHERE alumno=" + idAlumno + " AND entregable=" + idEntrega;
+                Console.WriteLine(comand.CommandText);
                 Console.WriteLine(comand.ExecuteNonQuery() + " calificación actualizada al alumno: " + idAlumno);
             }
             finally

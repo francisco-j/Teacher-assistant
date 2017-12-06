@@ -50,13 +50,13 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> panel con checkbox por cada tarea del alulmno indicado </summary>
-        internal static FlowLayoutPanel hacerPanelTareas(int idAlumno, Tarea[] listTareas)
+        internal static FlowLayoutPanel hacerPanelTareas(int idAlumno, Tarea[] listTareas, int materia)
         {
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.Margin = new Padding(0);
             panel.Name = idAlumno.ToString();
 
-            int[] entregas = dbConection.getEntregasTareas(idAlumno);
+            int[] entregas = dbConection.getEntregasTareas(idAlumno, materia);
 
             foreach (Tarea tarea in listTareas)
             {
