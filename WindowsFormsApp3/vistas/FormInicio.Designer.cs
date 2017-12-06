@@ -29,32 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicio));
-            this.txbContrasena = new System.Windows.Forms.TextBox();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.picVulcanoLogo = new System.Windows.Forms.PictureBox();
             this.picTaLogo = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txbUsuario = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPregunta = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.LinkLabel();
+            this.txbUsuario = new MetroFramework.Controls.MetroTextBox();
+            this.txbContrasena = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picVulcanoLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txbContrasena
-            // 
-            this.txbContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbContrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(109)))), ((int)(((byte)(94)))));
-            this.txbContrasena.Location = new System.Drawing.Point(113, 304);
-            this.txbContrasena.MaxLength = 20;
-            this.txbContrasena.Name = "txbContrasena";
-            this.txbContrasena.PasswordChar = '•';
-            this.txbContrasena.Size = new System.Drawing.Size(200, 21);
-            this.txbContrasena.TabIndex = 1;
-            this.txbContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbContrasena_KeyPress);
             // 
             // btnIniciar
             // 
@@ -92,37 +78,6 @@
             this.picTaLogo.TabIndex = 1;
             this.picTaLogo.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.label1.Location = new System.Drawing.Point(47, 277);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 20);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Usuario:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.label2.Location = new System.Drawing.Point(14, 308);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 20);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Contraseña:";
-            // 
-            // txbUsuario
-            // 
-            this.txbUsuario.Location = new System.Drawing.Point(113, 279);
-            this.txbUsuario.MaxLength = 20;
-            this.txbUsuario.Name = "txbUsuario";
-            this.txbUsuario.Size = new System.Drawing.Size(200, 20);
-            this.txbUsuario.TabIndex = 0;
-            this.txbUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbUsuario_KeyPress);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsFormsApp3.Properties.Resources.icoLogoTexto;
@@ -157,22 +112,88 @@
             this.btnRegistrar.Text = "Regístrate";
             this.btnRegistrar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnRegistrar_LinkClicked);
             // 
+            // txbUsuario
+            // 
+            // 
+            // 
+            // 
+            this.txbUsuario.CustomButton.Image = null;
+            this.txbUsuario.CustomButton.Location = new System.Drawing.Point(179, 1);
+            this.txbUsuario.CustomButton.Name = "";
+            this.txbUsuario.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txbUsuario.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txbUsuario.CustomButton.TabIndex = 1;
+            this.txbUsuario.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txbUsuario.CustomButton.UseSelectable = true;
+            this.txbUsuario.CustomButton.Visible = false;
+            this.txbUsuario.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.txbUsuario.Lines = new string[0];
+            this.txbUsuario.Location = new System.Drawing.Point(113, 248);
+            this.txbUsuario.MaxLength = 20;
+            this.txbUsuario.Name = "txbUsuario";
+            this.txbUsuario.PasswordChar = '\0';
+            this.txbUsuario.PromptText = "Usuario";
+            this.txbUsuario.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txbUsuario.SelectedText = "";
+            this.txbUsuario.SelectionLength = 0;
+            this.txbUsuario.SelectionStart = 0;
+            this.txbUsuario.ShortcutsEnabled = true;
+            this.txbUsuario.Size = new System.Drawing.Size(201, 23);
+            this.txbUsuario.TabIndex = 11;
+            this.txbUsuario.UseSelectable = true;
+            this.txbUsuario.WaterMark = "Usuario";
+            this.txbUsuario.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txbUsuario.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbUsuario_KeyPress);
+            // 
+            // txbContrasena
+            // 
+            // 
+            // 
+            // 
+            this.txbContrasena.CustomButton.Image = null;
+            this.txbContrasena.CustomButton.Location = new System.Drawing.Point(179, 1);
+            this.txbContrasena.CustomButton.Name = "";
+            this.txbContrasena.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txbContrasena.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txbContrasena.CustomButton.TabIndex = 1;
+            this.txbContrasena.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txbContrasena.CustomButton.UseSelectable = true;
+            this.txbContrasena.CustomButton.Visible = false;
+            this.txbContrasena.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.txbContrasena.Lines = new string[0];
+            this.txbContrasena.Location = new System.Drawing.Point(113, 290);
+            this.txbContrasena.MaxLength = 20;
+            this.txbContrasena.Name = "txbContrasena";
+            this.txbContrasena.PasswordChar = '\0';
+            this.txbContrasena.PromptText = "Contraseña";
+            this.txbContrasena.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txbContrasena.SelectedText = "";
+            this.txbContrasena.SelectionLength = 0;
+            this.txbContrasena.SelectionStart = 0;
+            this.txbContrasena.ShortcutsEnabled = true;
+            this.txbContrasena.Size = new System.Drawing.Size(201, 23);
+            this.txbContrasena.TabIndex = 12;
+            this.txbContrasena.UseSelectable = true;
+            this.txbContrasena.WaterMark = "Contraseña";
+            this.txbContrasena.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txbContrasena.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbContrasena_KeyPress);
+            // 
             // FormInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(417, 585);
+            this.Controls.Add(this.txbContrasena);
+            this.Controls.Add(this.txbUsuario);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.lblPregunta);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.txbUsuario);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.picVulcanoLogo);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.picTaLogo);
-            this.Controls.Add(this.txbContrasena);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -190,17 +211,14 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txbContrasena;
         private System.Windows.Forms.PictureBox picTaLogo;
         private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.PictureBox picVulcanoLogo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txbUsuario;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblPregunta;
         private System.Windows.Forms.LinkLabel btnRegistrar;
+        private MetroFramework.Controls.MetroTextBox txbUsuario;
+        private MetroFramework.Controls.MetroTextBox txbContrasena;
     }
 }
 
