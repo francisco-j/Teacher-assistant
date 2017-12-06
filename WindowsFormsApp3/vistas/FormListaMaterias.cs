@@ -153,16 +153,12 @@ namespace WindowsFormsApp3
 
             DateTime dia = fecha.SelectionStart;
 
-            if (!dbConection.dayExists(dia, idGrupo))
-            {
-                dbConection.agregarDiaClase(new DiaClase(dia, idGrupo));
+            if (dbConection.agregarDiaClase(dia, idGrupo))
                 actualizarAssitencia(dia);
-            }
             else
                 MessageBox.Show("El día que tratas de agregar ya está contemplado en las asistencias", "Día ya registrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             fecha.Hide();
-
 
             //int desplazamientoScroll = flPanelAsistencias.HorizontalScroll.Maximum;
             //flPanelAsistencias.HorizontalScroll.Value = desplazamientoScroll;
