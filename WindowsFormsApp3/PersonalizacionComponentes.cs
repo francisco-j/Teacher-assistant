@@ -490,7 +490,7 @@ namespace WindowsFormsApp3
         {
             int idMateria = int.Parse((sender as Button).Name);
 
-            Program.showGrupoMateria(idMateria, ((frmMaterias)Program.listaMaterias).getIdGrupo());
+            Program.showGrupoMateria(idMateria, ((frmMaterias)Program.listaMaterias).idGrupo);
             Program.listaMaterias.Hide();
         }
         

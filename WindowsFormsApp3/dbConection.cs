@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Text;
 using System.Data;
 using System.Linq;
 using System.Data.OleDb;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using System.Text;
 using WindowsFormsApp3.clases_objeto;
 
 namespace WindowsFormsApp3
@@ -19,7 +19,10 @@ namespace WindowsFormsApp3
 
         public const int tipoTarea = 1, tipoExam = 2, tipoProy = 3;
 
-        /// <summary>Utiliza el algoritmo MD5 para encriptar las contraseñas. Cuando se inicia sesión la otra contraseña también se encripta y se comparan encriptadas</summary>
+        
+    #region control
+
+        /// <summary> Utiliza el algoritmo MD5 para encriptar las contraseñas. Cuando se inicia sesión la otra contraseña también se encripta y se comparan encriptadas </summary>
         public static string encriptarPassword(string str)
         {
             MD5 md5 = MD5CryptoServiceProvider.Create();
@@ -31,14 +34,13 @@ namespace WindowsFormsApp3
             return sb.ToString();
         }
 
-        #region control
-
         /// <summary> verifica que la conexion se pueda relizar, muestra respuesta en consola </summary>
         public static bool canConnect()
         {
             try
             {
                 conection.Open();
+                comand.Connection = conection;
 
                 if (conection.State == ConnectionState.Open)
                 {
@@ -66,10 +68,12 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "' AND contrasena='" + encriptarPassword(contrasena) + "'";
+                comand.CommandText = 
+                    "SELECT * FROM Usuarios " +
+                    "WHERE usuario='" + usuario + "' " +
+                    "AND contrasena='" + encriptarPassword(contrasena) + "'";
                 reader = comand.ExecuteReader();
-
+                
                 if (reader.Read())
                 {
                     idUsuario = (int)reader["id"];
@@ -91,7 +95,7 @@ namespace WindowsFormsApp3
 
         #endregion
 
-        #region lectura de arrays
+    #region lecturaDeArrays
 
         /// <summary> retorna los grupos asociados al maestro indicado </summary>
         internal static List<Grupo> GruposAsociadosCon(int idUsuario)
@@ -99,7 +103,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText = "SELECT * FROM Grupos WHERE maestro=" + idUsuario;
                 reader = comand.ExecuteReader();
 
@@ -132,7 +135,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText = "SELECT * FROM Materias WHERE grupo=" + idGrupo;
                 reader = comand.ExecuteReader();
 
@@ -161,7 +163,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText = "SELECT * FROM Alumnos WHERE grupo=" + idGrupo;
                 reader = comand.ExecuteReader();
 
@@ -268,7 +269,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText = "SELECT * FROM DiasClase WHERE idGrupo =" + idGrupo + " ORDER BY fecha ASC";
                 reader = comand.ExecuteReader();
 
@@ -281,17 +281,15 @@ namespace WindowsFormsApp3
                 }
                 else
                 {
+                    int i = 0;
+
                     //Si no necesitas todos mostramos solamente los últimos 5 días de clase registrados
-                    for( int i = 0; i < 5; i++ )
+                    while (reader.Read())
                     {
-                        if( reader.Read() )
-                        {
-                            diasClase.Add(new DiaClase((DateTime)reader["fecha"], (int)reader["idGrupo"]));
-                        }
-                        else
-                        {
+                        if (i > 5)
                             break;
-                        }
+                        diasClase.Add(new DiaClase((DateTime)reader["fecha"], (int)reader["idGrupo"]));
+                        i++;
                     }
                 }
             }
@@ -310,7 +308,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText =
                     "SELECT * FROM Entregables " +
                     "WHERE materia =" + idMateria +
@@ -338,7 +335,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText =
                     "SELECT * FROM Entregables " +
                     "WHERE materia =" + idMateria +
@@ -366,7 +362,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText =
                     "SELECT * FROM Entregables " +
                     "WHERE materia =" + idMateria +
@@ -393,7 +388,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText = "SELECT dia FROM inAsistencias WHERE alumno =" + idAlumno;
                 reader = comand.ExecuteReader();
 
@@ -418,7 +412,6 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.CommandText = "SELECT COUNT(*) FROM inAsistencias WHERE alumno=" + idAlumno;
-                comand.Connection = conection;
 
                 return (int)comand.ExecuteScalar();
             }
@@ -435,7 +428,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText =
                     "SELECT entregable FROM Entregas " +
                     "WHERE alumno =" + idAlumno +
@@ -467,7 +459,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
 
                 foreach (Examen examen in listExamenes)
                 {
@@ -500,7 +491,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
 
                 foreach (Proyecto proy in listProyectoss)
                 {
@@ -529,9 +519,7 @@ namespace WindowsFormsApp3
 
         #endregion
 
-        #region lectura
-
-        
+    #region lectura
 
         /// <summary> devuelve la cantidad de entregables en la materia especificada </summary>
         internal static int getNumeroEntregablesTotales(int idMateria, int tipo)
@@ -542,7 +530,6 @@ namespace WindowsFormsApp3
                 comand.CommandText = "SELECT COUNT(*) FROM Entregables " +
                     "WHERE materia=" + idMateria +
                     "AND tipo=" + tipo;
-                comand.Connection = conection;
                 return (int)comand.ExecuteScalar();
             }
             finally
@@ -559,7 +546,6 @@ namespace WindowsFormsApp3
                 conection.Open();
                 comand.CommandText = "SELECT COUNT(*) FROM Entregas WHERE alumno=" + idAlumno +
                     " AND entregable IN (SELECT id FROM Entregables WHERE tipo=" + tipoTarea + " AND materia=" + idMateria + ")";
-                comand.Connection = conection;
                 return (int)comand.ExecuteScalar();
             }
             finally
@@ -576,7 +562,6 @@ namespace WindowsFormsApp3
                 conection.Open();
                 comand.CommandText = "SELECT AVG(calif) FROM Entregas WHERE alumno=" + idAlumno +
                     " AND entregable IN (SELECT id FROM Entregables WHERE tipo=" + tipo + " AND materia=" + idMateria + ")";
-                comand.Connection = conection;
 
                 object promedio = (object)comand.ExecuteScalar();
                 if (promedio == DBNull.Value)
@@ -626,7 +611,6 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.CommandText = "SELECT * FROM TiposTareas WHERE tipo = " + tipo;
-                comand.Connection = conection;
                 reader = comand.ExecuteReader();
 
                 reader.Read();
@@ -650,7 +634,6 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.CommandText = "SELECT * FROM Grupos WHERE id=" + idGrupo;
-                comand.Connection = conection;
                 reader = comand.ExecuteReader();
 
                 reader.Read();
@@ -672,7 +655,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText = "SELECT * FROM Materias WHERE id=" + idMateria;
                 reader = comand.ExecuteReader();
 
@@ -698,7 +680,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText = "SELECT * FROM Grupos WHERE id=" + idGrupo;
                 reader = comand.ExecuteReader();
 
@@ -725,7 +706,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
 
                 comand.CommandText = "SELECT COUNT(*) FROM Alumnos WHERE grupo=" + idGrupo;
 
@@ -765,7 +745,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
 
 
                 // ** grupo ** //
@@ -813,13 +792,11 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
 
-                comand.Connection = conection;
                 comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoTarea;
                 reader = comand.ExecuteReader();
                 tareas = reader.Read() ? (decimal)((int)reader["porcentage"]) / 10 : 3;
                 reader.Close();
 
-                comand.Connection = conection;
                 comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoExam;
                 reader = comand.ExecuteReader();
                 examenes = reader.Read() ? (decimal)((int)reader["porcentage"]) / 10 : 4;
@@ -839,16 +816,15 @@ namespace WindowsFormsApp3
 
         #endregion
 
-        #region escritura
+    #region escritura
 
-        /// <summary> registra el entregable en la db y regresa su id</summary>
+        /// <summary> registra el entregable en la db y regresa su id </summary>
         internal static int agregarEntregable(int tipo, string nombre, int materia)
         {
             int id = 0;
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText =
                     "INSERT INTO Entregables " +
                     "(tipo, nombre, materia) " +
@@ -877,7 +853,6 @@ namespace WindowsFormsApp3
                     "INSERT INTO Entregas (alumno, tipo, entregable, calif ) VALUES(" + idAlumno + "," + tipo + ", " + idEntrega + ", " + 0 + ")"
                     : "INSERT INTO Entregas (alumno, tipo, entregable, calif ) VALUES(" + idAlumno + "," + tipo + ", " + idEntrega + ", " + 100 + ")"
                 );
-            comand.Connection = conection;
 
             comand.ExecuteNonQuery();
 
@@ -890,7 +865,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "'";
                 reader = comand.ExecuteReader();
 
@@ -903,12 +877,10 @@ namespace WindowsFormsApp3
                 else
                 {
                     reader.Close();
-                    comand = new OleDbCommand();
                     comand.CommandText =
                         "INSERT INTO Usuarios " +
                         "(usuario, contrasena) " +
                         "VALUES('" + usuario + "', '" + encriptarPassword(contra) + "')";
-                    comand.Connection = conection;
                     Console.WriteLine(comand.ExecuteNonQuery() + " línas con cambios");
                 }
             }
@@ -943,7 +915,6 @@ namespace WindowsFormsApp3
                     "INSERT INTO DiasClase " +
                     "(fecha, idGrupo) " +
                     "VALUES(#" + dia.ToString("MM'/'dd'/'yy") + "#, " + idGrupo + " )";
-                comand.Connection = conection;
             
                 Console.WriteLine(comand.ExecuteNonQuery() + " Dia agregado");
 
@@ -962,7 +933,6 @@ namespace WindowsFormsApp3
             int id;
             try
             {
-                comand.Connection = conection;
                 comand.CommandText =
                     "INSERT INTO Grupos " +
                     "(grado, grupo, escuela, maestro) " +
@@ -988,7 +958,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
 
                 //agregar materia
                 comand.CommandText =
@@ -1035,7 +1004,6 @@ namespace WindowsFormsApp3
             int id;
             try
             {
-                comand.Connection = conection;
                 conection.Open();
 
                 comand.CommandText = 
@@ -1096,7 +1064,10 @@ namespace WindowsFormsApp3
                     comand.ExecuteNonQuery();
                 }
                 /*Prueba que no sirvió
-                 * comand.CommandText = "INSERT INTO Entregas (alumno, tipo, entregable, calif) VALUES(" + id + "," + 2 +
+                 * comand.CommandText = 
+                 *      "INSERT INTO Entregas 
+                 *      (alumno, tipo, entregable, calif) 
+                 *      VALUES(" + id + "," + 2 +
                     ", (IN (SELECT id FROM Entregables WHERE tipo= 2 AND materia IN (SELECT id FROM Materias WHERE grupo = " + idGrupo + "))), 100)";
                 Console.WriteLine(comand.CommandText);
                 comand.ExecuteNonQuery();*/
@@ -1118,7 +1089,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText =
                     "INSERT INTO inAsistencias " +
                     "(alumno, dia) " +
@@ -1138,7 +1108,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText =
                     "DELETE * FROM inAsistencias " +
                     "WHERE alumno = " + idAlumno +
@@ -1158,7 +1127,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText = 
                     "INSERT INTO Entregas " +
                     "(alumno, tipo, entregable, calif) " +
@@ -1178,7 +1146,6 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.Connection = conection;
                 comand.CommandText = "DELETE * FROM Entregas WHERE alumno=" + idAlumno + " AND entregable=" + idTarea;
 
                 Console.WriteLine(comand.ExecuteNonQuery() + " Tarea borrada para el alumno: " + idAlumno);
@@ -1210,7 +1177,7 @@ namespace WindowsFormsApp3
 
         #endregion
 
-        #region actualizar
+    #region actualizar
 
         internal static void modificarGrupo(int idGrupo, int grado, char grupo, String escuela)
         {
@@ -1220,7 +1187,6 @@ namespace WindowsFormsApp3
                     + "grupo = '" + grupo + "', "
                     + "escuela = '" + escuela + "'"
                 + "WHERE id = " + idGrupo;
-            comand.Connection = conection;
             try
             {
                 conection.Open();
@@ -1256,7 +1222,6 @@ namespace WindowsFormsApp3
                 "UPDATE Materias " +
                 "SET nombre = '" + nombre +
                 "' WHERE id = " + idMateria;
-            comand.Connection = conection;
             try
             {
                 conection.Open();
@@ -1278,7 +1243,6 @@ namespace WindowsFormsApp3
                     "UPDATE Rubros " +
                     "SET porcentage = " + newValor +
                     " WHERE materia=" + idMateria + "AND tipo =" + tipo;
-                comand.Connection = conection;
 
                 comand.ExecuteNonQuery();
             }
@@ -1291,7 +1255,7 @@ namespace WindowsFormsApp3
 
         #endregion
 
-        #region borrar
+    #region borrar
 
         /// <summary> borra el grupo indicado de la tabla grupos </summary>
         internal static void borrarGrupo(int idGrupo)
@@ -1300,7 +1264,6 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.CommandText = "DELETE FROM Grupos WHERE id = " + idGrupo;
-                comand.Connection = conection;
 
                 comand.ExecuteNonQuery();
 
@@ -1364,7 +1327,6 @@ namespace WindowsFormsApp3
             comand.CommandText =
                 "DELETE FROM Materias " +
                 "WHERE id = " + idMateria;
-            comand.Connection = conection;
             try
             {
                 conection.Open();

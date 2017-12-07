@@ -15,8 +15,9 @@ namespace WindowsFormsApp3
         public List<Alumno> alumnosGrupo;
         private int idMaestro;
         private int color = 0;
+        private bool mostrandoTodosDias;
 
-#region constructor
+    #region constructor
 
         /// <summary> ventana que muestra la lista de materias del grupo indicado </summary>
         public frmMaterias(int idGrupo, int idMaestro)
@@ -28,13 +29,10 @@ namespace WindowsFormsApp3
             this.Text = dbConection.getGrupo( idGrupo ).ToString();
             lblGrupo.Text += this.Text;
 
-            quitar.Dispose();
-            quitar2.Dispose();
-            quitar3.Dispose();
-
             cargarMaterias();
             cargarAlumnos();
-            cargarAsistencias( false );
+            mostrandoTodosDias = false;
+            cargarAsistencias();
 
             /*string[] alumnosForPrediccion = new string[alumnosGrupo.Count];
             for (short i = 0; i < alumnosGrupo.Count; i++ )
@@ -48,9 +46,9 @@ namespace WindowsFormsApp3
             this.Show();
         }
 
-#endregion
+        #endregion
 
-#region ScrollEvents
+    #region ScrollEvents
 
         /// <summary>/// Cuando se mueva el panel de asistencia desplaza también el de fechas en caso de ser horizontal y el de nombres en caso de ser verical/// </summary>
         private void flPanelAsistencias_Scroll(object sender, ScrollEventArgs e)
@@ -83,7 +81,7 @@ namespace WindowsFormsApp3
 
         #endregion
 
-        #region otros eventos
+    #region otros eventos
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
@@ -276,12 +274,7 @@ namespace WindowsFormsApp3
 
 #endregion
 
-#region metodos
-
-        public int getIdGrupo()
-        {
-            return idGrupo;
-        }
+    #region metodos
 
         /// <summary>/// Usado para recibir de FormAgregarAlumno la información del alumno agregado</summary>
         public void recibirAlumno(Alumno nuevo)
@@ -427,23 +420,23 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> llena la lista de asistencias </summary>
-        private void cargarAsistencias( bool todos )
+        private void cargarAsistencias()
         {
-            DiaClase[] diasClase = dbConection.getDiasClase(idGrupo, todos );
+            DiaClase[] diasClase = dbConection.getDiasClase(idGrupo, mostrandoTodosDias);
             
             if( diasClase.Length != 0 )
             {
                 flPanelAsistencias.Controls.Clear();
                 flPanelFechas.Controls.Clear();
                 lblArrowDia.Dispose();
-                foreach (DiaClase dia in diasClase)
+                foreach (DiaClase diaClase in diasClase)
                 {
-                    tiltLabel labelFecha = new tiltLabel(dia);
+                    tiltLabel labelFecha = new tiltLabel(diaClase);
 
                     MenuItem[] menu = {
                         new MenuItem("Borrar", borrarFecha_Click)
                     };
-                    menu[0].Name = dia.dia.ToString("dd'/'MM'/'yy");
+                    menu[0].Name = diaClase.dia.ToString("dd'/'MM'/'yy");
 
                     labelFecha.ContextMenu = new ContextMenu(menu);
                     flPanelFechas.Controls.Add( labelFecha );
@@ -534,16 +527,9 @@ namespace WindowsFormsApp3
 
         private void btnVerTodosDias_Click(object sender, EventArgs e)
         {
-            cargarAsistencias(true);
-            (sender as Button).Text = "Ver últimos 5 días de asistencia";
-            (sender as Button).Click += btnVerTodosDias_ClickUltimosDias;
-        }
-
-        private void btnVerTodosDias_ClickUltimosDias(object sender, EventArgs e)
-        {
-            cargarAsistencias(false);
-            (sender as Button).Text = "Ver todos los días de asistencia";
-            (sender as Button).Click += btnVerTodosDias_Click;
+            mostrandoTodosDias = !mostrandoTodosDias;
+            cargarAsistencias();
+            (sender as Button).Text = mostrandoTodosDias ? "Ver últimos 5 días de asistencia" : "Ver todos los días de asistencia";
         }
     }
 }
