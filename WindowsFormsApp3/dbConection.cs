@@ -3,6 +3,8 @@ using System.Data;
 using System.Linq;
 using System.Data.OleDb;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
 using WindowsFormsApp3.clases_objeto;
 
 namespace WindowsFormsApp3
@@ -16,6 +18,18 @@ namespace WindowsFormsApp3
         private static OleDbDataReader reader;
 
         public const int tipoTarea = 1, tipoExam = 2, tipoProy = 3;
+
+        /// <summary>Utiliza el algoritmo MD5 para encriptar las contraseñas. Cuando se inicia sesión la otra contraseña también se encripta y se comparan encriptadas</summary>
+        public static string encriptarPassword(string str)
+        {
+            MD5 md5 = MD5CryptoServiceProvider.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = md5.ComputeHash(encoding.GetBytes(str));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
+        }
 
         #region control
 
@@ -53,7 +67,7 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "' AND contrasena='" + contrasena + "'";
+                comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "' AND contrasena='" + encriptarPassword(contrasena) + "'";
                 reader = comand.ExecuteReader();
 
                 if (reader.Read())
@@ -875,7 +889,7 @@ namespace WindowsFormsApp3
                     comand.CommandText =
                         "INSERT INTO Usuarios " +
                         "(usuario, contrasena) " +
-                        "VALUES('" + usuario + "', '" + contra + "')";
+                        "VALUES('" + usuario + "', '" + encriptarPassword(contra) + "')";
                     comand.Connection = conection;
                     Console.WriteLine(comand.ExecuteNonQuery() + " línas con cambios");
                 }
