@@ -262,7 +262,7 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> array con los dias de clase del grupo </summary>
-        internal static DiaClase[] getDiasClase(int idGrupo)
+        internal static DiaClase[] getDiasClase(int idGrupo, bool todos )
         {
             List<DiaClase> diasClase = new List<DiaClase>();
             try
@@ -272,9 +272,27 @@ namespace WindowsFormsApp3
                 comand.CommandText = "SELECT * FROM DiasClase WHERE idGrupo =" + idGrupo + " ORDER BY fecha ASC";
                 reader = comand.ExecuteReader();
 
-                while (reader.Read())
+                if( todos )
                 {
-                    diasClase.Add(new DiaClase((DateTime)reader["fecha"], (int)reader["idGrupo"]));
+                    while (reader.Read())
+                    {
+                        diasClase.Add(new DiaClase((DateTime)reader["fecha"], (int)reader["idGrupo"]));
+                    }
+                }
+                else
+                {
+                    //Si no necesitas todos mostramos solamente los últimos 5 días de clase registrados
+                    for( int i = 0; i < 5; i++ )
+                    {
+                        if( reader.Read() )
+                        {
+                            diasClase.Add(new DiaClase((DateTime)reader["fecha"], (int)reader["idGrupo"]));
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
                 }
             }
             finally

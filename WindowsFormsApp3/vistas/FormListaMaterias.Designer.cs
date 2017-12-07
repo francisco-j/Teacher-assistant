@@ -45,7 +45,6 @@
             this.lblInfoAlumnos = new System.Windows.Forms.Label();
             this.lblArrowAlumno = new System.Windows.Forms.Label();
             this.flPanelFechas = new System.Windows.Forms.FlowLayoutPanel();
-            this.quitar2 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.flPanelAsistencias = new System.Windows.Forms.FlowLayoutPanel();
             this.quitar = new System.Windows.Forms.CheckBox();
             this.lblInfoDias = new System.Windows.Forms.Label();
@@ -56,6 +55,8 @@
             this.lbl3 = new System.Windows.Forms.Label();
             this.lblArrowDia = new System.Windows.Forms.Label();
             this.txbBusqueda = new MetroFramework.Controls.MetroTextBox();
+            this.btnVerTodosDias = new System.Windows.Forms.Button();
+            this.quitar2 = new WindowsFormsApp3.componentes_visuales.tiltLabel();
             this.flPanelMaterias.SuspendLayout();
             this.grBoxAsistencia.SuspendLayout();
             this.tlPanel.SuspendLayout();
@@ -124,7 +125,7 @@
             this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Location = new System.Drawing.Point(1035, 39);
+            this.btnBuscar.Location = new System.Drawing.Point(1044, 29);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(32, 23);
             this.btnBuscar.TabIndex = 7;
@@ -255,17 +256,6 @@
             this.flPanelFechas.TabIndex = 0;
             this.flPanelFechas.WrapContents = false;
             // 
-            // quitar2
-            // 
-            this.quitar2.Fecha = new System.DateTime(((long)(0)));
-            this.quitar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quitar2.Location = new System.Drawing.Point(3, 0);
-            this.quitar2.Name = "quitar2";
-            this.quitar2.RotationAngle = -60D;
-            this.quitar2.Size = new System.Drawing.Size(44, 57);
-            this.quitar2.TabIndex = 0;
-            this.quitar2.Text = "00/00/00";
-            // 
             // flPanelAsistencias
             // 
             this.flPanelAsistencias.AutoScroll = true;
@@ -371,7 +361,7 @@
             this.txbBusqueda.CustomButton.Visible = false;
             this.txbBusqueda.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txbBusqueda.Lines = new string[0];
-            this.txbBusqueda.Location = new System.Drawing.Point(820, 39);
+            this.txbBusqueda.Location = new System.Drawing.Point(829, 29);
             this.txbBusqueda.MaxLength = 50;
             this.txbBusqueda.Name = "txbBusqueda";
             this.txbBusqueda.PasswordChar = '\0';
@@ -389,12 +379,37 @@
             this.txbBusqueda.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbBusqueda_KeyPress);
             // 
+            // btnVerTodosDias
+            // 
+            this.btnVerTodosDias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerTodosDias.Image = global::WindowsFormsApp3.Properties.Resources.icoEye16;
+            this.btnVerTodosDias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerTodosDias.Location = new System.Drawing.Point(567, 51);
+            this.btnVerTodosDias.Name = "btnVerTodosDias";
+            this.btnVerTodosDias.Size = new System.Drawing.Size(217, 23);
+            this.btnVerTodosDias.TabIndex = 35;
+            this.btnVerTodosDias.Text = "Ver todos los días de asistencia";
+            this.btnVerTodosDias.UseVisualStyleBackColor = true;
+            this.btnVerTodosDias.Click += new System.EventHandler(this.btnVerTodosDias_Click);
+            // 
+            // quitar2
+            // 
+            this.quitar2.Fecha = new System.DateTime(((long)(0)));
+            this.quitar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitar2.Location = new System.Drawing.Point(3, 0);
+            this.quitar2.Name = "quitar2";
+            this.quitar2.RotationAngle = -60D;
+            this.quitar2.Size = new System.Drawing.Size(44, 57);
+            this.quitar2.TabIndex = 0;
+            this.quitar2.Text = "00/00/00";
+            // 
             // frmMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1079, 578);
+            this.Controls.Add(this.btnVerTodosDias);
             this.Controls.Add(this.txbBusqueda);
             this.Controls.Add(this.lblArrowDia);
             this.Controls.Add(this.lbl1);
@@ -456,5 +471,6 @@
         private System.Windows.Forms.Label lblArrowDia;
         private System.Windows.Forms.Label quitar3;
         private MetroFramework.Controls.MetroTextBox txbBusqueda;
+        private System.Windows.Forms.Button btnVerTodosDias;
     }
 }
