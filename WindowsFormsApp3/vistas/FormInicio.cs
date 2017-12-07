@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp3.vistas;
+using MetroFramework.Controls;
 
 namespace WindowsFormsApp3
 {
@@ -25,8 +26,10 @@ namespace WindowsFormsApp3
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            txbUsuario.BackColor = Color.White;
-            txbContrasena.BackColor = Color.White;
+            //txbUsuario.BackColor = Color.White;
+            //txbContrasena.BackColor = Color.White;
+            txbUsuario.WithError = false;
+            txbContrasena.WithError = false;
 
             string contrasena = txbContrasena.Text;
             string usuario = txbUsuario.Text.Trim();
@@ -35,13 +38,15 @@ namespace WindowsFormsApp3
             {
                 System.Media.SystemSounds.Beep.Play();
                 txbUsuario.Focus();
-                txbUsuario.BackColor = Color.LightSalmon;
+                //txbUsuario.BackColor = Color.LightSalmon;
+                txbUsuario.WithError = true;
             }
             else if (contrasena == string.Empty)
             {
                 System.Media.SystemSounds.Beep.Play();
                 txbContrasena.Focus();
-                txbContrasena.BackColor = Color.LightSalmon;
+                //txbContrasena.BackColor = Color.LightSalmon;
+                txbContrasena.WithError = true;
             }
             else
             {

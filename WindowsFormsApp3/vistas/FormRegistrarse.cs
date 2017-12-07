@@ -13,9 +13,13 @@ namespace WindowsFormsApp3
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            txbUsuario.BackColor = Color.White;
-            txbContrasena.BackColor = Color.White;
-            txbConfirmacion.BackColor = Color.White;
+            //txbUsuario.BackColor = Color.White;
+            //txbContrasena.BackColor = Color.White;
+            //txbConfirmacion.BackColor = Color.White;
+
+            txbUsuario.WithError = false;
+            txbConfirmacion.WithError = false;
+            txbContrasena.WithError = false;
 
             string usuario = txbUsuario.Text.Trim();
             string contraseña = txbContrasena.Text;
@@ -24,20 +28,23 @@ namespace WindowsFormsApp3
             if (usuario == string.Empty)
             {
                 System.Media.SystemSounds.Beep.Play();
-                txbUsuario.BackColor = Color.LightSalmon;
                 txbUsuario.Focus();
+                //txbUsuario.BackColor = Color.LightSalmon;
+                txbUsuario.WithError = true;
             }
             else if (contraseña == string.Empty)
             {
                 System.Media.SystemSounds.Beep.Play();
-                txbContrasena.BackColor = Color.LightSalmon;
                 txbContrasena.Focus();
+                //txbContrasena.BackColor = Color.LightSalmon;
+                txbContrasena.WithError = true;
             }
             else if (confirmacion == string.Empty)
             {
                 System.Media.SystemSounds.Beep.Play();
-                txbConfirmacion.BackColor = Color.LightSalmon;
                 txbConfirmacion.Focus();
+                //txbConfirmacion.BackColor = Color.LightSalmon;
+                txbConfirmacion.WithError = true;
             }
             else if (confirmacion != contraseña)
             {

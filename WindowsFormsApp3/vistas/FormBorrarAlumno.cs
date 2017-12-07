@@ -23,6 +23,10 @@ namespace WindowsFormsApp3.vistas
                 lblInfo2.Text = "que deseas editar";
                 btnCambio.Text = "Guardar cambios";
 
+                txtNombre.Text = alumno.getNombres();
+                txtPaterno.Text = alumno.getPaterno();
+                txtMaterno.Text = alumno.getMaterno();
+
                 btnCambio.Click += editar_Click;
                 //btnCambio.DialogResult = DialogResult.OK;
             }
@@ -77,7 +81,7 @@ namespace WindowsFormsApp3.vistas
         private void txtPaterno_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Sólo acepta letras o dígitos, borrar, enter o espacios
-            if (!Char.IsLetterOrDigit(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            if (!Char.IsLetter(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
             {
                 e.Handled = true;
             }
@@ -90,7 +94,7 @@ namespace WindowsFormsApp3.vistas
         private void txtMaterno_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Sólo acepta letras o dígitos, borrar, enter o espacios
-            if (!Char.IsLetterOrDigit(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
+            if (!Char.IsLetter(e.KeyChar) && !(e.KeyChar == 8 || e.KeyChar == 32 || e.KeyChar == 13))
             {
                 e.Handled = true;
             }
@@ -105,20 +109,23 @@ namespace WindowsFormsApp3.vistas
             if (txtNombre.Text.ToLower() != alumno.getNombres().ToLower())
             {
                 txtNombre.Focus();
-                txtNombre.BackColor = Color.LightSalmon;
                 System.Media.SystemSounds.Beep.Play();
+                //txtNombre.BackColor = Color.LightSalmon;
+                txtNombre.WithError = true;
             }
             else if (txtPaterno.Text.ToLower() != alumno.getPaterno().ToLower())
             {
                 txtPaterno.Focus();
-                txtPaterno.BackColor = Color.LightSalmon;
                 System.Media.SystemSounds.Beep.Play();
+                //txtPaterno.BackColor = Color.LightSalmon;
+                txtPaterno.WithError = true;
             }
             else if (txtMaterno.Text.ToLower() != alumno.getMaterno().ToLower())
             {
                 txtMaterno.Focus();
-                txtMaterno.BackColor = Color.LightSalmon;
                 System.Media.SystemSounds.Beep.Play();
+                //txtMaterno.BackColor = Color.LightSalmon;
+                txtMaterno.WithError = true;
             }
             else
             {

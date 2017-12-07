@@ -61,7 +61,7 @@ namespace WindowsFormsApp3
         private void btnModificar_Click(object sender, EventArgs e)
         {
             int grado = (int)numGrado.Value;
-            char grupo = cbGrupo.Text.First();
+            char grupo = Char.ToUpper( cbGrupo.Text.First() );
             string escuela = txbEscuela.Text.Trim();
 
             //try catch

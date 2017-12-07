@@ -52,7 +52,7 @@
             this.btnIniciar.Location = new System.Drawing.Point(149, 336);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(115, 29);
-            this.btnIniciar.TabIndex = 2;
+            this.btnIniciar.TabIndex = 3;
             this.btnIniciar.Text = "Iniciar Sesión";
             this.btnIniciar.UseVisualStyleBackColor = false;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
@@ -107,13 +107,14 @@
             this.btnRegistrar.Location = new System.Drawing.Point(225, 387);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(73, 15);
-            this.btnRegistrar.TabIndex = 10;
+            this.btnRegistrar.TabIndex = 4;
             this.btnRegistrar.TabStop = true;
             this.btnRegistrar.Text = "Regístrate";
             this.btnRegistrar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnRegistrar_LinkClicked);
             // 
             // txbUsuario
             // 
+            this.txbUsuario.BackColor = System.Drawing.Color.WhiteSmoke;
             // 
             // 
             // 
@@ -139,7 +140,7 @@
             this.txbUsuario.SelectionStart = 0;
             this.txbUsuario.ShortcutsEnabled = true;
             this.txbUsuario.Size = new System.Drawing.Size(201, 23);
-            this.txbUsuario.TabIndex = 11;
+            this.txbUsuario.TabIndex = 1;
             this.txbUsuario.UseSelectable = true;
             this.txbUsuario.WaterMark = "Usuario";
             this.txbUsuario.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -165,7 +166,7 @@
             this.txbContrasena.Location = new System.Drawing.Point(113, 290);
             this.txbContrasena.MaxLength = 20;
             this.txbContrasena.Name = "txbContrasena";
-            this.txbContrasena.PasswordChar = '\0';
+            this.txbContrasena.PasswordChar = '•';
             this.txbContrasena.PromptText = "Contraseña";
             this.txbContrasena.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txbContrasena.SelectedText = "";
@@ -173,7 +174,7 @@
             this.txbContrasena.SelectionStart = 0;
             this.txbContrasena.ShortcutsEnabled = true;
             this.txbContrasena.Size = new System.Drawing.Size(201, 23);
-            this.txbContrasena.TabIndex = 12;
+            this.txbContrasena.TabIndex = 2;
             this.txbContrasena.UseSelectable = true;
             this.txbContrasena.WaterMark = "Contraseña";
             this.txbContrasena.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -200,7 +201,7 @@
             this.MinimizeBox = false;
             this.Name = "FormInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Inicio de Sesión";
+            this.Text = "Inicio de sesión";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormInicio_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.picVulcanoLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTaLogo)).EndInit();

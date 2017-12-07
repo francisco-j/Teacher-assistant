@@ -29,50 +29,61 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAgregarEntregable));
-            this.txbNombreEntregable = new System.Windows.Forms.TextBox();
-            this.lblNombre = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.txbNombreEntregable = new MetroFramework.Controls.MetroTextBox();
             this.SuspendLayout();
-            // 
-            // txbNombreEntregable
-            // 
-            this.txbNombreEntregable.BackColor = System.Drawing.SystemColors.Window;
-            this.txbNombreEntregable.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txbNombreEntregable.Location = new System.Drawing.Point(63, 60);
-            this.txbNombreEntregable.MaxLength = 20;
-            this.txbNombreEntregable.Name = "txbNombreEntregable";
-            this.txbNombreEntregable.Size = new System.Drawing.Size(147, 20);
-            this.txbNombreEntregable.TabIndex = 2;
-            this.txbNombreEntregable.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbNombreEntregable_KeyPress);
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblNombre.Location = new System.Drawing.Point(68, 37);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(91, 20);
-            this.lblNombre.TabIndex = 3;
-            this.lblNombre.Text = "Nombre de ";
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(94, 102);
+            this.btnGuardar.Location = new System.Drawing.Point(92, 92);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 4;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // txbNombreEntregable
+            // 
+            // 
+            // 
+            // 
+            this.txbNombreEntregable.CustomButton.Image = null;
+            this.txbNombreEntregable.CustomButton.Location = new System.Drawing.Point(195, 1);
+            this.txbNombreEntregable.CustomButton.Name = "";
+            this.txbNombreEntregable.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txbNombreEntregable.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txbNombreEntregable.CustomButton.TabIndex = 1;
+            this.txbNombreEntregable.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txbNombreEntregable.CustomButton.UseSelectable = true;
+            this.txbNombreEntregable.CustomButton.Visible = false;
+            this.txbNombreEntregable.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.txbNombreEntregable.Lines = new string[0];
+            this.txbNombreEntregable.Location = new System.Drawing.Point(30, 44);
+            this.txbNombreEntregable.MaxLength = 20;
+            this.txbNombreEntregable.Name = "txbNombreEntregable";
+            this.txbNombreEntregable.PasswordChar = '\0';
+            this.txbNombreEntregable.PromptText = "Nombre";
+            this.txbNombreEntregable.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txbNombreEntregable.SelectedText = "";
+            this.txbNombreEntregable.SelectionLength = 0;
+            this.txbNombreEntregable.SelectionStart = 0;
+            this.txbNombreEntregable.ShortcutsEnabled = true;
+            this.txbNombreEntregable.Size = new System.Drawing.Size(217, 23);
+            this.txbNombreEntregable.TabIndex = 0;
+            this.txbNombreEntregable.UseSelectable = true;
+            this.txbNombreEntregable.WaterMark = "Nombre";
+            this.txbNombreEntregable.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txbNombreEntregable.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNombreEntregable.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbNombreEntregable_KeyPress);
             // 
             // FormAgregarEntregable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(284, 171);
+            this.ClientSize = new System.Drawing.Size(269, 148);
             this.Controls.Add(this.txbNombreEntregable);
-            this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.btnGuardar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -80,14 +91,11 @@
             this.Name = "FormAgregarEntregable";
             this.Text = "Agregar ";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txbNombreEntregable;
-        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnGuardar;
+        private MetroFramework.Controls.MetroTextBox txbNombreEntregable;
     }
 }
