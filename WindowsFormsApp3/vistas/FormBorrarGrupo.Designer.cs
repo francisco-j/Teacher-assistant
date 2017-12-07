@@ -33,10 +33,9 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.cbGrupo = new System.Windows.Forms.ComboBox();
             this.numGrado = new System.Windows.Forms.NumericUpDown();
-            this.txbEscuela = new System.Windows.Forms.TextBox();
             this.lblGrado = new System.Windows.Forms.Label();
             this.lblGrupo = new System.Windows.Forms.Label();
-            this.lblEscuela = new System.Windows.Forms.Label();
+            this.txbEscuela = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numGrado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +45,7 @@
             this.lblIndicaciones.Location = new System.Drawing.Point(25, 31);
             this.lblIndicaciones.Name = "lblIndicaciones";
             this.lblIndicaciones.Size = new System.Drawing.Size(228, 13);
-            this.lblIndicaciones.TabIndex = 0;
+            this.lblIndicaciones.TabIndex = 4;
             this.lblIndicaciones.Text = "Confirma la informacion del grupo para borrarlo.";
             // 
             // btnBorrar
@@ -92,22 +91,13 @@
             this.numGrado.TabIndex = 0;
             this.numGrado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numGrado_KeyPress);
             // 
-            // txbEscuela
-            // 
-            this.txbEscuela.Location = new System.Drawing.Point(101, 107);
-            this.txbEscuela.MaxLength = 35;
-            this.txbEscuela.Name = "txbEscuela";
-            this.txbEscuela.Size = new System.Drawing.Size(100, 20);
-            this.txbEscuela.TabIndex = 2;
-            this.txbEscuela.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbEscuela_KeyPress);
-            // 
             // lblGrado
             // 
             this.lblGrado.AutoSize = true;
             this.lblGrado.Location = new System.Drawing.Point(45, 66);
             this.lblGrado.Name = "lblGrado";
             this.lblGrado.Size = new System.Drawing.Size(39, 13);
-            this.lblGrado.TabIndex = 11;
+            this.lblGrado.TabIndex = 5;
             this.lblGrado.Text = "Grado:";
             // 
             // lblGrupo
@@ -119,14 +109,39 @@
             this.lblGrupo.TabIndex = 15;
             this.lblGrupo.Text = "Grupo:";
             // 
-            // lblEscuela
+            // txbEscuela
             // 
-            this.lblEscuela.AutoSize = true;
-            this.lblEscuela.Location = new System.Drawing.Point(47, 107);
-            this.lblEscuela.Name = "lblEscuela";
-            this.lblEscuela.Size = new System.Drawing.Size(48, 13);
-            this.lblEscuela.TabIndex = 13;
-            this.lblEscuela.Text = "Escuela:";
+            // 
+            // 
+            // 
+            this.txbEscuela.CustomButton.Image = null;
+            this.txbEscuela.CustomButton.Location = new System.Drawing.Point(195, 1);
+            this.txbEscuela.CustomButton.Name = "";
+            this.txbEscuela.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txbEscuela.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txbEscuela.CustomButton.TabIndex = 1;
+            this.txbEscuela.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txbEscuela.CustomButton.UseSelectable = true;
+            this.txbEscuela.CustomButton.Visible = false;
+            this.txbEscuela.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.txbEscuela.Lines = new string[0];
+            this.txbEscuela.Location = new System.Drawing.Point(28, 108);
+            this.txbEscuela.MaxLength = 35;
+            this.txbEscuela.Name = "txbEscuela";
+            this.txbEscuela.PasswordChar = '\0';
+            this.txbEscuela.PromptText = "Nombre";
+            this.txbEscuela.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txbEscuela.SelectedText = "";
+            this.txbEscuela.SelectionLength = 0;
+            this.txbEscuela.SelectionStart = 0;
+            this.txbEscuela.ShortcutsEnabled = true;
+            this.txbEscuela.Size = new System.Drawing.Size(217, 23);
+            this.txbEscuela.TabIndex = 2;
+            this.txbEscuela.UseSelectable = true;
+            this.txbEscuela.WaterMark = "Nombre";
+            this.txbEscuela.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txbEscuela.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbEscuela.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbEscuela_KeyPress);
             // 
             // FormBorrarGrupo
             // 
@@ -134,18 +149,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(206)))), ((int)(((byte)(180)))));
             this.ClientSize = new System.Drawing.Size(264, 181);
+            this.Controls.Add(this.txbEscuela);
             this.Controls.Add(this.cbGrupo);
             this.Controls.Add(this.numGrado);
-            this.Controls.Add(this.txbEscuela);
             this.Controls.Add(this.lblGrado);
             this.Controls.Add(this.lblGrupo);
-            this.Controls.Add(this.lblEscuela);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.lblIndicaciones);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormBorrarGrupo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Borrar ";
             ((System.ComponentModel.ISupportInitialize)(this.numGrado)).EndInit();
             this.ResumeLayout(false);
@@ -159,9 +174,8 @@
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.ComboBox cbGrupo;
         private System.Windows.Forms.NumericUpDown numGrado;
-        private System.Windows.Forms.TextBox txbEscuela;
         private System.Windows.Forms.Label lblGrado;
         private System.Windows.Forms.Label lblGrupo;
-        private System.Windows.Forms.Label lblEscuela;
+        private MetroFramework.Controls.MetroTextBox txbEscuela;
     }
 }

@@ -53,7 +53,8 @@ namespace WindowsFormsApp3.vistas
             {
                 System.Media.SystemSounds.Beep.Play();
                 txbNombreMateria.Focus();
-                txbNombreMateria.BackColor = Color.LightSalmon;
+                //txbNombreMateria.BackColor = Color.LightSalmon;
+                txbNombreMateria.WithError = true;
             }
             else
             {
@@ -76,8 +77,8 @@ namespace WindowsFormsApp3.vistas
             {
                 System.Media.SystemSounds.Beep.Play();
                 txbNombreMateria.Focus();
-                txbNombreMateria.BackColor = Color.LightSalmon;
-
+                //txbNombreMateria.BackColor = Color.LightSalmon;
+                txbNombreMateria.WithError = true;
             }
             else
             {

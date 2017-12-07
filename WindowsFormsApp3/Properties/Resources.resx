@@ -121,29 +121,29 @@
   <data name="icoAddGeneric" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icoBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icoBuscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buscar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icoCheckMark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icoCheckMark241.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icoMenCalif" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\examenespeque.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icoAddAlumno" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoAddAlumno32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icoAddMateria" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoMateria32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icoMenTareas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Notas 2 peque.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icoMenExam" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Examenes o calificacionespeque.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icoLogOut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoLogOut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icoAddDia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icoCalendar32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icoExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icoLogOut1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icoLogOut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoLogOut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icoTeacherAssistant" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icoTeacherAssistant.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,25 +160,28 @@
   <data name="icoArrow961" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icoArrow961.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icoAddAlumno" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoAddAlumno32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icoMenExam" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Examenes o calificacionespeque.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icoMenProy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Notaspeque.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icoBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icoAddMateria" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoMateria32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icoLogoSolo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo solo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icoMenTareas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Notas 2 peque.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icoArrow9611" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoArrow9611.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoMenCalif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\examenespeque.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icoArrow9611" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icoArrow9611.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icoEye16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoEye16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

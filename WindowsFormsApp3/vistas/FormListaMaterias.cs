@@ -34,7 +34,7 @@ namespace WindowsFormsApp3
 
             cargarMaterias();
             cargarAlumnos();
-            cargarAsistencias();
+            cargarAsistencias( false );
 
             /*string[] alumnosForPrediccion = new string[alumnosGrupo.Count];
             for (short i = 0; i < alumnosGrupo.Count; i++ )
@@ -427,13 +427,14 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> llena la lista de asistencias </summary>
-        private void cargarAsistencias()
+        private void cargarAsistencias( bool todos )
         {
-            DiaClase[] diasClase = dbConection.getDiasClase(idGrupo);
+            DiaClase[] diasClase = dbConection.getDiasClase(idGrupo, todos );
             
             if( diasClase.Length != 0 )
             {
                 flPanelAsistencias.Controls.Clear();
+                flPanelFechas.Controls.Clear();
                 lblArrowDia.Dispose();
                 foreach (DiaClase dia in diasClase)
                 {
@@ -529,6 +530,20 @@ namespace WindowsFormsApp3
                 txbBusqueda.Text = "";
                 txbBusqueda.ReadOnly = false;
             }
+        }
+
+        private void btnVerTodosDias_Click(object sender, EventArgs e)
+        {
+            cargarAsistencias(true);
+            (sender as Button).Text = "Ver últimos 5 días de asistencia";
+            (sender as Button).Click += btnVerTodosDias_ClickUltimosDias;
+        }
+
+        private void btnVerTodosDias_ClickUltimosDias(object sender, EventArgs e)
+        {
+            cargarAsistencias(false);
+            (sender as Button).Text = "Ver todos los días de asistencia";
+            (sender as Button).Click += btnVerTodosDias_Click;
         }
     }
 }

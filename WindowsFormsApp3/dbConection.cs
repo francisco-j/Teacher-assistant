@@ -3,6 +3,8 @@ using System.Data;
 using System.Linq;
 using System.Data.OleDb;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
 using WindowsFormsApp3.clases_objeto;
 
 namespace WindowsFormsApp3
@@ -16,6 +18,18 @@ namespace WindowsFormsApp3
         private static OleDbDataReader reader;
 
         public const int tipoTarea = 1, tipoExam = 2, tipoProy = 3;
+
+        /// <summary>Utiliza el algoritmo MD5 para encriptar las contraseñas. Cuando se inicia sesión la otra contraseña también se encripta y se comparan encriptadas</summary>
+        public static string encriptarPassword(string str)
+        {
+            MD5 md5 = MD5CryptoServiceProvider.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = md5.ComputeHash(encoding.GetBytes(str));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
+        }
 
         #region control
 
@@ -53,7 +67,7 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
                 comand.Connection = conection;
-                comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "' AND contrasena='" + contrasena + "'";
+                comand.CommandText = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "' AND contrasena='" + encriptarPassword(contrasena) + "'";
                 reader = comand.ExecuteReader();
 
                 if (reader.Read())
@@ -248,7 +262,7 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> array con los dias de clase del grupo </summary>
-        internal static DiaClase[] getDiasClase(int idGrupo)
+        internal static DiaClase[] getDiasClase(int idGrupo, bool todos )
         {
             List<DiaClase> diasClase = new List<DiaClase>();
             try
@@ -258,9 +272,27 @@ namespace WindowsFormsApp3
                 comand.CommandText = "SELECT * FROM DiasClase WHERE idGrupo =" + idGrupo + " ORDER BY fecha ASC";
                 reader = comand.ExecuteReader();
 
-                while (reader.Read())
+                if( todos )
                 {
-                    diasClase.Add(new DiaClase((DateTime)reader["fecha"], (int)reader["idGrupo"]));
+                    while (reader.Read())
+                    {
+                        diasClase.Add(new DiaClase((DateTime)reader["fecha"], (int)reader["idGrupo"]));
+                    }
+                }
+                else
+                {
+                    //Si no necesitas todos mostramos solamente los últimos 5 días de clase registrados
+                    for( int i = 0; i < 5; i++ )
+                    {
+                        if( reader.Read() )
+                        {
+                            diasClase.Add(new DiaClase((DateTime)reader["fecha"], (int)reader["idGrupo"]));
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
                 }
             }
             finally
@@ -875,7 +907,7 @@ namespace WindowsFormsApp3
                     comand.CommandText =
                         "INSERT INTO Usuarios " +
                         "(usuario, contrasena) " +
-                        "VALUES('" + usuario + "', '" + contra + "')";
+                        "VALUES('" + usuario + "', '" + encriptarPassword(contra) + "')";
                     comand.Connection = conection;
                     Console.WriteLine(comand.ExecuteNonQuery() + " línas con cambios");
                 }

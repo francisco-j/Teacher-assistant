@@ -173,6 +173,16 @@ namespace WindowsFormsApp3.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icoEye16 {
+            get {
+                object obj = ResourceManager.GetObject("icoEye16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icoLogoSolo {
             get {
                 object obj = ResourceManager.GetObject("icoLogoSolo", resourceCulture);

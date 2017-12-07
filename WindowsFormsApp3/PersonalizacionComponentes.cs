@@ -359,7 +359,6 @@ namespace WindowsFormsApp3
                 Label nombre = hacerLabelAlumno(alumno);
                 //El evento para el click derecho de las etiquetas se debe programar donde se manda llamar este método para poder
                 //vincular el panel con los cambios y no tener que refrescar la pantalla
-
                 panel.Controls.Add(nombre);
             }
         }

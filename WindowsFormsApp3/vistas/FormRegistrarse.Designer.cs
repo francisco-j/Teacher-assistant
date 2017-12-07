@@ -29,54 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistrarse));
-            this.txbUsuario = new System.Windows.Forms.TextBox();
-            this.txbContrasena = new System.Windows.Forms.TextBox();
-            this.txbConfirmacion = new System.Windows.Forms.TextBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.lblContrasena = new System.Windows.Forms.Label();
-            this.lblConfirmacion = new System.Windows.Forms.Label();
+            this.txbConfirmacion = new MetroFramework.Controls.MetroTextBox();
+            this.txbContrasena = new MetroFramework.Controls.MetroTextBox();
+            this.txbUsuario = new MetroFramework.Controls.MetroTextBox();
             this.SuspendLayout();
-            // 
-            // txbUsuario
-            // 
-            this.txbUsuario.Location = new System.Drawing.Point(197, 22);
-            this.txbUsuario.MaxLength = 20;
-            this.txbUsuario.Name = "txbUsuario";
-            this.txbUsuario.Size = new System.Drawing.Size(130, 20);
-            this.txbUsuario.TabIndex = 0;
-            this.txbUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbUsuario_KeyPress);
-            // 
-            // txbContrasena
-            // 
-            this.txbContrasena.Location = new System.Drawing.Point(197, 55);
-            this.txbContrasena.MaxLength = 20;
-            this.txbContrasena.Name = "txbContrasena";
-            this.txbContrasena.PasswordChar = '•';
-            this.txbContrasena.Size = new System.Drawing.Size(130, 20);
-            this.txbContrasena.TabIndex = 1;
-            this.txbContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbContrasena_KeyPress);
-            // 
-            // txbConfirmacion
-            // 
-            this.txbConfirmacion.Location = new System.Drawing.Point(197, 93);
-            this.txbConfirmacion.MaxLength = 20;
-            this.txbConfirmacion.Name = "txbConfirmacion";
-            this.txbConfirmacion.PasswordChar = '•';
-            this.txbConfirmacion.Size = new System.Drawing.Size(130, 20);
-            this.txbConfirmacion.TabIndex = 2;
-            this.txbConfirmacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbConfirmacion_KeyPress);
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(35, 22);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(147, 20);
-            this.lblUsuario.TabIndex = 3;
-            this.lblUsuario.Text = "Nombre de usuario:";
             // 
             // btnRegistrar
             // 
@@ -93,27 +50,107 @@
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
-            // lblContrasena
+            // txbConfirmacion
             // 
-            this.lblContrasena.AutoSize = true;
-            this.lblContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContrasena.ForeColor = System.Drawing.Color.White;
-            this.lblContrasena.Location = new System.Drawing.Point(86, 55);
-            this.lblContrasena.Name = "lblContrasena";
-            this.lblContrasena.Size = new System.Drawing.Size(96, 20);
-            this.lblContrasena.TabIndex = 5;
-            this.lblContrasena.Text = "Contraseña:";
             // 
-            // lblConfirmacion
             // 
-            this.lblConfirmacion.AutoSize = true;
-            this.lblConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmacion.ForeColor = System.Drawing.Color.White;
-            this.lblConfirmacion.Location = new System.Drawing.Point(16, 93);
-            this.lblConfirmacion.Name = "lblConfirmacion";
-            this.lblConfirmacion.Size = new System.Drawing.Size(166, 20);
-            this.lblConfirmacion.TabIndex = 6;
-            this.lblConfirmacion.Text = "Confirmar contraseña:";
+            // 
+            this.txbConfirmacion.CustomButton.Image = null;
+            this.txbConfirmacion.CustomButton.Location = new System.Drawing.Point(254, 1);
+            this.txbConfirmacion.CustomButton.Name = "";
+            this.txbConfirmacion.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txbConfirmacion.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txbConfirmacion.CustomButton.TabIndex = 1;
+            this.txbConfirmacion.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txbConfirmacion.CustomButton.UseSelectable = true;
+            this.txbConfirmacion.CustomButton.Visible = false;
+            this.txbConfirmacion.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.txbConfirmacion.Lines = new string[0];
+            this.txbConfirmacion.Location = new System.Drawing.Point(41, 95);
+            this.txbConfirmacion.MaxLength = 20;
+            this.txbConfirmacion.Name = "txbConfirmacion";
+            this.txbConfirmacion.PasswordChar = '•';
+            this.txbConfirmacion.PromptText = "Confirmación contraseña";
+            this.txbConfirmacion.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txbConfirmacion.SelectedText = "";
+            this.txbConfirmacion.SelectionLength = 0;
+            this.txbConfirmacion.SelectionStart = 0;
+            this.txbConfirmacion.ShortcutsEnabled = true;
+            this.txbConfirmacion.Size = new System.Drawing.Size(276, 23);
+            this.txbConfirmacion.TabIndex = 2;
+            this.txbConfirmacion.UseSelectable = true;
+            this.txbConfirmacion.WaterMark = "Confirmación contraseña";
+            this.txbConfirmacion.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txbConfirmacion.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbConfirmacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbConfirmacion_KeyPress);
+            // 
+            // txbContrasena
+            // 
+            // 
+            // 
+            // 
+            this.txbContrasena.CustomButton.Image = null;
+            this.txbContrasena.CustomButton.Location = new System.Drawing.Point(254, 1);
+            this.txbContrasena.CustomButton.Name = "";
+            this.txbContrasena.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txbContrasena.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txbContrasena.CustomButton.TabIndex = 1;
+            this.txbContrasena.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txbContrasena.CustomButton.UseSelectable = true;
+            this.txbContrasena.CustomButton.Visible = false;
+            this.txbContrasena.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.txbContrasena.Lines = new string[0];
+            this.txbContrasena.Location = new System.Drawing.Point(41, 60);
+            this.txbContrasena.MaxLength = 20;
+            this.txbContrasena.Name = "txbContrasena";
+            this.txbContrasena.PasswordChar = '•';
+            this.txbContrasena.PromptText = "Contraseña";
+            this.txbContrasena.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txbContrasena.SelectedText = "";
+            this.txbContrasena.SelectionLength = 0;
+            this.txbContrasena.SelectionStart = 0;
+            this.txbContrasena.ShortcutsEnabled = true;
+            this.txbContrasena.Size = new System.Drawing.Size(276, 23);
+            this.txbContrasena.TabIndex = 1;
+            this.txbContrasena.UseSelectable = true;
+            this.txbContrasena.WaterMark = "Contraseña";
+            this.txbContrasena.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txbContrasena.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbContrasena_KeyPress);
+            // 
+            // txbUsuario
+            // 
+            // 
+            // 
+            // 
+            this.txbUsuario.CustomButton.Image = null;
+            this.txbUsuario.CustomButton.Location = new System.Drawing.Point(254, 1);
+            this.txbUsuario.CustomButton.Name = "";
+            this.txbUsuario.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txbUsuario.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txbUsuario.CustomButton.TabIndex = 1;
+            this.txbUsuario.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txbUsuario.CustomButton.UseSelectable = true;
+            this.txbUsuario.CustomButton.Visible = false;
+            this.txbUsuario.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.txbUsuario.Lines = new string[0];
+            this.txbUsuario.Location = new System.Drawing.Point(41, 26);
+            this.txbUsuario.MaxLength = 20;
+            this.txbUsuario.Name = "txbUsuario";
+            this.txbUsuario.PasswordChar = '\0';
+            this.txbUsuario.PromptText = "Usuario";
+            this.txbUsuario.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txbUsuario.SelectedText = "";
+            this.txbUsuario.SelectionLength = 0;
+            this.txbUsuario.SelectionStart = 0;
+            this.txbUsuario.ShortcutsEnabled = true;
+            this.txbUsuario.Size = new System.Drawing.Size(276, 23);
+            this.txbUsuario.TabIndex = 0;
+            this.txbUsuario.UseSelectable = true;
+            this.txbUsuario.WaterMark = "Usuario";
+            this.txbUsuario.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txbUsuario.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbUsuario_KeyPress);
             // 
             // FormRegistrarse
             // 
@@ -121,13 +158,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(164)))), ((int)(((byte)(140)))));
             this.ClientSize = new System.Drawing.Size(354, 181);
-            this.Controls.Add(this.lblConfirmacion);
-            this.Controls.Add(this.lblContrasena);
-            this.Controls.Add(this.btnRegistrar);
-            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.txbConfirmacion);
             this.Controls.Add(this.txbContrasena);
             this.Controls.Add(this.txbUsuario);
+            this.Controls.Add(this.btnRegistrar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -141,13 +175,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txbUsuario;
-        private System.Windows.Forms.TextBox txbContrasena;
-        private System.Windows.Forms.TextBox txbConfirmacion;
-        private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Label lblContrasena;
-        private System.Windows.Forms.Label lblConfirmacion;
+        private MetroFramework.Controls.MetroTextBox txbConfirmacion;
+        private MetroFramework.Controls.MetroTextBox txbContrasena;
+        private MetroFramework.Controls.MetroTextBox txbUsuario;
     }
 }

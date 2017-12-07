@@ -33,7 +33,8 @@ namespace WindowsFormsApp3.vistas
             {
                 System.Media.SystemSounds.Beep.Play();
                 txbEscuela.Focus();
-                txbEscuela.BackColor = System.Drawing.Color.LightSalmon;
+                //txbEscuela.BackColor = System.Drawing.Color.LightSalmon;
+                txbEscuela.WithError = true;
             }
             else
             {

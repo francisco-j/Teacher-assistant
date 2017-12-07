@@ -16,7 +16,7 @@ namespace WindowsFormsApp3.vistas
             string txtTipo = dbConection.getNombreTipo(tipo);
 
             this.Text += txtTipo;
-            lblNombre.Text += txtTipo;
+            txbNombreEntregable.WaterMark += " de " + txtTipo;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -32,8 +32,9 @@ namespace WindowsFormsApp3.vistas
             else
             {
                 txbNombreEntregable.Focus();
-                txbNombreEntregable.BackColor = System.Drawing.Color.LightSalmon;
                 System.Media.SystemSounds.Beep.Play();
+                //txbNombreEntregable.BackColor = System.Drawing.Color.LightSalmon;
+                txbNombreEntregable.WithError = true;
             }
         }
         private void txbNombreEntregable_KeyPress(object sender, KeyPressEventArgs e)

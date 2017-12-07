@@ -29,19 +29,22 @@ namespace WindowsFormsApp3.vistas
             {
                 System.Media.SystemSounds.Beep.Play();
                 txbNombre.Focus();
-                txbNombre.BackColor = Color.LightSalmon;
+                //txbNombre.BackColor = Color.LightSalmon;
+                txbNombre.WithError = true;
             }
             else if( txbPaterno.Text.Trim() == "" )
             {
                 System.Media.SystemSounds.Beep.Play();
                 txbPaterno.Focus();
-                txbPaterno.BackColor = Color.LightSalmon;
+                //txbPaterno.BackColor = Color.LightSalmon;
+                txbPaterno.WithError = true;
             }
             else if( txbMaterno.Text.Trim() == "" )
             {
                 System.Media.SystemSounds.Beep.Play();
                 txbMaterno.Focus();
-                txbMaterno.BackColor = Color.LightSalmon;
+                //txbMaterno.BackColor = Color.LightSalmon;
+                txbPaterno.WithError = true;
             }
             else
             {
