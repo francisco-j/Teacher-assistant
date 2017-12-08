@@ -732,7 +732,7 @@ namespace WindowsFormsApp3
 
             foreach( Alumno alumno in alumnos )
             {
-                dbConection.agregarEntregas(alumno.getId(), tipo, idEntrega );
+                dbConection.agregarEntregas(alumno.getId(), idEntrega );
             }
         }
 

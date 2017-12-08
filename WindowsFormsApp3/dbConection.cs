@@ -544,8 +544,13 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.CommandText = "SELECT COUNT(*) FROM Entregas WHERE alumno=" + idAlumno +
-                    " AND entregable IN (SELECT id FROM Entregables WHERE tipo=" + tipoTarea + " AND materia=" + idMateria + ")";
+                comand.CommandText = 
+                    "SELECT COUNT(*) FROM Entregas " +
+                    "WHERE alumno=" + idAlumno +
+                    " AND entregable IN (" +
+                        "SELECT id FROM Entregables " +
+                        "WHERE tipo=" + tipoTarea + 
+                        " AND materia=" + idMateria + ")";
                 return (int)comand.ExecuteScalar();
             }
             finally
@@ -560,8 +565,13 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.CommandText = "SELECT AVG(calif) FROM Entregas WHERE alumno=" + idAlumno +
-                    " AND entregable IN (SELECT id FROM Entregables WHERE tipo=" + tipo + " AND materia=" + idMateria + ")";
+                comand.CommandText = 
+                    "SELECT AVG(calif) FROM Entregas " +
+                    "WHERE alumno=" + idAlumno +
+                    " AND entregable IN (" +
+                        "SELECT id FROM Entregables " +
+                        "WHERE tipo=" + tipo + 
+                        " AND materia=" + idMateria + ")";
 
                 object promedio = (object)comand.ExecuteScalar();
                 if (promedio == DBNull.Value)
@@ -576,33 +586,6 @@ namespace WindowsFormsApp3
             }
         }
 
-        /// <summary> debuelbe los nombres del los tipos de entregables </summary>
-        internal static string[] getNombresTipoDe(int materia)
-        {
-            List<string> nombresTipos = new List<string>();
-
-            try
-            {
-                conection.Open();
-                comand.CommandText =
-                    "SELECT * FROM TiposTareas WHERE tipo in ( " +
-                        "SELECT tipo FROM Rubros WHERE materia = " + materia +
-                    ")";
-                reader = comand.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    nombresTipos.Add(reader["nombre"].ToString());
-                }
-            }
-            finally
-            {
-                reader.Close();
-                conection.Close();
-            }
-            return nombresTipos.ToArray();
-        }
-
         /// <summary> debuelbe el nombre del tipo de entregable </summary>
         internal static string getNombreTipo(int tipo)
         {
@@ -610,7 +593,7 @@ namespace WindowsFormsApp3
             try
             {
                 conection.Open();
-                comand.CommandText = "SELECT * FROM TiposTareas WHERE tipo = " + tipo;
+                comand.CommandText = "SELECT nombre FROM TiposTareas WHERE tipo = " + tipo;
                 reader = comand.ExecuteReader();
 
                 reader.Read();
@@ -792,17 +775,17 @@ namespace WindowsFormsApp3
             {
                 conection.Open();
 
-                comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoTarea;
+                comand.CommandText = "SELECT porcentage FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoTarea;
                 reader = comand.ExecuteReader();
                 tareas = reader.Read() ? (decimal)((int)reader["porcentage"]) / 10 : 3;
                 reader.Close();
 
-                comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoExam;
+                comand.CommandText = "SELECT porcentage FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoExam;
                 reader = comand.ExecuteReader();
                 examenes = reader.Read() ? (decimal)((int)reader["porcentage"]) / 10 : 4;
                 reader.Close();
 
-                comand.CommandText = "SELECT * FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoProy;
+                comand.CommandText = "SELECT porcentage FROM Rubros WHERE materia=" + idMateria + "AND tipo =" + tipoProy;
                 reader = comand.ExecuteReader();
                 proyectos = reader.Read() ? (decimal)((int)reader["porcentage"]) / 10 : 3;
                 reader.Close();
@@ -844,15 +827,14 @@ namespace WindowsFormsApp3
         }
 
         /// <summary> registra entregas relaizadas por los alumnos </summary>
-        internal static void agregarEntregas(int idAlumno, int tipo, int idEntrega)
+        internal static void agregarEntregas(int idAlumno, int idEntregable)
         {
             conection.Open();
 
-            comand.CommandText = (
-                    tipo == tipoTarea ? 
-                    "INSERT INTO Entregas (alumno, tipo, entregable, calif ) VALUES(" + idAlumno + "," + tipo + ", " + idEntrega + ", " + 0 + ")"
-                    : "INSERT INTO Entregas (alumno, tipo, entregable, calif ) VALUES(" + idAlumno + "," + tipo + ", " + idEntrega + ", " + 100 + ")"
-                );
+            comand.CommandText =
+                    "INSERT INTO Entregas" +
+                    "(alumno, entregable, calif ) " +
+                    "VALUES(" + idAlumno + "," + idEntregable + ", " + 100 + ")";
 
             comand.ExecuteNonQuery();
 
@@ -1039,14 +1021,19 @@ namespace WindowsFormsApp3
                 {
                     comand.CommandText = 
                         "INSERT INTO Entregas " +
-                        "(alumno, tipo, entregable, calif) " +
-                        "VALUES (" + id + ", " + tipoExam + ", " + idExam + ", " + 100 + ")";
+                        "(alumno, entregable, calif) " +
+                        "VALUES (" + id + ", " + idExam + ", " + 100 + ")";
                     comand.ExecuteNonQuery();
                 }
                 reader.Close();
 
                 //Grabar proyectos
-                comand = new OleDbCommand("SELECT id FROM Entregables WHERE tipo = " + 3 + " AND materia IN (SELECT id FROM Materias WHERE grupo = " + idGrupo + ")", conection);
+                comand.CommandText = 
+                    "SELECT id FROM Entregables " +
+                    "WHERE tipo = " + 3 + 
+                    " AND materia IN (" +
+                        "SELECT id FROM Materias " +
+                        "WHERE grupo = " + idGrupo + ")";
                 reader = comand.ExecuteReader();
 
                 List<int> proyectos = new List<int>();
@@ -1058,17 +1045,18 @@ namespace WindowsFormsApp3
 
                 foreach (int idPro in proyectos)
                 {
-                    comand.CommandText = "INSERT INTO Entregas (alumno, tipo, entregable, calif) VALUES (" + id + ", " + 3 +
-                        ", " + idPro + ", " + 100 + ")";
+                    comand.CommandText = 
+                        "INSERT INTO Entregas " +
+                        "(alumno, entregable, calif) " +
+                        "VALUES (" + id + ", " + idPro + ", " + 100 + ")";
                     Console.WriteLine(comand.CommandText);
                     comand.ExecuteNonQuery();
                 }
                 /*Prueba que no sirvió
                  * comand.CommandText = 
                  *      "INSERT INTO Entregas 
-                 *      (alumno, tipo, entregable, calif) 
-                 *      VALUES(" + id + "," + 2 +
-                    ", (IN (SELECT id FROM Entregables WHERE tipo= 2 AND materia IN (SELECT id FROM Materias WHERE grupo = " + idGrupo + "))), 100)";
+                 *      (alumno, entregable, calif) 
+                 *      VALUES(" + id + ", (IN (SELECT id FROM Entregables WHERE tipo= 2 AND materia IN (SELECT id FROM Materias WHERE grupo = " + idGrupo + "))), 100)";
                 Console.WriteLine(comand.CommandText);
                 comand.ExecuteNonQuery();*/
             }
@@ -1129,8 +1117,8 @@ namespace WindowsFormsApp3
                 conection.Open();
                 comand.CommandText = 
                     "INSERT INTO Entregas " +
-                    "(alumno, tipo, entregable, calif) " +
-                    "VALUES(" + idAlumno + "," + 1 + "," + idTarea + "," + 0 + ")";
+                    "(alumno, entregable, calif) " +
+                    "VALUES(" + idAlumno + "," + idTarea + "," + 0 + ")";
 
                 Console.WriteLine(comand.ExecuteNonQuery() + " Tarea agregada para el alumno: " + idAlumno);
             }
@@ -1242,7 +1230,8 @@ namespace WindowsFormsApp3
                 comand.CommandText =
                     "UPDATE Rubros " +
                     "SET porcentage = " + newValor +
-                    " WHERE materia=" + idMateria + "AND tipo =" + tipo;
+                    " WHERE materia=" + idMateria + 
+                    "AND tipo =" + tipo;
 
                 comand.ExecuteNonQuery();
             }
