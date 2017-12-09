@@ -34,6 +34,11 @@ namespace WindowsFormsApp3
             mostrandoTodosDias = false;
             cargarAsistencias();
 
+            quitar.Dispose();
+            quitar2.Dispose();
+            quitar3.Dispose();
+
+
             /*string[] alumnosForPrediccion = new string[alumnosGrupo.Count];
             for (short i = 0; i < alumnosGrupo.Count; i++ )
             {
@@ -151,12 +156,19 @@ namespace WindowsFormsApp3
 
             DateTime dia = fecha.SelectionStart;
 
-            if (dbConection.agregarDiaClase(dia, idGrupo))
-                actualizarAssitencia(dia);
+            if( dia.DayOfWeek.Equals( DayOfWeek.Saturday ) || dia.DayOfWeek.Equals( DayOfWeek.Sunday ) )
+            {
+                MessageBox.Show("No puedes agregar fines de semana a los días de asistencia", "Día inválido", MessageBoxButtons.OK, MessageBoxIcon.Error );
+            }
             else
-                MessageBox.Show("El día que tratas de agregar ya está contemplado en las asistencias", "Día ya registrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            {
+                if (dbConection.agregarDiaClase(dia, idGrupo))
+                    actualizarAssitencia(dia);
+                else
+                    MessageBox.Show("El día que tratas de agregar ya está contemplado en las asistencias", "Día ya registrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            fecha.Hide();
+                fecha.Hide();
+            }
 
             //int desplazamientoScroll = flPanelAsistencias.HorizontalScroll.Maximum;
             //flPanelAsistencias.HorizontalScroll.Value = desplazamientoScroll;
